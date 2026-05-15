@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc">
+  <title id="title">Fold portrait for zero poet</title>
+  <desc id="desc">A deterministic portrait generated from a FoldKernel memory signature and convergence hash.</desc>
+  <rect width="1200" height="1600" fill="#b2fdfa"/>
+  <path d="M0 1190 C180 1060 310 1130 480 1020 C690 880 860 910 1200 760 L1200 1600 L0 1600 Z" fill="#6456d2" opacity="0.42"/>
+  <path d="M255 750 C265 396 420 190 600 190 C810 190 896 337 926 770 C830 448 716 388 600 396 C486 392 370 462 255 750 Z" fill="#295c5c"/>
+  <ellipse cx="600" cy="705" rx="286" ry="382" fill="#deb6a3"/>
+  <path d="M384 664 C430 622 492 622 538 664" fill="none" stroke="#1f2933" stroke-width="18" stroke-linecap="round"/>
+  <path d="M662 664 C708 622 770 622 816 664" fill="none" stroke="#1f2933" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="462" cy="706" r="25" fill="#3a3a3a"/>
+  <circle cx="738" cy="706" r="25" fill="#3a3a3a"/>
+  <path d="M600 726 C572 804 568 850 626 858" fill="none" stroke="#1f2933" stroke-width="14" stroke-linecap="round"/>
+  <path d="M484 964 C550 1028 654 1028 718 964" fill="none" stroke="#1f2933" stroke-width="18" stroke-linecap="round"/>
+  <path d="M392 1096 C512 1190 696 1190 808 1096 L880 1600 L320 1600 Z" fill="#867454"/>
+  <g opacity="0.82">
+    <circle cx="522" cy="550" r="10" fill="#1f2933" opacity="0.59"/>
+    <circle cx="440" cy="555" r="12" fill="#1f2933" opacity="0.63"/>
+    <circle cx="678" cy="552" r="8" fill="#1f2933" opacity="0.37"/>
+    <circle cx="760" cy="572" r="14" fill="#1f2933" opacity="0.35"/>
+    <circle cx="522" cy="696" r="7" fill="#1f2933" opacity="0.54"/>
+    <circle cx="440" cy="684" r="9" fill="#1f2933" opacity="0.28"/>
+    <circle cx="678" cy="702" r="11" fill="#1f2933" opacity="0.55"/>
+    <circle cx="760" cy="709" r="13" fill="#1f2933" opacity="0.60"/>
+    <circle cx="522" cy="823" r="9" fill="#1f2933" opacity="0.42"/>
+    <circle cx="440" cy="825" r="16" fill="#1f2933" opacity="0.30"/>
+    <circle cx="678" cy="837" r="17" fill="#1f2933" opacity="0.30"/>
+    <circle cx="760" cy="836" r="8" fill="#1f2933" opacity="0.22"/>
+    <circle cx="522" cy="968" r="7" fill="#1f2933" opacity="0.39"/>
+    <circle cx="440" cy="961" r="15" fill="#1f2933" opacity="0.22"/>
+    <circle cx="678" cy="986" r="6" fill="#1f2933" opacity="0.57"/>
+    <circle cx="760" cy="968" r="18" fill="#1f2933" opacity="0.35"/>
+  </g>
+  <text x="600" y="1490" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="30" fill="#1f2933">2cfdfa6456d25c85</text>
+</svg>

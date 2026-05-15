@@ -21,10 +21,17 @@ swift run fold-portrait "zero poet"
 The command writes:
 
 ```text
-Output/portrait.svg
+Output/iterations/foldportrait-v0001-zero-poet-2cfdfa64.svg
 ```
 
-Running the same seed produces the same portrait and hash every time.
+Every run creates a new SVG file. The filename convention is:
+
+```text
+foldportrait-vNNNN-seed-slug-hashprefix.svg
+```
+
+Running the same seed produces the same portrait and hash every time, but the
+iteration number preserves the visible journey of the experiment.
 
 ## Test
 
