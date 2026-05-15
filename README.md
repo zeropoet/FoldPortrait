@@ -113,27 +113,24 @@ The visible readout is intentionally minimal:
 
 ## Daily Ritual
 
-A Codex app automation is configured:
+GitHub Actions generates the next study without needing a local machine:
 
 ```text
-Daily FoldPortrait ritual study
+.github/workflows/daily-foldportrait.yml
 ```
 
 Schedule:
 
 ```text
-Every day at 12:00 AM
+Every day at 12:00 AM America/New_York
 ```
 
-Automation id:
+The workflow checks out `FoldPortrait` and the sibling `FoldKernel` dependency,
+runs the test suite, generates the next `zero poet` portrait, commits the new
+`Output/iterations` artifacts, and pushes them back to `main`. GitHub Pages then
+serves the updated browser study from the repository.
 
-```text
-daily-foldportrait-ritual-study
-```
-
-It generates the next `zero poet` FoldPortrait, saves the new SVG and notes to
-`Output/iterations`, and updates `evolution.json` so the web app can reveal the
-latest study.
+The workflow also supports manual dispatch from the GitHub Actions tab.
 
 ## Test
 

@@ -1,0 +1,72 @@
+name: Daily FoldPortrait
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4,5 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: macos-latest
+    steps:
+      - name: Decide whether to run
+        id: gate
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "$(TZ=America/New_York date +%H)" = "00" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Not midnight in America/New_York; skipping."
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check out FoldPortrait
+        if: steps.gate.outputs.should_run == 'true'
+        uses: actions/checkout@v4
+        with:
+          path: FoldPortrait
+
+      - name: Check out FoldKernel
+        if: steps.gate.outputs.should_run == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: zeropoet/FoldKernel
+          path: FoldKernel
+
+      - name: Show Swift version
+        if: steps.gate.outputs.should_run == 'true'
+        run: swift --version
+
+      - name: Test
+        if: steps.gate.outputs.should_run == 'true'
+        working-directory: FoldPortrait
+        run: swift test
+
+      - name: Generate next portrait
+        if: steps.gate.outputs.should_run == 'true'
+        working-directory: FoldPortrait
+        run: swift run fold-portrait "zero poet"
+
+      - name: Commit generated portrait
+        if: steps.gate.outputs.should_run == 'true'
+        working-directory: FoldPortrait
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Output/iterations README.md
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          iteration="$(git diff --cached --name-only | sed -n 's|Output/iterations/foldportrait-\(v[0-9][0-9][0-9][0-9]\)-.*|\1|p' | sort -u | tail -n 1)"
+          if [ -z "$iteration" ]; then
+            iteration="$(TZ=America/New_York date +%Y-%m-%d)"
+          fi
+          git commit -m "Generate FoldPortrait ${iteration}"
+          git push
