@@ -10,7 +10,13 @@ The current renderer is intentionally simple:
 - build a valid 4x4 permutation from the seed
 - encode FoldKernel events with `MemoryEncoder`
 - derive a convergence hash with `HashEngine`
-- map the resulting bytes into portrait structure, palette, and marks
+- map the resulting bytes into named portrait parameters
+- render those parameters as portrait structure, light, palette, and Fold marks
+
+The parameter layer is the bridge toward photorealism. `PortraitParameters`
+turns raw protocol bytes into bounded, inspectable values for identity geometry,
+feature geometry, surface, lighting, camera behavior, and visible Fold signature
+marks.
 
 ## Usage
 

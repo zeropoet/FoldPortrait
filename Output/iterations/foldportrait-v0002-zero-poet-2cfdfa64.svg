@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc">
+  <title id="title">Fold portrait for zero poet</title>
+  <desc id="desc">A deterministic portrait generated from a FoldKernel memory signature and convergence hash.</desc>
+  <defs>
+    <radialGradient id="skinLight" cx="74%" cy="38%" r="64%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.29"/>
+      <stop offset="48%" stop-color="#cd9c6c" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#6456d2" stop-opacity="0.42"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1600" fill="#b2fdfa"/>
+  <path d="M0 1190 C180 1060 310 1130 480 1020 C690 880 860 910 1200 760 L1200 1600 L0 1600 Z" fill="#6456d2" opacity="0.42"/>
+  <g transform="rotate(-2.28 600 760)">
+  <path d="M255 750 C265 373 420 190 600 190 C810 190 896 309 926 770 C830 448 716 388 600 396 C486 392 370 462 255 750 Z" fill="#565611"/>
+  <path d="M319 690 C319 485 515 280 600 280 C685 280 881 485 881 690 C881 675 685 1100 600 1100 C515 1100 319 675 319 690 Z" fill="url(#skinLight)"/>
+  <path d="M405 669 C430 622 492 622 528 664" fill="none" stroke="#1f2933" stroke-width="18" stroke-linecap="round"/>
+  <path d="M652 664 C708 622 770 622 817 659" fill="none" stroke="#1f2933" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="466" cy="706" r="25" fill="#3a3a3a"/>
+  <circle cx="737" cy="706" r="25" fill="#3a3a3a"/>
+  <path d="M600 726 C570 785 570 844 628 856" fill="none" stroke="#1f2933" stroke-width="14" stroke-linecap="round"/>
+  <path d="M466 965 C550 1018 654 1018 734 965" fill="none" stroke="#1f2933" stroke-width="18" stroke-linecap="round"/>
+  <path d="M392 1096 C512 1190 696 1190 808 1096 L880 1600 L320 1600 Z" fill="#536d46"/>
+  <g opacity="0.82">
+    <circle cx="531" cy="550" r="11" fill="#1f2933" opacity="0.45"/>
+    <circle cx="457" cy="555" r="13" fill="#1f2933" opacity="0.63"/>
+    <circle cx="669" cy="552" r="9" fill="#1f2933" opacity="0.45"/>
+    <circle cx="743" cy="572" r="15" fill="#1f2933" opacity="0.47"/>
+    <circle cx="531" cy="696" r="7" fill="#1f2933" opacity="0.48"/>
+    <circle cx="457" cy="684" r="10" fill="#1f2933" opacity="0.62"/>
+    <circle cx="669" cy="702" r="12" fill="#1f2933" opacity="0.45"/>
+    <circle cx="743" cy="709" r="14" fill="#1f2933" opacity="0.46"/>
+    <circle cx="531" cy="823" r="10" fill="#1f2933" opacity="0.50"/>
+    <circle cx="457" cy="825" r="18" fill="#1f2933" opacity="0.52"/>
+    <circle cx="669" cy="837" r="19" fill="#1f2933" opacity="0.64"/>
+    <circle cx="743" cy="836" r="9" fill="#1f2933" opacity="0.52"/>
+    <circle cx="531" cy="968" r="7" fill="#1f2933" opacity="0.61"/>
+    <circle cx="457" cy="961" r="17" fill="#1f2933" opacity="0.56"/>
+    <circle cx="669" cy="986" r="6" fill="#1f2933" opacity="0.61"/>
+    <circle cx="743" cy="968" r="20" fill="#1f2933" opacity="0.65"/>
+  </g>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#1f2933">
+    <text x="600" y="1460" text-anchor="middle" font-size="30">2cfdfa6456d25c85</text>
+    <text x="600" y="1492" text-anchor="middle" font-size="15" opacity="0.72">face width 0.90 height 1.14 jaw 1.19</text>
+    <text x="600" y="1512" text-anchor="middle" font-size="15" opacity="0.72">eyes spacing 0.98 size 1.03 brow -10.85</text>
+    <text x="600" y="1532" text-anchor="middle" font-size="15" opacity="0.72">nose length 1.01 width 1.01</text>
+    <text x="600" y="1552" text-anchor="middle" font-size="15" opacity="0.72">mouth width 1.16 curve 7.41</text>
+    <text x="600" y="1572" text-anchor="middle" font-size="15" opacity="0.72">skin texture 0.06 hair mass 1.08</text>
+    <text x="600" y="1592" text-anchor="middle" font-size="15" opacity="0.72">light angle 48.45 strength 0.29</text>
+  </g>
+</svg>
