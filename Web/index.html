@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FoldPortrait Topology</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/three.module.js",
+          "three/addons/": "./vendor/three/addons/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="stage" aria-label="FoldPortrait Three.js topology">
+        <canvas id="topology-canvas"></canvas>
+        <div class="readout" aria-live="polite">
+          <div>
+            <span class="label">Iteration</span>
+            <strong id="readout-iteration">loading</strong>
+          </div>
+          <div>
+            <span class="label">Topology</span>
+            <strong id="readout-count">0 shapes</strong>
+          </div>
+          <div>
+            <span class="label">Hash</span>
+            <strong id="readout-hash">-</strong>
+          </div>
+          <div>
+            <span class="label">Next</span>
+            <strong id="readout-countdown">--:--:--</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

@@ -7,21 +7,21 @@ public struct PortraitDoctrine: Equatable, Sendable {
 
     public static let constitutionalRitual = PortraitDoctrine(
         identityTone: [
-            "ritual figure",
-            "cinematic",
-            "mythic",
-            "serious",
+            "abstract portrait",
+            "painterly",
+            "gestural",
+            "ritual",
         ],
-        subjectAnchor: "an abstract constitutional identity designed to evolve into the distant future",
-        foldVisibility: "Fold marks remain visible, subtle, and integrated into skin, catchlights, textile, or background geometry",
+        subjectAnchor: "an abstract constitutional identity expressed as drawing, painting, field, rhythm, and Fold notation",
+        foldVisibility: "Fold marks remain visible as structural notation, gesture, field pressure, and accumulated drawing",
         aestheticConstraints: [
-            "no horror",
-            "no caricature",
-            "no plastic skin",
-            "no generic AI beauty",
-            "no fantasy armor",
-            "no exaggerated symmetry",
+            "no literal realism requirement",
+            "no generic avatar beauty",
+            "no decorative symbolism without structure",
+            "no fantasy costume logic",
+            "no symmetry as default",
+            "no polishing away the hand of the drawing",
         ],
-        continuityRule: "Each future portrait should preserve the same Fold-derived identity genome while allowing age, material, light, and context to evolve."
+        continuityRule: "Each future portrait should preserve the same Fold-derived identity genome while allowing mark density, field structure, material behavior, and painterly complexity to evolve."
     )
 }

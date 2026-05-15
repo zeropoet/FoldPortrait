@@ -32,6 +32,21 @@ public struct PortraitParameters: Equatable, Sendable {
     public let foldMarkScale: Double
     public let foldMarkOpacity: Double
 
+    public var fieldWidthPressure: Double { faceWidth }
+    public var verticalFieldPressure: Double { faceHeight }
+    public var lowerMassTaper: Double { jawTaper }
+    public var internalHorizon: Double { cheekboneHeight }
+    public var axisTilt: Double { headTilt }
+    public var pairedInterval: Double { eyeSpacing }
+    public var markScale: Double { eyeSize }
+    public var diagonalTension: Double { browSlope }
+    public var centralDescent: Double { noseLength }
+    public var centralBreadth: Double { noseWidth }
+    public var lateralSpan: Double { mouthWidth }
+    public var curvePressure: Double { mouthCurve }
+    public var surfaceActivity: Double { skinTexture }
+    public var denseMarkMass: Double { hairMass }
+
     public init(hash: [UInt8], memorySignature: [UInt8], permutation: Permutation) {
         precondition(hash.count >= 32, "PortraitParameters requires a 32-byte convergence hash.")
 
@@ -73,12 +88,12 @@ public struct PortraitParameters: Equatable, Sendable {
 
     public var reportLines: [String] {
         [
-            "face width \(Self.format(faceWidth)) height \(Self.format(faceHeight)) jaw \(Self.format(jawTaper))",
-            "eyes spacing \(Self.format(eyeSpacing)) size \(Self.format(eyeSize)) brow \(Self.format(browSlope))",
-            "nose length \(Self.format(noseLength)) width \(Self.format(noseWidth))",
-            "mouth width \(Self.format(mouthWidth)) curve \(Self.format(mouthCurve))",
-            "skin texture \(Self.format(skinTexture)) hair mass \(Self.format(hairMass))",
-            "light angle \(Self.format(keyLightAngle)) strength \(Self.format(keyLightStrength))",
+            "field width \(Self.format(fieldWidthPressure)) vertical \(Self.format(verticalFieldPressure)) taper \(Self.format(lowerMassTaper))",
+            "paired interval \(Self.format(pairedInterval)) mark scale \(Self.format(markScale)) tension \(Self.format(diagonalTension))",
+            "central descent \(Self.format(centralDescent)) breadth \(Self.format(centralBreadth))",
+            "lateral span \(Self.format(lateralSpan)) curve pressure \(Self.format(curvePressure))",
+            "surface activity \(Self.format(surfaceActivity)) dense mass \(Self.format(denseMarkMass))",
+            "axis light \(Self.format(keyLightAngle)) strength \(Self.format(keyLightStrength))",
         ]
     }
 
