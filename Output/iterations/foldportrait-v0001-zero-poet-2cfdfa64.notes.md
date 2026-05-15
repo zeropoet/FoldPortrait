@@ -3,6 +3,7 @@
 Seed: zero poet
 Sketch iteration: v0001
 Convergence hash: 2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c
+Render hash: 5af19cfcc5729d16be8e556fd76709c11697d1f8d16a93f825fe2091acc0da19
 Memory signature: 010406020801100507030a0b0f0e090d0c022c0309
 
 ## Artwork

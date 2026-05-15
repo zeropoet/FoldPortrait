@@ -1,11 +1,31 @@
 [
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
+    "iteration" : "v0005",
+    "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
+    "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
+    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0005-zero-poet-2cfdfa64.notes.md",
+    "refinementDepth" : 11,
+    "renderHash" : "393c0eb52db85557b4b969f12b1c792452ff1f7bad1673c376da967e2768b620",
+    "seed" : "zero poet",
+    "structuralIdentity" : {
+      "asymmetry" : 11.64705882352941,
+      "axisTilt" : -2.2784313725490195,
+      "fieldWidthPressure" : 0.8952156862745098,
+      "internalHorizon" : 0.48274509803921567,
+      "lowerMassTaper" : 1.1913725490196079,
+      "verticalFieldPressure" : 1.1381176470588235
+    },
+    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0005-zero-poet-2cfdfa64.svg"
+  },
+  {
+    "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
     "iteration" : "v0001",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
     "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0001-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 7,
+    "renderHash" : "5af19cfcc5729d16be8e556fd76709c11697d1f8d16a93f825fe2091acc0da19",
     "seed" : "zero poet",
     "structuralIdentity" : {
       "asymmetry" : 11.64705882352941,
@@ -24,6 +44,7 @@
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
     "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0002-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 8,
+    "renderHash" : "07995d8b0803f11c6de436bc4b064ef512177a40ca3fd1e502f5482b8d7a6142",
     "seed" : "zero poet",
     "structuralIdentity" : {
       "asymmetry" : 11.64705882352941,
@@ -42,6 +63,7 @@
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
     "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0003-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 9,
+    "renderHash" : "ae5907ddd86eeec0c402ea1c544515039b6be1781c7aad1d089ce3cd64a2c96e",
     "seed" : "zero poet",
     "structuralIdentity" : {
       "asymmetry" : 11.64705882352941,
@@ -60,6 +82,7 @@
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
     "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0004-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 10,
+    "renderHash" : "ed043c8c2e120168e7528b3b6f080e9bfdc92ebeab7c4ba6e33eedc4fd013085",
     "seed" : "zero poet",
     "structuralIdentity" : {
       "asymmetry" : 11.64705882352941,

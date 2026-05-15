@@ -23,11 +23,13 @@ import Testing
     let second = renderer.render(seed: "ada", iteration: 2)
 
     #expect(first.convergenceHashHex == second.convergenceHashHex)
+    #expect(first.renderHashHex != second.renderHashHex)
     #expect(first.parameters == second.parameters)
     #expect(first.svg != second.svg)
     #expect(first.svg.contains("abstract study v0001"))
     #expect(second.svg.contains("abstract study v0002"))
     #expect(second.artworkNotes.contains("Sketch iteration: v0002"))
+    #expect(second.artworkNotes.contains("Render hash: \(second.renderHashHex)"))
 }
 
 @Test func laterIterationsIncreaseVisualRefinement() {
@@ -47,6 +49,8 @@ import Testing
 
     #expect(result.svg.contains("<svg"))
     #expect(result.svg.contains("data-art-mode=\"structural-abstract\""))
+    #expect(result.svg.contains("data-convergence-hash=\"\(result.convergenceHashHex)\""))
+    #expect(result.svg.contains("data-render-hash=\"\(result.renderHashHex)\""))
     #expect(result.svg.contains("data-memory-signature="))
     #expect(result.svg.contains("data-permutation="))
     #expect(result.svg.contains("memory-byte"))
@@ -54,6 +58,7 @@ import Testing
     #expect(result.artworkNotes.contains("abstract constitutional identity"))
     #expect(result.artworkNotes.contains("painting or drawing"))
     #expect(result.convergenceHashHex.count == 64)
+    #expect(result.renderHashHex.count == 64)
 }
 
 @Test func renderExposesBoundedPortraitParameters() {

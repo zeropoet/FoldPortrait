@@ -59,9 +59,10 @@ Output/iterations/foldportrait-vNNNN-zero-poet-2cfdfa64.notes.md
 Output/iterations/evolution.json
 ```
 
-Each run keeps the same identity hash for the same seed, but the visible drawing
-changes through the iteration number. Refinement depth grows with the iteration
-and is used internally by the renderer and web topology.
+Each run keeps the same convergence hash for the same seed as an identity
+anchor, but receives a distinct render hash for the visible study. Refinement
+depth grows with the iteration and is used internally by the renderer and web
+topology.
 
 ## Evolution Ledger
 
@@ -71,6 +72,7 @@ the generated history:
 - iteration
 - seed
 - convergence hash
+- render hash
 - memory signature
 - refinement depth
 - SVG and notes paths
@@ -106,7 +108,7 @@ The visible readout is intentionally minimal:
 
 - iteration
 - topology form count
-- hash prefix
+- render hash prefix
 - countdown to the next daily study
 
 ## Daily Ritual

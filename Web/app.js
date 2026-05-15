@@ -121,7 +121,7 @@ async function loadEntry(entry) {
 
   readoutIteration.textContent = entry.iteration;
   readoutCount.textContent = `${shapes.length} forms`;
-  readoutHash.textContent = entry.convergenceHash.slice(0, 16);
+  readoutHash.textContent = (entry.renderHash || entry.convergenceHash).slice(0, 16);
 }
 
 function versionedUrl(path) {

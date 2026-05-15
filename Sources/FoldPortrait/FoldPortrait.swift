@@ -4,7 +4,8 @@ import Foundation
 @main
 struct FoldPortrait {
     static func main() throws {
-        let seed = CommandLine.arguments.dropFirst().first ?? "zero poet"
+        let options = try CommandOptions(arguments: Array(CommandLine.arguments.dropFirst()))
+        let seed = options.seed
         let outputDirectory = URL(fileURLWithPath: "Output/iterations", isDirectory: true)
 
         try FileManager.default.createDirectory(
@@ -12,9 +13,9 @@ struct FoldPortrait {
             withIntermediateDirectories: true
         )
 
-        let iteration = try nextIterationNumber(in: outputDirectory)
+        let iteration = try options.iteration ?? nextIterationNumber(in: outputDirectory)
         let ledgerURL = outputDirectory.appendingPathComponent("evolution.json")
-        let refinementDepth = try nextRefinementDepth(from: ledgerURL, fallbackIteration: iteration)
+        let refinementDepth = try options.refinementDepth ?? nextRefinementDepth(from: ledgerURL, fallbackIteration: iteration)
         let result = PortraitRenderer().render(
             seed: seed,
             iteration: iteration,
@@ -46,6 +47,7 @@ struct FoldPortrait {
         print("Updated \(ledgerURL.path)")
         print("Iteration: \(String(format: "v%04d", iteration))")
         print("Convergence hash: \(result.convergenceHashHex)")
+        print("Render hash: \(result.renderHashHex)")
     }
 
     private static func nextIterationNumber(in directory: URL) throws -> Int {
@@ -117,6 +119,7 @@ struct FoldPortrait {
             iteration: String(format: "v%04d", iteration),
             seed: seed,
             convergenceHash: result.convergenceHashHex,
+            renderHash: result.renderHashHex,
             memorySignature: result.memorySignatureHex,
             refinementDepth: refinementDepth,
             svgPath: svgURL.path,
@@ -139,10 +142,68 @@ struct FoldPortrait {
     }
 }
 
+private struct CommandOptions {
+    let seed: String
+    let iteration: Int?
+    let refinementDepth: Int?
+
+    init(arguments: [String]) throws {
+        var seed: String?
+        var iteration: Int?
+        var refinementDepth: Int?
+        var index = 0
+
+        while index < arguments.count {
+            let argument = arguments[index]
+            switch argument {
+            case "--iteration":
+                index += 1
+                iteration = try Self.integerValue(after: argument, in: arguments, at: index)
+            case "--refinement-depth":
+                index += 1
+                refinementDepth = try Self.integerValue(after: argument, in: arguments, at: index)
+            default:
+                if argument.hasPrefix("--") {
+                    throw CommandError.unknownOption(argument)
+                }
+                seed = argument
+            }
+
+            index += 1
+        }
+
+        self.seed = seed ?? "zero poet"
+        self.iteration = iteration
+        self.refinementDepth = refinementDepth
+    }
+
+    private static func integerValue(after option: String, in arguments: [String], at index: Int) throws -> Int {
+        guard index < arguments.count, let value = Int(arguments[index]) else {
+            throw CommandError.missingInteger(option)
+        }
+        return value
+    }
+}
+
+private enum CommandError: Error, CustomStringConvertible {
+    case missingInteger(String)
+    case unknownOption(String)
+
+    var description: String {
+        switch self {
+        case let .missingInteger(option):
+            return "Missing integer value after \(option)"
+        case let .unknownOption(option):
+            return "Unknown option \(option)"
+        }
+    }
+}
+
 private struct EvolutionEntry: Codable {
     let iteration: String
     let seed: String
     let convergenceHash: String
+    let renderHash: String?
     let memorySignature: String
     let refinementDepth: Int
     let svgPath: String

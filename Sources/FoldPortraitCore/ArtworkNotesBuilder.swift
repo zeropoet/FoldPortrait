@@ -8,6 +8,7 @@ public struct ArtworkNotesBuilder: Sendable {
         iteration: Int? = nil,
         refinementDepth: Int? = nil,
         convergenceHashHex: String,
+        renderHashHex: String,
         memorySignatureHex: String,
         parameters: PortraitParameters,
         doctrine: PortraitDoctrine = .constitutionalRitual
@@ -22,6 +23,7 @@ public struct ArtworkNotesBuilder: Sendable {
 
         Seed: \(seed)
         \(iterationLine)Convergence hash: \(convergenceHashHex)
+        Render hash: \(renderHashHex)
         Memory signature: \(memorySignatureHex)
 
         ## Artwork

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc" data-refinement-depth="7" data-art-mode="structural-abstract" data-memory-signature="010406020801100507030a0b0f0e090d0c022c0309" data-permutation="4-6-2-8-1-16-5-7-3-10-11-15-14-9-13-12">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc" data-refinement-depth="7" data-art-mode="structural-abstract" data-convergence-hash="2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c" data-render-hash="5af19cfcc5729d16be8e556fd76709c11697d1f8d16a93f825fe2091acc0da19" data-memory-signature="010406020801100507030a0b0f0e090d0c022c0309" data-permutation="4-6-2-8-1-16-5-7-3-10-11-15-14-9-13-12">
   <title id="title">Abstract Fold portrait v0001 for zero poet</title>
   <desc id="desc">A deterministic structural portrait generated from a FoldKernel memory signature, permutation, and convergence hash, with iteration-specific drawing refinement.</desc>
   <defs>
@@ -251,13 +251,13 @@
   <circle data-layer="field-dust" cx="682" cy="760" r="1" fill="#1f2933" opacity="0.15"/>
   <circle data-layer="field-dust" cx="694" cy="756" r="2" fill="#1f2933" opacity="0.25"/>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#1f2933">
-    <text x="600" y="1460" text-anchor="middle" font-size="30">2cfdfa6456d25c85</text>
+    <text x="600" y="1460" text-anchor="middle" font-size="30">5af19cfcc5729d16</text>
     <text x="600" y="1482" text-anchor="middle" font-size="17" opacity="0.72">abstract study v0001</text>
-    <text x="600" y="1510" text-anchor="middle" font-size="15" opacity="0.72">face width 0.90 height 1.14 jaw 1.19</text>
-    <text x="600" y="1526" text-anchor="middle" font-size="15" opacity="0.72">eyes spacing 0.98 size 1.03 brow -10.85</text>
-    <text x="600" y="1542" text-anchor="middle" font-size="15" opacity="0.72">nose length 1.01 width 1.01</text>
-    <text x="600" y="1558" text-anchor="middle" font-size="15" opacity="0.72">mouth width 1.16 curve 7.41</text>
-    <text x="600" y="1574" text-anchor="middle" font-size="15" opacity="0.72">skin texture 0.06 hair mass 1.08</text>
-    <text x="600" y="1590" text-anchor="middle" font-size="15" opacity="0.72">light angle 48.45 strength 0.29</text>
+    <text x="600" y="1510" text-anchor="middle" font-size="15" opacity="0.72">field width 0.90 vertical 1.14 taper 1.19</text>
+    <text x="600" y="1526" text-anchor="middle" font-size="15" opacity="0.72">paired interval 0.98 mark scale 1.03 tension -10.85</text>
+    <text x="600" y="1542" text-anchor="middle" font-size="15" opacity="0.72">central descent 1.01 breadth 1.01</text>
+    <text x="600" y="1558" text-anchor="middle" font-size="15" opacity="0.72">lateral span 1.16 curve pressure 7.41</text>
+    <text x="600" y="1574" text-anchor="middle" font-size="15" opacity="0.72">surface activity 0.06 dense mass 1.08</text>
+    <text x="600" y="1590" text-anchor="middle" font-size="15" opacity="0.72">axis light 48.45 strength 0.29</text>
   </g>
 </svg>

@@ -5,6 +5,7 @@ public struct PortraitRenderResult: Equatable, Sendable {
     public let svg: String
     public let artworkNotes: String
     public let convergenceHashHex: String
+    public let renderHashHex: String
     public let memorySignatureHex: String
     public let parameters: PortraitParameters
     public let iteration: Int?
@@ -45,12 +46,14 @@ public struct PortraitRenderer: Sendable {
             parameters: parameters
         )
         let convergenceHashHex = Self.hex(convergenceHash)
+        let renderHashHex = Self.hex(sketchHash)
         let memorySignatureHex = Self.hex(memorySignature)
         let artworkNotes = ArtworkNotesBuilder().notes(
             seed: seed,
             iteration: iteration,
             refinementDepth: refinementDepth,
             convergenceHashHex: convergenceHashHex,
+            renderHashHex: renderHashHex,
             memorySignatureHex: memorySignatureHex,
             parameters: parameters
         )
@@ -59,6 +62,7 @@ public struct PortraitRenderer: Sendable {
             svg: svg,
             artworkNotes: artworkNotes,
             convergenceHashHex: convergenceHashHex,
+            renderHashHex: renderHashHex,
             memorySignatureHex: memorySignatureHex,
             parameters: parameters,
             iteration: iteration,
@@ -152,7 +156,7 @@ public struct PortraitRenderer: Sendable {
         let report = parameterReport(parameters)
 
         return """
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 \(width) \(height)" role="img" aria-labelledby="title desc" data-refinement-depth="\(refinementDepth)" data-art-mode="structural-abstract" data-memory-signature="\(Self.hex(memorySignature))" data-permutation="\(permutation.values.map(String.init).joined(separator: "-"))">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 \(width) \(height)" role="img" aria-labelledby="title desc" data-refinement-depth="\(refinementDepth)" data-art-mode="structural-abstract" data-convergence-hash="\(Self.hex(convergenceHash))" data-render-hash="\(Self.hex(sketchHash))" data-memory-signature="\(Self.hex(memorySignature))" data-permutation="\(permutation.values.map(String.init).joined(separator: "-"))">
           <title id="title">Abstract Fold portrait \(iterationLabel) for \(escapedSeed)</title>
           <desc id="desc">A deterministic structural portrait generated from a FoldKernel memory signature, permutation, and convergence hash, with iteration-specific drawing refinement.</desc>
           <defs>
@@ -175,7 +179,7 @@ public struct PortraitRenderer: Sendable {
           </g>
         \(notations)
           <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="\(line)">
-            <text x="600" y="1460" text-anchor="middle" font-size="30">\(Self.hex(convergenceHash.prefix(8)))</text>
+            <text x="600" y="1460" text-anchor="middle" font-size="30">\(Self.hex(sketchHash.prefix(8)))</text>
             <text x="600" y="1482" text-anchor="middle" font-size="17" opacity="0.72">abstract study \(iterationLabel)</text>
         \(report)
           </g>
