@@ -1,9 +1,9 @@
 # FoldPortrait
 
 FoldPortrait is a ritual abstract study built on top of
-[FoldKernel](../FoldKernel). It derives a deterministic permutation, memory
-signature, and convergence hash from a text seed, then lets that architecture
-become an SVG portrait of itself.
+[FoldKernel](https://github.com/zeropoet/FoldKernel). It derives a deterministic
+permutation, memory signature, and convergence hash from a text seed, then lets
+that architecture become an SVG portrait of itself.
 
 The portrait is not a literal face. It is a structural self-representation:
 memory bytes, hash ribs, memory spines, Fold glyphs, color fields, notational
@@ -25,14 +25,11 @@ The work should feel like the architecture learning how to draw itself.
 ## View
 
 Open the current published topology study:
-
-```text
-https://zeropoet.github.io/FoldPortrait/
-```
+[zeropoet.github.io/FoldPortrait](https://zeropoet.github.io/FoldPortrait/)
 
 The root page redirects to `Web/`, where the browser reads
-`Output/iterations/evolution.json` and displays the latest generated SVG as an
-inspectable Three.js topology.
+[Output/iterations/evolution.json](Output/iterations/evolution.json) and
+displays the latest generated SVG as an inspectable Three.js topology.
 
 For local viewing:
 
@@ -68,7 +65,8 @@ and is used internally by the renderer and web topology.
 
 ## Evolution Ledger
 
-`Output/iterations/evolution.json` records the generated history:
+[Output/iterations/evolution.json](Output/iterations/evolution.json) records
+the generated history:
 
 - iteration
 - seed
@@ -89,8 +87,8 @@ and continuity rule for that iteration.
 
 ## Topology Study
 
-The `Web/` layer is an inspect-only Three.js topology study. It has no controls
-or options. It loads the latest ledger entry, fetches the SVG, extracts
+The [Web/](Web/) layer is an inspect-only Three.js topology study. It has no
+controls or options. It loads the latest ledger entry, fetches the SVG, extracts
 `data-layer` shapes, and arranges them in 3D.
 
 The layout is derived from:
@@ -114,10 +112,7 @@ The visible readout is intentionally minimal:
 ## Daily Ritual
 
 GitHub Actions generates the next study without needing a local machine:
-
-```text
-.github/workflows/daily-foldportrait.yml
-```
+[Daily FoldPortrait](https://github.com/zeropoet/FoldPortrait/actions/workflows/daily-foldportrait.yml).
 
 Schedule:
 
@@ -125,8 +120,9 @@ Schedule:
 Every day at 12:00 AM America/New_York
 ```
 
-The workflow checks out `FoldPortrait` and the sibling `FoldKernel` dependency,
-runs the test suite, generates the next `zero poet` portrait, commits the new
+The workflow checks out `FoldPortrait` and the sibling
+[FoldKernel](https://github.com/zeropoet/FoldKernel) dependency, runs the test
+suite, generates the next `zero poet` portrait, commits the new
 `Output/iterations` artifacts, and pushes them back to `main`. GitHub Pages then
 serves the updated browser study from the repository.
 
