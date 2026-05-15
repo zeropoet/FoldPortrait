@@ -19,12 +19,15 @@ struct FoldPortrait {
             String(format: "v%04d", iteration),
             slug(seed),
             String(result.convergenceHashHex.prefix(8)),
-        ].joined(separator: "-") + ".svg"
-        let outputURL = outputDirectory.appendingPathComponent(filename)
+        ].joined(separator: "-")
+        let svgURL = outputDirectory.appendingPathComponent(filename + ".svg")
+        let promptURL = outputDirectory.appendingPathComponent(filename + ".prompt.md")
 
-        try result.svg.write(to: outputURL, atomically: true, encoding: .utf8)
+        try result.svg.write(to: svgURL, atomically: true, encoding: .utf8)
+        try result.photorealPrompt.write(to: promptURL, atomically: true, encoding: .utf8)
 
-        print("Wrote \(outputURL.path)")
+        print("Wrote \(svgURL.path)")
+        print("Wrote \(promptURL.path)")
         print("Iteration: \(String(format: "v%04d", iteration))")
         print("Convergence hash: \(result.convergenceHashHex)")
     }

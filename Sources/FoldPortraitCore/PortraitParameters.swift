@@ -1,7 +1,7 @@
 import FoldKernel
 import Foundation
 
-public struct PortraitParameters: Equatable {
+public struct PortraitParameters: Equatable, Sendable {
     public let faceWidth: Double
     public let faceHeight: Double
     public let jawTaper: Double

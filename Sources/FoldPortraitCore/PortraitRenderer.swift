@@ -1,14 +1,15 @@
 import FoldKernel
 import Foundation
 
-public struct PortraitRenderResult: Equatable {
+public struct PortraitRenderResult: Equatable, Sendable {
     public let svg: String
+    public let photorealPrompt: String
     public let convergenceHashHex: String
     public let memorySignatureHex: String
     public let parameters: PortraitParameters
 }
 
-public struct PortraitRenderer {
+public struct PortraitRenderer: Sendable {
     public init() {}
 
     public func render(seed: String) -> PortraitRenderResult {
@@ -27,11 +28,20 @@ public struct PortraitRenderer {
             seed: seed,
             parameters: parameters
         )
+        let convergenceHashHex = Self.hex(convergenceHash)
+        let memorySignatureHex = Self.hex(memorySignature)
+        let photorealPrompt = PhotorealPromptBuilder().prompt(
+            seed: seed,
+            convergenceHashHex: convergenceHashHex,
+            memorySignatureHex: memorySignatureHex,
+            parameters: parameters
+        )
 
         return PortraitRenderResult(
             svg: svg,
-            convergenceHashHex: Self.hex(convergenceHash),
-            memorySignatureHex: Self.hex(memorySignature),
+            photorealPrompt: photorealPrompt,
+            convergenceHashHex: convergenceHashHex,
+            memorySignatureHex: memorySignatureHex,
             parameters: parameters
         )
     }

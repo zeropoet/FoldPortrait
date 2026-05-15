@@ -18,6 +18,15 @@ turns raw protocol bytes into bounded, inspectable values for identity geometry,
 feature geometry, surface, lighting, camera behavior, and visible Fold signature
 marks.
 
+The creative doctrine is also encoded in the generator:
+
+- identity tone: ritual figure, cinematic, mythic, serious
+- realism path: parallel SVG sketch and photoreal render prompt
+- Fold visibility: visible, subtle, and integrated
+- constraints: no horror, caricature, plastic skin, generic AI beauty, fantasy
+  armor, or exaggerated symmetry
+- subject anchor: an abstract constitutional identity that can keep evolving
+
 ## Usage
 
 ```sh
@@ -28,12 +37,14 @@ The command writes:
 
 ```text
 Output/iterations/foldportrait-v0001-zero-poet-2cfdfa64.svg
+Output/iterations/foldportrait-v0001-zero-poet-2cfdfa64.prompt.md
 ```
 
 Every run creates a new SVG file. The filename convention is:
 
 ```text
 foldportrait-vNNNN-seed-slug-hashprefix.svg
+foldportrait-vNNNN-seed-slug-hashprefix.prompt.md
 ```
 
 Running the same seed produces the same portrait and hash every time, but the

@@ -24,6 +24,8 @@ import Testing
     #expect(result.svg.contains("skinLight"))
     #expect(result.svg.contains("Fold portrait"))
     #expect(result.svg.contains("face width"))
+    #expect(result.photorealPrompt.contains("abstract constitutional identity"))
+    #expect(result.photorealPrompt.contains("no plastic skin"))
     #expect(result.convergenceHashHex.count == 64)
 }
 
@@ -35,4 +37,16 @@ import Testing
     #expect((0.05...0.45).contains(parameters.skinTexture))
     #expect((0.20...0.56).contains(parameters.keyLightStrength))
     #expect(parameters.reportLines.count == 6)
+}
+
+@Test func doctrinePreservesUserDirection() {
+    let doctrine = PortraitDoctrine.constitutionalRitual
+
+    #expect(doctrine.identityTone.contains("ritual figure"))
+    #expect(doctrine.identityTone.contains("cinematic"))
+    #expect(doctrine.identityTone.contains("mythic"))
+    #expect(doctrine.identityTone.contains("serious"))
+    #expect(doctrine.subjectAnchor.contains("abstract constitutional identity"))
+    #expect(doctrine.aestheticConstraints.contains("no horror"))
+    #expect(doctrine.aestheticConstraints.contains("no generic AI beauty"))
 }
