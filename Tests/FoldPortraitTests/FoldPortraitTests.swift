@@ -42,6 +42,8 @@ import Testing
     #expect(count("data-layer=\"fine-drawing\"", in: later.svg) > count("data-layer=\"fine-drawing\"", in: early.svg))
     #expect(count("data-layer=\"gesture\"", in: later.svg) > count("data-layer=\"gesture\"", in: early.svg))
     #expect(count("data-layer=\"color-field\"", in: later.svg) > count("data-layer=\"color-field\"", in: early.svg))
+    #expect(later.growth.age > early.growth.age)
+    #expect(count("data-layer=\"material-weathering\"", in: later.svg) > count("data-layer=\"material-weathering\"", in: early.svg))
 }
 
 @Test func renderProducesSvgPortrait() {
@@ -53,12 +55,29 @@ import Testing
     #expect(result.svg.contains("data-render-hash=\"\(result.renderHashHex)\""))
     #expect(result.svg.contains("data-memory-signature="))
     #expect(result.svg.contains("data-permutation="))
+    #expect(result.svg.contains("data-active-force="))
     #expect(result.svg.contains("memory-byte"))
     #expect(result.svg.contains("fold-glyph"))
+    #expect(result.svg.contains("growth-ring"))
+    #expect(result.svg.contains("material-weathering"))
     #expect(result.artworkNotes.contains("abstract constitutional identity"))
     #expect(result.artworkNotes.contains("painting or drawing"))
+    #expect(result.artworkNotes.contains("Growth Climate"))
     #expect(result.convergenceHashHex.count == 64)
     #expect(result.renderHashHex.count == 64)
+}
+
+@Test func growthClimateChangesWithIteration() {
+    let renderer = PortraitRenderer()
+    let early = renderer.render(seed: "ada", iteration: 1)
+    let later = renderer.render(seed: "ada", iteration: 20)
+
+    #expect(early.convergenceHashHex == later.convergenceHashHex)
+    #expect(early.growth != later.growth)
+    #expect((0...1).contains(later.growth.compression))
+    #expect((0...1).contains(later.growth.torsion))
+    #expect((0...1).contains(later.growth.erosion))
+    #expect(later.svg.contains("data-growth-age=\"18\""))
 }
 
 @Test func renderExposesBoundedPortraitParameters() {

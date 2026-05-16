@@ -15,7 +15,8 @@ FoldPortrait treats the underlying code as the subject.
 
 - identity anchor: stable convergence hash and memory signature
 - visible body: SVG layers generated from FoldKernel-derived structure
-- evolution path: each iteration preserves identity while increasing refinement
+- evolution path: each iteration preserves identity while changing through
+  growth forces, material weathering, and refinement
 - art mode: structural abstraction, drawing, painting, field, rhythm, notation
 - constraint: no photoreal requirement, no avatar polish, no decorative symbols
   without structural purpose
@@ -62,9 +63,12 @@ Output/iterations/evolution.json
 ```
 
 Each run keeps the same convergence hash for the same seed as an identity
-anchor, but receives a distinct render hash for the visible study. Refinement
-depth grows with the iteration and is used internally by the renderer and web
-topology.
+anchor, but receives a distinct render hash for the visible study. The render
+also receives a growth climate: compression, torsion, shear, bloom, erosion,
+sediment, fiber memory, an active force, and a material state. These forces give
+future iterations a reason to change beyond simply accumulating more marks.
+Refinement depth grows with the iteration and is used internally by the renderer
+and web topology.
 
 ## Evolution Ledger
 
@@ -77,6 +81,7 @@ the generated history:
 - render hash
 - memory signature
 - refinement depth
+- growth climate
 - SVG and notes paths
 - mutation rule
 - structural identity pressures
@@ -103,10 +108,12 @@ The layout is derived from:
 - convergence hash bytes
 - permutation values
 - refinement depth
+- growth climate forces
 - structural identity pressures
 
-Objects are not fixed to simple layer planes. Their position, depth, and drift
-emerge from the FoldKernel-derived structure.
+Objects are not fixed to simple layer planes. Their position, depth, weathering,
+and drift emerge from the FoldKernel-derived structure and from the current
+growth climate.
 
 The visible readout is intentionally minimal:
 

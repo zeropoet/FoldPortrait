@@ -124,7 +124,7 @@ struct FoldPortrait {
             refinementDepth: refinementDepth,
             svgPath: svgURL.path,
             notesPath: notesURL.path,
-            mutationRule: "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
+            mutationRule: "Preserve identity hash and memory signature; evolve visible structure through iteration-specific growth forces, material weathering, and drawing pressure.",
             structuralIdentity: StructuralIdentity(
                 fieldWidthPressure: result.parameters.fieldWidthPressure,
                 verticalFieldPressure: result.parameters.verticalFieldPressure,
@@ -132,6 +132,19 @@ struct FoldPortrait {
                 internalHorizon: result.parameters.internalHorizon,
                 axisTilt: result.parameters.axisTilt,
                 asymmetry: result.parameters.asymmetry
+            ),
+            growthClimate: GrowthClimate(
+                age: result.growth.age,
+                season: result.growth.season,
+                activeForce: result.growth.activeForce,
+                materialState: result.growth.materialState,
+                compression: result.growth.compression,
+                torsion: result.growth.torsion,
+                shear: result.growth.shear,
+                bloom: result.growth.bloom,
+                erosion: result.growth.erosion,
+                sediment: result.growth.sediment,
+                fiberMemory: result.growth.fiberMemory
             )
         )
         let entries = existingEntries.filter { $0.iteration != entry.iteration } + [entry]
@@ -210,6 +223,7 @@ private struct EvolutionEntry: Codable {
     let notesPath: String
     let mutationRule: String
     let structuralIdentity: StructuralIdentity
+    let growthClimate: GrowthClimate?
 }
 
 private struct StructuralIdentity: Codable {
@@ -219,4 +233,18 @@ private struct StructuralIdentity: Codable {
     let internalHorizon: Double
     let axisTilt: Double
     let asymmetry: Double
+}
+
+private struct GrowthClimate: Codable {
+    let age: Int
+    let season: Int
+    let activeForce: String
+    let materialState: String
+    let compression: Double
+    let torsion: Double
+    let shear: Double
+    let bloom: Double
+    let erosion: Double
+    let sediment: Double
+    let fiberMemory: Double
 }

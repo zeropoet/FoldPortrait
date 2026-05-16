@@ -8,6 +8,7 @@ public struct PortraitRenderResult: Equatable, Sendable {
     public let renderHashHex: String
     public let memorySignatureHex: String
     public let parameters: PortraitParameters
+    public let growth: PortraitGrowth
     public let iteration: Int?
     public let refinementDepth: Int
 }
@@ -35,6 +36,11 @@ public struct PortraitRenderer: Sendable {
             memorySignature: memorySignature,
             permutation: permutation
         )
+        let growth = PortraitGrowth(
+            convergenceHash: convergenceHash,
+            sketchHash: sketchHash,
+            refinementDepth: refinementDepth
+        )
         let svg = svgDocument(
             permutation: permutation,
             memorySignature: memorySignature,
@@ -43,7 +49,8 @@ public struct PortraitRenderer: Sendable {
             seed: seed,
             iteration: iteration,
             refinementDepth: refinementDepth,
-            parameters: parameters
+            parameters: parameters,
+            growth: growth
         )
         let convergenceHashHex = Self.hex(convergenceHash)
         let renderHashHex = Self.hex(sketchHash)
@@ -55,7 +62,8 @@ public struct PortraitRenderer: Sendable {
             convergenceHashHex: convergenceHashHex,
             renderHashHex: renderHashHex,
             memorySignatureHex: memorySignatureHex,
-            parameters: parameters
+            parameters: parameters,
+            growth: growth
         )
 
         return PortraitRenderResult(
@@ -65,6 +73,7 @@ public struct PortraitRenderer: Sendable {
             renderHashHex: renderHashHex,
             memorySignatureHex: memorySignatureHex,
             parameters: parameters,
+            growth: growth,
             iteration: iteration,
             refinementDepth: refinementDepth
         )
@@ -103,7 +112,8 @@ public struct PortraitRenderer: Sendable {
         seed: String,
         iteration: Int?,
         refinementDepth: Int,
-        parameters: PortraitParameters
+        parameters: PortraitParameters,
+        growth: PortraitGrowth
     ) -> String {
         let width = 1200
         let height = 1600
@@ -120,19 +130,22 @@ public struct PortraitRenderer: Sendable {
             sketchHash: sketchHash,
             line: line,
             accent: secondAccent,
-            refinementDepth: refinementDepth
+            refinementDepth: refinementDepth,
+            growth: growth
         )
         let field = abstractColorField(
             hash: sketchHash,
             wash: wash,
             accent: accent,
-            refinementDepth: refinementDepth
+            refinementDepth: refinementDepth,
+            growth: growth
         )
         let gestures = abstractGestures(
             hash: sketchHash,
             line: line,
             accent: secondAccent,
-            refinementDepth: refinementDepth
+            refinementDepth: refinementDepth,
+            growth: growth
         )
         let glyph = foldGlyph(
             permutation: permutation,
@@ -151,14 +164,30 @@ public struct PortraitRenderer: Sendable {
         let fineDrawing = fineDrawing(
             hash: sketchHash,
             line: line,
-            refinementDepth: refinementDepth
+            refinementDepth: refinementDepth,
+            growth: growth
+        )
+        let growthRings = growthRings(
+            hash: sketchHash,
+            line: line,
+            accent: accent,
+            refinementDepth: refinementDepth,
+            growth: growth
+        )
+        let materialWeathering = materialWeathering(
+            hash: sketchHash,
+            line: line,
+            accent: secondAccent,
+            refinementDepth: refinementDepth,
+            growth: growth
         )
         let report = parameterReport(parameters)
 
         return """
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 \(width) \(height)" role="img" aria-labelledby="title desc" data-refinement-depth="\(refinementDepth)" data-art-mode="structural-abstract" data-convergence-hash="\(Self.hex(convergenceHash))" data-render-hash="\(Self.hex(sketchHash))" data-memory-signature="\(Self.hex(memorySignature))" data-permutation="\(permutation.values.map(String.init).joined(separator: "-"))">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 \(width) \(height)" role="img" aria-labelledby="title desc" data-refinement-depth="\(refinementDepth)" data-art-mode="structural-abstract" data-growth-age="\(growth.age)" data-growth-season="\(growth.season)" data-active-force="\(growth.activeForce)" data-material-state="\(growth.materialState)" data-convergence-hash="\(Self.hex(convergenceHash))" data-render-hash="\(Self.hex(sketchHash))" data-memory-signature="\(Self.hex(memorySignature))" data-permutation="\(permutation.values.map(String.init).joined(separator: "-"))">
           <title id="title">Abstract Fold portrait \(iterationLabel) for \(escapedSeed)</title>
           <desc id="desc">A deterministic structural portrait generated from a FoldKernel memory signature, permutation, and convergence hash, with iteration-specific drawing refinement.</desc>
+          <metadata>\(Self.escape(growth.reportLines.joined(separator: " | ")))</metadata>
           <defs>
             <filter id="paperGrain" x="-10%" y="-10%" width="120%" height="120%">
               <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="\(Int(sketchHash[6]))"/>
@@ -172,12 +201,14 @@ public struct PortraitRenderer: Sendable {
           <rect width="1200" height="1600" filter="url(#paperGrain)" opacity="0.55"/>
         \(structuralField)
         \(field)
+        \(growthRings)
           <g transform="rotate(\(Self.format(parameters.headTilt + Double(Self.signedOffset(sketchHash[19], magnitude: 6))) ) 600 800)">
         \(gestures)
         \(glyph)
         \(fineDrawing)
           </g>
         \(notations)
+        \(materialWeathering)
           <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="\(line)">
             <text x="600" y="1460" text-anchor="middle" font-size="30">\(Self.hex(sketchHash.prefix(8)))</text>
             <text x="600" y="1482" text-anchor="middle" font-size="17" opacity="0.72">abstract study \(iterationLabel)</text>
@@ -193,7 +224,8 @@ public struct PortraitRenderer: Sendable {
         sketchHash: [UInt8],
         line: String,
         accent: String,
-        refinementDepth: Int
+        refinementDepth: Int,
+        growth: PortraitGrowth
     ) -> String {
         let byteMarks = memorySignature.enumerated().map { index, byte in
             let column = index % 6
@@ -210,12 +242,12 @@ public struct PortraitRenderer: Sendable {
         let hashRibs = (0..<(8 + refinementDepth)).map { index in
             let byte = convergenceHash[index % convergenceHash.count]
             let x = 150 + index * 70
-            let y1 = 210 + Int(byte % 180)
-            let y2 = 1370 - Int(convergenceHash[(index + 11) % convergenceHash.count] % 220)
-            let bend = 600 + Self.signedOffset(sketchHash[(index + 17) % sketchHash.count], magnitude: 220)
-            let opacity = 0.09 + Double(byte % 13) / 100
+            let y1 = 210 + Int(byte % 180) + Int(growth.compression * 34)
+            let y2 = 1370 - Int(convergenceHash[(index + 11) % convergenceHash.count] % 220) - Int(growth.erosion * 28)
+            let bend = 600 + Self.signedOffset(sketchHash[(index + 17) % sketchHash.count], magnitude: 220) + Int(growth.torsion * 96) - 48
+            let opacity = 0.09 + Double(byte % 13) / 100 + growth.sediment * 0.03
 
-            return "  <path data-layer=\"hash-rib\" d=\"M\(x) \(y1) C\(bend) \(520 + index * 9) \(1200 - bend) \(980 - index * 5) \(1110 - index * 34) \(y2)\" fill=\"none\" stroke=\"\(line)\" stroke-width=\"2\" opacity=\"\(Self.format(opacity))\"/>"
+            return "  <path data-layer=\"hash-rib\" d=\"M\(x) \(y1) C\(bend) \(520 + index * 9) \(1200 - bend) \(980 - index * 5) \(1110 - index * 34) \(y2)\" fill=\"none\" stroke=\"\(line)\" stroke-width=\"\(Self.format(1.4 + growth.compression * 1.7))\" opacity=\"\(Self.format(opacity))\"/>"
         }
 
         let spine = (0..<memorySignature.count).map { index in
@@ -235,16 +267,17 @@ public struct PortraitRenderer: Sendable {
         hash: [UInt8],
         wash: String,
         accent: String,
-        refinementDepth: Int
+        refinementDepth: Int,
+        growth: PortraitGrowth
     ) -> String {
         (0..<(5 + refinementDepth)).map { index in
             let base = index * 5
             let x = 140 + (index * 137 + Int(hash[base % hash.count])) % 920
             let y = 120 + (index * 211 + Int(hash[(base + 1) % hash.count])) % 1240
-            let radiusX = 150 + Int(hash[(base + 2) % hash.count] % 220)
-            let radiusY = 110 + Int(hash[(base + 3) % hash.count]) % 260
+            let radiusX = 150 + Int(hash[(base + 2) % hash.count] % 220) + Int(growth.bloom * 46)
+            let radiusY = 110 + Int(hash[(base + 3) % hash.count]) % 260 + Int(growth.compression * 34)
             let color = index.isMultiple(of: 3) ? accent : wash
-            let opacity = 0.10 + Double(hash[(base + 4) % hash.count] % 18) / 100
+            let opacity = 0.10 + Double(hash[(base + 4) % hash.count] % 18) / 100 + growth.bloom * 0.04
 
             return "  <ellipse data-layer=\"color-field\" cx=\"\(x)\" cy=\"\(y)\" rx=\"\(radiusX)\" ry=\"\(radiusY)\" fill=\"\(color)\" opacity=\"\(Self.format(opacity))\" transform=\"rotate(\(Self.signedOffset(hash[(base + 6) % hash.count], magnitude: 42)) \(x) \(y))\"/>"
         }.joined(separator: "\n")
@@ -254,7 +287,8 @@ public struct PortraitRenderer: Sendable {
         hash: [UInt8],
         line: String,
         accent: String,
-        refinementDepth: Int
+        refinementDepth: Int,
+        growth: PortraitGrowth
     ) -> String {
         (0..<(6 + refinementDepth * 2)).map { index in
             let base = index * 4
@@ -262,11 +296,11 @@ public struct PortraitRenderer: Sendable {
             let y1 = 210 + (index * 83 + Int(hash[(base + 1) % hash.count])) % 1040
             let x2 = 160 + (index * 157 + Int(hash[(base + 2) % hash.count])) % 900
             let y2 = 260 + (index * 109 + Int(hash[(base + 3) % hash.count])) % 1020
-            let c1 = 600 + Self.signedOffset(hash[(base + 5) % hash.count], magnitude: 360)
-            let c2 = 780 + Self.signedOffset(hash[(base + 7) % hash.count], magnitude: 420)
+            let c1 = 600 + Self.signedOffset(hash[(base + 5) % hash.count], magnitude: 360) + Int(growth.shear * 120) - 60
+            let c2 = 780 + Self.signedOffset(hash[(base + 7) % hash.count], magnitude: 420) - Int(growth.torsion * 140) + 70
             let stroke = index.isMultiple(of: 4) ? accent : line
-            let width = index.isMultiple(of: 5) ? 9 : 2 + index % 5
-            let opacity = 0.16 + Double(hash[(base + 9) % hash.count] % 18) / 100
+            let width = index.isMultiple(of: 5) ? 9 + Int(growth.compression * 3) : 2 + index % 5
+            let opacity = 0.16 + Double(hash[(base + 9) % hash.count] % 18) / 100 + growth.fiberMemory * 0.02
 
             return "  <path data-layer=\"gesture\" d=\"M\(x1) \(y1) C\(c1) \(y1 - 180) \(c2) \(y2 + 160) \(x2) \(y2)\" fill=\"none\" stroke=\"\(stroke)\" stroke-width=\"\(width)\" stroke-linecap=\"round\" opacity=\"\(Self.format(opacity))\"/>"
         }.joined(separator: "\n")
@@ -337,17 +371,61 @@ public struct PortraitRenderer: Sendable {
     private func fineDrawing(
         hash: [UInt8],
         line: String,
-        refinementDepth: Int
+        refinementDepth: Int,
+        growth: PortraitGrowth
     ) -> String {
         (0..<(refinementDepth * 10)).map { index in
             let base = index * 3
             let x = 300 + (index * 43 + Int(hash[base % hash.count])) % 600
             let y = 350 + (index * 59 + Int(hash[(base + 1) % hash.count])) % 800
             let length = 12 + Int(hash[(base + 2) % hash.count] % 44)
-            let bend = Self.signedOffset(hash[(base + 6) % hash.count], magnitude: 18)
-            let opacity = 0.08 + Double(hash[(base + 8) % hash.count] % 14) / 100
+            let bend = Self.signedOffset(hash[(base + 6) % hash.count], magnitude: 18) + Int(growth.torsion * 18) - 9
+            let opacity = 0.08 + Double(hash[(base + 8) % hash.count] % 14) / 100 + growth.erosion * 0.02
 
             return "  <path data-layer=\"fine-drawing\" d=\"M\(x) \(y) q\(length / 2) \(bend) \(length) \(Self.signedOffset(hash[(base + 10) % hash.count], magnitude: 12))\" fill=\"none\" stroke=\"\(line)\" stroke-width=\"1\" stroke-linecap=\"round\" opacity=\"\(Self.format(opacity))\"/>"
+        }.joined(separator: "\n")
+    }
+
+    private func growthRings(
+        hash: [UInt8],
+        line: String,
+        accent: String,
+        refinementDepth: Int,
+        growth: PortraitGrowth
+    ) -> String {
+        let count = 3 + growth.season + refinementDepth / 3
+        return (0..<count).map { index in
+            let base = index * 7
+            let x = 600 + Self.signedOffset(hash[base % hash.count], magnitude: 90)
+            let y = 790 + Self.signedOffset(hash[(base + 2) % hash.count], magnitude: 130)
+            let rx = 210 + index * 31 + Int(growth.bloom * 90)
+            let ry = 120 + index * 23 + Int(growth.compression * 80)
+            let twist = Self.signedOffset(hash[(base + 4) % hash.count], magnitude: 34) + Int(growth.torsion * 44)
+            let stroke = index.isMultiple(of: 2) ? accent : line
+            let opacity = 0.05 + growth.fiberMemory * 0.08 + Double(hash[(base + 5) % hash.count] % 7) / 100
+
+            return "  <ellipse data-layer=\"growth-ring\" cx=\"\(x)\" cy=\"\(y)\" rx=\"\(rx)\" ry=\"\(ry)\" fill=\"none\" stroke=\"\(stroke)\" stroke-width=\"\(Self.format(0.8 + growth.sediment * 2.2))\" opacity=\"\(Self.format(opacity))\" transform=\"rotate(\(twist) \(x) \(y))\"/>"
+        }.joined(separator: "\n")
+    }
+
+    private func materialWeathering(
+        hash: [UInt8],
+        line: String,
+        accent: String,
+        refinementDepth: Int,
+        growth: PortraitGrowth
+    ) -> String {
+        let count = refinementDepth * 4 + Int(growth.erosion * 18)
+        return (0..<count).map { index in
+            let base = index * 5
+            let x = 95 + (index * 71 + Int(hash[base % hash.count])) % 1010
+            let y = 120 + (index * 103 + Int(hash[(base + 1) % hash.count])) % 1320
+            let length = 20 + Int(hash[(base + 2) % hash.count] % 90) + Int(growth.shear * 34)
+            let slope = Self.signedOffset(hash[(base + 3) % hash.count], magnitude: 26) + Int(growth.torsion * 20) - 10
+            let opacity = 0.05 + growth.erosion * 0.09 + Double(hash[(base + 4) % hash.count] % 8) / 100
+            let stroke = index.isMultiple(of: 4) ? accent : line
+
+            return "  <path data-layer=\"material-weathering\" d=\"M\(x) \(y) l\(length) \(slope)\" fill=\"none\" stroke=\"\(stroke)\" stroke-width=\"\(Self.format(0.6 + growth.sediment * 1.8))\" stroke-linecap=\"round\" opacity=\"\(Self.format(opacity))\"/>"
         }.joined(separator: "\n")
     }
 

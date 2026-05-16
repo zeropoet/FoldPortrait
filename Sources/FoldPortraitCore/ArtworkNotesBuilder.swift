@@ -11,6 +11,7 @@ public struct ArtworkNotesBuilder: Sendable {
         renderHashHex: String,
         memorySignatureHex: String,
         parameters: PortraitParameters,
+        growth: PortraitGrowth,
         doctrine: PortraitDoctrine = .constitutionalRitual
     ) -> String {
         let iterationLine = iteration.map { "Sketch iteration: \(String(format: "v%04d", $0))\n" } ?? ""
@@ -59,6 +60,21 @@ public struct ArtworkNotesBuilder: Sendable {
         Treat these as paint, graphite, wash, stain, and paper behavior.
         Surface activity: \(format(parameters.skinTexture)).
         Massing: \(format(parameters.hairMass)).
+
+        ## Growth Climate
+
+        Evolution age: \(growth.age).
+        Seasonal phase: \(growth.season).
+        Active force: \(growth.activeForce).
+        Material state: \(growth.materialState).
+        Compression: \(format(growth.compression)).
+        Torsion: \(format(growth.torsion)).
+        Shear: \(format(growth.shear)).
+        Bloom: \(format(growth.bloom)).
+        Erosion: \(format(growth.erosion)).
+        Sediment: \(format(growth.sediment)).
+        Fiber memory: \(format(growth.fiberMemory)).
+        Let these forces alter placement, curve behavior, density, weathering, and material residue over time.
 
         ## Fold Signature
 

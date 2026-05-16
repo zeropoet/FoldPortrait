@@ -6,12 +6,14 @@ const LAYER_ORDER = [
   "memory-spine",
   "memory-byte",
   "color-field",
+  "growth-ring",
   "gesture",
   "fold-aura",
   "fold-glyph",
   "fine-drawing",
   "fold-notation",
   "field-dust",
+  "material-weathering",
 ];
 
 const state = {
@@ -452,6 +454,14 @@ function createObject(shape) {
 function arrangeByFoldKernel(entry) {
   const refinement = Number(entry.refinementDepth || 1);
   const identity = entry.structuralIdentity || {};
+  const growth = entry.growthClimate || {};
+  const compression = Number(growth.compression || 0);
+  const torsion = Number(growth.torsion || 0);
+  const shear = Number(growth.shear || 0);
+  const bloom = Number(growth.bloom || 0);
+  const erosion = Number(growth.erosion || 0);
+  const sediment = Number(growth.sediment || 0);
+  const fiberMemory = Number(growth.fiberMemory || 0);
 
   state.objects.forEach((object) => {
     const shape = object.userData.shape;
@@ -470,31 +480,39 @@ function arrangeByFoldKernel(entry) {
     const layerPhase = (shape.layerIndex + 1) / LAYER_ORDER.length;
     const orbit = (shape.index / Math.max(1, state.objects.length)) * Math.PI * 2 + topologyPull;
     const layerSpiral = Math.sin(orbit * permutation * 0.125);
+    const forceSpiral = Math.sin(orbit + torsion * Math.PI * 2) * (90 * torsion);
+    const weatherLift = (shape.layer === "material-weathering" ? 1 : 0) * (80 + erosion * 220);
+    const growthLift = (shape.layer === "growth-ring" ? 1 : 0) * (120 + bloom * 240);
 
     const x =
       base.x * fieldPressure +
       Math.cos(orbit) * (38 + refinement * 4) * topologyPull +
-      center.y * 34 * memoryPull;
+      center.y * 34 * memoryPull +
+      forceSpiral * shear * 0.45;
     const y =
       base.y * verticalPressure +
       Math.sin(orbit * 1.7) * (46 + refinement * 3) * hashPull -
-      center.x * 26 * topologyPull;
+      center.x * 26 * topologyPull -
+      compression * center.y * 85;
     const z =
       hashPull * 360 +
       memoryPull * 190 +
       topologyPull * 260 +
       layerSpiral * 120 +
-      (nextHash / 255 - 0.5) * refinement * 18;
+      (nextHash / 255 - 0.5) * refinement * 18 +
+      weatherLift +
+      growthLift +
+      sediment * layerPhase * 180;
 
     object.userData.target = new THREE.Vector3(x, y, z);
     object.userData.drift = new THREE.Vector3(
-      Math.sin(orbit) * (1 + layerPhase * 8),
-      Math.cos(orbit * 1.3) * (1 + layerPhase * 6),
-      5 + refinement * 0.8 + Math.abs(memoryPull) * 16,
+      Math.sin(orbit) * (1 + layerPhase * 8 + shear * 8),
+      Math.cos(orbit * 1.3) * (1 + layerPhase * 6 + bloom * 7),
+      5 + refinement * 0.8 + Math.abs(memoryPull) * 16 + fiberMemory * 12,
     );
     object.position.copy(object.userData.target);
-    object.rotation.x = topologyPull * 0.18 + axisTilt * 0.2;
-    object.rotation.y = memoryPull * 0.22;
+    object.rotation.x = topologyPull * 0.18 + axisTilt * 0.2 + compression * 0.08;
+    object.rotation.y = memoryPull * 0.22 + torsion * 0.14;
   });
 
   requestAnimationFrame(updatePixelMetrics);
