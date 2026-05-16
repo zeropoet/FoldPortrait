@@ -93,5 +93,24 @@
       "verticalFieldPressure" : 1.1381176470588235
     },
     "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0004-zero-poet-2cfdfa64.svg"
+  },
+  {
+    "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
+    "iteration" : "v0006",
+    "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
+    "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
+    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0006-zero-poet-2cfdfa64.notes.md",
+    "refinementDepth" : 12,
+    "renderHash" : "f01326b77fc7b41e1cdcb4342692d9c0670e5a7ac26f2f7d5d014cd4c9dc19b3",
+    "seed" : "zero poet",
+    "structuralIdentity" : {
+      "asymmetry" : 11.64705882352941,
+      "axisTilt" : -2.2784313725490195,
+      "fieldWidthPressure" : 0.8952156862745098,
+      "internalHorizon" : 0.48274509803921567,
+      "lowerMassTaper" : 1.1913725490196079,
+      "verticalFieldPressure" : 1.1381176470588235
+    },
+    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0006-zero-poet-2cfdfa64.svg"
   }
 ]
