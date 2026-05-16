@@ -29,7 +29,9 @@ Open the current published topology study:
 
 The root page redirects to `Web/`, where the browser reads
 [Output/iterations/evolution.json](Output/iterations/evolution.json) and
-displays the latest generated SVG as an inspectable Three.js topology.
+displays the latest generated SVG as an inspectable Three.js topology. The
+gallery view lets you browse every recorded render iteration, and the left and
+right arrow keys move directly through the version history.
 
 For local viewing:
 
@@ -89,9 +91,11 @@ and continuity rule for that iteration.
 
 ## Topology Study
 
-The [Web/](Web/) layer is an inspect-only Three.js topology study. It has no
-controls or options. It loads the latest ledger entry, fetches the SVG, extracts
-`data-layer` shapes, and arranges them in 3D.
+The [Web/](Web/) layer is an inspect-only Three.js topology study. It loads the
+latest ledger entry, fetches the SVG, extracts `data-layer` shapes, and arranges
+them in 3D. The inspected view keeps each iteration's SVG paper color as the
+scene background, so moving through older studies preserves their visible
+ground.
 
 The layout is derived from:
 
@@ -110,6 +114,11 @@ The visible readout is intentionally minimal:
 - topology form count
 - render hash prefix
 - countdown to the next daily study
+
+The gallery button opens the full evolution archive as an SVG grid. Selecting a
+card drills into that iteration's topology, `Latest` returns to the newest
+study, and the left and right arrow keys step backward or forward through the
+ledger without opening the gallery.
 
 ## Daily Ritual
 

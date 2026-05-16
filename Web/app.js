@@ -16,6 +16,11 @@ const LAYER_ORDER = [
 
 const state = {
   currentIteration: "",
+  latestIteration: "",
+  ledger: [],
+  view: "latest",
+  backgroundColor: new THREE.Color(0xf3efe6),
+  navigationQueue: Promise.resolve(),
   objects: [],
   memoryBytes: [],
   hashBytes: [],
@@ -23,14 +28,20 @@ const state = {
 };
 
 const canvas = document.querySelector("#topology-canvas");
+const stage = document.querySelector(".stage");
+const galleryButton = document.querySelector("#gallery-button");
+const latestButton = document.querySelector("#latest-button");
+const galleryClose = document.querySelector("#gallery-close");
+const galleryView = document.querySelector("#gallery-view");
+const galleryGrid = document.querySelector("#gallery-grid");
 const readoutIteration = document.querySelector("#readout-iteration");
 const readoutCount = document.querySelector("#readout-count");
 const readoutHash = document.querySelector("#readout-hash");
 const readoutCountdown = document.querySelector("#readout-countdown");
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xf3efe6);
-scene.fog = new THREE.Fog(0xf3efe6, 1180, 3100);
+scene.background = state.backgroundColor.clone();
+scene.fog = new THREE.Fog(state.backgroundColor, 1180, 3100);
 
 const camera = new THREE.PerspectiveCamera(42, 1, 1, 5200);
 camera.position.set(0, -380, 1580);
@@ -71,7 +82,11 @@ init().catch((error) => {
 });
 
 async function init() {
-  await loadLatest();
+  galleryButton.addEventListener("click", showGallery);
+  latestButton.addEventListener("click", openLatest);
+  galleryClose.addEventListener("click", openLatest);
+  window.addEventListener("keydown", handleKeyboardNavigation);
+  await loadLatest({ force: true });
   updateCountdown();
   resize();
   window.addEventListener("resize", resize);
@@ -80,14 +95,28 @@ async function init() {
   animate();
 }
 
-async function loadLatest() {
-  const ledger = await fetchJson(versionedUrl("../Output/iterations/evolution.json"));
-  const latest = ledger.slice().sort((a, b) => a.iteration.localeCompare(b.iteration)).at(-1);
-  if (!latest || latest.iteration === state.currentIteration) {
+async function loadLatest(options = {}) {
+  const ledger = await loadLedger();
+  const latest = ledger.at(-1);
+  if (!latest) {
+    return;
+  }
+
+  state.latestIteration = latest.iteration;
+  if (state.view !== "latest" && !options.force) {
+    renderGallery();
+    return;
+  }
+
+  if (!options.force && latest.iteration === state.currentIteration) {
+    renderGallery();
     return;
   }
 
   await loadEntry(latest);
+  state.view = "latest";
+  hideGallery();
+  renderGallery();
 }
 
 async function fetchJson(url) {
@@ -98,8 +127,14 @@ async function fetchJson(url) {
   return response.json();
 }
 
+async function loadLedger() {
+  const ledger = await fetchJson(versionedUrl("../Output/iterations/evolution.json"));
+  state.ledger = ledger.slice().sort((a, b) => a.iteration.localeCompare(b.iteration));
+  return state.ledger;
+}
+
 async function loadEntry(entry) {
-  const svgPath = entry.svgPath.replace(/^.*\/Output\//, "../Output/");
+  const svgPath = outputPath(entry.svgPath);
   const response = await fetch(versionedUrl(svgPath));
   if (!response.ok) {
     throw new Error(`Unable to load ${svgPath}`);
@@ -107,6 +142,7 @@ async function loadEntry(entry) {
 
   const svgText = await response.text();
   const svg = new DOMParser().parseFromString(svgText, "image/svg+xml").documentElement;
+  applyBackgroundColor(backgroundFillFrom(svg));
   state.memoryBytes = hexBytes(entry.memorySignature);
   state.hashBytes = hexBytes(entry.convergenceHash);
   state.permutation = (svg.getAttribute("data-permutation") || "")
@@ -124,10 +160,142 @@ async function loadEntry(entry) {
   readoutHash.textContent = (entry.renderHash || entry.convergenceHash).slice(0, 16);
 }
 
+function backgroundFillFrom(svg) {
+  const background = [...svg.children].find((node) => {
+    const tag = node.tagName.toLowerCase();
+    const fill = node.getAttribute("fill");
+    return tag === "rect" && fill && fill !== "none" && !node.hasAttribute("data-layer");
+  });
+  return background?.getAttribute("fill") || "#f3efe6";
+}
+
+function applyBackgroundColor(fill) {
+  const color = new THREE.Color(fill);
+  state.backgroundColor = color;
+  scene.background = color.clone();
+  scene.fog.color.copy(color);
+  document.documentElement.style.setProperty("--paper", fill);
+  document.body.dataset.paperColor = fill;
+}
+
+function showGallery() {
+  state.view = "gallery";
+  stage.classList.add("gallery-open");
+  galleryView.hidden = false;
+  galleryButton.setAttribute("aria-pressed", "true");
+  latestButton.setAttribute("aria-pressed", "false");
+  renderGallery();
+}
+
+function hideGallery() {
+  stage.classList.remove("gallery-open");
+  galleryView.hidden = true;
+  galleryButton.setAttribute("aria-pressed", "false");
+  latestButton.setAttribute("aria-pressed", state.view === "latest" ? "true" : "false");
+}
+
+async function openLatest() {
+  await loadLatest({ force: true });
+}
+
+async function openGalleryEntry(entry) {
+  await loadEntry(entry);
+  state.view = entry.iteration === state.latestIteration ? "latest" : "iteration";
+  hideGallery();
+  renderGallery();
+}
+
+function handleKeyboardNavigation(event) {
+  if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
+    return;
+  }
+
+  if (event.key === "ArrowLeft") {
+    event.preventDefault();
+    queueAdjacentEntry(-1);
+  }
+
+  if (event.key === "ArrowRight") {
+    event.preventDefault();
+    queueAdjacentEntry(1);
+  }
+}
+
+function queueAdjacentEntry(step) {
+  state.navigationQueue = state.navigationQueue
+    .catch(() => {})
+    .then(() => openAdjacentEntry(step));
+}
+
+async function openAdjacentEntry(step) {
+  if (state.ledger.length === 0) {
+    await loadLedger();
+  }
+
+  const currentIndex = Math.max(
+    0,
+    state.ledger.findIndex((entry) => entry.iteration === state.currentIteration),
+  );
+  const nextIndex = THREE.MathUtils.clamp(currentIndex + step, 0, state.ledger.length - 1);
+  const entry = state.ledger[nextIndex];
+  if (!entry || entry.iteration === state.currentIteration) {
+    return;
+  }
+
+  await openGalleryEntry(entry);
+}
+
+function renderGallery() {
+  if (state.ledger.length === 0) {
+    galleryGrid.replaceChildren();
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+  state.ledger
+    .slice()
+    .reverse()
+    .forEach((entry) => {
+      const card = document.createElement("button");
+      const hash = (entry.renderHash || entry.convergenceHash || "").slice(0, 16);
+      const isCurrent = entry.iteration === state.currentIteration;
+      card.className = "gallery-card";
+      card.type = "button";
+      card.setAttribute("aria-current", String(isCurrent));
+      card.setAttribute("aria-label", `Open ${entry.iteration}`);
+      card.addEventListener("click", () => openGalleryEntry(entry));
+
+      const figure = document.createElement("figure");
+      const image = document.createElement("img");
+      image.src = versionedUrl(outputPath(entry.svgPath));
+      image.alt = `${entry.iteration} render`;
+      image.loading = "lazy";
+      figure.append(image);
+
+      const meta = document.createElement("div");
+      meta.className = "gallery-meta";
+      const title = document.createElement("strong");
+      title.textContent =
+        entry.iteration === state.latestIteration ? `${entry.iteration} latest` : entry.iteration;
+      const detail = document.createElement("span");
+      detail.textContent = hash;
+      meta.append(title, detail);
+
+      card.append(figure, meta);
+      fragment.append(card);
+    });
+
+  galleryGrid.replaceChildren(fragment);
+}
+
 function versionedUrl(path) {
   const url = new URL(path, window.location.href);
   url.searchParams.set("cache", String(Date.now()));
   return url;
+}
+
+function outputPath(path) {
+  return path.replace(/^.*\/Output\//, "../Output/");
 }
 
 function extractShapes(svg) {
@@ -377,12 +545,16 @@ function samplePixels() {
   gl.readPixels(0, 0, width, height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
   let nonPaper = 0;
   const unique = new Set();
+  const paper = state.backgroundColor;
+  const paperRed = Math.round(paper.r * 255);
+  const paperGreen = Math.round(paper.g * 255);
+  const paperBlue = Math.round(paper.b * 255);
   for (let index = 0; index < pixels.length; index += 16) {
     const red = pixels[index];
     const green = pixels[index + 1];
     const blue = pixels[index + 2];
     unique.add(`${red},${green},${blue}`);
-    if (Math.abs(red - 243) + Math.abs(green - 239) + Math.abs(blue - 230) > 24) {
+    if (Math.abs(red - paperRed) + Math.abs(green - paperGreen) + Math.abs(blue - paperBlue) > 24) {
       nonPaper += 1;
     }
   }
