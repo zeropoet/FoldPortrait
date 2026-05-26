@@ -200,7 +200,12 @@ struct FoldPortrait {
                 fiberMemory: result.growth.fiberMemory
             )
         )
-        let entries = existingEntries.filter { $0.iteration != entry.iteration } + [entry]
+        let entries = (existingEntries.filter { $0.iteration != entry.iteration } + [entry])
+            .sorted { first, second in
+                let firstVersion = PortraitVersion(label: first.iteration) ?? PortraitVersion(anchor: Int.max, revision: Int.max)
+                let secondVersion = PortraitVersion(label: second.iteration) ?? PortraitVersion(anchor: Int.max, revision: Int.max)
+                return firstVersion < secondVersion
+            }
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let data = try encoder.encode(entries)
@@ -270,7 +275,7 @@ private struct CommandOptions {
     }
 }
 
-private struct PortraitVersion: Codable, Equatable, Hashable {
+private struct PortraitVersion: Codable, Comparable, Equatable, Hashable {
     let anchor: Int
     let revision: Int
 
@@ -312,6 +317,14 @@ private struct PortraitVersion: Codable, Equatable, Hashable {
 
     var displayLabel: String {
         ledgerLabel
+    }
+
+    static func < (lhs: PortraitVersion, rhs: PortraitVersion) -> Bool {
+        if lhs.revision != rhs.revision {
+            return lhs.revision < rhs.revision
+        }
+
+        return lhs.anchor < rhs.anchor
     }
 }
 
