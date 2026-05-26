@@ -10,6 +10,7 @@ public struct PortraitRenderResult: Equatable, Sendable {
     public let parameters: PortraitParameters
     public let growth: PortraitGrowth
     public let iteration: Int?
+    public let revision: Int
     public let refinementDepth: Int
 }
 
@@ -19,8 +20,10 @@ public struct PortraitRenderer: Sendable {
     public func render(
         seed: String,
         iteration: Int? = nil,
+        revision requestedRevision: Int = 1,
         refinementDepth requestedRefinementDepth: Int? = nil
     ) -> PortraitRenderResult {
+        let revision = max(1, requestedRevision)
         let refinementDepth = Self.refinementDepth(for: requestedRefinementDepth ?? iteration)
         let permutation = permutationFromSeed(seed)
         let events = events(for: permutation, seed: seed)
@@ -29,7 +32,8 @@ public struct PortraitRenderer: Sendable {
         let sketchHash = Self.sketchVariationHash(
             convergenceHash: convergenceHash,
             seed: seed,
-            iteration: refinementDepth
+            iteration: refinementDepth,
+            revision: revision
         )
         let parameters = PortraitParameters(
             hash: convergenceHash,
@@ -48,6 +52,7 @@ public struct PortraitRenderer: Sendable {
             sketchHash: sketchHash,
             seed: seed,
             iteration: iteration,
+            revision: revision,
             refinementDepth: refinementDepth,
             parameters: parameters,
             growth: growth
@@ -58,6 +63,7 @@ public struct PortraitRenderer: Sendable {
         let artworkNotes = ArtworkNotesBuilder().notes(
             seed: seed,
             iteration: iteration,
+            revision: revision,
             refinementDepth: refinementDepth,
             convergenceHashHex: convergenceHashHex,
             renderHashHex: renderHashHex,
@@ -75,6 +81,7 @@ public struct PortraitRenderer: Sendable {
             parameters: parameters,
             growth: growth,
             iteration: iteration,
+            revision: revision,
             refinementDepth: refinementDepth
         )
     }
@@ -111,6 +118,7 @@ public struct PortraitRenderer: Sendable {
         sketchHash: [UInt8],
         seed: String,
         iteration: Int?,
+        revision: Int,
         refinementDepth: Int,
         parameters: PortraitParameters,
         growth: PortraitGrowth
@@ -118,7 +126,7 @@ public struct PortraitRenderer: Sendable {
         let width = 1200
         let height = 1600
         let escapedSeed = Self.escape(seed)
-        let iterationLabel = iteration.map { String(format: "v%04d", $0) } ?? "base"
+        let iterationLabel = Self.versionLabel(iteration: iteration, revision: revision, padded: false)
         let paper = Self.color(sketchHash[0], sketchHash[1], sketchHash[2], floor: 208)
         let wash = Self.color(sketchHash[3], sketchHash[4], sketchHash[5], floor: 92)
         let accent = Self.color(sketchHash[13], sketchHash[14], sketchHash[15], floor: 48, ceiling: 190)
@@ -181,10 +189,24 @@ public struct PortraitRenderer: Sendable {
             refinementDepth: refinementDepth,
             growth: growth
         )
+        let lineageLeap = lineageLeap(
+            hash: sketchHash,
+            line: line,
+            accent: accent,
+            secondAccent: secondAccent,
+            revision: revision,
+            refinementDepth: refinementDepth,
+            growth: growth
+        )
+        let revisionShiftX = revision > 1 ? Self.signedOffset(sketchHash[24], magnitude: 58) + (revision - 1) * 18 : 0
+        let revisionShiftY = revision > 1 ? Self.signedOffset(sketchHash[25], magnitude: 44) - (revision - 1) * 12 : 0
+        let revisionRotation = parameters.headTilt +
+            Double(Self.signedOffset(sketchHash[19], magnitude: 6)) +
+            (revision > 1 ? Double(Self.signedOffset(sketchHash[26], magnitude: 9) + (revision - 1) * 4) : 0)
         let report = parameterReport(parameters)
 
         return """
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 \(width) \(height)" role="img" aria-labelledby="title desc" data-refinement-depth="\(refinementDepth)" data-art-mode="structural-abstract" data-growth-age="\(growth.age)" data-growth-season="\(growth.season)" data-active-force="\(growth.activeForce)" data-material-state="\(growth.materialState)" data-convergence-hash="\(Self.hex(convergenceHash))" data-render-hash="\(Self.hex(sketchHash))" data-memory-signature="\(Self.hex(memorySignature))" data-permutation="\(permutation.values.map(String.init).joined(separator: "-"))">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 \(width) \(height)" role="img" aria-labelledby="title desc" data-portrait-version="\(iterationLabel)" data-refinement-depth="\(refinementDepth)" data-revision="\(revision)" data-art-mode="structural-abstract" data-growth-age="\(growth.age)" data-growth-season="\(growth.season)" data-active-force="\(growth.activeForce)" data-material-state="\(growth.materialState)" data-convergence-hash="\(Self.hex(convergenceHash))" data-render-hash="\(Self.hex(sketchHash))" data-memory-signature="\(Self.hex(memorySignature))" data-permutation="\(permutation.values.map(String.init).joined(separator: "-"))">
           <title id="title">Abstract Fold portrait \(iterationLabel) for \(escapedSeed)</title>
           <desc id="desc">A deterministic structural portrait generated from a FoldKernel memory signature, permutation, and convergence hash, with iteration-specific drawing refinement.</desc>
           <metadata>\(Self.escape(growth.reportLines.joined(separator: " | ")))</metadata>
@@ -202,7 +224,8 @@ public struct PortraitRenderer: Sendable {
         \(structuralField)
         \(field)
         \(growthRings)
-          <g transform="rotate(\(Self.format(parameters.headTilt + Double(Self.signedOffset(sketchHash[19], magnitude: 6))) ) 600 800)">
+        \(lineageLeap)
+          <g transform="translate(\(revisionShiftX) \(revisionShiftY)) rotate(\(Self.format(revisionRotation)) 600 800)">
         \(gestures)
         \(glyph)
         \(fineDrawing)
@@ -429,6 +452,55 @@ public struct PortraitRenderer: Sendable {
         }.joined(separator: "\n")
     }
 
+    private func lineageLeap(
+        hash: [UInt8],
+        line: String,
+        accent: String,
+        secondAccent: String,
+        revision: Int,
+        refinementDepth: Int,
+        growth: PortraitGrowth
+    ) -> String {
+        guard revision > 1 else {
+            return ""
+        }
+
+        let revisionIndex = revision - 1
+        let axis = Self.signedOffset(hash[2], magnitude: 22) + revisionIndex * 7
+        let bandWidth = 128 + revisionIndex * 24 + Int(growth.bloom * 70)
+        let bandOffset = Self.signedOffset(hash[9], magnitude: 160)
+        let bandOpacity = Self.format(0.24 + min(0.22, Double(revisionIndex) * 0.05))
+        let band = "  <path data-layer=\"lineage-leap\" d=\"M\(90 + bandOffset) -80 L\(90 + bandOffset + bandWidth) -80 L\(1120 - bandOffset) 1680 L\(1120 - bandOffset - bandWidth) 1680 Z\" fill=\"\(accent)\" opacity=\"\(bandOpacity)\" transform=\"rotate(\(axis) 600 800)\"/>"
+
+        let breaches = (0..<(4 + min(6, revisionIndex * 2))).map { index in
+            let base = index * 5 + revisionIndex
+            let y = 260 + index * (920 / max(1, 3 + revisionIndex)) + Self.signedOffset(hash[(base + 7) % hash.count], magnitude: 48)
+            let x1 = 140 + Self.signedOffset(hash[base % hash.count], magnitude: 74)
+            let x2 = 1060 + Self.signedOffset(hash[(base + 4) % hash.count], magnitude: 74)
+            let c1 = 350 + Self.signedOffset(hash[(base + 11) % hash.count], magnitude: 190)
+            let c2 = 850 + Self.signedOffset(hash[(base + 17) % hash.count], magnitude: 190)
+            let stroke = index.isMultiple(of: 2) ? secondAccent : line
+            let width = 14 + revisionIndex * 4 + Int(growth.compression * 8)
+            let opacity = 0.26 + Double(hash[(base + 23) % hash.count] % 16) / 100
+
+            return "  <path data-layer=\"lineage-leap\" d=\"M\(x1) \(y) C\(c1) \(y - 220) \(c2) \(y + 220) \(x2) \(y + Self.signedOffset(hash[(base + 29) % hash.count], magnitude: 80))\" fill=\"none\" stroke=\"\(stroke)\" stroke-width=\"\(width)\" stroke-linecap=\"round\" opacity=\"\(Self.format(opacity))\"/>"
+        }
+
+        let witnesses = (0..<12).map { index in
+            let sideX = index.isMultiple(of: 2) ? 76 : 1124
+            let y = 128 + index * 116 + Self.signedOffset(hash[(index + revisionIndex * 3) % hash.count], magnitude: 28)
+            let radius = 10 + revisionIndex * 2 + Int(hash[(index + 13) % hash.count] % 10)
+            let opacity = 0.22 + Double(index % 4) * 0.04
+
+            return "  <circle data-layer=\"lineage-leap\" cx=\"\(sideX)\" cy=\"\(y)\" r=\"\(radius)\" fill=\"\(secondAccent)\" opacity=\"\(Self.format(opacity))\"/>"
+        }
+
+        let aperture = 180 + refinementDepth * 7 + revisionIndex * 30
+        let apertureMark = "  <ellipse data-layer=\"lineage-leap\" cx=\"600\" cy=\"800\" rx=\"\(aperture)\" ry=\"\(max(90, aperture / 2))\" fill=\"none\" stroke=\"\(accent)\" stroke-width=\"\(16 + revisionIndex * 3)\" opacity=\"0.48\" transform=\"rotate(\(axis + 90) 600 800)\"/>"
+
+        return ([band, apertureMark] + breaches + witnesses).joined(separator: "\n")
+    }
+
     private func parameterReport(_ parameters: PortraitParameters) -> String {
         parameters.reportLines.enumerated().map { index, line in
             let y = 1510 + index * 16
@@ -457,16 +529,24 @@ public struct PortraitRenderer: Sendable {
     private static func sketchVariationHash(
         convergenceHash: [UInt8],
         seed: String,
-        iteration: Int?
+        iteration: Int?,
+        revision: Int = 1
     ) -> [UInt8] {
         guard let iteration else {
             return convergenceHash
         }
 
-        let salt = Array("\(seed)#sketch#\(iteration)".utf8)
+        let saltText: String
+        if revision <= 1 {
+            saltText = "\(seed)#sketch#\(iteration)"
+        } else {
+            saltText = "\(seed)#sketch#\(iteration).\(revision)"
+        }
+        let salt = Array(saltText.utf8)
         let iterationMagnitude = iteration.magnitude
-        let rotation = Int(iterationMagnitude % UInt(convergenceHash.count))
-        let iterationCycle = Int(iterationMagnitude % 251)
+        let revisionMagnitude = max(1, revision).magnitude
+        let rotation = Int((iterationMagnitude + revisionMagnitude - 1) % UInt(convergenceHash.count))
+        let iterationCycle = Int((iterationMagnitude + (revisionMagnitude - 1) * 37) % 251)
 
         return convergenceHash.indices.map { index in
             let saltByte = salt[index % salt.count]
@@ -475,6 +555,19 @@ public struct PortraitRenderer: Sendable {
 
             return convergenceHash[index] ^ (rotated &+ saltByte &+ iterationByte)
         }
+    }
+
+    private static func versionLabel(iteration: Int?, revision: Int, padded: Bool) -> String {
+        guard let iteration else {
+            return "base"
+        }
+
+        if revision <= 1 {
+            return "v\(iteration)"
+        }
+
+        let anchor = padded ? String(format: "%04d", iteration) : "\(iteration)"
+        return "v\(anchor).\(revision)"
     }
 
     private static func refinementDepth(for iteration: Int?) -> Int {

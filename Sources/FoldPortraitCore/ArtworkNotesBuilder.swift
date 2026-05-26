@@ -6,6 +6,7 @@ public struct ArtworkNotesBuilder: Sendable {
     public func notes(
         seed: String,
         iteration: Int? = nil,
+        revision: Int = 1,
         refinementDepth: Int? = nil,
         convergenceHashHex: String,
         renderHashHex: String,
@@ -14,7 +15,10 @@ public struct ArtworkNotesBuilder: Sendable {
         growth: PortraitGrowth,
         doctrine: PortraitDoctrine = .constitutionalRitual
     ) -> String {
-        let iterationLine = iteration.map { "Sketch iteration: \(String(format: "v%04d", $0))\n" } ?? ""
+        let iterationLine = iteration.map {
+            let version = revision <= 1 ? "v\($0)" : "v\($0).\(revision)"
+            return "Sketch iteration: \(version)\n"
+        } ?? ""
         let refinementLine = refinementDepth.map {
             "Visual refinement depth: \($0). Later archived iterations should contain more surface detail, layered geometry, texture, and material specificity.\n"
         } ?? ""

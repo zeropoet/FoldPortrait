@@ -1,9 +1,9 @@
 # FoldPortrait Abstract Studio Notes
 
 Seed: zero poet
-Sketch iteration: v0008
+Sketch iteration: v6
 Convergence hash: 2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c
-Render hash: c2277340fd681a886dc741da155553815dd62f68ffa79c38fe087192fb29c2fc
+Render hash: f01326b77fc7b41e1cdcb4342692d9c0670e5a7ac26f2f7d5d014cd4c9dc19b3
 Memory signature: 010406020801100507030a0b0f0e090d0c022c0309
 
 ## Artwork
@@ -40,21 +40,6 @@ Treat these as paint, graphite, wash, stain, and paper behavior.
 Surface activity: 0.063.
 Massing: 1.080.
 
-## Growth Climate
-
-Evolution age: 14.
-Seasonal phase: 1.
-Active force: torsion.
-Material state: burnished edge.
-Compression: 0.718.
-Torsion: 0.485.
-Shear: 0.767.
-Bloom: 0.820.
-Erosion: 0.269.
-Sediment: 0.414.
-Fiber memory: 0.428.
-Let these forces alter placement, curve behavior, density, weathering, and material residue over time.
-
 ## Fold Signature
 
 Fold marks remain visible as structural notation, gesture, field pressure, and accumulated drawing.
@@ -62,7 +47,7 @@ Use Fold marks as quiet constitutional traces, not decorative motifs.
 They may appear as grid pressure, small notation, scratched lines, washed fields, or repeated structural intervals.
 Fold mark scale: 1.138.
 Fold mark opacity: 0.440.
-Visual refinement depth: 14. Later archived iterations should contain more surface detail, layered geometry, texture, and material specificity.
+Visual refinement depth: 12. Later archived iterations should contain more surface detail, layered geometry, texture, and material specificity.
 Preserve the identity hash while increasing visual resolution across future archived iterations.
 
 ## Light And Space

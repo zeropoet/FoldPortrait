@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc" data-refinement-depth="13" data-art-mode="structural-abstract" data-growth-age="13" data-growth-season="0" data-active-force="torsion" data-material-state="settled pigment" data-convergence-hash="2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c" data-render-hash="242827e49821ecb738887626b33344bc95d75b6ed80cb59c8bb5a0245eb8e749" data-memory-signature="010406020801100507030a0b0f0e090d0c022c0309" data-permutation="4-6-2-8-1-16-5-7-3-10-11-15-14-9-13-12">
-  <title id="title">Abstract Fold portrait v0007 for zero poet</title>
+  <title id="title">Abstract Fold portrait v7 for zero poet</title>
   <desc id="desc">A deterministic structural portrait generated from a FoldKernel memory signature, permutation, and convergence hash, with iteration-specific drawing refinement.</desc>
   <metadata>age 13 season 0 active force torsion | compression 0.64 torsion 0.25 shear 0.28 | bloom 0.81 erosion 0.57 sediment 0.41 | fiber memory 0.43 material settled pigment</metadata>
   <defs>
@@ -442,7 +442,7 @@
   <path data-layer="material-weathering" d="M601 1214 l49 13" fill="none" stroke="#1f2933" stroke-width="1.34" stroke-linecap="round" opacity="0.14"/>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#1f2933">
     <text x="600" y="1460" text-anchor="middle" font-size="30">242827e49821ecb7</text>
-    <text x="600" y="1482" text-anchor="middle" font-size="17" opacity="0.72">abstract study v0007</text>
+    <text x="600" y="1482" text-anchor="middle" font-size="17" opacity="0.72">abstract study v7</text>
     <text x="600" y="1510" text-anchor="middle" font-size="15" opacity="0.72">field width 0.90 vertical 1.14 taper 1.19</text>
     <text x="600" y="1526" text-anchor="middle" font-size="15" opacity="0.72">paired interval 0.98 mark scale 1.03 tension -10.85</text>
     <text x="600" y="1542" text-anchor="middle" font-size="15" opacity="0.72">central descent 1.01 breadth 1.01</text>

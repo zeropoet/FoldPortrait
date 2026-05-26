@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc" data-refinement-depth="17" data-art-mode="structural-abstract" data-growth-age="17" data-growth-season="1" data-active-force="torsion" data-material-state="reopened fold" data-convergence-hash="2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c" data-render-hash="1401313c8b8a53694d0a97e7896a3eca53ef982f260df8ef48a2a9c75bde5290" data-memory-signature="010406020801100507030a0b0f0e090d0c022c0309" data-permutation="4-6-2-8-1-16-5-7-3-10-11-15-14-9-13-12">
-  <title id="title">Abstract Fold portrait v0011 for zero poet</title>
+  <title id="title">Abstract Fold portrait v11 for zero poet</title>
   <desc id="desc">A deterministic structural portrait generated from a FoldKernel memory signature, permutation, and convergence hash, with iteration-specific drawing refinement.</desc>
   <metadata>age 17 season 1 active force torsion | compression 0.79 torsion 0.60 shear 0.76 | bloom 0.90 erosion 0.84 sediment 0.42 | fiber memory 0.43 material reopened fold</metadata>
   <defs>
@@ -545,7 +545,7 @@
   <path data-layer="material-weathering" d="M1036 845 l46 20" fill="none" stroke="#1f2933" stroke-width="1.35" stroke-linecap="round" opacity="0.15"/>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#1f2933">
     <text x="600" y="1460" text-anchor="middle" font-size="30">1401313c8b8a5369</text>
-    <text x="600" y="1482" text-anchor="middle" font-size="17" opacity="0.72">abstract study v0011</text>
+    <text x="600" y="1482" text-anchor="middle" font-size="17" opacity="0.72">abstract study v11</text>
     <text x="600" y="1510" text-anchor="middle" font-size="15" opacity="0.72">field width 0.90 vertical 1.14 taper 1.19</text>
     <text x="600" y="1526" text-anchor="middle" font-size="15" opacity="0.72">paired interval 0.98 mark scale 1.03 tension -10.85</text>
     <text x="600" y="1542" text-anchor="middle" font-size="15" opacity="0.72">central descent 1.01 breadth 1.01</text>

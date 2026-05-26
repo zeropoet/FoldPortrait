@@ -15,8 +15,9 @@ FoldPortrait treats the underlying code as the subject.
 
 - identity anchor: stable convergence hash and memory signature
 - visible body: SVG layers generated from FoldKernel-derived structure
-- evolution path: each iteration preserves identity while changing through
-  growth forces, material weathering, and refinement
+- evolution path: twelve anchor portraits followed by revision passes
+  (`v1.2`, `v2.2`, `v3.2`, ...), each preserving identity while making an
+  obvious lineage leap
 - art mode: structural abstraction, drawing, painting, field, rhythm, notation
 - constraint: no photoreal requirement, no avatar polish, no decorative symbols
   without structural purpose
@@ -31,8 +32,9 @@ Open the current published topology study:
 The root page redirects to `Web/`, where the browser reads
 [Output/iterations/evolution.json](Output/iterations/evolution.json) and
 displays the latest generated SVG as an inspectable Three.js topology. The
-gallery view lets you browse every recorded render iteration, and the left and
-right arrow keys move directly through the version history.
+gallery view is a lineage matrix: each row is one of the twelve anchors, and
+revision passes appear beside their source anchor. The left and right arrow keys
+move directly through the ledger order.
 
 For local viewing:
 
@@ -48,17 +50,33 @@ http://localhost:8000/Web/
 
 ## Generator
 
-Run the next iteration:
+Run the next portrait:
 
 ```sh
 swift run fold-portrait "zero poet"
 ```
 
+The first pass fills twelve anchors: `v1` through `v12`. After all twelve
+anchors exist, generation moves through revision passes in anchor order:
+
+```text
+v1.2 -> v2.2 -> v3.2 -> ... -> v12.2
+v1.3 -> v2.3 -> v3.3 -> ... -> v12.3
+```
+
+You can target a specific anchor and revision:
+
+```sh
+swift run fold-portrait --iteration 2 --revision 2 "zero poet"
+```
+
 The generator writes:
 
 ```text
-Output/iterations/foldportrait-vNNNN-zero-poet-2cfdfa64.svg
-Output/iterations/foldportrait-vNNNN-zero-poet-2cfdfa64.notes.md
+Output/iterations/foldportrait-vN-zero-poet-2cfdfa64.svg
+Output/iterations/foldportrait-vN-zero-poet-2cfdfa64.notes.md
+Output/iterations/foldportrait-vN.R-zero-poet-2cfdfa64.svg
+Output/iterations/foldportrait-vN.R-zero-poet-2cfdfa64.notes.md
 Output/iterations/evolution.json
 ```
 
@@ -66,9 +84,10 @@ Each run keeps the same convergence hash for the same seed as an identity
 anchor, but receives a distinct render hash for the visible study. The render
 also receives a growth climate: compression, torsion, shear, bloom, erosion,
 sediment, fiber memory, an active force, and a material state. These forces give
-future iterations a reason to change beyond simply accumulating more marks.
-Refinement depth grows with the iteration and is used internally by the renderer
-and web topology.
+future portraits a reason to change beyond simply accumulating more marks.
+Refinement depth belongs to the source anchor. Revision passes keep that anchor
+depth, then add a revision-only `lineage-leap` layer so each `.2`, `.3`, and
+later pass is visibly distinct from its source.
 
 ## Evolution Ledger
 
@@ -76,6 +95,8 @@ and web topology.
 the generated history:
 
 - iteration
+- source iteration
+- revision
 - seed
 - convergence hash
 - render hash
@@ -86,7 +107,9 @@ the generated history:
 - mutation rule
 - structural identity pressures
 
-The web layer reads this ledger and always loads the latest generated study.
+The web layer reads this ledger and always loads the latest generated study. It
+also uses the source iteration and revision fields to group portraits into the
+lineage matrix.
 
 ## Studio Notes
 
@@ -110,22 +133,24 @@ The layout is derived from:
 - refinement depth
 - growth climate forces
 - structural identity pressures
+- SVG stroke width
 
 Objects are not fixed to simple layer planes. Their position, depth, weathering,
 and drift emerge from the FoldKernel-derived structure and from the current
-growth climate.
+growth climate. SVG paths are rendered as tube geometry, so wide strokes in the
+source portrait remain physically wider in the 3D topology.
 
 The visible readout is intentionally minimal:
 
-- iteration
+- version
 - topology form count
 - render hash prefix
 - countdown to the next daily study
 
-The gallery button opens the full evolution archive as an SVG grid. Selecting a
-card drills into that iteration's topology, `Latest` returns to the newest
-study, and the left and right arrow keys step backward or forward through the
-ledger without opening the gallery.
+The gallery button opens the full evolution archive as a minimal lineage matrix.
+Selecting a card drills into that portrait's topology, `Latest` returns to the
+newest study, and the left and right arrow keys step backward or forward through
+the ledger without opening the gallery.
 
 ## Daily Ritual
 
@@ -140,9 +165,9 @@ Every day at 12:00 AM America/New_York
 
 The workflow checks out `FoldPortrait` and the sibling
 [FoldKernel](https://github.com/zeropoet/FoldKernel) dependency, runs the test
-suite, generates the next `zero poet` portrait, commits the new
-`Output/iterations` artifacts, and pushes them back to `main`. GitHub Pages then
-serves the updated browser study from the repository.
+suite, generates the next `zero poet` portrait in the anchor/revision sequence,
+commits the new `Output/iterations` artifacts, and pushes them back to `main`.
+GitHub Pages then serves the updated browser study from the repository.
 
 The workflow also supports manual dispatch from the GitHub Actions tab.
 

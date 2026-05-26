@@ -1,9 +1,9 @@
 # FoldPortrait Abstract Studio Notes
 
 Seed: zero poet
-Sketch iteration: v0001
+Sketch iteration: v1.2
 Convergence hash: 2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c
-Render hash: 5af19cfcc5729d16be8e556fd76709c11697d1f8d16a93f825fe2091acc0da19
+Render hash: b50698aa372aa188f52816809cb9bb61daf2b3563f80ceba918a73bb12cd5464
 Memory signature: 010406020801100507030a0b0f0e090d0c022c0309
 
 ## Artwork
@@ -39,6 +39,21 @@ Structural color: #536d46.
 Treat these as paint, graphite, wash, stain, and paper behavior.
 Surface activity: 0.063.
 Massing: 1.080.
+
+## Growth Climate
+
+Evolution age: 7.
+Seasonal phase: 0.
+Active force: shear.
+Material state: abraded ink.
+Compression: 0.749.
+Torsion: 0.264.
+Shear: 0.479.
+Bloom: 0.896.
+Erosion: 0.648.
+Sediment: 0.406.
+Fiber memory: 0.413.
+Let these forces alter placement, curve behavior, density, weathering, and material residue over time.
 
 ## Fold Signature
 

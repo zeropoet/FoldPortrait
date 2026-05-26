@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc" data-refinement-depth="15" data-art-mode="structural-abstract" data-growth-age="15" data-growth-season="1" data-active-force="compression" data-material-state="reopened fold" data-convergence-hash="2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c" data-render-hash="de7dd664279d7cba2df7d277724787d85bfd298b6e5ff9ca8c5ae0680b0db8f9" data-memory-signature="010406020801100507030a0b0f0e090d0c022c0309" data-permutation="4-6-2-8-1-16-5-7-3-10-11-15-14-9-13-12">
-  <title id="title">Abstract Fold portrait v0009 for zero poet</title>
+  <title id="title">Abstract Fold portrait v9 for zero poet</title>
   <desc id="desc">A deterministic structural portrait generated from a FoldKernel memory signature, permutation, and convergence hash, with iteration-specific drawing refinement.</desc>
   <metadata>age 15 season 1 active force compression | compression 0.75 torsion 0.66 shear 0.45 | bloom 0.95 erosion 0.72 sediment 0.41 | fiber memory 0.43 material reopened fold</metadata>
   <defs>
@@ -494,7 +494,7 @@
   <path data-layer="material-weathering" d="M186 872 l102 2" fill="none" stroke="#1f2933" stroke-width="1.35" stroke-linecap="round" opacity="0.13"/>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#1f2933">
     <text x="600" y="1460" text-anchor="middle" font-size="30">de7dd664279d7cba</text>
-    <text x="600" y="1482" text-anchor="middle" font-size="17" opacity="0.72">abstract study v0009</text>
+    <text x="600" y="1482" text-anchor="middle" font-size="17" opacity="0.72">abstract study v9</text>
     <text x="600" y="1510" text-anchor="middle" font-size="15" opacity="0.72">field width 0.90 vertical 1.14 taper 1.19</text>
     <text x="600" y="1526" text-anchor="middle" font-size="15" opacity="0.72">paired interval 0.98 mark scale 1.03 tension -10.85</text>
     <text x="600" y="1542" text-anchor="middle" font-size="15" opacity="0.72">central descent 1.01 breadth 1.01</text>

@@ -1,10 +1,10 @@
 [
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
-    "iteration" : "v0005",
+    "iteration" : "v5",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
-    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0005-zero-poet-2cfdfa64.notes.md",
+    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v5-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 11,
     "renderHash" : "393c0eb52db85557b4b969f12b1c792452ff1f7bad1673c376da967e2768b620",
     "seed" : "zero poet",
@@ -16,14 +16,14 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0005-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v5-zero-poet-2cfdfa64.svg"
   },
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
-    "iteration" : "v0001",
+    "iteration" : "v1",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
-    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0001-zero-poet-2cfdfa64.notes.md",
+    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v1-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 7,
     "renderHash" : "5af19cfcc5729d16be8e556fd76709c11697d1f8d16a93f825fe2091acc0da19",
     "seed" : "zero poet",
@@ -35,14 +35,14 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0001-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v1-zero-poet-2cfdfa64.svg"
   },
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
-    "iteration" : "v0002",
+    "iteration" : "v2",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
-    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0002-zero-poet-2cfdfa64.notes.md",
+    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v2-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 8,
     "renderHash" : "07995d8b0803f11c6de436bc4b064ef512177a40ca3fd1e502f5482b8d7a6142",
     "seed" : "zero poet",
@@ -54,14 +54,14 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0002-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v2-zero-poet-2cfdfa64.svg"
   },
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
-    "iteration" : "v0003",
+    "iteration" : "v3",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
-    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0003-zero-poet-2cfdfa64.notes.md",
+    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v3-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 9,
     "renderHash" : "ae5907ddd86eeec0c402ea1c544515039b6be1781c7aad1d089ce3cd64a2c96e",
     "seed" : "zero poet",
@@ -73,14 +73,14 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0003-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v3-zero-poet-2cfdfa64.svg"
   },
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
-    "iteration" : "v0004",
+    "iteration" : "v4",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
-    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0004-zero-poet-2cfdfa64.notes.md",
+    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v4-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 10,
     "renderHash" : "ed043c8c2e120168e7528b3b6f080e9bfdc92ebeab7c4ba6e33eedc4fd013085",
     "seed" : "zero poet",
@@ -92,14 +92,14 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0004-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v4-zero-poet-2cfdfa64.svg"
   },
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
-    "iteration" : "v0006",
+    "iteration" : "v6",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific drawing pressure.",
-    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0006-zero-poet-2cfdfa64.notes.md",
+    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v6-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 12,
     "renderHash" : "f01326b77fc7b41e1cdcb4342692d9c0670e5a7ac26f2f7d5d014cd4c9dc19b3",
     "seed" : "zero poet",
@@ -111,7 +111,7 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0006-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v6-zero-poet-2cfdfa64.svg"
   },
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
@@ -128,10 +128,10 @@
       "shear" : 0.2816610766184957,
       "torsion" : 0.2541635515384162
     },
-    "iteration" : "v0007",
+    "iteration" : "v7",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific growth forces, material weathering, and drawing pressure.",
-    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0007-zero-poet-2cfdfa64.notes.md",
+    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v7-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 13,
     "renderHash" : "242827e49821ecb738887626b33344bc95d75b6ed80cb59c8bb5a0245eb8e749",
     "seed" : "zero poet",
@@ -143,7 +143,7 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v0007-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v7-zero-poet-2cfdfa64.svg"
   },
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
@@ -160,10 +160,10 @@
       "shear" : 0.7665107666363824,
       "torsion" : 0.4849196316381418
     },
-    "iteration" : "v0008",
+    "iteration" : "v8",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific growth forces, material weathering, and drawing pressure.",
-    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0008-zero-poet-2cfdfa64.notes.md",
+    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v8-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 14,
     "renderHash" : "c2277340fd681a886dc741da155553815dd62f68ffa79c38fe087192fb29c2fc",
     "seed" : "zero poet",
@@ -175,7 +175,7 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0008-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v8-zero-poet-2cfdfa64.svg"
   },
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
@@ -192,10 +192,10 @@
       "shear" : 0.4530849018929394,
       "torsion" : 0.6575358751403392
     },
-    "iteration" : "v0009",
+    "iteration" : "v9",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific growth forces, material weathering, and drawing pressure.",
-    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0009-zero-poet-2cfdfa64.notes.md",
+    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v9-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 15,
     "renderHash" : "de7dd664279d7cba2df7d277724787d85bfd298b6e5ff9ca8c5ae0680b0db8f9",
     "seed" : "zero poet",
@@ -207,7 +207,7 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0009-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v9-zero-poet-2cfdfa64.svg"
   },
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
@@ -224,10 +224,10 @@
       "shear" : 0.1517108534824062,
       "torsion" : 0.9585109434044876
     },
-    "iteration" : "v0010",
+    "iteration" : "v10",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific growth forces, material weathering, and drawing pressure.",
-    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0010-zero-poet-2cfdfa64.notes.md",
+    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v10-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 16,
     "renderHash" : "bbdffda153fa0d7bda653617639031da61c00a3985fd283bd9ca3fd928c6b4d4",
     "seed" : "zero poet",
@@ -239,7 +239,7 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0010-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v10-zero-poet-2cfdfa64.svg"
   },
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
@@ -256,10 +256,10 @@
       "shear" : 0.7616856082365595,
       "torsion" : 0.5999919265729123
     },
-    "iteration" : "v0011",
+    "iteration" : "v11",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific growth forces, material weathering, and drawing pressure.",
-    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0011-zero-poet-2cfdfa64.notes.md",
+    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v11-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 17,
     "renderHash" : "1401313c8b8a53694d0a97e7896a3eca53ef982f260df8ef48a2a9c75bde5290",
     "seed" : "zero poet",
@@ -271,7 +271,7 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0011-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v11-zero-poet-2cfdfa64.svg"
   },
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
@@ -288,10 +288,10 @@
       "shear" : 0.7048349850037037,
       "torsion" : 0.797499883605886
     },
-    "iteration" : "v0012",
+    "iteration" : "v12",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific growth forces, material weathering, and drawing pressure.",
-    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0012-zero-poet-2cfdfa64.notes.md",
+    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v12-zero-poet-2cfdfa64.notes.md",
     "refinementDepth" : 18,
     "renderHash" : "3d42a74b5ac7a0d997ac84d54e6741db719b6ecff5fe0d7d1310938b59fa8f50",
     "seed" : "zero poet",
@@ -303,30 +303,32 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0012-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v12-zero-poet-2cfdfa64.svg"
   },
   {
     "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
     "growthClimate" : {
-      "activeForce" : "fiber-memory",
-      "age" : 18,
-      "bloom" : 0.6207450980392156,
-      "compression" : 0.7933150043862311,
-      "erosion" : 0.4910015898251192,
-      "fiberMemory" : 0.4325031903777802,
-      "materialState" : "reopened fold",
-      "season" : 1,
-      "sediment" : 0.41826393478739815,
-      "shear" : 0.7048349850037037,
-      "torsion" : 0.797499883605886
+      "activeForce" : "shear",
+      "age" : 7,
+      "bloom" : 0.896156862745098,
+      "compression" : 0.7494094157722898,
+      "erosion" : 0.6478600953895071,
+      "fiberMemory" : 0.4132946686033427,
+      "materialState" : "abraded ink",
+      "season" : 0,
+      "sediment" : 0.4059043842256004,
+      "shear" : 0.47894264455408364,
+      "torsion" : 0.2638243558461905
     },
-    "iteration" : "v0013",
+    "iteration" : "v1.2",
     "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
     "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific growth forces, material weathering, and drawing pressure.",
-    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0013-zero-poet-2cfdfa64.notes.md",
-    "refinementDepth" : 18,
-    "renderHash" : "3d42a74b5ac7a0d997ac84d54e6741db719b6ecff5fe0d7d1310938b59fa8f50",
+    "notesPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v1.2-zero-poet-2cfdfa64.notes.md",
+    "refinementDepth" : 7,
+    "renderHash" : "b50698aa372aa188f52816809cb9bb61daf2b3563f80ceba918a73bb12cd5464",
+    "revision" : 2,
     "seed" : "zero poet",
+    "sourceIteration" : 1,
     "structuralIdentity" : {
       "asymmetry" : 11.64705882352941,
       "axisTilt" : -2.2784313725490195,
@@ -335,70 +337,6 @@
       "lowerMassTaper" : 1.1913725490196079,
       "verticalFieldPressure" : 1.1381176470588235
     },
-    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0013-zero-poet-2cfdfa64.svg"
-  },
-  {
-    "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
-    "growthClimate" : {
-      "activeForce" : "fiber-memory",
-      "age" : 18,
-      "bloom" : 0.6207450980392156,
-      "compression" : 0.7933150043862311,
-      "erosion" : 0.4910015898251192,
-      "fiberMemory" : 0.4325031903777802,
-      "materialState" : "reopened fold",
-      "season" : 1,
-      "sediment" : 0.41826393478739815,
-      "shear" : 0.7048349850037037,
-      "torsion" : 0.797499883605886
-    },
-    "iteration" : "v0014",
-    "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
-    "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific growth forces, material weathering, and drawing pressure.",
-    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0014-zero-poet-2cfdfa64.notes.md",
-    "refinementDepth" : 18,
-    "renderHash" : "3d42a74b5ac7a0d997ac84d54e6741db719b6ecff5fe0d7d1310938b59fa8f50",
-    "seed" : "zero poet",
-    "structuralIdentity" : {
-      "asymmetry" : 11.64705882352941,
-      "axisTilt" : -2.2784313725490195,
-      "fieldWidthPressure" : 0.8952156862745098,
-      "internalHorizon" : 0.48274509803921567,
-      "lowerMassTaper" : 1.1913725490196079,
-      "verticalFieldPressure" : 1.1381176470588235
-    },
-    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0014-zero-poet-2cfdfa64.svg"
-  },
-  {
-    "convergenceHash" : "2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c",
-    "growthClimate" : {
-      "activeForce" : "fiber-memory",
-      "age" : 18,
-      "bloom" : 0.6207450980392156,
-      "compression" : 0.7933150043862311,
-      "erosion" : 0.4910015898251192,
-      "fiberMemory" : 0.4325031903777802,
-      "materialState" : "reopened fold",
-      "season" : 1,
-      "sediment" : 0.41826393478739815,
-      "shear" : 0.7048349850037037,
-      "torsion" : 0.797499883605886
-    },
-    "iteration" : "v0015",
-    "memorySignature" : "010406020801100507030a0b0f0e090d0c022c0309",
-    "mutationRule" : "Preserve identity hash and memory signature; evolve visible structure through iteration-specific growth forces, material weathering, and drawing pressure.",
-    "notesPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0015-zero-poet-2cfdfa64.notes.md",
-    "refinementDepth" : 18,
-    "renderHash" : "3d42a74b5ac7a0d997ac84d54e6741db719b6ecff5fe0d7d1310938b59fa8f50",
-    "seed" : "zero poet",
-    "structuralIdentity" : {
-      "asymmetry" : 11.64705882352941,
-      "axisTilt" : -2.2784313725490195,
-      "fieldWidthPressure" : 0.8952156862745098,
-      "internalHorizon" : 0.48274509803921567,
-      "lowerMassTaper" : 1.1913725490196079,
-      "verticalFieldPressure" : 1.1381176470588235
-    },
-    "svgPath" : "\/Users\/runner\/work\/FoldPortrait\/FoldPortrait\/FoldPortrait\/Output\/iterations\/foldportrait-v0015-zero-poet-2cfdfa64.svg"
+    "svgPath" : "\/Users\/zeropoet\/WebstormProjects\/FoldPortrait\/Output\/iterations\/foldportrait-v1.2-zero-poet-2cfdfa64.svg"
   }
 ]

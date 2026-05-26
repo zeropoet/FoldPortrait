@@ -13,17 +13,18 @@ struct FoldPortrait {
             withIntermediateDirectories: true
         )
 
-        let iteration = try options.iteration ?? nextIterationNumber(in: outputDirectory)
         let ledgerURL = outputDirectory.appendingPathComponent("evolution.json")
-        let refinementDepth = try options.refinementDepth ?? nextRefinementDepth(from: ledgerURL, fallbackIteration: iteration)
+        let version = try options.version(from: ledgerURL, outputDirectory: outputDirectory)
+        let refinementDepth = try options.refinementDepth ?? refinementDepth(for: version, ledgerURL: ledgerURL)
         let result = PortraitRenderer().render(
             seed: seed,
-            iteration: iteration,
+            iteration: version.anchor,
+            revision: version.revision,
             refinementDepth: refinementDepth
         )
         let filename = [
             "foldportrait",
-            String(format: "v%04d", iteration),
+            version.fileComponent,
             slug(seed),
             String(result.convergenceHashHex.prefix(8)),
         ].joined(separator: "-")
@@ -35,7 +36,7 @@ struct FoldPortrait {
         try appendEvolutionEntry(
             to: ledgerURL,
             seed: seed,
-            iteration: iteration,
+            version: version,
             refinementDepth: refinementDepth,
             result: result,
             svgURL: svgURL,
@@ -45,7 +46,7 @@ struct FoldPortrait {
         print("Wrote \(svgURL.path)")
         print("Wrote \(notesURL.path)")
         print("Updated \(ledgerURL.path)")
-        print("Iteration: \(String(format: "v%04d", iteration))")
+        print("Iteration: \(version.displayLabel)")
         print("Convergence hash: \(result.convergenceHashHex)")
         print("Render hash: \(result.renderHashHex)")
     }
@@ -62,7 +63,9 @@ struct FoldPortrait {
             }
 
             let start = filename.index(filename.startIndex, offsetBy: "foldportrait-v".count)
-            let end = filename.index(start, offsetBy: 4, limitedBy: filename.endIndex) ?? filename.endIndex
+            let end = filename[start...].firstIndex { character in
+                character == "." || character == "-"
+            } ?? filename.endIndex
             return Int(filename[start..<end])
         }
 
@@ -98,10 +101,58 @@ struct FoldPortrait {
         return min(18, max(fallbackIteration, (entries.map(\.refinementDepth).max() ?? 0) + 1))
     }
 
+    fileprivate static func nextPortraitVersion(
+        from ledgerURL: URL,
+        outputDirectory: URL
+    ) throws -> PortraitVersion {
+        guard FileManager.default.fileExists(atPath: ledgerURL.path) else {
+            return PortraitVersion(anchor: try nextIterationNumber(in: outputDirectory), revision: 1)
+        }
+
+        let data = try Data(contentsOf: ledgerURL)
+        let entries = try JSONDecoder().decode([EvolutionEntry].self, from: data)
+        let versions = entries.compactMap { PortraitVersion(label: $0.iteration) }
+        let firstPassAnchors = Set(versions.filter { $0.revision == 1 }.map(\.anchor))
+        let anchorRange = 1...12
+
+        if firstPassAnchors.count < anchorRange.count {
+            let nextAnchor = anchorRange.first { !firstPassAnchors.contains($0) } ?? 1
+            return PortraitVersion(anchor: nextAnchor, revision: 1)
+        }
+
+        let occupied = Set(versions)
+        let maxRevision = max(2, versions.map(\.revision).max() ?? 1)
+        for revision in 2...maxRevision {
+            for anchor in anchorRange where !occupied.contains(PortraitVersion(anchor: anchor, revision: revision)) {
+                return PortraitVersion(anchor: anchor, revision: revision)
+            }
+        }
+
+        return PortraitVersion(anchor: 1, revision: maxRevision + 1)
+    }
+
+    private static func refinementDepth(
+        for version: PortraitVersion,
+        ledgerURL: URL
+    ) throws -> Int {
+        if version.revision <= 1 {
+            return try nextRefinementDepth(from: ledgerURL, fallbackIteration: version.anchor)
+        }
+
+        guard FileManager.default.fileExists(atPath: ledgerURL.path) else {
+            return min(18, max(1, version.anchor))
+        }
+
+        let data = try Data(contentsOf: ledgerURL)
+        let entries = try JSONDecoder().decode([EvolutionEntry].self, from: data)
+        let baseLabel = PortraitVersion(anchor: version.anchor, revision: 1).ledgerLabel
+        return entries.first { $0.iteration == baseLabel }?.refinementDepth ?? min(18, max(1, version.anchor))
+    }
+
     private static func appendEvolutionEntry(
         to ledgerURL: URL,
         seed: String,
-        iteration: Int,
+        version: PortraitVersion,
         refinementDepth: Int,
         result: PortraitRenderResult,
         svgURL: URL,
@@ -116,7 +167,7 @@ struct FoldPortrait {
         }
 
         let entry = EvolutionEntry(
-            iteration: String(format: "v%04d", iteration),
+            iteration: version.ledgerLabel,
             seed: seed,
             convergenceHash: result.convergenceHashHex,
             renderHash: result.renderHashHex,
@@ -125,6 +176,8 @@ struct FoldPortrait {
             svgPath: svgURL.path,
             notesPath: notesURL.path,
             mutationRule: "Preserve identity hash and memory signature; evolve visible structure through iteration-specific growth forces, material weathering, and drawing pressure.",
+            sourceIteration: version.anchor,
+            revision: version.revision,
             structuralIdentity: StructuralIdentity(
                 fieldWidthPressure: result.parameters.fieldWidthPressure,
                 verticalFieldPressure: result.parameters.verticalFieldPressure,
@@ -158,11 +211,13 @@ struct FoldPortrait {
 private struct CommandOptions {
     let seed: String
     let iteration: Int?
+    let revision: Int?
     let refinementDepth: Int?
 
     init(arguments: [String]) throws {
         var seed: String?
         var iteration: Int?
+        var revision: Int?
         var refinementDepth: Int?
         var index = 0
 
@@ -172,6 +227,9 @@ private struct CommandOptions {
             case "--iteration":
                 index += 1
                 iteration = try Self.integerValue(after: argument, in: arguments, at: index)
+            case "--revision":
+                index += 1
+                revision = try Self.integerValue(after: argument, in: arguments, at: index)
             case "--refinement-depth":
                 index += 1
                 refinementDepth = try Self.integerValue(after: argument, in: arguments, at: index)
@@ -187,7 +245,21 @@ private struct CommandOptions {
 
         self.seed = seed ?? "zero poet"
         self.iteration = iteration
+        self.revision = revision
         self.refinementDepth = refinementDepth
+    }
+
+    func version(from ledgerURL: URL, outputDirectory: URL) throws -> PortraitVersion {
+        if let iteration {
+            return PortraitVersion(anchor: iteration, revision: revision ?? 1)
+        }
+
+        if let revision {
+            let next = try FoldPortrait.nextPortraitVersion(from: ledgerURL, outputDirectory: outputDirectory)
+            return PortraitVersion(anchor: next.anchor, revision: revision)
+        }
+
+        return try FoldPortrait.nextPortraitVersion(from: ledgerURL, outputDirectory: outputDirectory)
     }
 
     private static func integerValue(after option: String, in arguments: [String], at index: Int) throws -> Int {
@@ -195,6 +267,51 @@ private struct CommandOptions {
             throw CommandError.missingInteger(option)
         }
         return value
+    }
+}
+
+private struct PortraitVersion: Codable, Equatable, Hashable {
+    let anchor: Int
+    let revision: Int
+
+    init(anchor: Int, revision: Int) {
+        self.anchor = max(1, anchor)
+        self.revision = max(1, revision)
+    }
+
+    init?(label: String) {
+        guard label.first == "v" else {
+            return nil
+        }
+
+        let body = label.dropFirst()
+        let parts = body.split(separator: ".", maxSplits: 1)
+        guard let anchor = Int(parts[0]) else {
+            return nil
+        }
+
+        let revision = parts.count == 2 ? Int(parts[1]) ?? 1 : 1
+        self.init(anchor: anchor, revision: revision)
+    }
+
+    var ledgerLabel: String {
+        if revision <= 1 {
+            return "v\(anchor)"
+        }
+
+        return "v\(anchor).\(revision)"
+    }
+
+    var fileComponent: String {
+        if revision <= 1 {
+            return "v\(anchor)"
+        }
+
+        return "v\(anchor).\(revision)"
+    }
+
+    var displayLabel: String {
+        ledgerLabel
     }
 }
 
@@ -222,6 +339,8 @@ private struct EvolutionEntry: Codable {
     let svgPath: String
     let notesPath: String
     let mutationRule: String
+    let sourceIteration: Int?
+    let revision: Int?
     let structuralIdentity: StructuralIdentity
     let growthClimate: GrowthClimate?
 }

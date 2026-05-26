@@ -14,7 +14,10 @@ const LAYER_ORDER = [
   "fold-notation",
   "field-dust",
   "material-weathering",
+  "lineage-leap",
 ];
+
+const ANCHOR_COUNT = 12;
 
 const state = {
   currentIteration: "",
@@ -131,7 +134,9 @@ async function fetchJson(url) {
 
 async function loadLedger() {
   const ledger = await fetchJson(versionedUrl("../Output/iterations/evolution.json"));
-  state.ledger = ledger.slice().sort((a, b) => a.iteration.localeCompare(b.iteration));
+  state.ledger = ledger
+    .map((entry) => ({ ...entry, version: versionFromEntry(entry) }))
+    .sort(compareEntries);
   return state.ledger;
 }
 
@@ -254,40 +259,107 @@ function renderGallery() {
   }
 
   const fragment = document.createDocumentFragment();
-  state.ledger
-    .slice()
-    .reverse()
-    .forEach((entry) => {
-      const card = document.createElement("button");
-      const hash = (entry.renderHash || entry.convergenceHash || "").slice(0, 16);
-      const isCurrent = entry.iteration === state.currentIteration;
-      card.className = "gallery-card";
-      card.type = "button";
-      card.setAttribute("aria-current", String(isCurrent));
-      card.setAttribute("aria-label", `Open ${entry.iteration}`);
-      card.addEventListener("click", () => openGalleryEntry(entry));
+  const groups = lineageGroups();
 
-      const figure = document.createElement("figure");
-      const image = document.createElement("img");
-      image.src = versionedUrl(outputPath(entry.svgPath));
-      image.alt = `${entry.iteration} render`;
-      image.loading = "lazy";
-      figure.append(image);
+  groups.forEach((group) => {
+    const row = document.createElement("article");
+    row.className = "lineage-row";
 
-      const meta = document.createElement("div");
-      meta.className = "gallery-meta";
-      const title = document.createElement("strong");
-      title.textContent =
-        entry.iteration === state.latestIteration ? `${entry.iteration} latest` : entry.iteration;
-      const detail = document.createElement("span");
-      detail.textContent = hash;
-      meta.append(title, detail);
+    const header = document.createElement("header");
+    header.className = "lineage-header";
+    const eyebrow = document.createElement("span");
+    eyebrow.className = "label";
+    eyebrow.textContent = "Anchor";
+    const title = document.createElement("strong");
+    title.textContent = String(group.anchor).padStart(2, "0");
+    const count = document.createElement("span");
+    count.className = "lineage-count";
+    count.textContent = `${group.entries.length} ${group.entries.length === 1 ? "state" : "states"}`;
+    header.append(eyebrow, title, count);
 
-      card.append(figure, meta);
-      fragment.append(card);
+    const rail = document.createElement("div");
+    rail.className = "lineage-rail";
+    group.entries.forEach((entry) => {
+      rail.append(galleryCard(entry));
     });
 
+    row.append(header, rail);
+    fragment.append(row);
+  });
+
   galleryGrid.replaceChildren(fragment);
+}
+
+function lineageGroups() {
+  const groups = new Map();
+  for (let anchor = 1; anchor <= ANCHOR_COUNT; anchor += 1) {
+    groups.set(anchor, []);
+  }
+
+  state.ledger.forEach((entry) => {
+    const anchor = entry.version.anchor;
+    if (!groups.has(anchor)) {
+      groups.set(anchor, []);
+    }
+    groups.get(anchor).push(entry);
+  });
+
+  return [...groups.entries()]
+    .filter(([, entries]) => entries.length > 0)
+    .map(([anchor, entries]) => ({
+      anchor,
+      entries: entries.slice().sort((a, b) => a.version.revision - b.version.revision),
+    }))
+    .sort((a, b) => a.anchor - b.anchor);
+}
+
+function galleryCard(entry) {
+  const card = document.createElement("button");
+  const hash = (entry.renderHash || entry.convergenceHash || "").slice(0, 16);
+  const isCurrent = entry.iteration === state.currentIteration;
+  card.className = entry.version.revision === 1 ? "gallery-card anchor-card" : "gallery-card revision-card";
+  card.type = "button";
+  card.setAttribute("aria-current", String(isCurrent));
+  card.setAttribute("aria-label", `Open ${entry.iteration}`);
+  card.addEventListener("click", () => openGalleryEntry(entry));
+
+  const figure = document.createElement("figure");
+  const image = document.createElement("img");
+  image.src = versionedUrl(outputPath(entry.svgPath));
+  image.alt = `${entry.iteration} render`;
+  image.loading = "lazy";
+  figure.append(image);
+
+  const meta = document.createElement("div");
+  meta.className = "gallery-meta";
+  const title = document.createElement("strong");
+  title.textContent =
+    entry.iteration === state.latestIteration ? `${entry.iteration} latest` : entry.iteration;
+  const detail = document.createElement("span");
+  detail.textContent =
+    entry.version.revision === 1 ? `${hash} anchor` : `${hash} pass ${entry.version.revision}`;
+  meta.append(title, detail);
+
+  card.append(figure, meta);
+  return card;
+}
+
+function versionFromEntry(entry) {
+  const match = /^v(\d+)(?:\.(\d+))?$/.exec(String(entry.iteration || ""));
+  const anchor = Number(entry.sourceIteration || match?.[1] || 0);
+  const revision = Number(entry.revision || match?.[2] || 1);
+  return {
+    anchor: Number.isFinite(anchor) && anchor > 0 ? anchor : 1,
+    revision: Number.isFinite(revision) && revision > 0 ? revision : 1,
+  };
+}
+
+function compareEntries(first, second) {
+  return (
+    first.version.revision - second.version.revision ||
+    first.version.anchor - second.version.anchor ||
+    first.iteration.localeCompare(second.iteration)
+  );
 }
 
 function versionedUrl(path) {
@@ -439,16 +511,17 @@ function createObject(shape) {
     return mesh;
   }
 
-  const geometry = new THREE.BufferGeometry().setFromPoints(
-    shape.points.map((point) => new THREE.Vector3(point.x - shape.x, shape.y - point.y, 0)),
+  const points = shape.points.map(
+    (point) => new THREE.Vector3(point.x - shape.x, shape.y - point.y, 0),
   );
-  const material = new THREE.LineBasicMaterial({
-    color: shape.color,
-    transparent: true,
-    opacity,
-    linewidth: Math.max(1, shape.strokeWidth),
-  });
-  return new THREE.Line(geometry, material);
+  const radius = Math.max(0.9, Math.min(22, shape.strokeWidth * 0.55));
+  const tubularSegments = Math.max(8, Math.min(96, points.length * 2));
+  const radialSegments = shape.strokeWidth >= 8 ? 8 : 5;
+  const curve = new THREE.CatmullRomCurve3(points, false, "centripetal", 0.45);
+  const geometry = new THREE.TubeGeometry(curve, tubularSegments, radius, radialSegments, false);
+  const mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial(materialOptions));
+  mesh.userData.strokeRadius = radius;
+  return mesh;
 }
 
 function arrangeByFoldKernel(entry) {
@@ -654,6 +727,7 @@ function colorFrom(value, layer) {
     "fine-drawing": 0x17202a,
     "fold-notation": 0x293241,
     "field-dust": 0x17202a,
+    "lineage-leap": 0x8d3f4f,
   };
   return new THREE.Color(palette[layer] || 0x17202a);
 }

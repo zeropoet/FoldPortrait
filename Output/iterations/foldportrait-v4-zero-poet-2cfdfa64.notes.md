@@ -1,9 +1,9 @@
 # FoldPortrait Abstract Studio Notes
 
 Seed: zero poet
-Sketch iteration: v0006
+Sketch iteration: v4
 Convergence hash: 2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c
-Render hash: f01326b77fc7b41e1cdcb4342692d9c0670e5a7ac26f2f7d5d014cd4c9dc19b3
+Render hash: ed043c8c2e120168e7528b3b6f080e9bfdc92ebeab7c4ba6e33eedc4fd013085
 Memory signature: 010406020801100507030a0b0f0e090d0c022c0309
 
 ## Artwork
@@ -47,7 +47,7 @@ Use Fold marks as quiet constitutional traces, not decorative motifs.
 They may appear as grid pressure, small notation, scratched lines, washed fields, or repeated structural intervals.
 Fold mark scale: 1.138.
 Fold mark opacity: 0.440.
-Visual refinement depth: 12. Later archived iterations should contain more surface detail, layered geometry, texture, and material specificity.
+Visual refinement depth: 10. Later archived iterations should contain more surface detail, layered geometry, texture, and material specificity.
 Preserve the identity hash while increasing visual resolution across future archived iterations.
 
 ## Light And Space

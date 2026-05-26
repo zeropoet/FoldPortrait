@@ -26,10 +26,27 @@ import Testing
     #expect(first.renderHashHex != second.renderHashHex)
     #expect(first.parameters == second.parameters)
     #expect(first.svg != second.svg)
-    #expect(first.svg.contains("abstract study v0001"))
-    #expect(second.svg.contains("abstract study v0002"))
-    #expect(second.artworkNotes.contains("Sketch iteration: v0002"))
+    #expect(first.svg.contains("abstract study v1"))
+    #expect(second.svg.contains("abstract study v2"))
+    #expect(second.artworkNotes.contains("Sketch iteration: v2"))
     #expect(second.artworkNotes.contains("Render hash: \(second.renderHashHex)"))
+}
+
+@Test func revisionChangesSketchWithinSameAnchor() {
+    let renderer = PortraitRenderer()
+    let anchor = renderer.render(seed: "ada", iteration: 1, refinementDepth: 7)
+    let revision = renderer.render(seed: "ada", iteration: 1, revision: 2, refinementDepth: 7)
+
+    #expect(anchor.convergenceHashHex == revision.convergenceHashHex)
+    #expect(anchor.renderHashHex != revision.renderHashHex)
+    #expect(anchor.parameters == revision.parameters)
+    #expect(anchor.refinementDepth == revision.refinementDepth)
+    #expect(!anchor.svg.contains("data-layer=\"lineage-leap\""))
+    #expect(count("data-layer=\"lineage-leap\"", in: revision.svg) >= 18)
+    #expect(revision.svg.contains("data-portrait-version=\"v1.2\""))
+    #expect(revision.svg.contains("data-revision=\"2\""))
+    #expect(revision.svg.contains("abstract study v1.2"))
+    #expect(revision.artworkNotes.contains("Sketch iteration: v1.2"))
 }
 
 @Test func laterIterationsIncreaseVisualRefinement() {
