@@ -4,51 +4,7 @@ import Foundation
 @main
 struct FoldPortrait {
     static func main() throws {
-        let options = try CommandOptions(arguments: Array(CommandLine.arguments.dropFirst()))
-        let seed = options.seed
-        let outputDirectory = URL(fileURLWithPath: "Output/iterations", isDirectory: true)
-
-        try FileManager.default.createDirectory(
-            at: outputDirectory,
-            withIntermediateDirectories: true
-        )
-
-        let ledgerURL = outputDirectory.appendingPathComponent("evolution.json")
-        let version = try options.version(from: ledgerURL, outputDirectory: outputDirectory)
-        let refinementDepth = try options.refinementDepth ?? refinementDepth(for: version, ledgerURL: ledgerURL)
-        let result = PortraitRenderer().render(
-            seed: seed,
-            iteration: version.anchor,
-            revision: version.revision,
-            refinementDepth: refinementDepth
-        )
-        let filename = [
-            "foldportrait",
-            version.fileComponent,
-            slug(seed),
-            String(result.convergenceHashHex.prefix(8)),
-        ].joined(separator: "-")
-        let svgURL = outputDirectory.appendingPathComponent(filename + ".svg")
-        let notesURL = outputDirectory.appendingPathComponent(filename + ".notes.md")
-
-        try result.svg.write(to: svgURL, atomically: true, encoding: .utf8)
-        try result.artworkNotes.write(to: notesURL, atomically: true, encoding: .utf8)
-        try appendEvolutionEntry(
-            to: ledgerURL,
-            seed: seed,
-            version: version,
-            refinementDepth: refinementDepth,
-            result: result,
-            svgURL: svgURL,
-            notesURL: notesURL
-        )
-
-        print("Wrote \(svgURL.path)")
-        print("Wrote \(notesURL.path)")
-        print("Updated \(ledgerURL.path)")
-        print("Iteration: \(version.displayLabel)")
-        print("Convergence hash: \(result.convergenceHashHex)")
-        print("Render hash: \(result.renderHashHex)")
+        print("FoldPortrait is complete. Generation is frozen; the archived iterations remain in Output/iterations.")
     }
 
     private static func nextIterationNumber(in directory: URL) throws -> Int {

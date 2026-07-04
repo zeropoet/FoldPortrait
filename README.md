@@ -48,43 +48,55 @@ Open:
 http://localhost:8000/Web/
 ```
 
-## Generator
+## Completed Archive
 
-Run the next portrait:
+FoldPortrait is complete. The canonical archive contains 52 SVG studies in
+`Output/iterations`, plus 52 rendered PNG counterparts in `Output/png`.
+
+The command-line target is intentionally frozen:
 
 ```sh
 swift run fold-portrait "zero poet"
 ```
 
-The first pass fills twelve anchors: `v1` through `v12`. After all twelve
-anchors exist, generation moves through revision passes in anchor order:
+It exits before writing new artwork and reports that the project is complete.
+The former generation workflow has been removed so GitHub Actions cannot
+schedule or manually dispatch additional iterations.
+
+The completed sequence preserves twelve anchor portraits and revision passes:
 
 ```text
-v1.2 -> v2.2 -> v3.2 -> ... -> v12.2
-v1.3 -> v2.3 -> v3.3 -> ... -> v12.3
+v1 -> v2 -> ... -> v12
+v1.2 -> v2.2 -> ... -> v12.2
+v1.3 -> v2.3 -> ... -> v12.3
+v1.4 -> v2.4 -> ... -> v12.4
+v1.5 -> v2.5 -> v3.5
 ```
 
-You can target a specific anchor and revision:
+The PNG set was rendered at 1600 x 1600 for downstream archive and minting
+preparation. `Scripts/prepare-witness-batch.js` prepares the completed set for
+the Sovereign Standard Witness archive, copying PNGs into that repo and writing
+per-work metadata plus a batch XRPL mint-intent manifest.
 
 ```sh
-swift run fold-portrait --iteration 2 --revision 2 "zero poet"
+node Scripts/prepare-witness-batch.js /Users/zeropoet/WebstormProjects/sovereign-standard
 ```
 
-The generator writes:
+The completed archive contains:
 
 ```text
-Output/iterations/foldportrait-vN-zero-poet-2cfdfa64.svg
-Output/iterations/foldportrait-vN-zero-poet-2cfdfa64.notes.md
-Output/iterations/foldportrait-vN.R-zero-poet-2cfdfa64.svg
-Output/iterations/foldportrait-vN.R-zero-poet-2cfdfa64.notes.md
+Output/iterations/*.svg
+Output/iterations/*.notes.md
 Output/iterations/evolution.json
+Output/png/*.png
 ```
 
-Each run keeps the same convergence hash for the same seed as an identity
-anchor, but receives a distinct render hash for the visible study. The render
-also receives a growth climate: compression, torsion, shear, bloom, erosion,
-sediment, fiber memory, an active force, and a material state. These forces give
-future portraits a reason to change beyond simply accumulating more marks.
+Each archived portrait keeps the same convergence hash for the same seed as an
+identity anchor, but receives a distinct render hash for the visible study. The
+render also receives a growth climate: compression, torsion, shear, bloom,
+erosion, sediment, fiber memory, an active force, and a material state. These
+forces gave the completed lineage a reason to change beyond simply accumulating
+more marks.
 Refinement depth belongs to the source anchor. Revision passes keep that anchor
 depth, then add a revision-only `lineage-leap` layer so each `.2`, `.3`, and
 later pass is visibly distinct from its source.
@@ -145,31 +157,12 @@ The visible readout is intentionally minimal:
 - version
 - topology form count
 - render hash prefix
-- countdown to the next daily study
+- completed archive status
 
 The gallery button opens the full evolution archive as a minimal lineage matrix.
 Selecting a card drills into that portrait's topology, `Latest` returns to the
 newest study, and the left and right arrow keys step backward or forward through
 the ledger without opening the gallery.
-
-## Daily Ritual
-
-GitHub Actions generates the next study without needing a local machine:
-[Daily FoldPortrait](https://github.com/zeropoet/FoldPortrait/actions/workflows/daily-foldportrait.yml).
-
-Schedule:
-
-```text
-Every day at 12:00 AM America/New_York
-```
-
-The workflow checks out `FoldPortrait` and the sibling
-[FoldKernel](https://github.com/zeropoet/FoldKernel) dependency, runs the test
-suite, generates the next `zero poet` portrait in the anchor/revision sequence,
-commits the new `Output/iterations` artifacts, and pushes them back to `main`.
-GitHub Pages then serves the updated browser study from the repository.
-
-The workflow also supports manual dispatch from the GitHub Actions tab.
 
 ## Test
 
