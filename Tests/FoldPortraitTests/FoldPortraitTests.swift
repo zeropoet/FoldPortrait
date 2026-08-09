@@ -121,6 +121,58 @@ import Testing
     #expect(doctrine.aestheticConstraints.contains("no generic avatar beauty"))
 }
 
+@Test func systemReflectionChoosesBoundedCrossSourceVisualRelations() throws {
+    let witness = PortraitSystemWitness(
+        systemID: "test-system",
+        observedAt: "2026-08-09T00:00:00Z",
+        sources: [
+            PortraitWitnessSource(id: "foldkernel", revision: "a", role: "identity", measurements: [
+                PortraitWitnessMeasurement(id: "positions", label: "Positions", unit: "positions", value: 16),
+                PortraitWitnessMeasurement(id: "symmetries", label: "Symmetries", unit: "transforms", value: 8),
+            ]),
+            PortraitWitnessSource(id: "root-logos", revision: "b", role: "cultivation", measurements: [
+                PortraitWitnessMeasurement(id: "works", label: "Works", unit: "works", value: 54),
+                PortraitWitnessMeasurement(id: "cycles", label: "Cycles", unit: "cycles", value: 131),
+            ]),
+            PortraitWitnessSource(id: "telos", revision: "c", role: "operation", measurements: [
+                PortraitWitnessMeasurement(id: "campaigns", label: "Campaigns", unit: "campaigns", value: 9),
+                PortraitWitnessMeasurement(id: "threshold", label: "Threshold", unit: "subscribers", value: 200),
+            ]),
+        ],
+        boundaries: ["aggregate-public-measurements-only", "no-personal-data"]
+    )
+
+    let first = try SystemReflectionEngine().reflect(witness: witness)
+    let second = try SystemReflectionEngine().reflect(witness: witness)
+    #expect(first == second)
+    #expect(first.cycle.correlations.count >= 4)
+    #expect(first.cycle.correlations.allSatisfy { correlation in
+        let leftSource = correlation.left.split(separator: ".").first
+        let rightSource = correlation.right.split(separator: ".").first
+        return leftSource != rightSource && correlation.method == "structural-resonance"
+    })
+    #expect(first.svg.contains("data-art-mode=\"autonomous-system-self-portrait\""))
+    #expect(first.svg.contains("data-layer=\"system-reflection\""))
+    #expect(first.notes.contains("not statistical correlation"))
+}
+
+@Test func systemReflectionRejectsPrivateOrUnboundedWitnesses() {
+    let witness = PortraitSystemWitness(
+        systemID: "unsafe",
+        observedAt: "2026-08-09T00:00:00Z",
+        sources: [
+            PortraitWitnessSource(id: "orders", revision: "private", role: "private orders", measurements: [
+                PortraitWitnessMeasurement(id: "customer", label: "Customer", unit: "people", value: 1),
+            ]),
+        ],
+        boundaries: ["no-credentials"]
+    )
+
+    #expect(throws: SystemReflectionError.self) {
+        try SystemReflectionEngine().reflect(witness: witness)
+    }
+}
+
 private func count(_ needle: String, in haystack: String) -> Int {
     haystack.components(separatedBy: needle).count - 1
 }

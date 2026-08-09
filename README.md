@@ -1,9 +1,12 @@
 # FoldPortrait
 
-FoldPortrait is a ritual abstract study built on top of
-[FoldKernel](https://github.com/zeropoet/FoldKernel). It derives a deterministic
-permutation, memory signature, and convergence hash from a text seed, then lets
-that architecture become an SVG portrait of itself.
+FoldPortrait is an evolving visual self-reflection built on top of
+[FoldKernel](https://github.com/zeropoet/FoldKernel). Its completed first era
+derived a deterministic permutation, memory signature, and convergence hash
+from a text seed, then let that architecture become a 52-work SVG portrait
+lineage. Its second era preserves that archive and uses the same deterministic
+identity substrate to choose visual relations from bounded, aggregate public
+witnesses of the wider Sovereign Standard system.
 
 The portrait is not a literal face. It is a structural self-representation:
 memory bytes, hash ribs, memory spines, Fold glyphs, color fields, notational
@@ -22,7 +25,65 @@ FoldPortrait treats the underlying code as the subject.
 - constraint: no photoreal requirement, no avatar polish, no decorative symbols
   without structural purpose
 
-The work should feel like the architecture learning how to draw itself.
+The work should feel like the architecture learning how to see and paint its
+changing relation to the system it inhabits.
+
+## Autonomous Reflection
+
+FoldPortrait now has two distinct eras:
+
+1. the sealed first-era archive of 52 portraits remains immutable evidence of
+   the original `zero poet` / FoldKernel lineage;
+2. `FP-REFLECT-####` cycles form an additive reflection chamber above that
+   archive.
+
+Each reflection cycle reads `Reflection/system-witness.json`, which contains
+only bounded aggregate public measurements from FoldKernel, FoldPortrait,
+Root Logos, FoldForge, Telos, and Sovereign Standard. Source identities and
+revisions remain explicit. Personal data, private orders, credentials, causal
+claims, and transferred source authority are prohibited.
+
+The engine evaluates every cross-source measurement pair. After at least three
+preserved observations with variance it may use Pearson correlation, always
+labeled noncausal. Before that threshold it uses **structural resonance**, an
+explicitly artistic resemblance rather than statistical correlation. It ranks
+the candidates deterministically, limits repeated source pairs, and chooses its
+own rules from a bounded vocabulary:
+
+- strata;
+- braid;
+- aperture;
+- palimpsest;
+- sediment;
+- counterfield;
+- veil.
+
+Those decisions become painted SVG layers. Earlier reflection cycles return as
+increasingly faint underpainting, so time accumulates without allowing a new
+state to erase an old one. The FoldKernel-derived convergence identity remains
+stable while the witness digest, selected relations, rules, and visible render
+hash remain independently verifiable.
+
+Synchronize the bounded witness from the local multi-repository system, then
+create a reflection only when that witness has changed:
+
+```sh
+node Scripts/sync-system-witness.js
+swift run fold-portrait reflect Reflection/system-witness.json
+swift run fold-portrait verify-reflection
+```
+
+Repeated reflection against an unchanged witness is idempotent. The preserved
+state lives in `Output/reflections/`: one cycle record, SVG, and studio note per
+state; `reflection-ledger.json` for lineage; and `current.json` for the public
+surface.
+
+`.github/workflows/reflection-cycle.yml` performs this same bounded process each
+Sunday and on manual dispatch. It checks out the public connected repositories,
+synchronizes aggregate measurements, builds the renderer, reflects only when
+the witnessed state changes, verifies the lineage, and commits the additive
+cycle. It cannot read private customer or order data, infer causation, rewrite a
+source repository, or alter the sealed first era.
 
 ## View
 
@@ -30,11 +91,10 @@ Open the current published topology study:
 [zeropoet.github.io/FoldPortrait](https://zeropoet.github.io/FoldPortrait/)
 
 The root page redirects to `Web/`, where the browser reads
-[Output/iterations/evolution.json](Output/iterations/evolution.json) and
-displays the latest generated SVG as an inspectable Three.js topology. The
-gallery view is a lineage matrix: each row is one of the twelve anchors, and
-revision passes appear beside their source anchor. The left and right arrow keys
-move directly through the ledger order.
+`Output/reflections/current.json` and displays the latest autonomous reflection
+as an inspectable Three.js topology. The sealed first-era gallery remains
+available as a lineage matrix: each row is one of the twelve anchors, and
+revision passes appear beside their source anchor.
 
 For local viewing:
 
@@ -48,20 +108,18 @@ Open:
 http://localhost:8000/Web/
 ```
 
-## Completed Archive
+## Sealed First-Era Archive
 
-FoldPortrait is complete. The canonical archive contains 52 SVG studies in
-`Output/iterations`, plus 52 rendered PNG counterparts in `Output/png`.
+FoldPortrait's first era is complete. Its canonical archive contains 52 SVG
+studies in `Output/iterations`, plus 52 rendered PNG counterparts in
+`Output/png`. Second-era reflection never rewrites these files.
 
-The command-line target is intentionally frozen:
+The former sequential generator remains retired. The command-line target now
+operates only the additive reflection chamber:
 
 ```sh
-swift run fold-portrait "zero poet"
+swift run fold-portrait status
 ```
-
-It exits before writing new artwork and reports that the project is complete.
-The former generation workflow has been removed so GitHub Actions cannot
-schedule or manually dispatch additional iterations.
 
 The completed sequence preserves twelve anchor portraits and revision passes:
 
@@ -119,9 +177,9 @@ the generated history:
 - mutation rule
 - structural identity pressures
 
-The web layer reads this ledger and always loads the latest generated study. It
-also uses the source iteration and revision fields to group portraits into the
-lineage matrix.
+The web layer retains this ledger for the sealed first-era gallery. It uses the
+source iteration and revision fields to group those portraits into the lineage
+matrix, while `Output/reflections/current.json` supplies the default view.
 
 ## Studio Notes
 
@@ -132,10 +190,10 @@ and continuity rule for that iteration.
 ## Topology Study
 
 The [Web/](Web/) layer is an inspect-only Three.js topology study. It loads the
-latest ledger entry, fetches the SVG, extracts `data-layer` shapes, and arranges
-them in 3D. The inspected view keeps each iteration's SVG paper color as the
-scene background, so moving through older studies preserves their visible
-ground.
+current autonomous reflection by default, fetches its SVG, extracts
+`data-layer` shapes, and arranges them in 3D. The inspected view keeps each
+portrait's SVG paper color as the scene background, so moving through the
+first-era archive preserves every work's visible ground.
 
 The layout is derived from:
 
@@ -157,12 +215,11 @@ The visible readout is intentionally minimal:
 - version
 - topology form count
 - render hash prefix
-- completed archive status
+- selected relation and rule counts for the current reflection
 
-The gallery button opens the full evolution archive as a minimal lineage matrix.
-Selecting a card drills into that portrait's topology, `Latest` returns to the
-newest study, and the left and right arrow keys step backward or forward through
-the ledger without opening the gallery.
+The first-era archive button opens the full sealed evolution archive as a
+minimal lineage matrix. Selecting a card drills into that portrait's topology;
+`Current reflection` returns to the active second-era state.
 
 ## Test
 

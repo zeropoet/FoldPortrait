@@ -1,0 +1,219 @@
+{
+  "schema": "foldportrait-system-witness/v1",
+  "systemID": "sovereign-standard-relational-system",
+  "observedAt": "2026-08-09T17:55:23.001Z",
+  "sources": [
+    {
+      "id": "foldkernel",
+      "revision": "005264ec848ea2f0d62b15d43614cfe8ad517a90",
+      "role": "deterministic identity and coherence substrate",
+      "measurements": [
+        {
+          "id": "permutation_size",
+          "label": "Canonical permutation positions",
+          "unit": "positions",
+          "value": 16
+        },
+        {
+          "id": "symmetry_transforms",
+          "label": "D4 symmetry transforms",
+          "unit": "transforms",
+          "value": 8
+        },
+        {
+          "id": "memory_event_kinds",
+          "label": "Fold memory event kinds",
+          "unit": "event-kinds",
+          "value": 3
+        },
+        {
+          "id": "convergence_hash_bits",
+          "label": "Convergence hash width",
+          "unit": "bits",
+          "value": 256
+        }
+      ]
+    },
+    {
+      "id": "foldportrait",
+      "revision": "72042f7b99b04ed0b1dbd21a641def9c99c1c001",
+      "role": "visual lineage and system self-reflection",
+      "measurements": [
+        {
+          "id": "sealed_first_era_portraits",
+          "label": "Sealed first-era portraits",
+          "unit": "portraits",
+          "value": 52
+        },
+        {
+          "id": "first_era_anchors",
+          "label": "First-era anchor lineages",
+          "unit": "anchors",
+          "value": 12
+        },
+        {
+          "id": "embodied_portraits",
+          "label": "Portraits embodied by Sovereign Standard",
+          "unit": "portraits",
+          "value": 12
+        },
+        {
+          "id": "reflection_cycles",
+          "label": "Preserved autonomous reflection cycles",
+          "unit": "cycles",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "root-logos",
+      "revision": "5e06e07cee8e640924fb3cbaba549d0dea882ba0",
+      "role": "constitutional orientation, library composition, and cultivation",
+      "measurements": [
+        {
+          "id": "coherent_works",
+          "label": "Coherent Library works",
+          "unit": "works",
+          "value": 54
+        },
+        {
+          "id": "witnessed_relations",
+          "label": "Witnessed Library relations",
+          "unit": "relations",
+          "value": 163
+        },
+        {
+          "id": "cultivation_cycles",
+          "label": "Completed cultivation cycles",
+          "unit": "cycles",
+          "value": 131
+        },
+        {
+          "id": "x_witnessed_fragments",
+          "label": "X-witnessed founding fragments",
+          "unit": "fragments",
+          "value": 11
+        },
+        {
+          "id": "founding_fragments",
+          "label": "Mapped founding fragments",
+          "unit": "fragments",
+          "value": 24
+        },
+        {
+          "id": "connected_sources",
+          "label": "Bounded connected sources",
+          "unit": "sources",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "foldforge",
+      "revision": "7708cc27d1233d0fdaad1b4632e036155f2db0b7",
+      "role": "evidence-bound composition grammar",
+      "measurements": [
+        {
+          "id": "compositions",
+          "label": "Governed compositions",
+          "unit": "compositions",
+          "value": 4
+        },
+        {
+          "id": "witnessed_relations",
+          "label": "Witnessed compositional relations",
+          "unit": "relations",
+          "value": 25
+        },
+        {
+          "id": "primitives",
+          "label": "Composition primitives",
+          "unit": "primitives",
+          "value": 11
+        },
+        {
+          "id": "movement_phases",
+          "label": "Resonant movement phases",
+          "unit": "phases",
+          "value": 8
+        },
+        {
+          "id": "displacement_steps",
+          "label": "Root-to-crown displacement steps",
+          "unit": "steps",
+          "value": 64
+        }
+      ]
+    },
+    {
+      "id": "telos",
+      "revision": "ea9b8a10b7da3c5c6367e7ad5d14798eb3c7d492",
+      "role": "bounded Sovereign Standard customer-acquisition operator and system mapper",
+      "measurements": [
+        {
+          "id": "mapped_repositories",
+          "label": "Mapped system repositories",
+          "unit": "repositories",
+          "value": 5
+        },
+        {
+          "id": "operating_components",
+          "label": "Mapped operating components",
+          "unit": "components",
+          "value": 5
+        },
+        {
+          "id": "prepared_campaigns",
+          "label": "Bounded prepared campaigns",
+          "unit": "campaigns",
+          "value": 9
+        },
+        {
+          "id": "maximum_active_campaigns",
+          "label": "Maximum simultaneously active campaigns",
+          "unit": "campaigns",
+          "value": 1
+        },
+        {
+          "id": "first_subscriber_threshold",
+          "label": "First subscriber threshold",
+          "unit": "subscribers",
+          "value": 200
+        },
+        {
+          "id": "second_subscriber_threshold",
+          "label": "Second subscriber threshold",
+          "unit": "subscribers",
+          "value": 400
+        }
+      ]
+    },
+    {
+      "id": "sovereign-standard",
+      "revision": "sha256:3a281194be8b743f7c18ce00033812499cc3cdf7fee0d23b962e8c9d82f07c67",
+      "role": "material practice, monthly collection, and embodied continuation",
+      "measurements": [
+        {
+          "id": "published_vessel_records",
+          "label": "Published Black Tin Vessel records",
+          "unit": "records",
+          "value": 136
+        },
+        {
+          "id": "embodied_foldportraits",
+          "label": "Embodied FoldPortrait lineages",
+          "unit": "portraits",
+          "value": 12
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    "aggregate-public-measurements-only",
+    "no-personal-data",
+    "no-private-orders",
+    "no-credentials",
+    "no-causal-claims-from-correlation",
+    "source-authority-remains-separate"
+  ]
+}

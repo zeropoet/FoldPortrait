@@ -15,6 +15,8 @@ const LAYER_ORDER = [
   "field-dust",
   "material-weathering",
   "lineage-leap",
+  "reflection-palimpsest",
+  "system-reflection",
 ];
 
 const ANCHOR_COUNT = 12;
@@ -42,7 +44,7 @@ const galleryGrid = document.querySelector("#gallery-grid");
 const readoutIteration = document.querySelector("#readout-iteration");
 const readoutCount = document.querySelector("#readout-count");
 const readoutHash = document.querySelector("#readout-hash");
-const readoutCountdown = document.querySelector("#readout-countdown");
+const readoutReflection = document.querySelector("#readout-reflection");
 
 const scene = new THREE.Scene();
 scene.background = state.backgroundColor.clone();
@@ -92,17 +94,15 @@ async function init() {
   galleryClose.addEventListener("click", openLatest);
   window.addEventListener("keydown", handleKeyboardNavigation);
   await loadLatest({ force: true });
-  updateCountdown();
+  if (state.ledger.length === 0) await loadLedger();
   resize();
   window.addEventListener("resize", resize);
   window.setInterval(loadLatest, 5 * 60 * 1000);
-  window.setInterval(updateCountdown, 1000);
   animate();
 }
 
 async function loadLatest(options = {}) {
-  const ledger = await loadLedger();
-  const latest = ledger.at(-1);
+  const latest = await loadCurrentReflection() || (await loadLedger()).at(-1);
   if (!latest) {
     return;
   }
@@ -122,6 +122,22 @@ async function loadLatest(options = {}) {
   state.view = "latest";
   hideGallery();
   renderGallery();
+}
+
+async function loadCurrentReflection() {
+  try {
+    const current = await fetchJson(versionedUrl("../Output/reflections/current.json"));
+    return {
+      ...current,
+      iteration: current.cycleID || current.iteration,
+      refinementDepth: Math.min(18, 12 + Number(current.sequence || 1)),
+      structuralIdentity: {},
+      growthClimate: {},
+      isReflection: true,
+    };
+  } catch {
+    return null;
+  }
 }
 
 async function fetchJson(url) {
@@ -162,9 +178,12 @@ async function loadEntry(entry) {
   arrangeByFoldKernel(entry);
   state.currentIteration = entry.iteration;
 
-  readoutIteration.textContent = entry.iteration;
+  readoutIteration.textContent = entry.cycleID || entry.iteration;
   readoutCount.textContent = `${shapes.length} forms`;
   readoutHash.textContent = (entry.renderHash || entry.convergenceHash).slice(0, 16);
+  readoutReflection.textContent = entry.isReflection
+    ? `${entry.correlationCount} relations / ${entry.chosenRules.length} rules`
+    : "sealed first era";
 }
 
 function backgroundFillFrom(svg) {
@@ -369,7 +388,8 @@ function versionedUrl(path) {
 }
 
 function outputPath(path) {
-  return path.replace(/^.*\/Output\//, "../Output/");
+  const marker = path.indexOf("Output/");
+  return marker >= 0 ? `../${path.slice(marker)}` : path;
 }
 
 function extractShapes(svg) {
@@ -556,6 +576,7 @@ function arrangeByFoldKernel(entry) {
     const forceSpiral = Math.sin(orbit + torsion * Math.PI * 2) * (90 * torsion);
     const weatherLift = (shape.layer === "material-weathering" ? 1 : 0) * (80 + erosion * 220);
     const growthLift = (shape.layer === "growth-ring" ? 1 : 0) * (120 + bloom * 240);
+    const reflectionLift = (shape.layer === "system-reflection" ? 1 : 0) * (180 + layerPhase * 220);
 
     const x =
       base.x * fieldPressure +
@@ -575,6 +596,7 @@ function arrangeByFoldKernel(entry) {
       (nextHash / 255 - 0.5) * refinement * 18 +
       weatherLift +
       growthLift +
+      reflectionLift +
       sediment * layerPhase * 180;
 
     object.userData.target = new THREE.Vector3(x, y, z);
@@ -650,21 +672,6 @@ function samplePixels() {
     }
   }
   return { width, height, sampled: pixels.length / 16, nonPaper, unique: unique.size };
-}
-
-function updateCountdown() {
-  const now = new Date();
-  const next = new Date(now);
-  next.setHours(24, 0, 0, 0);
-  const remaining = Math.max(0, next.getTime() - now.getTime());
-  const hours = Math.floor(remaining / 3_600_000);
-  const minutes = Math.floor((remaining % 3_600_000) / 60_000);
-  const seconds = Math.floor((remaining % 60_000) / 1000);
-  readoutCountdown.textContent = [
-    String(hours).padStart(2, "0"),
-    String(minutes).padStart(2, "0"),
-    String(seconds).padStart(2, "0"),
-  ].join(":");
 }
 
 function samplePath(path) {

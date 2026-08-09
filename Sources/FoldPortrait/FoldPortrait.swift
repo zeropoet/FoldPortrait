@@ -4,7 +4,32 @@ import Foundation
 @main
 struct FoldPortrait {
     static func main() throws {
-        print("FoldPortrait is complete. Generation is frozen; the archived iterations remain in Output/iterations.")
+        let arguments = Array(CommandLine.arguments.dropFirst())
+        let command = arguments.first ?? "status"
+        let root = URL(fileURLWithPath: FileManager.default.currentDirectoryPath, isDirectory: true)
+        let archive = ReflectionArchive()
+
+        switch command {
+        case "reflect":
+            let witnessPath = arguments.dropFirst().first ?? "Reflection/system-witness.json"
+            let witnessURL = URL(fileURLWithPath: witnessPath, relativeTo: root).standardizedFileURL
+            let update = try archive.update(witnessURL: witnessURL, repositoryRoot: root)
+            let state = update.changed ? "created" : "unchanged"
+            print("\(update.current.cycleID) \(state): \(update.current.svgPath)")
+        case "verify-reflection":
+            let current = try archive.verify(repositoryRoot: root)
+            print("\(current.cycleID) valid: \(current.renderHash)")
+        case "status":
+            let currentURL = root.appendingPathComponent("Output/reflections/current.json")
+            if FileManager.default.fileExists(atPath: currentURL.path) {
+                let current = try archive.verify(repositoryRoot: root)
+                print("FoldPortrait reflection is current at \(current.cycleID). The completed first-era archive remains sealed.")
+            } else {
+                print("FoldPortrait first era is sealed. Run `swift run fold-portrait reflect` to begin bounded system reflection.")
+            }
+        default:
+            throw CommandError.unknownOption(command)
+        }
     }
 
     private static func nextIterationNumber(in directory: URL) throws -> Int {

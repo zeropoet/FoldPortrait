@@ -1,0 +1,93 @@
+name: Autonomous Reflection Cycle
+
+on:
+  schedule:
+    - cron: "17 15 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: foldportrait-reflection
+  cancel-in-progress: false
+
+jobs:
+  reflect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out FoldPortrait
+        uses: actions/checkout@v4
+        with:
+          path: FoldPortrait
+          fetch-depth: 0
+
+      - name: Check out FoldKernel
+        uses: actions/checkout@v4
+        with:
+          repository: zeropoet/foldkernel
+          path: FoldKernel
+          fetch-depth: 1
+
+      - name: Check out FoldForge
+        uses: actions/checkout@v4
+        with:
+          repository: zeropoet/FoldForge
+          path: FoldForge
+          fetch-depth: 1
+
+      - name: Check out Root Logos
+        uses: actions/checkout@v4
+        with:
+          repository: zeropoet/root-logos
+          path: root-logos
+          fetch-depth: 1
+
+      - name: Check out Telos
+        uses: actions/checkout@v4
+        with:
+          repository: zeropoet/Telos
+          path: Telos
+          fetch-depth: 1
+
+      - name: Set up Swift
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "6.1"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Synchronize bounded public witness
+        working-directory: FoldPortrait
+        run: >-
+          node Scripts/sync-system-witness.js
+          --foldkernel ../FoldKernel
+          --foldforge ../FoldForge
+          --root-logos ../root-logos
+          --telos ../Telos
+
+      - name: Reflect and verify lineage
+        working-directory: FoldPortrait
+        run: |
+          swift build
+          swift test
+          swift run fold-portrait reflect Reflection/system-witness.json
+          swift run fold-portrait verify-reflection
+
+      - name: Preserve a changed reflection
+        working-directory: FoldPortrait
+        run: |
+          if git diff --quiet -- Reflection Output/reflections; then
+            echo "The witnessed system is unchanged; no reflection was added."
+            exit 0
+          fi
+          git config user.name "foldportrait-reflection[bot]"
+          git config user.email "foldportrait-reflection[bot]@users.noreply.github.com"
+          git add Reflection Output/reflections
+          git commit -m "Add autonomous system reflection"
+          git pull --rebase origin main
+          git push origin HEAD:main
