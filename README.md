@@ -73,17 +73,43 @@ swift run fold-portrait reflect Reflection/system-witness.json
 swift run fold-portrait verify-reflection
 ```
 
-Repeated reflection against an unchanged witness is idempotent. The preserved
-state lives in `Output/reflections/`: one cycle record, SVG, and studio note per
-state; `reflection-ledger.json` for lineage; and `current.json` for the public
-surface.
+Repeated reflection against an unchanged witness is idempotent. FoldPortrait's
+own archive count and repository revision are deliberately excluded from its
+witness trigger, so preserving a portrait cannot recursively demand another
+portrait. The preserved state lives in `Output/reflections/`: one cycle record,
+SVG, flattened PNG, unsigned mint candidate, and studio note per state;
+`reflection-ledger.json` for compositional continuity; `archive.json` for the
+two-era public lineage; and `current.json` for the current public surface.
+
+After reflection, build and verify every durable representation:
+
+```sh
+npm ci
+npm run archive
+npm run verify:archive
+```
+
+The archive task renders each 1200 × 1600 canonical SVG to an opaque 2400 ×
+3200 PNG, records SHA-256 for both forms, and prepares a per-cycle XRPL
+`NFTokenMint` candidate. Preparation is not minting: account, taxon, URI, flags,
+signature, submission, and validation remain unset until a human steward
+publishes durable metadata, reviews the transaction, and signs through Xaman.
 
 `.github/workflows/reflection-cycle.yml` performs this same bounded process each
 Sunday and on manual dispatch. It checks out the public connected repositories,
 synchronizes aggregate measurements, builds the renderer, reflects only when
-the witnessed state changes, verifies the lineage, and commits the additive
-cycle. It cannot read private customer or order data, infer causation, rewrite a
-source repository, or alter the sealed first era.
+the witnessed state changes, creates and verifies both archive formats, and
+commits the additive cycle. It cannot read private customer or order data,
+infer causation, rewrite a source repository, alter the sealed first era, or
+sign and submit an XRPL transaction.
+
+## Brand Mark
+
+`Brand/foldportrait-mark.svg` is the canonical transparent mark. Its open frame
+is the archive, its eight rays are the reflected field, and its central square
+is the FoldKernel held without enclosure. `Brand/foldportrait-mark-white.png`
+is the derived 2048 × 2048 white-background distribution asset. The web favicon
+retains the compact crossed-axis form that preceded the full mark.
 
 ## View
 
@@ -92,9 +118,12 @@ Open the current published topology study:
 
 The root page redirects to `Web/`, where the browser reads
 `Output/reflections/current.json` and displays the latest autonomous reflection
-as an inspectable Three.js topology. The sealed first-era gallery remains
-available as a lineage matrix: each row is one of the twelve anchors, and
-revision passes appear beside their source anchor.
+as an inspectable Three.js topology. The lineage archive exposes both eras:
+first-era rows preserve twelve anchor families and their revision passes;
+second-era cards preserve the ordered witness-change chain and its previous
+cycle. Stable fragment routes such as `#era-1/v1.2`,
+`#era-2/FP-REFLECT-0002`, and `#archive` make every era and lineage directly
+navigable.
 
 For local viewing:
 
@@ -179,7 +208,9 @@ the generated history:
 
 The web layer retains this ledger for the sealed first-era gallery. It uses the
 source iteration and revision fields to group those portraits into the lineage
-matrix, while `Output/reflections/current.json` supplies the default view.
+matrix. `Output/reflections/archive.json` supplies the second-era chain and
+dual-format provenance, while `Output/reflections/current.json` supplies the
+default view.
 
 ## Studio Notes
 
@@ -217,12 +248,14 @@ The visible readout is intentionally minimal:
 - render hash prefix
 - selected relation and rule counts for the current reflection
 
-The first-era archive button opens the full sealed evolution archive as a
-minimal lineage matrix. Selecting a card drills into that portrait's topology;
-`Current reflection` returns to the active second-era state.
+The lineage archive button opens both eras as one minimal matrix. Selecting a
+card drills into that portrait's topology, left and right arrows traverse the
+combined chronology, and `Current reflection` returns to the active second-era
+state.
 
 ## Test
 
 ```sh
 swift test
+npm run verify:archive
 ```

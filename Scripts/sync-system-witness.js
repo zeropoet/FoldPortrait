@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -28,12 +29,7 @@ const json = (path) => JSON.parse(readFileSync(path, "utf8"));
 const git = (repository, format) => execFileSync("git", ["-C", repository, "show", "-s", `--format=${format}`, "HEAD"], { encoding: "utf8" }).trim();
 const revision = (repository) => git(repository, "%H");
 const repositoryObservedAt = Math.max(...Object.values(paths).map((repository) => Date.parse(git(repository, "%cI"))));
-let priorObservedAt = 0;
-try {
-  const priorCycles = json(resolve(root, "Output/reflections/reflection-ledger.json"));
-  priorObservedAt = Date.parse(priorCycles.at(-1)?.witnessedAt || 0) + 1;
-} catch {}
-const observedAt = new Date(Math.max(repositoryObservedAt, priorObservedAt)).toISOString();
+const observedAt = new Date(repositoryObservedAt).toISOString();
 
 const rootComposition = json(resolve(paths.rootLogos, "works/library-composition.json"));
 const cultivation = json(resolve(paths.rootLogos, "cultivation/state.json"));
@@ -45,8 +41,9 @@ const telosMap = json(resolve(paths.telos, "SYSTEM_MAP.json"));
 const telosPolicy = json(resolve(paths.telos, "deploy/linux/sovereign-standard-acquisition.prepare.json"));
 const sovereignStandard = json(resolve(paths.rootLogos, "sources/sovereign-standard.public-witness.json"));
 const firstEra = json(resolve(paths.foldportrait, "Output/iterations/evolution.json"));
-let reflectionCount = 0;
-try { reflectionCount = json(resolve(paths.foldportrait, "Output/reflections/reflection-ledger.json")).length; } catch {}
+const firstEraDigest = createHash("sha256")
+  .update(readFileSync(resolve(paths.foldportrait, "Output/iterations/evolution.json")))
+  .digest("hex");
 
 const measurement = (id, label, unit, value) => ({ id, label, unit, value });
 const witness = {
@@ -67,13 +64,12 @@ const witness = {
     },
     {
       id: "foldportrait",
-      revision: revision(paths.foldportrait),
-      role: "visual lineage and system self-reflection",
+      revision: `sealed-era:${firstEraDigest}`,
+      role: "sealed visual lineage and change-triggered system self-reflection",
       measurements: [
         measurement("sealed_first_era_portraits", "Sealed first-era portraits", "portraits", firstEra.length),
         measurement("first_era_anchors", "First-era anchor lineages", "anchors", new Set(firstEra.map(({ sourceIteration, iteration }) => sourceIteration || Number(/^v(\d+)/.exec(iteration)?.[1]))).size),
         measurement("embodied_portraits", "Portraits embodied by Sovereign Standard", "portraits", portraitWitness.measures.embodied_renders),
-        measurement("reflection_cycles", "Preserved autonomous reflection cycles", "cycles", reflectionCount),
       ],
     },
     {

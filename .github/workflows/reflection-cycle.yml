@@ -73,21 +73,24 @@ jobs:
       - name: Reflect and verify lineage
         working-directory: FoldPortrait
         run: |
+          npm ci
           swift build
           swift test
           swift run fold-portrait reflect Reflection/system-witness.json
           swift run fold-portrait verify-reflection
+          npm run archive
+          npm run verify:archive
 
       - name: Preserve a changed reflection
         working-directory: FoldPortrait
         run: |
-          if git diff --quiet -- Reflection Output/reflections; then
+          if git diff --quiet -- Reflection Output/reflections Brand; then
             echo "The witnessed system is unchanged; no reflection was added."
             exit 0
           fi
           git config user.name "foldportrait-reflection[bot]"
           git config user.email "foldportrait-reflection[bot]@users.noreply.github.com"
-          git add Reflection Output/reflections
+          git add Reflection Output/reflections Brand
           git commit -m "Add autonomous system reflection"
           git pull --rebase origin main
           git push origin HEAD:main

@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-system-witness/v1",
   "systemID": "sovereign-standard-relational-system",
-  "observedAt": "2026-08-09T17:55:23.001Z",
+  "observedAt": "2026-08-09T18:30:50.000Z",
   "sources": [
     {
       "id": "foldkernel",
@@ -36,8 +36,8 @@
     },
     {
       "id": "foldportrait",
-      "revision": "72042f7b99b04ed0b1dbd21a641def9c99c1c001",
-      "role": "visual lineage and system self-reflection",
+      "revision": "sealed-era:212e47b9260a8ece08a2204c1a7b068dcce68d893b0fea619527021301f2059a",
+      "role": "sealed visual lineage and change-triggered system self-reflection",
       "measurements": [
         {
           "id": "sealed_first_era_portraits",
@@ -56,18 +56,12 @@
           "label": "Portraits embodied by Sovereign Standard",
           "unit": "portraits",
           "value": 12
-        },
-        {
-          "id": "reflection_cycles",
-          "label": "Preserved autonomous reflection cycles",
-          "unit": "cycles",
-          "value": 1
         }
       ]
     },
     {
       "id": "root-logos",
-      "revision": "5e06e07cee8e640924fb3cbaba549d0dea882ba0",
+      "revision": "655a2c98d0e2805c28e10b06f1bd9fcb0393a84a",
       "role": "constitutional orientation, library composition, and cultivation",
       "measurements": [
         {
@@ -86,7 +80,7 @@
           "id": "cultivation_cycles",
           "label": "Completed cultivation cycles",
           "unit": "cycles",
-          "value": 131
+          "value": 134
         },
         {
           "id": "x_witnessed_fragments",
@@ -147,7 +141,7 @@
     },
     {
       "id": "telos",
-      "revision": "ea9b8a10b7da3c5c6367e7ad5d14798eb3c7d492",
+      "revision": "dd9378ea615b7f4da08fd5c599e9b7eb6a0f2951",
       "role": "bounded Sovereign Standard customer-acquisition operator and system mapper",
       "measurements": [
         {

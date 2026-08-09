@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FoldPortrait — Autonomous Reflection</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23f3efe6'/%3E%3Cpath d='M2 8h12M8 2v12M3 3l10 10M13 3L3 13' stroke='%2317202a' stroke-width='.8'/%3E%3C/svg%3E" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./styles.css" />
     <script type="importmap">
       {
@@ -20,14 +20,17 @@
       <section class="stage" aria-label="FoldPortrait Three.js topology" aria-keyshortcuts="ArrowLeft ArrowRight">
         <canvas id="topology-canvas"></canvas>
         <div class="view-actions" aria-label="View controls">
-          <button id="gallery-button" class="view-button" type="button">First-era archive</button>
+          <button id="gallery-button" class="view-button" type="button">Lineage archive</button>
           <button id="latest-button" class="view-button" type="button">Current reflection</button>
         </div>
         <section id="gallery-view" class="gallery-view" aria-label="FoldPortrait render iteration gallery" hidden>
           <header class="gallery-header">
             <div>
-              <span class="label">Archive</span>
-              <strong>Lineage Matrix</strong>
+              <img class="archive-mark" src="../Brand/foldportrait-mark.svg" alt="" />
+              <span>
+                <span class="label">FoldPortrait archive</span>
+                <strong>Era &amp; Lineage Matrix</strong>
+              </span>
             </div>
             <button id="gallery-close" class="view-button" type="button">Current reflection</button>
           </header>

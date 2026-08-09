@@ -25,6 +25,7 @@ const state = {
   currentIteration: "",
   latestIteration: "",
   ledger: [],
+  reflectionEntries: [],
   view: "latest",
   backgroundColor: new THREE.Color(0xf3efe6),
   navigationQueue: Promise.resolve(),
@@ -93,10 +94,11 @@ async function init() {
   latestButton.addEventListener("click", openLatest);
   galleryClose.addEventListener("click", openLatest);
   window.addEventListener("keydown", handleKeyboardNavigation);
-  await loadLatest({ force: true });
-  if (state.ledger.length === 0) await loadLedger();
+  await Promise.all([loadLedger(), loadReflectionArchive()]);
+  await openFromLocation();
   resize();
   window.addEventListener("resize", resize);
+  window.addEventListener("hashchange", openFromLocation);
   window.setInterval(loadLatest, 5 * 60 * 1000);
   animate();
 }
@@ -138,6 +140,37 @@ async function loadCurrentReflection() {
   } catch {
     return null;
   }
+}
+
+async function loadReflectionArchive() {
+  const archive = await fetchJson(versionedUrl("../Output/reflections/archive.json"));
+  const era = archive.eras.find(({ id }) => id === "autonomous-system-reflection");
+  state.reflectionEntries = (era?.cycles || []).map((entry) => ({
+    ...entry,
+    iteration: entry.cycleID,
+    svgPath: entry.svg.path,
+    pngPath: entry.png.path,
+    convergenceHash: entry.foldKernelIdentity,
+    isReflection: true,
+  }));
+  return state.reflectionEntries;
+}
+
+async function openFromLocation() {
+  const route = decodeURIComponent(window.location.hash.slice(1));
+  if (route === "archive") {
+    await loadLatest({ force: true });
+    showGallery({ updateRoute: false });
+    return;
+  }
+  const entry = [...state.ledger, ...state.reflectionEntries].find((candidate) =>
+    route === `era-1/${candidate.iteration}` || route === `era-2/${candidate.cycleID}`
+  );
+  if (entry) {
+    await openGalleryEntry(entry, { updateRoute: false });
+    return;
+  }
+  await loadLatest({ force: true });
 }
 
 async function fetchJson(url) {
@@ -204,13 +237,14 @@ function applyBackgroundColor(fill) {
   document.body.dataset.paperColor = fill;
 }
 
-function showGallery() {
+function showGallery(options = {}) {
   state.view = "gallery";
   stage.classList.add("gallery-open");
   galleryView.hidden = false;
   galleryButton.setAttribute("aria-pressed", "true");
   latestButton.setAttribute("aria-pressed", "false");
   renderGallery();
+  if (options.updateRoute !== false) history.replaceState(null, "", "#archive");
 }
 
 function hideGallery() {
@@ -221,14 +255,19 @@ function hideGallery() {
 }
 
 async function openLatest() {
+  history.replaceState(null, "", window.location.pathname + window.location.search);
   await loadLatest({ force: true });
 }
 
-async function openGalleryEntry(entry) {
+async function openGalleryEntry(entry, options = {}) {
   await loadEntry(entry);
   state.view = entry.iteration === state.latestIteration ? "latest" : "iteration";
   hideGallery();
   renderGallery();
+  if (options.updateRoute !== false) {
+    const era = entry.isReflection ? 2 : 1;
+    history.replaceState(null, "", `#era-${era}/${encodeURIComponent(entry.iteration)}`);
+  }
 }
 
 function handleKeyboardNavigation(event) {
@@ -258,12 +297,13 @@ async function openAdjacentEntry(step) {
     await loadLedger();
   }
 
+  const navigationEntries = [...state.ledger, ...state.reflectionEntries];
   const currentIndex = Math.max(
     0,
-    state.ledger.findIndex((entry) => entry.iteration === state.currentIteration),
+    navigationEntries.findIndex((entry) => entry.iteration === state.currentIteration),
   );
-  const nextIndex = THREE.MathUtils.clamp(currentIndex + step, 0, state.ledger.length - 1);
-  const entry = state.ledger[nextIndex];
+  const nextIndex = THREE.MathUtils.clamp(currentIndex + step, 0, navigationEntries.length - 1);
+  const entry = navigationEntries[nextIndex];
   if (!entry || entry.iteration === state.currentIteration) {
     return;
   }
@@ -278,6 +318,7 @@ function renderGallery() {
   }
 
   const fragment = document.createDocumentFragment();
+  fragment.append(eraHeader("Era I", "Sealed Portrait Lineage", `${state.ledger.length} portraits / 12 anchors`));
   const groups = lineageGroups();
 
   groups.forEach((group) => {
@@ -306,7 +347,34 @@ function renderGallery() {
     fragment.append(row);
   });
 
+  fragment.append(eraHeader("Era II", "Autonomous System Reflection", `${state.reflectionEntries.length} preserved cycles`));
+  const reflectionRow = document.createElement("article");
+  reflectionRow.className = "lineage-row reflection-lineage";
+  const reflectionHeader = document.createElement("header");
+  reflectionHeader.className = "lineage-header";
+  reflectionHeader.innerHTML = '<span class="label">Lineage</span><strong>∞</strong><span class="lineage-count">witness change only</span>';
+  const reflectionRail = document.createElement("div");
+  reflectionRail.className = "lineage-rail";
+  state.reflectionEntries.forEach((entry) => reflectionRail.append(reflectionCard(entry)));
+  reflectionRow.append(reflectionHeader, reflectionRail);
+  fragment.append(reflectionRow);
+
   galleryGrid.replaceChildren(fragment);
+}
+
+function eraHeader(label, title, detail) {
+  const header = document.createElement("header");
+  header.className = "era-header";
+  header.innerHTML = `<span class="label">${label}</span><strong>${title}</strong><span>${detail}</span>`;
+  return header;
+}
+
+function reflectionCard(entry) {
+  const card = galleryCard({ ...entry, version: { anchor: 0, revision: Math.max(2, entry.sequence) } });
+  card.classList.add("reflection-card");
+  const detail = card.querySelector(".gallery-meta span");
+  detail.textContent = `${entry.previousCycleID || "origin"} → ${entry.cycleID} · PNG ready`;
+  return card;
 }
 
 function lineageGroups() {
@@ -344,7 +412,7 @@ function galleryCard(entry) {
 
   const figure = document.createElement("figure");
   const image = document.createElement("img");
-  image.src = versionedUrl(outputPath(entry.svgPath));
+  image.src = versionedUrl(outputPath(entry.pngPath || entry.svgPath));
   image.alt = `${entry.iteration} render`;
   image.loading = "lazy";
   figure.append(image);
@@ -352,8 +420,7 @@ function galleryCard(entry) {
   const meta = document.createElement("div");
   meta.className = "gallery-meta";
   const title = document.createElement("strong");
-  title.textContent =
-    entry.iteration === state.latestIteration ? `${entry.iteration} latest` : entry.iteration;
+  title.textContent = entry.iteration === state.latestIteration ? `${entry.iteration} current` : entry.iteration;
   const detail = document.createElement("span");
   detail.textContent =
     entry.version.revision === 1 ? `${hash} anchor` : `${hash} pass ${entry.version.revision}`;
