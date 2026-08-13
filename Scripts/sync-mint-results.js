@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const catalogPath = path.join(root, "Mint/catalog.json");
-const source = process.argv[2] || "https://raw.githubusercontent.com/zeropoet/sovereign-standard/main/foldportrait-relations.json";
+const source = process.argv[2] || "https://sovereignstandard.co/foldportrait-relations.json";
 const registry = /^https?:/.test(source)
   ? await fetch(source).then((response) => { if (!response.ok) throw new Error(`Relation fetch failed: ${response.status}`); return response.json(); })
   : JSON.parse(fs.readFileSync(path.resolve(source), "utf8"));
