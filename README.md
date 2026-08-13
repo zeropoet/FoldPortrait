@@ -160,13 +160,14 @@ v1.4 -> v2.4 -> ... -> v12.4
 v1.5 -> v2.5 -> v3.5
 ```
 
-The PNG set was rendered at 1600 x 1600 for downstream archive and minting
-preparation. `Scripts/prepare-witness-batch.js` prepares the completed set for
-the Sovereign Standard Witness archive, copying PNGs into that repo and writing
-per-work metadata plus a batch XRPL mint-intent manifest.
+The PNG set was rendered at 1600 x 1600 for FoldPortrait-owned archival and
+mint preparation. `Scripts/build-mint-catalog.js` writes canonical public
+metadata and unsigned XRPL intents to `Mint/`. FoldForge Ledger Witness reads
+that catalog; Sovereign Standard stores only the resulting vessel relations.
+New autonomous reflections are appended after the sealed first era.
 
 ```sh
-node Scripts/prepare-witness-batch.js /Users/zeropoet/WebstormProjects/sovereign-standard
+npm run build:mint-catalog
 ```
 
 The completed archive contains:

@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0002",
+  "description": "Autonomous system reflection FP-REFLECT-0002, preserving its FoldKernel identity, public witness digest, and prior-cycle lineage.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0002.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0002",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 54
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "1f7b439f614b72f811f54ad718a51014ec4114489c68384bec08f03faeb901a4"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "6ae55375523a61d9dde0e00edddcc9833c3f3b2878af119929269f97aaf54aa8"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0002.png",
+    "file_sha256": "6ae55375523a61d9dde0e00edddcc9833c3f3b2878af119929269f97aaf54aa8"
+  },
+  "xrpl": null
+}
