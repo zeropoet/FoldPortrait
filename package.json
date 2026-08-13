@@ -6,6 +6,7 @@
     "archive": "node Scripts/archive-reflections.js",
     "verify:archive": "node Scripts/archive-reflections.js --verify",
     "build:mint-catalog": "node Scripts/build-mint-catalog.js",
+    "sync:mint-results": "node Scripts/sync-mint-results.js",
     "verify:mint-catalog": "node Scripts/build-mint-catalog.js --verify",
     "test": "node --check Web/app.js && node --check Scripts/sync-system-witness.js && npm run verify:archive && npm run verify:mint-catalog"
   },

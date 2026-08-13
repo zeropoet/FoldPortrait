@@ -1,0 +1,31 @@
+name: Synchronize Mint Results
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: foldportrait-mint-results
+  cancel-in-progress: false
+
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node Scripts/sync-mint-results.js
+      - run: npm run verify:mint-catalog
+      - name: Commit canonical mint results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Mint
+          git commit -m "Synchronize FoldPortrait mint results" || exit 0
+          git push

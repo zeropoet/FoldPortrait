@@ -165,6 +165,9 @@ mint preparation. `Scripts/build-mint-catalog.js` writes canonical public
 metadata and unsigned XRPL intents to `Mint/`. FoldForge Ledger Witness reads
 that catalog; Sovereign Standard stores only the resulting vessel relations.
 New autonomous reflections are appended after the sealed first era.
+Validated Ledger Witness results are synchronized back from Sovereign
+Standard's public relation registry by the hourly GitHub workflow, preserving
+FoldPortrait as the canonical token-result record.
 
 ```sh
 npm run build:mint-catalog
