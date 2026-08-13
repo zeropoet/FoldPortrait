@@ -168,8 +168,13 @@ New autonomous reflections are appended after the sealed first era.
 Ledger Witness has no direct-file admission path: a work must be archived and
 sequenced here before it can enter the signing channel.
 Validated Ledger Witness results are synchronized back from Sovereign
-Standard's public relation registry by the hourly GitHub workflow, preserving
-FoldPortrait as the canonical token-result record.
+Standard's public relation registry every five minutes, preserving FoldPortrait
+as the canonical token-result record. The synchronization validates and commits
+the resulting catalog with repository-scoped authority, publishes it through
+GitHub Pages, and opens a deduplicated issue if propagation fails. FoldForge
+reads only this published canonical catalog; it never promotes Sovereign
+Standard's relation registry or a local operator draft into FoldPortrait
+authority.
 
 ```sh
 npm run build:mint-catalog
