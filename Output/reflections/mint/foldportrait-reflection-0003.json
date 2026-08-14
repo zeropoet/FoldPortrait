@@ -2,7 +2,7 @@
   "schema": "foldportrait-xrpl-mint-candidate/v1",
   "status": "prepared_unsigned",
   "title": "FoldPortrait FP-REFLECT-0003",
-  "description": "Autonomous system reflection FP-REFLECT-0003, preserving its FoldKernel identity, public witness digest, and prior-cycle lineage.",
+  "description": "FP-REFLECT-0003 threads palimpsest, strata, and braid across 7 witnessed relations, forming a distinct silhouette from the public witness.",
   "image": {
     "path": "Output/reflections/png/foldportrait-reflection-0003.png",
     "mimeType": "image/png",

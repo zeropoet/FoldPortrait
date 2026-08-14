@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-xrpl-metadata/v1",
   "name": "FoldPortrait FP-REFLECT-0003",
-  "description": "Autonomous system reflection FP-REFLECT-0003, preserving its FoldKernel identity, public witness digest, and prior-cycle lineage.",
+  "description": "FP-REFLECT-0003 threads palimpsest, strata, and braid across 7 witnessed relations, forming a distinct silhouette from the public witness.",
   "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0003.png",
   "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0003",
   "attributes": [

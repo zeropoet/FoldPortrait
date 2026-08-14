@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-xrpl-metadata/v1",
   "name": "FoldPortrait FP-REFLECT-0002",
-  "description": "Autonomous system reflection FP-REFLECT-0002, preserving its FoldKernel identity, public witness digest, and prior-cycle lineage.",
+  "description": "FP-REFLECT-0002 gathers veil, sediment, and braid across 7 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
   "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0002.png",
   "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0002",
   "attributes": [

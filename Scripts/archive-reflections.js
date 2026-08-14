@@ -20,6 +20,25 @@ const hash = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const relative = (path) => path.replace(`${root}/`, "");
 const pngDimensions = (bytes) => ({ width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) });
 
+const reflectionDescription = (cycle) => {
+  const rules = [...new Set(cycle.chosenRules)];
+  const [lead = "counterfield", companion = "strata", accent = "aperture"] = rules;
+  const verbs = ["gathers", "folds", "threads", "presses", "balances", "opens", "layers"];
+  const endings = [
+    "a new contour for the system's continuing self-portrait",
+    "a distinct silhouette from the public witness",
+    "the latest shape of FoldPortrait's reflective lineage",
+    "a fresh boundary between memory and emergence",
+    "an evolving figure held inside the FoldKernel lineage",
+  ];
+  const seed = Number.parseInt(cycle.renderHash.slice(0, 8), 16);
+  const verb = verbs[seed % verbs.length];
+  const ending = endings[Math.floor(seed / verbs.length) % endings.length];
+  const relation = cycle.correlations.length === 1 ? "relation" : "relations";
+
+  return `${cycle.cycleID} ${verb} ${lead}, ${companion}, and ${accent} across ${cycle.correlations.length} witnessed ${relation}, forming ${ending}.`;
+};
+
 const brandSVG = readFileSync(brandSVGPath);
 const brandRenderer = new Resvg(brandSVG, {
   background: "#ffffff",
@@ -86,7 +105,7 @@ const archivedCycles = cycles.map((cycle) => {
     schema: "foldportrait-xrpl-mint-candidate/v1",
     status: "prepared_unsigned",
     title: `FoldPortrait ${cycle.cycleID}`,
-    description: `Autonomous system reflection ${cycle.cycleID}, preserving its FoldKernel identity, public witness digest, and prior-cycle lineage.`,
+    description: reflectionDescription(cycle),
     image: record.png,
     source: record.svg,
     lineage: {
