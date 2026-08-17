@@ -50,6 +50,7 @@ jobs:
           repository: zeropoet/Telos
           path: Telos
           fetch-depth: 1
+          token: ${{ secrets.TELOS_READ_TOKEN }}
 
       - name: Set up Swift
         uses: swift-actions/setup-swift@v2
