@@ -1,11 +1,11 @@
 {
   "schema": "foldportrait-system-witness/v1",
   "systemID": "sovereign-standard-relational-system",
-  "observedAt": "2026-08-09T18:30:50.000Z",
+  "observedAt": "2026-08-17T16:17:20.000Z",
   "sources": [
     {
       "id": "foldkernel",
-      "revision": "005264ec848ea2f0d62b15d43614cfe8ad517a90",
+      "revision": "f0b6d007919762a04be7b25f83fe992575b0cd2c",
       "role": "deterministic identity and coherence substrate",
       "measurements": [
         {
@@ -55,38 +55,38 @@
           "id": "embodied_portraits",
           "label": "Portraits embodied by Sovereign Standard",
           "unit": "portraits",
-          "value": 12
+          "value": 14
         }
       ]
     },
     {
       "id": "root-logos",
-      "revision": "655a2c98d0e2805c28e10b06f1bd9fcb0393a84a",
+      "revision": "39a8d82c791470bc5c2018ba6a4b3a9b10c3faff",
       "role": "constitutional orientation, library composition, and cultivation",
       "measurements": [
         {
           "id": "coherent_works",
           "label": "Coherent Library works",
           "unit": "works",
-          "value": 54
+          "value": 49
         },
         {
           "id": "witnessed_relations",
           "label": "Witnessed Library relations",
           "unit": "relations",
-          "value": 163
+          "value": 144
         },
         {
           "id": "cultivation_cycles",
           "label": "Completed cultivation cycles",
           "unit": "cycles",
-          "value": 134
+          "value": 167
         },
         {
           "id": "x_witnessed_fragments",
           "label": "X-witnessed founding fragments",
           "unit": "fragments",
-          "value": 11
+          "value": 15
         },
         {
           "id": "founding_fragments",
@@ -104,20 +104,20 @@
     },
     {
       "id": "foldforge",
-      "revision": "7708cc27d1233d0fdaad1b4632e036155f2db0b7",
+      "revision": "1f574b8a8a3657847db6761a4b069ce5d48ef44b",
       "role": "evidence-bound composition grammar",
       "measurements": [
         {
           "id": "compositions",
           "label": "Governed compositions",
           "unit": "compositions",
-          "value": 4
+          "value": 5
         },
         {
           "id": "witnessed_relations",
           "label": "Witnessed compositional relations",
           "unit": "relations",
-          "value": 25
+          "value": 31
         },
         {
           "id": "primitives",
@@ -141,7 +141,7 @@
     },
     {
       "id": "telos",
-      "revision": "dd9378ea615b7f4da08fd5c599e9b7eb6a0f2951",
+      "revision": "a2e7b30feaa85946f031c5378e573da482646421",
       "role": "bounded Sovereign Standard customer-acquisition operator and system mapper",
       "measurements": [
         {
@@ -154,7 +154,7 @@
           "id": "operating_components",
           "label": "Mapped operating components",
           "unit": "components",
-          "value": 5
+          "value": 8
         },
         {
           "id": "prepared_campaigns",
@@ -184,7 +184,7 @@
     },
     {
       "id": "sovereign-standard",
-      "revision": "sha256:3a281194be8b743f7c18ce00033812499cc3cdf7fee0d23b962e8c9d82f07c67",
+      "revision": "sha256:fd5f65894e1ccaa00b1fe0de33f4f732fcadb02b4364b9c65b95e6a33534a5ba",
       "role": "material practice, monthly collection, and embodied continuation",
       "measurements": [
         {
@@ -197,7 +197,7 @@
           "id": "embodied_foldportraits",
           "label": "Embodied FoldPortrait lineages",
           "unit": "portraits",
-          "value": 12
+          "value": 14
         }
       ]
     }
