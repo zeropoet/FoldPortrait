@@ -3,7 +3,7 @@ name: Synchronize Mint Results
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "41 9 * * *"
 
 permissions:
   contents: write
@@ -21,6 +21,7 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 22
+      - run: npm run build:mint-catalog
       - run: node Scripts/sync-mint-results.js
       - run: npm run verify:mint-catalog
       - name: Commit canonical mint results

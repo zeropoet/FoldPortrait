@@ -81,17 +81,19 @@ jobs:
           swift run fold-portrait verify-reflection
           npm run archive
           npm run verify:archive
+          npm run build:mint-catalog
+          npm run verify:mint-catalog
 
       - name: Preserve a changed reflection
         working-directory: FoldPortrait
         run: |
-          if git diff --quiet -- Reflection Output/reflections Brand; then
+          if git diff --quiet -- Reflection Output/reflections Brand Mint; then
             echo "The witnessed system is unchanged; no reflection was added."
             exit 0
           fi
           git config user.name "foldportrait-reflection[bot]"
           git config user.email "foldportrait-reflection[bot]@users.noreply.github.com"
-          git add Reflection Output/reflections Brand
+          git add Reflection Output/reflections Brand Mint
           git commit -m "Add autonomous system reflection"
           git pull --rebase origin main
           git push origin HEAD:main

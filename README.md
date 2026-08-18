@@ -91,6 +91,8 @@ After reflection, build and verify every durable representation:
 npm ci
 npm run archive
 npm run verify:archive
+npm run build:mint-catalog
+npm run verify:mint-catalog
 ```
 
 The archive task renders each 1200 × 1600 canonical SVG to an opaque 2400 ×
@@ -102,8 +104,10 @@ publishes durable metadata, reviews the transaction, and signs through Xaman.
 `.github/workflows/reflection-cycle.yml` performs this same bounded process each
 Sunday and on manual dispatch. It checks out the public connected repositories,
 synchronizes aggregate measurements, builds the renderer, reflects only when
-the witnessed state changes, creates and verifies both archive formats, and
-commits the additive cycle. It cannot read private customer or order data,
+the witnessed state changes, creates and verifies both archive formats, prepares
+the matching mint catalog in the same activation, and commits the additive
+cycle. FoldPortrait is therefore awakened to generate; it is not an always-on
+polling system. It cannot read private customer or order data,
 infer causation, rewrite a source repository, alter the sealed first era, or
 sign and submit an XRPL transaction.
 
@@ -172,10 +176,12 @@ New autonomous reflections are appended after the sealed first era.
 Ledger Witness has no direct-file admission path: a work must be archived and
 sequenced here before it can enter the signing channel.
 Validated Ledger Witness results are synchronized back from Sovereign
-Standard's public relation registry every five minutes, preserving FoldPortrait
-as the canonical token-result record. The synchronization validates and commits
-the resulting catalog with repository-scoped authority, publishes it through
-GitHub Pages, and opens a deduplicated issue if propagation fails. FoldForge
+Standard's public relation registry by manual dispatch and one daily recovery
+check, preserving FoldPortrait as the canonical token-result record without
+keeping the reflection instrument always awake. Reflection generation itself
+prepares its catalog immediately. The recovery synchronization validates and
+commits resulting ledger evidence with repository-scoped authority, publishes
+it through GitHub Pages, and opens a deduplicated issue if propagation fails. FoldForge
 reads only this published canonical catalog; it never promotes Sovereign
 Standard's relation registry or a local operator draft into FoldPortrait
 authority.
