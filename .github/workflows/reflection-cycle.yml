@@ -17,6 +17,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - name: Mint a read-only Telos installation token
+        id: telos-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.TELOS_BRIDGE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.TELOS_BRIDGE_APP_PRIVATE_KEY }}
+          owner: zeropoet
+          repositories: Telos
+          permission-contents: read
+
       - name: Check out FoldPortrait
         uses: actions/checkout@v7
         with:
@@ -50,7 +60,7 @@ jobs:
           repository: zeropoet/Telos
           path: Telos
           fetch-depth: 1
-          token: ${{ secrets.TELOS_READ_TOKEN }}
+          token: ${{ steps.telos-token.outputs.token }}
 
       - name: Set up Swift
         uses: swift-actions/setup-swift@v2

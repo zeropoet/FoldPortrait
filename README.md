@@ -102,8 +102,9 @@ signature, submission, and validation remain unset until a human steward
 publishes durable metadata, reviews the transaction, and signs through Xaman.
 
 `.github/workflows/reflection-cycle.yml` performs this same bounded process each
-Sunday and on manual dispatch. It checks out the public connected repositories,
-synchronizes aggregate measurements, builds the renderer, reflects only when
+Sunday and on manual dispatch. It checks out the public connected repositories
+and mints a one-hour, read-only Telos Bridge GitHub App token for the private
+Telos witness. It then synchronizes aggregate measurements, builds the renderer, reflects only when
 the witnessed state changes, creates and verifies both archive formats, prepares
 the matching mint catalog in the same activation, and commits the additive
 cycle. FoldPortrait is therefore awakened to generate; it is not an always-on
