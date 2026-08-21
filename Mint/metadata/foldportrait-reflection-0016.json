@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0016",
+  "description": "FP-REFLECT-0016 threads strata, sediment, and veil across 7 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0016.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0016",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 68
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "8d5adf7bf9ced44eb3b6363b940f905b6ebef8bd56292a494d902762a6f30df2"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "7393ea81e2f3bdca3ab3d593ad71e4b29ab60ee8990776af4e0e651ba70f1d8f"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0016.png",
+    "file_sha256": "7393ea81e2f3bdca3ab3d593ad71e4b29ab60ee8990776af4e0e651ba70f1d8f"
+  },
+  "xrpl": null
+}
