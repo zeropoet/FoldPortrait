@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0015",
+  "description": "FP-REFLECT-0015 presses strata, counterfield, and veil across 7 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0015.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0015",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 67
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "e7b6d6ea4dcb9326a447253fa873010efb116a1e2e76b3ccc6ee0f8c5f3ae5d8"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "2d7b456cf42128e4aad86c339e213209101d0cf4411e070f9ad5645a841bf419"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0015.png",
+    "file_sha256": "2d7b456cf42128e4aad86c339e213209101d0cf4411e070f9ad5645a841bf419"
+  },
+  "xrpl": null
+}
