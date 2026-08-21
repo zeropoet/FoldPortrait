@@ -102,7 +102,8 @@ signature, submission, and validation remain unset until a human steward
 publishes durable metadata, reviews the transaction, and signs through Xaman.
 
 `.github/workflows/reflection-cycle.yml` performs this same bounded process when
-Telos reports a connected-system change, once daily as a recovery check, and on
+an originating workflow reports a connected-system change after notifying
+Telos, once daily as a recovery check, and on
 manual dispatch. It checks out the public connected repositories and mints a
 one-hour, repository-scoped Telos Bridge GitHub App token for the private Telos
 witness and bounded propagation dispatches. It then synchronizes aggregate measurements, builds the renderer, reflects only when
