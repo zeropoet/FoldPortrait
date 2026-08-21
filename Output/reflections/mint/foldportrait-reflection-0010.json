@@ -1,0 +1,40 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0010",
+  "description": "FP-REFLECT-0010 opens palimpsest, counterfield, and veil across 7 witnessed relations, forming a distinct silhouette from the public witness.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0010.png",
+    "mimeType": "image/png",
+    "sha256": "a9fa191a384c4cc200b519b3c0be221207c5930dd83f6ace0fb6e44ecf795a3f",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0010.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "ba7f93915fa7c4813ec34477cba74e64448aa1b5fa1a4276eea9eb2072be2458"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0010",
+    "previousCycleID": "FP-REFLECT-0009",
+    "witnessDigest": "f5c5758a55550406ae0b726cc3d121ab78510c01b85c3959c2a1418e26fa9b22",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "f8d214ae816ea6e5ab0fd1b68b26f2279760ede5c023ec2ff00ae50bf0de57e3"
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}

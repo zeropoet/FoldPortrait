@@ -391,10 +391,51 @@
             "payloadPath": "Output/reflections/mint/foldportrait-reflection-0009.json"
           },
           "boundary": "Prepared for witness only. FoldPortrait cannot sign, submit, transfer, or claim XRPL value."
+        },
+        {
+          "schema": "foldportrait-reflection-archive-entry/v1",
+          "era": 2,
+          "cycleID": "FP-REFLECT-0010",
+          "sequence": 10,
+          "witnessedAt": "2026-08-21T15:44:01.000Z",
+          "previousCycleID": "FP-REFLECT-0009",
+          "witnessDigest": "f5c5758a55550406ae0b726cc3d121ab78510c01b85c3959c2a1418e26fa9b22",
+          "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+          "renderHash": "f8d214ae816ea6e5ab0fd1b68b26f2279760ede5c023ec2ff00ae50bf0de57e3",
+          "chosenRules": [
+            "palimpsest",
+            "counterfield",
+            "veil",
+            "aperture"
+          ],
+          "correlationCount": 7,
+          "svg": {
+            "path": "Output/reflections/foldportrait-reflection-0010.svg",
+            "mimeType": "image/svg+xml",
+            "sha256": "ba7f93915fa7c4813ec34477cba74e64448aa1b5fa1a4276eea9eb2072be2458"
+          },
+          "png": {
+            "path": "Output/reflections/png/foldportrait-reflection-0010.png",
+            "mimeType": "image/png",
+            "sha256": "a9fa191a384c4cc200b519b3c0be221207c5930dd83f6ace0fb6e44ecf795a3f",
+            "dimensions": {
+              "width": 2400,
+              "height": 3200
+            }
+          },
+          "notesPath": "Output/reflections/foldportrait-reflection-0010.notes.md",
+          "mint": {
+            "status": "prepared_unsigned",
+            "network": "XRPL mainnet",
+            "transactionType": "NFTokenMint",
+            "signingAuthority": "human steward through Xaman",
+            "payloadPath": "Output/reflections/mint/foldportrait-reflection-0010.json"
+          },
+          "boundary": "Prepared for witness only. FoldPortrait cannot sign, submit, transfer, or claim XRPL value."
         }
       ]
     }
   ],
-  "currentCycleID": "FP-REFLECT-0009",
+  "currentCycleID": "FP-REFLECT-0010",
   "mintingBoundary": "Archive preparation is autonomous; XRPL publication and Xaman signing are human-authorized acts."
 }
