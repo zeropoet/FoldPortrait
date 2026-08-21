@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0008",
+  "description": "FP-REFLECT-0008 opens braid, counterfield, and sediment across 7 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0008.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0008",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 60
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "650e9a7bc01f87ed022fe3cd888534d87e6eab2b6d0fb3895f877e38e6afbfbd"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "dc339bbd333f86453faac26766ee3157ad2564502ce6a224dceccc28bef2c7b6"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0008.png",
+    "file_sha256": "dc339bbd333f86453faac26766ee3157ad2564502ce6a224dceccc28bef2c7b6"
+  },
+  "xrpl": null
+}
