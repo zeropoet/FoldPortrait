@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-system-witness/v1",
   "systemID": "sovereign-standard-relational-system",
-  "observedAt": "2026-08-21T15:17:52.000Z",
+  "observedAt": "2026-08-21T15:20:36.000Z",
   "sources": [
     {
       "id": "foldkernel",
@@ -61,7 +61,7 @@
     },
     {
       "id": "root-logos",
-      "revision": "b72a6e07967d9c0321283c46cebee509349a4fe8",
+      "revision": "2d551b941ad4268dd1e489d0c3a967222e9008c5",
       "role": "constitutional orientation, library composition, and cultivation",
       "measurements": [
         {
@@ -80,7 +80,7 @@
           "id": "cultivation_cycles",
           "label": "Completed cultivation cycles",
           "unit": "cycles",
-          "value": 174
+          "value": 175
         },
         {
           "id": "x_witnessed_fragments",
@@ -141,7 +141,7 @@
     },
     {
       "id": "telos",
-      "revision": "6e348c4e9b0d2a1307c7ae5cdf62c0ade8722c86",
+      "revision": "0b4e571afc16dce7122bf528183eee00662ce236",
       "role": "bounded Sovereign Standard customer-acquisition operator and system mapper",
       "measurements": [
         {
