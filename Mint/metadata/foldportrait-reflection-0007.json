@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0007",
+  "description": "FP-REFLECT-0007 presses palimpsest, strata, and veil across 7 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0007.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0007",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 59
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "c4370a6bd6c854514604e36b170d5838d0748e3e9089628169790faace900bfb"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "d6a538c26db07b0cb762c8dd91833dec7b300b0f5f92884bc9928014b17561fc"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0007.png",
+    "file_sha256": "d6a538c26db07b0cb762c8dd91833dec7b300b0f5f92884bc9928014b17561fc"
+  },
+  "xrpl": null
+}
