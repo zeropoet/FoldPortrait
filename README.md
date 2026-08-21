@@ -101,13 +101,14 @@ The archive task renders each 1200 × 1600 canonical SVG to an opaque 2400 ×
 signature, submission, and validation remain unset until a human steward
 publishes durable metadata, reviews the transaction, and signs through Xaman.
 
-`.github/workflows/reflection-cycle.yml` performs this same bounded process each
-Sunday and on manual dispatch. It checks out the public connected repositories
-and mints a one-hour, read-only Telos Bridge GitHub App token for the private
-Telos witness. It then synchronizes aggregate measurements, builds the renderer, reflects only when
+`.github/workflows/reflection-cycle.yml` performs this same bounded process when
+Telos reports a connected-system change, once daily as a recovery check, and on
+manual dispatch. It checks out the public connected repositories and mints a
+one-hour, repository-scoped Telos Bridge GitHub App token for the private Telos
+witness and bounded propagation dispatches. It then synchronizes aggregate measurements, builds the renderer, reflects only when
 the witnessed state changes, creates and verifies both archive formats, prepares
-the matching mint catalog in the same activation, and commits the additive
-cycle. FoldPortrait is therefore awakened to generate; it is not an always-on
+the matching mint catalog in the same activation, commits the additive cycle,
+wakes Root Logos, and reports the reflection to Telos. FoldPortrait is therefore awakened to generate; it is not an always-on
 polling system. It cannot read private customer or order data,
 infer causation, rewrite a source repository, alter the sealed first era, or
 sign and submit an XRPL transaction.

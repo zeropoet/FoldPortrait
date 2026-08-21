@@ -2,8 +2,11 @@ name: Autonomous Reflection Cycle
 
 on:
   schedule:
-    - cron: "17 15 * * 0"
+    - cron: "17 15 * * *"
   workflow_dispatch:
+  repository_dispatch:
+    types:
+      - connected-system-changed
 
 permissions:
   contents: write
@@ -17,15 +20,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Mint a read-only Telos installation token
-        id: telos-token
+      - name: Mint a connected-system installation token
+        id: connected-system-token
         uses: actions/create-github-app-token@v3
         with:
           client-id: ${{ vars.TELOS_BRIDGE_APP_CLIENT_ID }}
           private-key: ${{ secrets.TELOS_BRIDGE_APP_PRIVATE_KEY }}
           owner: zeropoet
-          repositories: Telos
-          permission-contents: read
+          repositories: |
+            Telos
+            root-logos
+          permission-contents: write
 
       - name: Check out FoldPortrait
         uses: actions/checkout@v7
@@ -60,7 +65,7 @@ jobs:
           repository: zeropoet/Telos
           path: Telos
           fetch-depth: 1
-          token: ${{ steps.telos-token.outputs.token }}
+          token: ${{ steps.connected-system-token.outputs.token }}
 
       - name: Set up Swift
         uses: swift-actions/setup-swift@v2
@@ -95,10 +100,12 @@ jobs:
           npm run verify:mint-catalog
 
       - name: Preserve a changed reflection
+        id: reflection
         working-directory: FoldPortrait
         run: |
           if git diff --quiet -- Reflection Output/reflections Brand Mint; then
             echo "The witnessed system is unchanged; no reflection was added."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "foldportrait-reflection[bot]"
@@ -107,3 +114,40 @@ jobs:
           git commit -m "Add autonomous system reflection"
           git pull --rebase origin main
           git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "revision=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Wake Root Logos and propagate the reflection to Telos
+        if: steps.reflection.outputs.changed == 'true'
+        env:
+          CONNECTED_SYSTEM_TOKEN: ${{ steps.connected-system-token.outputs.token }}
+          SOURCE_SHA: ${{ steps.reflection.outputs.revision }}
+        run: |
+          echo "$SOURCE_SHA" | grep -Eq '^[a-f0-9]{40}$'
+          root_payload=$(jq -n --arg revision "$SOURCE_SHA" \
+            '{event_type:"foldportrait-reflected",client_payload:{revision:$revision}}')
+          curl --fail --silent --show-error \
+            --retry 4 --retry-all-errors --retry-delay 3 \
+            -X POST https://api.github.com/repos/zeropoet/root-logos/dispatches \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $CONNECTED_SYSTEM_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "Content-Type: application/json" \
+            --data "$root_payload"
+          occurred_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          telos_payload=$(jq -n \
+            --arg source_repository "zeropoet/FoldPortrait" \
+            --arg source_sha "$SOURCE_SHA" \
+            --arg change_class "relation" \
+            --arg summary "FoldPortrait preserved a new system reflection and render-lineage witness." \
+            --arg witness_url "https://zeropoet.github.io/FoldPortrait/" \
+            --arg occurred_at "$occurred_at" \
+            '{event_type:"telos-propagation",client_payload:{source_repository:$source_repository,source_sha:$source_sha,change_class:$change_class,summary:$summary,witness_url:$witness_url,occurred_at:$occurred_at}}')
+          curl --fail --silent --show-error \
+            --retry 4 --retry-all-errors --retry-delay 3 \
+            -X POST https://api.github.com/repos/zeropoet/Telos/dispatches \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $CONNECTED_SYSTEM_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "Content-Type: application/json" \
+            --data "$telos_payload"
