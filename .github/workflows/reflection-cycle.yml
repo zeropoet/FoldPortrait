@@ -108,14 +108,40 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          local_witness=$(node -e 'process.stdout.write(require("./Output/reflections/current.json").witnessDigest)')
+          git fetch origin main
+          base_revision=$(git rev-parse origin/main)
+          remote_witness=$(git show origin/main:Output/reflections/current.json | node -e 'let value=""; process.stdin.on("data", chunk => value += chunk); process.stdin.on("end", () => process.stdout.write(JSON.parse(value).witnessDigest))')
+          if [ "$local_witness" = "$remote_witness" ]; then
+            echo "Another reflection run already preserved this witnessed system state."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "$(git rev-parse HEAD)" != "$base_revision" ]; then
+            echo "FoldPortrait main advanced to a different witnessed state; the newer run supersedes this draft."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           git config user.name "foldportrait-reflection[bot]"
           git config user.email "foldportrait-reflection[bot]@users.noreply.github.com"
           git add Reflection Output/reflections Brand Mint
           git commit -m "Add autonomous system reflection"
-          git pull --rebase origin main
-          git push origin HEAD:main
-          echo "changed=true" >> "$GITHUB_OUTPUT"
-          echo "revision=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          for attempt in 1 2 3 4; do
+            if git push origin HEAD:main; then
+              echo "changed=true" >> "$GITHUB_OUTPUT"
+              echo "revision=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            git fetch origin main
+            if [ "$(git rev-parse origin/main)" != "$base_revision" ]; then
+              echo "A newer reflection won the preservation race; this draft is safely superseded."
+              echo "changed=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Reflection push failed without a competing commit; retrying ${attempt}/4."
+          done
+          echo "Unable to preserve the reflection after four attempts."
+          exit 1
 
       - name: Wake Root Logos and propagate the reflection to Telos
         if: steps.reflection.outputs.changed == 'true'

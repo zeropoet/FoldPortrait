@@ -113,6 +113,9 @@ wakes Root Logos, and reports the reflection to Telos. FoldPortrait is therefore
 polling system. It cannot read private customer or order data,
 infer causation, rewrite a source repository, alter the sealed first era, or
 sign and submit an XRPL transaction.
+Concurrent wake events compare their witnessed-system digest before commit. A
+duplicate or stale draft yields to the already preserved newer reflection
+instead of rebasing competing render archives.
 
 ## Brand Mark
 
