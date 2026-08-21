@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0014",
+  "description": "FP-REFLECT-0014 layers strata, palimpsest, and braid across 7 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0014.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0014",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 66
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "6abf6e6db09ffb104c6736622d6dff7ac8ec8064e9b0d7c4e768342b2529ed1a"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "779b28d472cc3ef9bbd4fc0d16f3fb23bd70380b0360884fe0501d30e5319a5b"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0014.png",
+    "file_sha256": "779b28d472cc3ef9bbd4fc0d16f3fb23bd70380b0360884fe0501d30e5319a5b"
+  },
+  "xrpl": null
+}
