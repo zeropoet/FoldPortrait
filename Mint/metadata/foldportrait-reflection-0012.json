@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0012",
+  "description": "FP-REFLECT-0012 threads palimpsest, braid, and veil across 7 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0012.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0012",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 64
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "4d2ccd6e9076f57e299dc60cdb2b1930aba4953f4379d081c9fd58267c8bfdc7"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "e633195568ecc4d1099b5d5f0fadd18a371fe5f5fd40bb066a96845f6b9bb264"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0012.png",
+    "file_sha256": "e633195568ecc4d1099b5d5f0fadd18a371fe5f5fd40bb066a96845f6b9bb264"
+  },
+  "xrpl": null
+}

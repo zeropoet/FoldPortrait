@@ -1,11 +1,11 @@
 {
   "schema": "foldportrait-system-witness/v1",
   "systemID": "sovereign-standard-relational-system",
-  "observedAt": "2026-08-21T15:47:38.000Z",
+  "observedAt": "2026-08-21T16:52:58.000Z",
   "sources": [
     {
       "id": "foldkernel",
-      "revision": "f0b6d007919762a04be7b25f83fe992575b0cd2c",
+      "revision": "8b4cc5e4222545ec03d3286e8fe4744814d3fdd2",
       "role": "deterministic identity and coherence substrate",
       "measurements": [
         {
@@ -61,7 +61,7 @@
     },
     {
       "id": "root-logos",
-      "revision": "dc36851658bc7373146d9972bc927fc8cec5e5ba",
+      "revision": "0765539a517b04a74be06539ccc41471ba6d30df",
       "role": "constitutional orientation, library composition, and cultivation",
       "measurements": [
         {
@@ -104,7 +104,7 @@
     },
     {
       "id": "foldforge",
-      "revision": "6b1ef86ec25ead14838d2d7786a1437b506ef0cf",
+      "revision": "2c29c7721ef54bc72c9db432701a784e81c23dec",
       "role": "evidence-bound composition grammar",
       "measurements": [
         {
@@ -141,7 +141,7 @@
     },
     {
       "id": "telos",
-      "revision": "a6a1a9ced59d5e47226e5f63799ee288cc6ac00f",
+      "revision": "8ad165aec69022f3c107ae17afb24f1456d36cba",
       "role": "bounded Sovereign Standard customer-acquisition operator and system mapper",
       "measurements": [
         {
