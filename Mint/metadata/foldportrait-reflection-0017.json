@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0017",
+  "description": "FP-REFLECT-0017 balances palimpsest, aperture, and braid across 7 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0017.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0017",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 69
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "245445a968c9ad78c334b55bf264ecd366511b786dce64c9b30926d236443d5b"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "4cfa0b9c6f60e60505200a6dcdd9bff300228d536db97fb0c27f43c593fc2c22"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0017.png",
+    "file_sha256": "4cfa0b9c6f60e60505200a6dcdd9bff300228d536db97fb0c27f43c593fc2c22"
+  },
+  "xrpl": null
+}
