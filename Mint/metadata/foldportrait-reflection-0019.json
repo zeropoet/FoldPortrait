@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0019",
+  "description": "FP-REFLECT-0019 threads counterfield, braid, and palimpsest across 7 witnessed relations, forming a distinct silhouette from the public witness.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0019.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0019",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 71
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "45c97c126f8829c7c21c2cc86399a0f98e652a268678235593d6a311e5a70203"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "874f084b87f39f2f86158ff0260821c6446f84e3d66272d9622271846df3eefe"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0019.png",
+    "file_sha256": "874f084b87f39f2f86158ff0260821c6446f84e3d66272d9622271846df3eefe"
+  },
+  "xrpl": null
+}
