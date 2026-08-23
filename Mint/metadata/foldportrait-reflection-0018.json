@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0018",
+  "description": "FP-REFLECT-0018 layers aperture, braid, and counterfield across 7 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0018.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0018",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 70
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "d436fd675b3f1395b8bf38bbbf609618a0034cbcf1ff0bd2a51bb6b072f7680a"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "feb14e5a773e7c441c2408340fe319e35b03e5263243de1c5113b2c23e84946b"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0018.png",
+    "file_sha256": "feb14e5a773e7c441c2408340fe319e35b03e5263243de1c5113b2c23e84946b"
+  },
+  "xrpl": null
+}
