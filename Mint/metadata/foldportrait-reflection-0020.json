@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0020",
+  "description": "FP-REFLECT-0020 threads palimpsest, strata, and aperture across 7 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0020.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0020",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 72
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "eded277bcdeb9737f3c8e12bd63372032026dcba11f4bbc4fb6b660f826c67b7"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "c8abe91098e448bda59292a54c1137864f380f03e7b4c0586032ce850faf6f4a"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0020.png",
+    "file_sha256": "c8abe91098e448bda59292a54c1137864f380f03e7b4c0586032ce850faf6f4a"
+  },
+  "xrpl": null
+}
