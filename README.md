@@ -47,6 +47,24 @@ Root Logos, FoldForge, Telos, and Sovereign Standard. Source identities and
 revisions remain explicit. Personal data, private orders, credentials, causal
 claims, and transferred source authority are prohibited.
 
+Cycles `FP-REFLECT-0001` through `FP-REFLECT-0006` form the calibration
+movement. At that boundary, a human-guided review found that fixed refinement
+depth and saturated correlations were narrowing later surfaces without proving
+that FoldPortrait had reached a final portrait. `learned-composition-v1` begins
+after 0006: FP still chooses deterministically, but now weighs witness change,
+recent relation reuse, and recent rule use; varies active-relation count and
+refinement depth; and moves through contraction, opening, fragmentation,
+recombination, and drift seasons with distinct palette families.
+
+The displaced pre-learning 0007–0020 surfaces remain recoverable in
+`Output/reflections/research/pre-learning-post-0006/`. They are research
+evidence, not part of the canonical mint catalog. The stored witness digests and
+measurements can be replayed reproducibly with:
+
+```sh
+swift run fold-portrait replay-reflections 6
+```
+
 The engine evaluates every cross-source measurement pair. After at least three
 preserved observations with variance it may use Pearson correlation, always
 labeled noncausal. Before that threshold it uses **structural resonance**, an

@@ -109,6 +109,9 @@ const reflections = fs.existsSync(reflectionRoot) ? fs.readdirSync(reflectionRoo
       { trait_type: "Era", value: "Autonomous System Reflection" },
       { trait_type: "Sequence", value: sequence },
       { trait_type: "Witness Digest", value: candidate.lineage.witnessDigest },
+      ...(candidate.lineage.compositionRegime ? [{ trait_type: "Composition Regime", value: candidate.lineage.compositionRegime }] : []),
+      ...(candidate.lineage.compositionSeason ? [{ trait_type: "Composition Season", value: candidate.lineage.compositionSeason }] : []),
+      ...(candidate.lineage.paletteID ? [{ trait_type: "Palette", value: candidate.lineage.paletteID }] : []),
       { trait_type: "File SHA-256", value: digest }
     ],
     provenance: { repository: "https://github.com/zeropoet/FoldPortrait", source_file: imagePath, file_sha256: digest },

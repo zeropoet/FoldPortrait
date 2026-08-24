@@ -140,6 +140,10 @@ public struct ReflectionCycle: Codable, Equatable, Sendable {
     public let measurements: [ReflectedMeasurement]
     public let correlations: [VisualCorrelation]
     public let chosenRules: [String]
+    public let compositionRegime: String?
+    public let compositionSeason: String?
+    public let paletteID: String?
+    public let changeMagnitude: Double?
     public let artifact: String
     public let notes: String
     public let boundary: String
@@ -169,14 +173,46 @@ public struct SystemReflectionEngine: Sendable {
         priorCycles: [ReflectionCycle] = []
     ) throws -> ReflectionRenderResult {
         let witness = try rawWitness.validated()
+        return reflect(
+            measurements: witness.flattenedMeasurements,
+            witnessedAt: witness.observedAt,
+            witnessDigest: witness.digest,
+            priorCycles: priorCycles
+        )
+    }
+
+    public func replay(
+        recordedCycle: ReflectionCycle,
+        priorCycles: [ReflectionCycle]
+    ) -> ReflectionRenderResult {
+        reflect(
+            measurements: recordedCycle.measurements,
+            witnessedAt: recordedCycle.witnessedAt,
+            witnessDigest: recordedCycle.witnessDigest,
+            priorCycles: priorCycles
+        )
+    }
+
+    private func reflect(
+        measurements: [ReflectedMeasurement],
+        witnessedAt: String,
+        witnessDigest: String,
+        priorCycles: [ReflectionCycle]
+    ) -> ReflectionRenderResult {
         let prior = priorCycles.sorted { $0.sequence < $1.sequence }
         let sequence = (prior.last?.sequence ?? 0) + 1
         let cycleID = String(format: "FP-REFLECT-%04d", sequence)
-        let measurements = witness.flattenedMeasurements
+        let plan = compositionPlan(
+            sequence: sequence,
+            measurements: measurements,
+            priorCycles: prior,
+            witnessDigest: witnessDigest
+        )
         let correlations = selectCorrelations(
             measurements: measurements,
             priorCycles: prior,
-            witnessDigest: witness.digest
+            witnessDigest: witnessDigest,
+            targetCount: plan.relationCount
         )
         let selectedRules = correlations.map(\.visualRule).reduce(into: [String]()) { rules, rule in
             if !rules.contains(rule) { rules.append(rule) }
@@ -186,11 +222,11 @@ public struct SystemReflectionEngine: Sendable {
             seed: "FoldKernel-1.0.0|FoldPortrait|system",
             iteration: sequence,
             revision: 1,
-            refinementDepth: min(18, 12 + sequence)
+            refinementDepth: plan.refinementDepth
         )
         let renderHash = reflectionHash(
             baseHash: base.renderHashHex,
-            witnessDigest: witness.digest,
+            witnessDigest: witnessDigest,
             correlations: correlations,
             priorCycleID: prior.last?.cycleID
         )
@@ -198,32 +234,39 @@ public struct SystemReflectionEngine: Sendable {
         let notesPath = "Output/reflections/foldportrait-reflection-\(String(format: "%04d", sequence)).notes.md"
         let notes = reflectionNotes(
             cycleID: cycleID,
-            witness: witness,
+            witnessedAt: witnessedAt,
+            witnessDigest: witnessDigest,
             base: base,
             correlations: correlations,
-            priorCycleID: prior.last?.cycleID
+            priorCycleID: prior.last?.cycleID,
+            plan: plan
         )
         let svg = reflectionSVG(
             base: base,
             cycleID: cycleID,
             sequence: sequence,
             renderHash: renderHash,
-            witnessDigest: witness.digest,
+            witnessDigest: witnessDigest,
             correlations: correlations,
-            priorCycleCount: prior.count
+            priorCycleCount: prior.count,
+            plan: plan
         )
         let cycle = ReflectionCycle(
             schema: "foldportrait-reflection-cycle/v1",
             cycleID: cycleID,
             sequence: sequence,
-            witnessedAt: witness.observedAt,
-            witnessDigest: witness.digest,
+            witnessedAt: witnessedAt,
+            witnessDigest: witnessDigest,
             foldKernelIdentity: base.convergenceHashHex,
             renderHash: renderHash,
             previousCycleID: prior.last?.cycleID,
             measurements: measurements,
             correlations: correlations,
             chosenRules: selectedRules,
+            compositionRegime: plan.regime,
+            compositionSeason: plan.season,
+            paletteID: plan.paletteID,
+            changeMagnitude: rounded(plan.changeMagnitude),
             artifact: artifact,
             notes: notesPath,
             boundary: "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior."
@@ -231,10 +274,81 @@ public struct SystemReflectionEngine: Sendable {
         return ReflectionRenderResult(cycle: cycle, svg: svg, notes: notes)
     }
 
-    private func selectCorrelations(
+    private struct CompositionPlan {
+        let regime: String
+        let season: String
+        let paletteID: String
+        let palette: [String]
+        let relationCount: Int
+        let refinementDepth: Int
+        let changeMagnitude: Double
+    }
+
+    private func compositionPlan(
+        sequence: Int,
         measurements: [ReflectedMeasurement],
         priorCycles: [ReflectionCycle],
         witnessDigest: String
+    ) -> CompositionPlan {
+        guard sequence > 6 else {
+            return CompositionPlan(
+                regime: "calibration",
+                season: "accumulation",
+                paletteID: "mineral",
+                palette: Self.palettes[0],
+                relationCount: min(7, max(4, Set(measurements.map(\.sourceID)).count + 1)),
+                refinementDepth: min(18, 12 + sequence),
+                changeMagnitude: measurementChange(measurements, from: priorCycles.last?.measurements)
+            )
+        }
+
+        let seasons = ["contraction", "opening", "fragmentation", "recombination", "drift"]
+        let phase = (sequence - 7) % seasons.count
+        let magnitude = measurementChange(measurements, from: priorCycles.last?.measurements)
+        let counts = [4, 6, 5, 7, 5]
+        let depths = [12, 17, 14, 18, 15]
+        let paletteOffset = Int(stableUInt64(witnessDigest) % UInt64(Self.palettes.count))
+        let paletteIndex = (phase + paletteOffset) % Self.palettes.count
+
+        return CompositionPlan(
+            regime: "learned-composition-v1",
+            season: seasons[phase],
+            paletteID: Self.paletteIDs[paletteIndex],
+            palette: Self.palettes[paletteIndex],
+            relationCount: min(7, counts[phase] + (magnitude >= 0.12 ? 1 : 0)),
+            refinementDepth: min(18, depths[phase] + (magnitude >= 0.20 ? 1 : 0)),
+            changeMagnitude: magnitude
+        )
+    }
+
+    private static let paletteIDs = ["mineral", "ember", "tidal", "orchid", "lichen", "nocturne"]
+    private static let palettes = [
+        ["#17202a", "#8d3f4f", "#48605d", "#c38b59", "#6a6179", "#b7a98f", "#34515c"],
+        ["#2b1715", "#b84a32", "#ef9f52", "#7a2838", "#d8c3a5", "#552f23", "#f0d6b4"],
+        ["#092c35", "#087e8b", "#6bb7b0", "#d5e7d4", "#e0a458", "#315c63", "#f2d0a4"],
+        ["#251637", "#754668", "#c98bb9", "#e8c1d7", "#6675a8", "#d7b377", "#3d315b"],
+        ["#243119", "#6b7d3e", "#a4ac68", "#d6ce93", "#8a5a44", "#c98c5a", "#4b5d3a"],
+        ["#090b1a", "#273469", "#5e60ce", "#80ffdb", "#ff6b6b", "#ffd166", "#c9d6ea"],
+    ]
+
+    private func measurementChange(
+        _ measurements: [ReflectedMeasurement],
+        from previous: [ReflectedMeasurement]?
+    ) -> Double {
+        guard let previous else { return 1 }
+        let prior = Dictionary(uniqueKeysWithValues: previous.map { ($0.id, $0.value) })
+        let changes = measurements.compactMap { measurement -> Double? in
+            guard let old = prior[measurement.id] else { return 1 }
+            return abs(measurement.value - old) / max(1, max(measurement.value, old))
+        }
+        return changes.isEmpty ? 0 : min(1, changes.reduce(0, +) / Double(changes.count) * 8)
+    }
+
+    private func selectCorrelations(
+        measurements: [ReflectedMeasurement],
+        priorCycles: [ReflectionCycle],
+        witnessDigest: String,
+        targetCount: Int
     ) -> [VisualCorrelation] {
         struct Candidate {
             let left: ReflectedMeasurement
@@ -244,6 +358,7 @@ public struct SystemReflectionEngine: Sendable {
             let strength: Double
             let direction: String
             let tieBreak: UInt64
+            let score: Double
         }
 
         var candidates: [Candidate] = []
@@ -270,6 +385,20 @@ public struct SystemReflectionEngine: Sendable {
                 } else {
                     direction = stableBit("\(left.id)|\(right.id)|\(witnessDigest)") ? "counterposed" : "convergent"
                 }
+                let relationID = [left.id, right.id].sorted().joined(separator: "|")
+                let recent = priorCycles.suffix(5)
+                let recentUse = recent.reduce(0) { count, cycle in
+                    count + cycle.correlations.filter {
+                        [$0.left, $0.right].sorted().joined(separator: "|") == relationID
+                    }.count
+                }
+                let previousValues = priorCycles.last.map {
+                    Dictionary(uniqueKeysWithValues: $0.measurements.map { ($0.id, $0.value) })
+                } ?? [:]
+                let changed = previousValues[left.id] != left.value || previousValues[right.id] != right.value
+                let novelty = 1 / Double(1 + recentUse)
+                let changePriority = changed ? 1.0 : 0.0
+                let score = strength * 0.58 + novelty * 0.27 + changePriority * 0.15
                 candidates.append(Candidate(
                     left: left,
                     right: right,
@@ -277,13 +406,14 @@ public struct SystemReflectionEngine: Sendable {
                     sampleCount: pairs.count,
                     strength: strength,
                     direction: direction,
-                    tieBreak: stableUInt64("\(witnessDigest)|\(left.id)|\(right.id)")
+                    tieBreak: stableUInt64("\(witnessDigest)|\(left.id)|\(right.id)"),
+                    score: score
                 ))
             }
         }
 
         candidates.sort {
-            if abs($0.strength - $1.strength) > 0.000_001 { return $0.strength > $1.strength }
+            if abs($0.score - $1.score) > 0.000_001 { return $0.score > $1.score }
             return $0.tieBreak < $1.tieBreak
         }
 
@@ -294,12 +424,18 @@ public struct SystemReflectionEngine: Sendable {
             guard sourcePairUse[pair, default: 0] < 2 else { continue }
             selected.append(candidate)
             sourcePairUse[pair, default: 0] += 1
-            if selected.count == min(7, max(4, Set(measurements.map(\.sourceID)).count + 1)) { break }
+            if selected.count == targetCount { break }
         }
 
+        var recentRuleUse = priorCycles.suffix(4).flatMap(\.correlations).reduce(into: [String: Int]()) {
+            $0[$1.visualRule, default: 0] += 1
+        }
         return selected.enumerated().map { index, candidate in
-            let vocabularyIndex = Int((candidate.tieBreak + UInt64(index)) % UInt64(Self.visualVocabulary.count))
-            let rule = Self.visualVocabulary[vocabularyIndex]
+            let minimumUse = Self.visualVocabulary.map { recentRuleUse[$0, default: 0] }.min() ?? 0
+            let available = Self.visualVocabulary.filter { recentRuleUse[$0, default: 0] <= minimumUse + 1 }
+            let vocabularyIndex = Int((candidate.tieBreak + UInt64(index)) % UInt64(available.count))
+            let rule = available[vocabularyIndex]
+            recentRuleUse[rule, default: 0] += 1
             let epistemic = candidate.method == "pearson"
                 ? "Observed across \(candidate.sampleCount) preserved system states; noncausal."
                 : "Chosen from one or two states as compositional resonance, not statistical correlation."
@@ -329,6 +465,10 @@ public struct SystemReflectionEngine: Sendable {
             measurements: measurements,
             correlations: [],
             chosenRules: [],
+            compositionRegime: nil,
+            compositionSeason: nil,
+            paletteID: nil,
+            changeMagnitude: nil,
             artifact: "",
             notes: "",
             boundary: ""
@@ -372,9 +512,10 @@ public struct SystemReflectionEngine: Sendable {
         renderHash: String,
         witnessDigest: String,
         correlations: [VisualCorrelation],
-        priorCycleCount: Int
+        priorCycleCount: Int,
+        plan: CompositionPlan
     ) -> String {
-        let palette = ["#17202a", "#8d3f4f", "#48605d", "#c38b59", "#6a6179", "#b7a98f", "#34515c"]
+        let palette = plan.palette
         let echoes = (0..<priorCycleCount).map { index in
             let inset = 78 + index * 19
             let opacity = min(0.18, 0.025 + Double(index) * 0.012)
@@ -415,7 +556,7 @@ public struct SystemReflectionEngine: Sendable {
         }.joined(separator: "\n")
 
         let reflectionGroup = """
-        <g data-layer="autonomous-reflection" data-cycle="\(cycleID)" data-witness-digest="\(witnessDigest)">
+        <g data-layer="autonomous-reflection" data-cycle="\(cycleID)" data-witness-digest="\(witnessDigest)" data-composition-regime="\(plan.regime)" data-composition-season="\(plan.season)" data-palette="\(plan.paletteID)">
         \(echoes)
         \(layers)
         </g>
@@ -438,10 +579,12 @@ public struct SystemReflectionEngine: Sendable {
 
     private func reflectionNotes(
         cycleID: String,
-        witness: PortraitSystemWitness,
+        witnessedAt: String,
+        witnessDigest: String,
         base: PortraitRenderResult,
         correlations: [VisualCorrelation],
-        priorCycleID: String?
+        priorCycleID: String?,
+        plan: CompositionPlan
     ) -> String {
         let relations = correlations.map { correlation in
             "- `\(correlation.visualRule)`: `\(correlation.left)` ↔ `\(correlation.right)`; \(correlation.method), strength \(format(correlation.strength)), \(correlation.direction). \(correlation.interpretation)"
@@ -450,10 +593,18 @@ public struct SystemReflectionEngine: Sendable {
         # FoldPortrait Autonomous Reflection
 
         Cycle: \(cycleID)
-        Witnessed system: \(witness.systemID)
-        Witness digest: \(witness.digest)
+        Witnessed system: sovereign-standard-connected-system
+        Witnessed at: \(witnessedAt)
+        Witness digest: \(witnessDigest)
         FoldKernel identity: \(base.convergenceHashHex)
         Previous reflection: \(priorCycleID ?? "origin")
+
+        ## Composition Regime
+
+        Regime: \(plan.regime)
+        Season: \(plan.season)
+        Palette: \(plan.paletteID)
+        Witness-change magnitude: \(format(plan.changeMagnitude))
 
         ## Chosen Visual Relations
 

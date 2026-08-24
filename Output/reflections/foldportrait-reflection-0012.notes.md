@@ -1,20 +1,25 @@
 # FoldPortrait Autonomous Reflection
 
 Cycle: FP-REFLECT-0012
-Witnessed system: sovereign-standard-relational-system
+Witnessed system: sovereign-standard-connected-system
+Witnessed at: 2026-08-21T16:52:58.000Z
 Witness digest: 4d2ccd6e9076f57e299dc60cdb2b1930aba4953f4379d081c9fd58267c8bfdc7
 FoldKernel identity: 5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6
 Previous reflection: FP-REFLECT-0011
 
+## Composition Regime
+
+Regime: learned-composition-v1
+Season: contraction
+Palette: ember
+Witness-change magnitude: 0.000
+
 ## Chosen Visual Relations
 
-- `palimpsest`: `foldportrait.embodied_portraits` ↔ `root-logos.coherent_works`; pearson, strength 1.000, inverse. Observed across 12 preserved system states; noncausal.
-- `braid`: `foldforge.compositions` ↔ `root-logos.coherent_works`; pearson, strength 1.000, inverse. Observed across 12 preserved system states; noncausal.
-- `palimpsest`: `foldforge.movement_phases` ↔ `foldkernel.symmetry_transforms`; structural-resonance, strength 1.000, counterposed. Chosen from one or two states as compositional resonance, not statistical correlation.
-- `braid`: `foldforge.witnessed_relations` ↔ `foldportrait.embodied_portraits`; pearson, strength 1.000, parallel. Observed across 12 preserved system states; noncausal.
-- `braid`: `foldforge.witnessed_relations` ↔ `sovereign-standard.embodied_foldportraits`; pearson, strength 1.000, parallel. Observed across 12 preserved system states; noncausal.
-- `veil`: `root-logos.coherent_works` ↔ `sovereign-standard.embodied_foldportraits`; pearson, strength 1.000, inverse. Observed across 12 preserved system states; noncausal.
-- `palimpsest`: `foldforge.compositions` ↔ `telos.mapped_repositories`; structural-resonance, strength 1.000, counterposed. Chosen from one or two states as compositional resonance, not statistical correlation.
+- `counterfield`: `foldforge.movement_phases` ↔ `foldkernel.symmetry_transforms`; structural-resonance, strength 1.000, counterposed. Chosen from one or two states as compositional resonance, not statistical correlation.
+- `counterfield`: `foldforge.witnessed_relations` ↔ `sovereign-standard.embodied_foldportraits`; pearson, strength 1.000, parallel. Observed across 12 preserved system states; noncausal.
+- `veil`: `foldforge.compositions` ↔ `telos.mapped_repositories`; structural-resonance, strength 1.000, counterposed. Chosen from one or two states as compositional resonance, not statistical correlation.
+- `strata`: `foldforge.compositions` ↔ `root-logos.witnessed_relations`; pearson, strength 1.000, inverse. Observed across 12 preserved system states; noncausal.
 
 ## Continuity
 

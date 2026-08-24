@@ -2,11 +2,11 @@
   "schema": "foldportrait-xrpl-mint-candidate/v1",
   "status": "prepared_unsigned",
   "title": "FoldPortrait FP-REFLECT-0019",
-  "description": "FP-REFLECT-0019 threads counterfield, braid, and palimpsest across 7 witnessed relations, forming a distinct silhouette from the public witness.",
+  "description": "FP-REFLECT-0019 enters its fragmentation season through the ember palette and folds braid, strata, and counterfield across 5 witnessed relations, forming a distinct silhouette from the public witness.",
   "image": {
     "path": "Output/reflections/png/foldportrait-reflection-0019.png",
     "mimeType": "image/png",
-    "sha256": "874f084b87f39f2f86158ff0260821c6446f84e3d66272d9622271846df3eefe",
+    "sha256": "d6d3b2c1d568756a18fb70da014d573e9a627345cb8d03366b3c963570f36d11",
     "dimensions": {
       "width": 2400,
       "height": 3200
@@ -15,7 +15,7 @@
   "source": {
     "path": "Output/reflections/foldportrait-reflection-0019.svg",
     "mimeType": "image/svg+xml",
-    "sha256": "a34773596038067a0fa2011ab6dc863d1f391d9c8129c12d8b823124a92930b8"
+    "sha256": "a180347b5f6a530989e600ff6bff00c700aadaec33c079a9a6ef11589a1e6362"
   },
   "lineage": {
     "era": 2,
@@ -23,7 +23,11 @@
     "previousCycleID": "FP-REFLECT-0018",
     "witnessDigest": "45c97c126f8829c7c21c2cc86399a0f98e652a268678235593d6a311e5a70203",
     "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-    "renderHash": "b9e8c3165e590d4ac2557ec3b56d0391aaa32b22b752c411918ae108772c1cc9"
+    "renderHash": "b43acdb417c52dc229998c2ba7a96cf5856a90e80b1bc3353f47fd647ba051b0",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "fragmentation",
+    "paletteID": "ember",
+    "changeMagnitude": 0.005044
   },
   "xrpl": {
     "network": "mainnet",

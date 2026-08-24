@@ -2,11 +2,11 @@
   "schema": "foldportrait-xrpl-mint-candidate/v1",
   "status": "prepared_unsigned",
   "title": "FoldPortrait FP-REFLECT-0011",
-  "description": "FP-REFLECT-0011 layers braid, aperture, and strata across 7 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "description": "FP-REFLECT-0011 enters its drift season through the lichen palette and opens braid, veil, and aperture across 5 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
   "image": {
     "path": "Output/reflections/png/foldportrait-reflection-0011.png",
     "mimeType": "image/png",
-    "sha256": "ed99bd4b48051fdaab61eae4c3266167f4ffc0d52ca824779e319e6c374d9e7c",
+    "sha256": "6a24bc019aa7b87221ca4380fd412fb8b354358ea6770bc10f8ab71253735764",
     "dimensions": {
       "width": 2400,
       "height": 3200
@@ -15,7 +15,7 @@
   "source": {
     "path": "Output/reflections/foldportrait-reflection-0011.svg",
     "mimeType": "image/svg+xml",
-    "sha256": "e5781ceca3d168fd38b9fa7774e63133ea7e15a9a65517bcf1ab2e4ab2b8f585"
+    "sha256": "ace5010082e5f6d6eac01d26f192a82e69a7e8e009e896de109b97a652ae4536"
   },
   "lineage": {
     "era": 2,
@@ -23,7 +23,11 @@
     "previousCycleID": "FP-REFLECT-0010",
     "witnessDigest": "2fdabd7fa7993c77a8e42a7d819f56580390011f08591cfc9074f9329e3714e6",
     "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-    "renderHash": "bb69706acbdf1268227d15f6844f5559f63fc44fadbc9beb47076b5d562dc548"
+    "renderHash": "2c6bbca4c9dbe99abe2537d1bf1c42bcc64342da446f4ce789441c4169fd0a11",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "drift",
+    "paletteID": "lichen",
+    "changeMagnitude": 0.001738
   },
   "xrpl": {
     "network": "mainnet",

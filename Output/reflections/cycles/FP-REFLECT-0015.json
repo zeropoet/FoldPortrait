@@ -1,83 +1,86 @@
 {
   "artifact" : "Output\/reflections\/foldportrait-reflection-0015.svg",
   "boundary" : "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior.",
+  "changeMagnitude" : 0,
   "chosenRules" : [
     "strata",
-    "counterfield",
-    "veil",
+    "braid",
     "aperture",
-    "braid"
+    "palimpsest",
+    "counterfield"
   ],
+  "compositionRegime" : "learned-composition-v1",
+  "compositionSeason" : "recombination",
   "correlations" : [
     {
       "direction" : "parallel",
       "interpretation" : "Observed across 15 preserved system states; noncausal.",
       "left" : "foldforge.witnessed_relations",
       "method" : "pearson",
-      "right" : "foldportrait.embodied_portraits",
+      "right" : "root-logos.cultivation_cycles",
       "sampleCount" : 15,
-      "strength" : 1,
+      "strength" : 0.986731,
       "visualRule" : "strata"
     },
     {
-      "direction" : "convergent",
-      "interpretation" : "Chosen from one or two states as compositional resonance, not statistical correlation.",
-      "left" : "root-logos.connected_sources",
-      "method" : "structural-resonance",
-      "right" : "telos.mapped_repositories",
+      "direction" : "parallel",
+      "interpretation" : "Observed across 15 preserved system states; noncausal.",
+      "left" : "foldforge.compositions",
+      "method" : "pearson",
+      "right" : "root-logos.cultivation_cycles",
       "sampleCount" : 15,
-      "strength" : 1,
-      "visualRule" : "counterfield"
+      "strength" : 0.986731,
+      "visualRule" : "braid"
     },
     {
       "direction" : "parallel",
       "interpretation" : "Observed across 15 preserved system states; noncausal.",
       "left" : "foldportrait.embodied_portraits",
       "method" : "pearson",
-      "right" : "sovereign-standard.embodied_foldportraits",
+      "right" : "root-logos.cultivation_cycles",
       "sampleCount" : 15,
-      "strength" : 1,
-      "visualRule" : "counterfield"
-    },
-    {
-      "direction" : "inverse",
-      "interpretation" : "Observed across 15 preserved system states; noncausal.",
-      "left" : "foldportrait.embodied_portraits",
-      "method" : "pearson",
-      "right" : "root-logos.witnessed_relations",
-      "sampleCount" : 15,
-      "strength" : 1,
-      "visualRule" : "veil"
+      "strength" : 0.986731,
+      "visualRule" : "aperture"
     },
     {
       "direction" : "parallel",
       "interpretation" : "Observed across 15 preserved system states; noncausal.",
-      "left" : "foldforge.witnessed_relations",
+      "left" : "foldportrait.embodied_portraits",
       "method" : "pearson",
-      "right" : "sovereign-standard.embodied_foldportraits",
+      "right" : "root-logos.x_witnessed_fragments",
       "sampleCount" : 15,
-      "strength" : 1,
-      "visualRule" : "veil"
+      "strength" : 0.97828,
+      "visualRule" : "strata"
     },
     {
-      "direction" : "convergent",
-      "interpretation" : "Chosen from one or two states as compositional resonance, not statistical correlation.",
-      "left" : "foldforge.primitives",
-      "method" : "structural-resonance",
+      "direction" : "parallel",
+      "interpretation" : "Observed across 15 preserved system states; noncausal.",
+      "left" : "root-logos.cultivation_cycles",
+      "method" : "pearson",
       "right" : "telos.operating_components",
       "sampleCount" : 15,
-      "strength" : 1,
-      "visualRule" : "aperture"
+      "strength" : 0.974815,
+      "visualRule" : "palimpsest"
     },
     {
       "direction" : "counterposed",
       "interpretation" : "Chosen from one or two states as compositional resonance, not statistical correlation.",
-      "left" : "foldforge.compositions",
+      "left" : "foldforge.primitives",
       "method" : "structural-resonance",
-      "right" : "root-logos.connected_sources",
+      "right" : "foldportrait.first_era_anchors",
       "sampleCount" : 15,
-      "strength" : 1,
-      "visualRule" : "braid"
+      "strength" : 0.968794,
+      "visualRule" : "counterfield"
+    },
+    {
+      "direction" : "counterposed",
+      "interpretation" : "Chosen from one or two states as compositional resonance, not statistical correlation.",
+      "left" : "foldportrait.first_era_anchors",
+      "method" : "structural-resonance",
+      "right" : "telos.operating_components",
+      "sampleCount" : 15,
+      "strength" : 0.968794,
+      "visualRule" : "strata"
     }
   ],
   "cycleID" : "FP-REFLECT-0015",
@@ -267,8 +270,9 @@
     }
   ],
   "notes" : "Output\/reflections\/foldportrait-reflection-0015.notes.md",
+  "paletteID" : "tidal",
   "previousCycleID" : "FP-REFLECT-0014",
-  "renderHash" : "0d793735620b5a19fd3bffe6dc0dd4a3fcc8d70fe4567c9a90d11a656922d665",
+  "renderHash" : "554697a1069d2850d1410092859a3e54af5d74510bd8c974501c96b16d4bd77a",
   "schema" : "foldportrait-reflection-cycle\/v1",
   "sequence" : 15,
   "witnessDigest" : "e7b6d6ea4dcb9326a447253fa873010efb116a1e2e76b3ccc6ee0f8c5f3ae5d8",

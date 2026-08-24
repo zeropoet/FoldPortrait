@@ -1,20 +1,27 @@
 # FoldPortrait Autonomous Reflection
 
 Cycle: FP-REFLECT-0018
-Witnessed system: sovereign-standard-relational-system
+Witnessed system: sovereign-standard-connected-system
+Witnessed at: 2026-08-23T03:27:10.000Z
 Witness digest: d436fd675b3f1395b8bf38bbbf609618a0034cbcf1ff0bd2a51bb6b072f7680a
 FoldKernel identity: 5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6
 Previous reflection: FP-REFLECT-0017
 
+## Composition Regime
+
+Regime: learned-composition-v1
+Season: opening
+Palette: orchid
+Witness-change magnitude: 0.002
+
 ## Chosen Visual Relations
 
-- `aperture`: `root-logos.witnessed_relations` ↔ `sovereign-standard.embodied_foldportraits`; pearson, strength 1.000, inverse. Observed across 18 preserved system states; noncausal.
-- `braid`: `foldforge.compositions` ↔ `telos.mapped_repositories`; structural-resonance, strength 1.000, convergent. Chosen from one or two states as compositional resonance, not statistical correlation.
-- `counterfield`: `foldforge.movement_phases` ↔ `foldkernel.symmetry_transforms`; structural-resonance, strength 1.000, convergent. Chosen from one or two states as compositional resonance, not statistical correlation.
-- `aperture`: `foldforge.witnessed_relations` ↔ `root-logos.coherent_works`; pearson, strength 1.000, inverse. Observed across 18 preserved system states; noncausal.
-- `sediment`: `root-logos.connected_sources` ↔ `telos.mapped_repositories`; structural-resonance, strength 1.000, convergent. Chosen from one or two states as compositional resonance, not statistical correlation.
-- `veil`: `foldportrait.embodied_portraits` ↔ `root-logos.coherent_works`; pearson, strength 1.000, inverse. Observed across 18 preserved system states; noncausal.
-- `counterfield`: `foldforge.compositions` ↔ `root-logos.witnessed_relations`; pearson, strength 1.000, inverse. Observed across 18 preserved system states; noncausal.
+- `sediment`: `foldforge.displacement_steps` ↔ `root-logos.cultivation_cycles`; structural-resonance, strength 0.803, counterposed. Chosen from one or two states as compositional resonance, not statistical correlation.
+- `sediment`: `foldportrait.sealed_first_era_portraits` ↔ `root-logos.cultivation_cycles`; structural-resonance, strength 0.764, convergent. Chosen from one or two states as compositional resonance, not statistical correlation.
+- `veil`: `foldforge.compositions` ↔ `root-logos.cultivation_cycles`; pearson, strength 0.983, parallel. Observed across 18 preserved system states; noncausal.
+- `palimpsest`: `foldportrait.embodied_portraits` ↔ `root-logos.cultivation_cycles`; pearson, strength 0.983, parallel. Observed across 18 preserved system states; noncausal.
+- `aperture`: `root-logos.cultivation_cycles` ↔ `sovereign-standard.embodied_foldportraits`; pearson, strength 0.983, parallel. Observed across 18 preserved system states; noncausal.
+- `aperture`: `root-logos.cultivation_cycles` ↔ `telos.first_subscriber_threshold`; structural-resonance, strength 0.980, convergent. Chosen from one or two states as compositional resonance, not statistical correlation.
 
 ## Continuity
 

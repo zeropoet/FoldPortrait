@@ -36,7 +36,10 @@ const reflectionDescription = (cycle) => {
   const ending = endings[Math.floor(seed / verbs.length) % endings.length];
   const relation = cycle.correlations.length === 1 ? "relation" : "relations";
 
-  return `${cycle.cycleID} ${verb} ${lead}, ${companion}, and ${accent} across ${cycle.correlations.length} witnessed ${relation}, forming ${ending}.`;
+  const regime = cycle.compositionRegime === "learned-composition-v1"
+    ? ` enters its ${cycle.compositionSeason} season through the ${cycle.paletteID} palette and`
+    : "";
+  return `${cycle.cycleID}${regime} ${verb} ${lead}, ${companion}, and ${accent} across ${cycle.correlations.length} witnessed ${relation}, forming ${ending}.`;
 };
 
 const brandSVG = readFileSync(brandSVGPath);
@@ -88,6 +91,12 @@ const archivedCycles = cycles.map((cycle) => {
     foldKernelIdentity: cycle.foldKernelIdentity,
     renderHash: cycle.renderHash,
     chosenRules: cycle.chosenRules,
+    ...(cycle.compositionRegime ? {
+      compositionRegime: cycle.compositionRegime,
+      compositionSeason: cycle.compositionSeason,
+      paletteID: cycle.paletteID,
+      changeMagnitude: cycle.changeMagnitude,
+    } : {}),
     correlationCount: cycle.correlations.length,
     svg: { path: cycle.artifact, mimeType: "image/svg+xml", sha256: hash(svg) },
     png: { path: relative(pngPath), mimeType: "image/png", sha256: hash(png), dimensions },
@@ -115,6 +124,12 @@ const archivedCycles = cycles.map((cycle) => {
       witnessDigest: cycle.witnessDigest,
       foldKernelIdentity: cycle.foldKernelIdentity,
       renderHash: cycle.renderHash,
+      ...(cycle.compositionRegime ? {
+        compositionRegime: cycle.compositionRegime,
+        compositionSeason: cycle.compositionSeason,
+        paletteID: cycle.paletteID,
+        changeMagnitude: cycle.changeMagnitude,
+      } : {}),
     },
     xrpl: {
       network: "mainnet",

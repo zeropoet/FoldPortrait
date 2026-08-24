@@ -19,6 +19,10 @@ struct FoldPortrait {
         case "verify-reflection":
             let current = try archive.verify(repositoryRoot: root)
             print("\(current.cycleID) valid: \(current.renderHash)")
+        case "replay-reflections":
+            let boundary = Int(arguments.dropFirst().first ?? "6") ?? 6
+            let current = try archive.replay(afterSequence: boundary, repositoryRoot: root)
+            print("Replayed post-calibration lineage through \(current.cycleID): \(current.renderHash)")
         case "status":
             let currentURL = root.appendingPathComponent("Output/reflections/current.json")
             if FileManager.default.fileExists(atPath: currentURL.path) {

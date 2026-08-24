@@ -1,83 +1,64 @@
 {
   "artifact" : "Output\/reflections\/foldportrait-reflection-0014.svg",
   "boundary" : "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior.",
+  "changeMagnitude" : 0,
   "chosenRules" : [
-    "strata",
     "palimpsest",
-    "braid",
     "sediment",
-    "counterfield"
+    "braid"
   ],
+  "compositionRegime" : "learned-composition-v1",
+  "compositionSeason" : "fragmentation",
   "correlations" : [
     {
-      "direction" : "inverse",
+      "direction" : "parallel",
       "interpretation" : "Observed across 14 preserved system states; noncausal.",
-      "left" : "foldportrait.embodied_portraits",
-      "method" : "pearson",
-      "right" : "root-logos.coherent_works",
-      "sampleCount" : 14,
-      "strength" : 1,
-      "visualRule" : "strata"
-    },
-    {
-      "direction" : "inverse",
-      "interpretation" : "Observed across 14 preserved system states; noncausal.",
-      "left" : "root-logos.witnessed_relations",
+      "left" : "root-logos.cultivation_cycles",
       "method" : "pearson",
       "right" : "sovereign-standard.embodied_foldportraits",
       "sampleCount" : 14,
-      "strength" : 1,
+      "strength" : 0.98718,
       "visualRule" : "palimpsest"
     },
     {
-      "direction" : "parallel",
-      "interpretation" : "Observed across 14 preserved system states; noncausal.",
-      "left" : "foldforge.compositions",
-      "method" : "pearson",
-      "right" : "foldportrait.embodied_portraits",
-      "sampleCount" : 14,
-      "strength" : 1,
-      "visualRule" : "braid"
-    },
-    {
-      "direction" : "convergent",
+      "direction" : "counterposed",
       "interpretation" : "Chosen from one or two states as compositional resonance, not statistical correlation.",
-      "left" : "root-logos.connected_sources",
+      "left" : "foldkernel.permutation_size",
       "method" : "structural-resonance",
-      "right" : "telos.mapped_repositories",
+      "right" : "root-logos.x_witnessed_fragments",
       "sampleCount" : 14,
-      "strength" : 1,
-      "visualRule" : "strata"
-    },
-    {
-      "direction" : "parallel",
-      "interpretation" : "Observed across 14 preserved system states; noncausal.",
-      "left" : "foldportrait.embodied_portraits",
-      "method" : "pearson",
-      "right" : "sovereign-standard.embodied_foldportraits",
-      "sampleCount" : 14,
-      "strength" : 1,
-      "visualRule" : "palimpsest"
-    },
-    {
-      "direction" : "convergent",
-      "interpretation" : "Chosen from one or two states as compositional resonance, not statistical correlation.",
-      "left" : "foldforge.primitives",
-      "method" : "structural-resonance",
-      "right" : "telos.operating_components",
-      "sampleCount" : 14,
-      "strength" : 1,
+      "strength" : 0.980225,
       "visualRule" : "sediment"
     },
     {
-      "direction" : "inverse",
+      "direction" : "parallel",
+      "interpretation" : "Observed across 14 preserved system states; noncausal.",
+      "left" : "root-logos.x_witnessed_fragments",
+      "method" : "pearson",
+      "right" : "sovereign-standard.embodied_foldportraits",
+      "sampleCount" : 14,
+      "strength" : 0.977964,
+      "visualRule" : "braid"
+    },
+    {
+      "direction" : "parallel",
+      "interpretation" : "Observed across 14 preserved system states; noncausal.",
+      "left" : "foldforge.witnessed_relations",
+      "method" : "pearson",
+      "right" : "root-logos.x_witnessed_fragments",
+      "sampleCount" : 14,
+      "strength" : 0.977964,
+      "visualRule" : "palimpsest"
+    },
+    {
+      "direction" : "parallel",
       "interpretation" : "Observed across 14 preserved system states; noncausal.",
       "left" : "foldforge.compositions",
       "method" : "pearson",
-      "right" : "root-logos.coherent_works",
+      "right" : "root-logos.x_witnessed_fragments",
       "sampleCount" : 14,
-      "strength" : 1,
-      "visualRule" : "counterfield"
+      "strength" : 0.977964,
+      "visualRule" : "sediment"
     }
   ],
   "cycleID" : "FP-REFLECT-0014",
@@ -267,8 +248,9 @@
     }
   ],
   "notes" : "Output\/reflections\/foldportrait-reflection-0014.notes.md",
+  "paletteID" : "mineral",
   "previousCycleID" : "FP-REFLECT-0013",
-  "renderHash" : "b97df353ece794d627b10aef912dd4477e61f2db67984e930140ef77fc09ee31",
+  "renderHash" : "ad4a17b8b5876b7a02c5ed8f8a10da6e1e22ffb414cf692a1a1fd866ae6e16f2",
   "schema" : "foldportrait-reflection-cycle\/v1",
   "sequence" : 14,
   "witnessDigest" : "6abf6e6db09ffb104c6736622d6dff7ac8ec8064e9b0d7c4e768342b2529ed1a",

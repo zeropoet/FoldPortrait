@@ -173,6 +173,55 @@ import Testing
     }
 }
 
+@Test func postCalibrationReflectionsEnterDeterministicDiverseSeasons() throws {
+    func witness(_ sequence: Int) -> PortraitSystemWitness {
+        PortraitSystemWitness(
+            systemID: "learning-test",
+            observedAt: String(format: "2026-08-%02dT00:00:00Z", sequence),
+            sources: [
+                PortraitWitnessSource(id: "foldkernel", revision: "stable", role: "identity", measurements: [
+                    PortraitWitnessMeasurement(id: "positions", label: "Positions", unit: "positions", value: 16),
+                    PortraitWitnessMeasurement(id: "symmetries", label: "Symmetries", unit: "transforms", value: 8),
+                ]),
+                PortraitWitnessSource(id: "root-logos", revision: "r\(sequence)", role: "cultivation", measurements: [
+                    PortraitWitnessMeasurement(id: "works", label: "Works", unit: "works", value: Double(50 + sequence)),
+                    PortraitWitnessMeasurement(id: "cycles", label: "Cycles", unit: "cycles", value: Double(120 + sequence * 2)),
+                ]),
+                PortraitWitnessSource(id: "telos", revision: "t\(sequence)", role: "operation", measurements: [
+                    PortraitWitnessMeasurement(id: "campaigns", label: "Campaigns", unit: "campaigns", value: Double(5 + sequence % 4)),
+                    PortraitWitnessMeasurement(id: "threshold", label: "Threshold", unit: "subscribers", value: 200),
+                ]),
+            ],
+            boundaries: ["aggregate-public-measurements-only", "no-personal-data"]
+        )
+    }
+
+    let engine = SystemReflectionEngine()
+    var firstPass: [ReflectionCycle] = []
+    for sequence in 1...12 {
+        firstPass.append(try engine.reflect(witness: witness(sequence), priorCycles: firstPass).cycle)
+    }
+    var secondPass: [ReflectionCycle] = []
+    for sequence in 1...12 {
+        secondPass.append(try engine.reflect(witness: witness(sequence), priorCycles: secondPass).cycle)
+    }
+
+    #expect(firstPass == secondPass)
+    #expect(firstPass[5].compositionRegime == "calibration")
+    #expect(firstPass[6].compositionRegime == "learned-composition-v1")
+    #expect(firstPass[6].compositionSeason == "contraction")
+    #expect(firstPass[7].compositionSeason == "opening")
+    #expect(Set(firstPass.dropFirst(6).compactMap(\.paletteID)).count >= 3)
+    #expect(Set(firstPass.dropFirst(6).map { $0.correlations.count }).count >= 2)
+
+    let postCalibrationRelations = firstPass.dropFirst(6).map { cycle in
+        Set(cycle.correlations.map { [$0.left, $0.right].sorted().joined(separator: "|") })
+    }
+    #expect(zip(postCalibrationRelations, postCalibrationRelations.dropFirst()).allSatisfy { pair in
+        pair.0 != pair.1
+    })
+}
+
 private func count(_ needle: String, in haystack: String) -> Int {
     haystack.components(separatedBy: needle).count - 1
 }

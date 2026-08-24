@@ -2,11 +2,11 @@
   "schema": "foldportrait-xrpl-mint-candidate/v1",
   "status": "prepared_unsigned",
   "title": "FoldPortrait FP-REFLECT-0007",
-  "description": "FP-REFLECT-0007 presses palimpsest, strata, and veil across 7 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "description": "FP-REFLECT-0007 enters its contraction season through the tidal palette and threads counterfield, sediment, and aperture across 4 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
   "image": {
     "path": "Output/reflections/png/foldportrait-reflection-0007.png",
     "mimeType": "image/png",
-    "sha256": "d6a538c26db07b0cb762c8dd91833dec7b300b0f5f92884bc9928014b17561fc",
+    "sha256": "e684d8ba2f16b6eb335aea12f47ce5cb913d8f540769f12fdfe26361dbe665e9",
     "dimensions": {
       "width": 2400,
       "height": 3200
@@ -15,7 +15,7 @@
   "source": {
     "path": "Output/reflections/foldportrait-reflection-0007.svg",
     "mimeType": "image/svg+xml",
-    "sha256": "688448ee7027ccdc986f1d59367ecaf1e5c4eb2eff636bed08ef9b496af1d8df"
+    "sha256": "68cdc2da575d2a6aeea93acef17e5a47f81723c025c13e4ed1550e42cbcc8ab9"
   },
   "lineage": {
     "era": 2,
@@ -23,7 +23,11 @@
     "previousCycleID": "FP-REFLECT-0006",
     "witnessDigest": "c4370a6bd6c854514604e36b170d5838d0748e3e9089628169790faace900bfb",
     "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-    "renderHash": "f314ca4a2a7253e16609b2f9b6554dc549e9f9b4cefa9bf0a16658db174c495d"
+    "renderHash": "c7da9c115a9db62db17205d5b4df83d4e2416dcb65a8cc413bc2b927fe2d09d2",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "contraction",
+    "paletteID": "tidal",
+    "changeMagnitude": 0.001779
   },
   "xrpl": {
     "network": "mainnet",

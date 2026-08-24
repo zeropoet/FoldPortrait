@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-xrpl-metadata/v1",
   "name": "FoldPortrait FP-REFLECT-0015",
-  "description": "FP-REFLECT-0015 presses strata, counterfield, and veil across 7 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "description": "FP-REFLECT-0015 enters its recombination season through the tidal palette and presses strata, braid, and aperture across 7 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
   "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0015.png",
   "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0015",
   "attributes": [
@@ -22,14 +22,26 @@
       "value": "e7b6d6ea4dcb9326a447253fa873010efb116a1e2e76b3ccc6ee0f8c5f3ae5d8"
     },
     {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "recombination"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "tidal"
+    },
+    {
       "trait_type": "File SHA-256",
-      "value": "2d7b456cf42128e4aad86c339e213209101d0cf4411e070f9ad5645a841bf419"
+      "value": "db1942810b24dbbec284bbdf91f824a74a2a5cee8aec54f26ab59d7d92c04d1f"
     }
   ],
   "provenance": {
     "repository": "https://github.com/zeropoet/FoldPortrait",
     "source_file": "Output/reflections/png/foldportrait-reflection-0015.png",
-    "file_sha256": "2d7b456cf42128e4aad86c339e213209101d0cf4411e070f9ad5645a841bf419"
+    "file_sha256": "db1942810b24dbbec284bbdf91f824a74a2a5cee8aec54f26ab59d7d92c04d1f"
   },
   "xrpl": null
 }

@@ -2,11 +2,11 @@
   "schema": "foldportrait-xrpl-mint-candidate/v1",
   "status": "prepared_unsigned",
   "title": "FoldPortrait FP-REFLECT-0014",
-  "description": "FP-REFLECT-0014 layers strata, palimpsest, and braid across 7 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "description": "FP-REFLECT-0014 enters its fragmentation season through the mineral palette and threads palimpsest, sediment, and braid across 5 witnessed relations, forming a distinct silhouette from the public witness.",
   "image": {
     "path": "Output/reflections/png/foldportrait-reflection-0014.png",
     "mimeType": "image/png",
-    "sha256": "779b28d472cc3ef9bbd4fc0d16f3fb23bd70380b0360884fe0501d30e5319a5b",
+    "sha256": "70a95383b084a231ec7ec48157784386d4c154ffb2bf8786873efbdae06a7947",
     "dimensions": {
       "width": 2400,
       "height": 3200
@@ -15,7 +15,7 @@
   "source": {
     "path": "Output/reflections/foldportrait-reflection-0014.svg",
     "mimeType": "image/svg+xml",
-    "sha256": "88aa11c0537a34ceffa75161a4c9bf004660f992f2428bf0d7fb76117f1608bf"
+    "sha256": "1e2bd648b1904982da76d021bd0f3176cfc5017c65589044335dea190a0b7f9d"
   },
   "lineage": {
     "era": 2,
@@ -23,7 +23,11 @@
     "previousCycleID": "FP-REFLECT-0013",
     "witnessDigest": "6abf6e6db09ffb104c6736622d6dff7ac8ec8064e9b0d7c4e768342b2529ed1a",
     "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-    "renderHash": "b97df353ece794d627b10aef912dd4477e61f2db67984e930140ef77fc09ee31"
+    "renderHash": "ad4a17b8b5876b7a02c5ed8f8a10da6e1e22ffb414cf692a1a1fd866ae6e16f2",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "fragmentation",
+    "paletteID": "mineral",
+    "changeMagnitude": 0
   },
   "xrpl": {
     "network": "mainnet",

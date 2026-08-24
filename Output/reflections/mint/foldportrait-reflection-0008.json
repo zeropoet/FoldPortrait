@@ -2,11 +2,11 @@
   "schema": "foldportrait-xrpl-mint-candidate/v1",
   "status": "prepared_unsigned",
   "title": "FoldPortrait FP-REFLECT-0008",
-  "description": "FP-REFLECT-0008 opens braid, counterfield, and sediment across 7 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
+  "description": "FP-REFLECT-0008 enters its opening season through the tidal palette and layers aperture, sediment, and counterfield across 6 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
   "image": {
     "path": "Output/reflections/png/foldportrait-reflection-0008.png",
     "mimeType": "image/png",
-    "sha256": "dc339bbd333f86453faac26766ee3157ad2564502ce6a224dceccc28bef2c7b6",
+    "sha256": "7d0d6e6f68f81fd022ed523fe73f3e61dfc8a006a0ccf7ebcf89e2be4959c66a",
     "dimensions": {
       "width": 2400,
       "height": 3200
@@ -15,7 +15,7 @@
   "source": {
     "path": "Output/reflections/foldportrait-reflection-0008.svg",
     "mimeType": "image/svg+xml",
-    "sha256": "fa7a6b61dd567d4618afc88b30e12a9057462ea635ffab4174f509be9063cd18"
+    "sha256": "a03bb2066930417caa58946933646f098c8f39f63c7cda3a92eb08c276095ae0"
   },
   "lineage": {
     "era": 2,
@@ -23,7 +23,11 @@
     "previousCycleID": "FP-REFLECT-0007",
     "witnessDigest": "650e9a7bc01f87ed022fe3cd888534d87e6eab2b6d0fb3895f877e38e6afbfbd",
     "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-    "renderHash": "01e0edd3a92d81dcbfcac5f65ab6998136fe8c69d98b06c9e180703afa069d6f"
+    "renderHash": "868d5013be32b17b8dc887e9bbffd2e78b6e56d221b3fe6e0d1b2116d20b05a2",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "opening",
+    "paletteID": "tidal",
+    "changeMagnitude": 0.001768
   },
   "xrpl": {
     "network": "mainnet",

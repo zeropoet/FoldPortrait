@@ -95,6 +95,109 @@ public struct ReflectionArchive: Sendable {
         return current
     }
 
+    public func replay(afterSequence calibrationSequence: Int, repositoryRoot: URL) throws -> CurrentReflection {
+        let reflections = repositoryRoot.appendingPathComponent("Output/reflections", isDirectory: true)
+        let cyclesDirectory = reflections.appendingPathComponent("cycles", isDirectory: true)
+        let original = try loadCycles(from: cyclesDirectory)
+        let calibration = original.filter { $0.sequence <= calibrationSequence }
+        let replayInputs = original.filter { $0.sequence > calibrationSequence }
+        guard calibration.last?.sequence == calibrationSequence, !replayInputs.isEmpty else {
+            throw SystemReflectionError.invalidArchive("replay requires a preserved calibration boundary and later cycles")
+        }
+
+        try preserveResearchCheckpoint(
+            cycles: replayInputs,
+            calibrationSequence: calibrationSequence,
+            reflections: reflections,
+            repositoryRoot: repositoryRoot
+        )
+
+        var regenerated = calibration
+        for recorded in replayInputs {
+            let rendered = SystemReflectionEngine().replay(recordedCycle: recorded, priorCycles: regenerated)
+            let artifactURL = repositoryRoot.appendingPathComponent(rendered.cycle.artifact)
+            let notesURL = repositoryRoot.appendingPathComponent(rendered.cycle.notes)
+            let cycleURL = cyclesDirectory.appendingPathComponent("\(rendered.cycle.cycleID).json")
+            try Data(rendered.svg.utf8).write(to: artifactURL, options: .atomic)
+            try Data(rendered.notes.utf8).write(to: notesURL, options: .atomic)
+            try encode(rendered.cycle).write(to: cycleURL, options: .atomic)
+            regenerated.append(rendered.cycle)
+        }
+
+        guard let last = regenerated.last else {
+            throw SystemReflectionError.invalidArchive("replay produced no current reflection")
+        }
+        let svg = try String(contentsOf: repositoryRoot.appendingPathComponent(last.artifact), encoding: .utf8)
+        let current = CurrentReflection(
+            schema: "foldportrait-current-reflection/v1",
+            cycleID: last.cycleID,
+            iteration: "reflection-\(String(format: "%04d", last.sequence))",
+            sequence: last.sequence,
+            observedAt: last.witnessedAt,
+            witnessDigest: last.witnessDigest,
+            convergenceHash: last.foldKernelIdentity,
+            renderHash: last.renderHash,
+            memorySignature: memorySignature(from: svg),
+            svgPath: last.artifact,
+            notesPath: last.notes,
+            chosenRules: last.chosenRules,
+            correlationCount: last.correlations.count
+        )
+        try encode(current).write(to: reflections.appendingPathComponent("current.json"), options: .atomic)
+        try encode(regenerated).write(to: reflections.appendingPathComponent("reflection-ledger.json"), options: .atomic)
+        return current
+    }
+
+    private func preserveResearchCheckpoint(
+        cycles: [ReflectionCycle],
+        calibrationSequence: Int,
+        reflections: URL,
+        repositoryRoot: URL
+    ) throws {
+        let checkpoint = reflections.appendingPathComponent(
+            "research/pre-learning-post-\(String(format: "%04d", calibrationSequence))",
+            isDirectory: true
+        )
+        let manifestURL = checkpoint.appendingPathComponent("manifest.json")
+        if FileManager.default.fileExists(atPath: manifestURL.path) { return }
+
+        try FileManager.default.createDirectory(at: checkpoint, withIntermediateDirectories: true)
+        var records: [[String: Any]] = []
+        for cycle in cycles {
+            let names = [
+                "cycles/\(cycle.cycleID).json",
+                cycle.artifact.replacingOccurrences(of: "Output/reflections/", with: ""),
+                cycle.notes.replacingOccurrences(of: "Output/reflections/", with: ""),
+            ]
+            for name in names {
+                let source = reflections.appendingPathComponent(name)
+                let destination = checkpoint.appendingPathComponent(name)
+                try FileManager.default.createDirectory(
+                    at: destination.deletingLastPathComponent(),
+                    withIntermediateDirectories: true
+                )
+                try FileManager.default.copyItem(at: source, to: destination)
+            }
+            records.append([
+                "cycleID": cycle.cycleID,
+                "witnessDigest": cycle.witnessDigest,
+                "renderHash": cycle.renderHash,
+                "files": names,
+            ])
+        }
+        let manifest: [String: Any] = [
+            "schema": "foldportrait-composition-research-checkpoint/v1",
+            "title": "Pre-learning post-\(String(format: "%04d", calibrationSequence)) reflections",
+            "purpose": "Preserves the displaced deterministic surfaces used to diagnose compositional saturation before learned-composition-v1.",
+            "canonicalThrough": String(format: "FP-REFLECT-%04d", calibrationSequence),
+            "replayBoundary": calibrationSequence,
+            "records": records,
+            "recovery": "The SVG, notes, and cycle records are sufficient to reproduce flattened PNG and unsigned mint candidates.",
+        ]
+        let data = try JSONSerialization.data(withJSONObject: manifest, options: [.prettyPrinted, .sortedKeys]) + Data("\n".utf8)
+        try data.write(to: manifestURL, options: .atomic)
+    }
+
     private func loadCycles(from directory: URL) throws -> [ReflectionCycle] {
         guard FileManager.default.fileExists(atPath: directory.path) else { return [] }
         return try FileManager.default.contentsOfDirectory(

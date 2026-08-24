@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "FoldPortrait",
+    platforms: [
+        .macOS(.v14),
+    ],
     products: [
         .executable(
             name: "fold-portrait",

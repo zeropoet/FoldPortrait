@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-xrpl-metadata/v1",
   "name": "FoldPortrait FP-REFLECT-0020",
-  "description": "FP-REFLECT-0020 threads palimpsest, strata, and aperture across 7 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "description": "FP-REFLECT-0020 enters its recombination season through the ember palette and balances palimpsest, strata, and sediment across 7 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
   "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0020.png",
   "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0020",
   "attributes": [
@@ -22,14 +22,26 @@
       "value": "eded277bcdeb9737f3c8e12bd63372032026dcba11f4bbc4fb6b660f826c67b7"
     },
     {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "recombination"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "ember"
+    },
+    {
       "trait_type": "File SHA-256",
-      "value": "c8abe91098e448bda59292a54c1137864f380f03e7b4c0586032ce850faf6f4a"
+      "value": "dc529d73db0b2cb8cd803f083a8f0c63ee0981bf53577e6d65e2b4bf7f487a3a"
     }
   ],
   "provenance": {
     "repository": "https://github.com/zeropoet/FoldPortrait",
     "source_file": "Output/reflections/png/foldportrait-reflection-0020.png",
-    "file_sha256": "c8abe91098e448bda59292a54c1137864f380f03e7b4c0586032ce850faf6f4a"
+    "file_sha256": "dc529d73db0b2cb8cd803f083a8f0c63ee0981bf53577e6d65e2b4bf7f487a3a"
   },
   "xrpl": null
 }

@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-xrpl-metadata/v1",
   "name": "FoldPortrait FP-REFLECT-0014",
-  "description": "FP-REFLECT-0014 layers strata, palimpsest, and braid across 7 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "description": "FP-REFLECT-0014 enters its fragmentation season through the mineral palette and threads palimpsest, sediment, and braid across 5 witnessed relations, forming a distinct silhouette from the public witness.",
   "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0014.png",
   "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0014",
   "attributes": [
@@ -22,14 +22,26 @@
       "value": "6abf6e6db09ffb104c6736622d6dff7ac8ec8064e9b0d7c4e768342b2529ed1a"
     },
     {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "fragmentation"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "mineral"
+    },
+    {
       "trait_type": "File SHA-256",
-      "value": "779b28d472cc3ef9bbd4fc0d16f3fb23bd70380b0360884fe0501d30e5319a5b"
+      "value": "70a95383b084a231ec7ec48157784386d4c154ffb2bf8786873efbdae06a7947"
     }
   ],
   "provenance": {
     "repository": "https://github.com/zeropoet/FoldPortrait",
     "source_file": "Output/reflections/png/foldportrait-reflection-0014.png",
-    "file_sha256": "779b28d472cc3ef9bbd4fc0d16f3fb23bd70380b0360884fe0501d30e5319a5b"
+    "file_sha256": "70a95383b084a231ec7ec48157784386d4c154ffb2bf8786873efbdae06a7947"
   },
   "xrpl": null
 }

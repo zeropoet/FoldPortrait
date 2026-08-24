@@ -2,11 +2,11 @@
   "schema": "foldportrait-xrpl-mint-candidate/v1",
   "status": "prepared_unsigned",
   "title": "FoldPortrait FP-REFLECT-0018",
-  "description": "FP-REFLECT-0018 layers aperture, braid, and counterfield across 7 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "description": "FP-REFLECT-0018 enters its opening season through the orchid palette and threads sediment, veil, and palimpsest across 6 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
   "image": {
     "path": "Output/reflections/png/foldportrait-reflection-0018.png",
     "mimeType": "image/png",
-    "sha256": "feb14e5a773e7c441c2408340fe319e35b03e5263243de1c5113b2c23e84946b",
+    "sha256": "1b596c0aeb76676f7252847fbdd2aa954e1bdc988a3f0f286fc19031fda0168c",
     "dimensions": {
       "width": 2400,
       "height": 3200
@@ -15,7 +15,7 @@
   "source": {
     "path": "Output/reflections/foldportrait-reflection-0018.svg",
     "mimeType": "image/svg+xml",
-    "sha256": "dddcf912c7d1fc113a44a3400a474ade98ed7aecd653bff99aa6873312c47598"
+    "sha256": "e7f65f691c8a5ca4a4a25f55d589fb042d562106a5db28f9f14e635dc95f87d7"
   },
   "lineage": {
     "era": 2,
@@ -23,7 +23,11 @@
     "previousCycleID": "FP-REFLECT-0017",
     "witnessDigest": "d436fd675b3f1395b8bf38bbbf609618a0034cbcf1ff0bd2a51bb6b072f7680a",
     "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-    "renderHash": "c909352cbdff207216708e7277b1d6d4301a1d97eba81c4b70d6083798598ee2"
+    "renderHash": "e4d102d8dfccb6f5170b8aa0c8956821b1df1aaf194828dd57c795dd780d7656",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "opening",
+    "paletteID": "orchid",
+    "changeMagnitude": 0.001709
   },
   "xrpl": {
     "network": "mainnet",

@@ -1,13 +1,15 @@
 {
   "artifact" : "Output\/reflections\/foldportrait-reflection-0020.svg",
   "boundary" : "Exploratory visual relation is not causation, authority, personhood, or a claim about private human behavior.",
+  "changeMagnitude" : 0.001672,
   "chosenRules" : [
     "palimpsest",
     "strata",
-    "aperture",
-    "veil",
-    "sediment"
+    "sediment",
+    "braid"
   ],
+  "compositionRegime" : "learned-composition-v1",
+  "compositionSeason" : "recombination",
   "correlations" : [
     {
       "direction" : "inverse",
@@ -30,16 +32,6 @@
       "visualRule" : "strata"
     },
     {
-      "direction" : "parallel",
-      "interpretation" : "Observed across 20 preserved system states; noncausal.",
-      "left" : "foldforge.witnessed_relations",
-      "method" : "pearson",
-      "right" : "foldportrait.embodied_portraits",
-      "sampleCount" : 20,
-      "strength" : 1,
-      "visualRule" : "aperture"
-    },
-    {
       "direction" : "inverse",
       "interpretation" : "Observed across 20 preserved system states; noncausal.",
       "left" : "root-logos.coherent_works",
@@ -47,7 +39,7 @@
       "right" : "sovereign-standard.embodied_foldportraits",
       "sampleCount" : 20,
       "strength" : 1,
-      "visualRule" : "veil"
+      "visualRule" : "strata"
     },
     {
       "direction" : "convergent",
@@ -57,7 +49,7 @@
       "right" : "telos.mapped_repositories",
       "sampleCount" : 20,
       "strength" : 1,
-      "visualRule" : "veil"
+      "visualRule" : "strata"
     },
     {
       "direction" : "inverse",
@@ -67,17 +59,27 @@
       "right" : "sovereign-standard.embodied_foldportraits",
       "sampleCount" : 20,
       "strength" : 1,
-      "visualRule" : "aperture"
+      "visualRule" : "sediment"
     },
     {
-      "direction" : "convergent",
-      "interpretation" : "Chosen from one or two states as compositional resonance, not statistical correlation.",
-      "left" : "foldforge.movement_phases",
-      "method" : "structural-resonance",
-      "right" : "foldkernel.symmetry_transforms",
+      "direction" : "inverse",
+      "interpretation" : "Observed across 20 preserved system states; noncausal.",
+      "left" : "foldportrait.embodied_portraits",
+      "method" : "pearson",
+      "right" : "root-logos.witnessed_relations",
       "sampleCount" : 20,
       "strength" : 1,
-      "visualRule" : "sediment"
+      "visualRule" : "braid"
+    },
+    {
+      "direction" : "parallel",
+      "interpretation" : "Observed across 20 preserved system states; noncausal.",
+      "left" : "foldforge.witnessed_relations",
+      "method" : "pearson",
+      "right" : "sovereign-standard.embodied_foldportraits",
+      "sampleCount" : 20,
+      "strength" : 1,
+      "visualRule" : "braid"
     }
   ],
   "cycleID" : "FP-REFLECT-0020",
@@ -267,8 +269,9 @@
     }
   ],
   "notes" : "Output\/reflections\/foldportrait-reflection-0020.notes.md",
+  "paletteID" : "ember",
   "previousCycleID" : "FP-REFLECT-0019",
-  "renderHash" : "301e3ef8ffb0e01981171454c08defd55ab8f23d8804bc1b88d39f0d42d31a3d",
+  "renderHash" : "5da7f3b40f53d53b54edbe3d99c16780487d0874dbb408e2108d8bb96315041c",
   "schema" : "foldportrait-reflection-cycle\/v1",
   "sequence" : 20,
   "witnessDigest" : "eded277bcdeb9737f3c8e12bd63372032026dcba11f4bbc4fb6b660f826c67b7",

@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-xrpl-metadata/v1",
   "name": "FoldPortrait FP-REFLECT-0009",
-  "description": "FP-REFLECT-0009 opens counterfield, aperture, and veil across 7 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "description": "FP-REFLECT-0009 enters its fragmentation season through the nocturne palette and threads palimpsest, braid, and sediment across 5 witnessed relations, forming a new contour for the system's continuing self-portrait.",
   "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0009.png",
   "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0009",
   "attributes": [
@@ -22,14 +22,26 @@
       "value": "f21ec363ad816e3a42c1380cdba61bc31720298d7ca8ce3c54ff8f5bb9718e08"
     },
     {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "fragmentation"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "nocturne"
+    },
+    {
       "trait_type": "File SHA-256",
-      "value": "4d8896b10d68fad8ec7708bdaa6d33ddc78df0a112aad227e59d00e60da2cdf5"
+      "value": "fefe6ef8a72daad5f41ddb1e003f559836b2d5c191038d6cdb30068258c54ecb"
     }
   ],
   "provenance": {
     "repository": "https://github.com/zeropoet/FoldPortrait",
     "source_file": "Output/reflections/png/foldportrait-reflection-0009.png",
-    "file_sha256": "4d8896b10d68fad8ec7708bdaa6d33ddc78df0a112aad227e59d00e60da2cdf5"
+    "file_sha256": "fefe6ef8a72daad5f41ddb1e003f559836b2d5c191038d6cdb30068258c54ecb"
   },
   "xrpl": null
 }
