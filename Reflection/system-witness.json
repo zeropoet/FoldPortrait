@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-system-witness/v1",
   "systemID": "sovereign-standard-relational-system",
-  "observedAt": "2026-08-24T10:04:24.000Z",
+  "observedAt": "2026-08-24T15:02:31.000Z",
   "sources": [
     {
       "id": "foldkernel",
@@ -61,7 +61,7 @@
     },
     {
       "id": "root-logos",
-      "revision": "61d36462b33b1f8333551f45d441aeca240a09e0",
+      "revision": "5ed1b74d4c15c327482eea32007693930a651b9c",
       "role": "constitutional orientation, library composition, and cultivation",
       "measurements": [
         {
@@ -80,13 +80,13 @@
           "id": "cultivation_cycles",
           "label": "Completed cultivation cycles",
           "unit": "cycles",
-          "value": 184
+          "value": 185
         },
         {
           "id": "x_witnessed_fragments",
           "label": "X-witnessed founding fragments",
           "unit": "fragments",
-          "value": 17
+          "value": 18
         },
         {
           "id": "founding_fragments",
@@ -104,7 +104,7 @@
     },
     {
       "id": "foldforge",
-      "revision": "5a81b2daccd2a44ca255f82e1fab8209f3a502ef",
+      "revision": "a2fc17cbe18e672b391dfe2e6e982607f55d9f4d",
       "role": "evidence-bound composition grammar",
       "measurements": [
         {
@@ -141,7 +141,7 @@
     },
     {
       "id": "telos",
-      "revision": "c01343e98c8dd52132850dd46fb187c3510b7cb9",
+      "revision": "939531791b4141a2c316ad096ac0583ab4ba55c2",
       "role": "bounded Sovereign Standard customer-acquisition operator and system mapper",
       "measurements": [
         {
