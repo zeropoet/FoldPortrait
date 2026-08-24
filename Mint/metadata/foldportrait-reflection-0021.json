@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0021",
+  "description": "FP-REFLECT-0021 enters its drift season through the lichen palette and gathers veil, palimpsest, and strata across 5 witnessed relations, forming a distinct silhouette from the public witness.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0021.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0021",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 73
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "960d0bedd9dcc3d6063563661f26273a4af73600651d25aa72e2936d5792a698"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "drift"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "lichen"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "685e938c2adf8ac7a528475fad292fd12556a55fa95e696048534c755b98e777"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0021.png",
+    "file_sha256": "685e938c2adf8ac7a528475fad292fd12556a55fa95e696048534c755b98e777"
+  },
+  "xrpl": null
+}
