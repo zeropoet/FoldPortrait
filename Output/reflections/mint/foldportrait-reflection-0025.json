@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0025",
+  "description": "FP-REFLECT-0025 enters its recombination season through the ember palette and gathers braid, strata, and sediment across 7 witnessed relations, forming a distinct silhouette from the public witness.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0025.png",
+    "mimeType": "image/png",
+    "sha256": "a059ad2fb470e422685e328b4277d9b38f10cc816382b1051f067920ee017f63",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0025.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "b0c2e40c760f943761578d670ea2afd8e907fb06d30dbdb3ea786d41ea53483f"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0025",
+    "previousCycleID": "FP-REFLECT-0024",
+    "witnessDigest": "2e6188ee879653dd50c7f2b22db758a4856df28835f827befbba74ad7fde41c2",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "4bef131d6c240cbc0f5dd1f86bb5a7b9a31c9a5a095ebc6b1385dc55f081c858",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "recombination",
+    "paletteID": "ember",
+    "changeMagnitude": 0.001637
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}
