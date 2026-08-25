@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0027",
+  "description": "FP-REFLECT-0027 enters its contraction season through the orchid palette and gathers braid, veil, and palimpsest across 4 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0027.png",
+    "mimeType": "image/png",
+    "sha256": "e2e782c03801086fc979e2648c9c112b4616a37bbd2ac34d62a4ae5c68b2ac9f",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0027.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "d1dc4c3ddcc2131841394d1919468984a22856e08c5d8bc2bf146ad065caa921"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0027",
+    "previousCycleID": "FP-REFLECT-0026",
+    "witnessDigest": "1deb94ad273d60658fa8af2122d6b20d7f4911ab3a595f6ff3c47eeaabf99b0e",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "17e1f033fada974f55bc5db299a2b2569f326916681051da6bcedbe81da83b5b",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "contraction",
+    "paletteID": "orchid",
+    "changeMagnitude": 0.001611
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}
