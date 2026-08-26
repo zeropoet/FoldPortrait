@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-system-witness/v1",
   "systemID": "sovereign-standard-relational-system",
-  "observedAt": "2026-08-26T16:30:52.000Z",
+  "observedAt": "2026-08-26T16:41:35.000Z",
   "sources": [
     {
       "id": "foldkernel",
@@ -141,7 +141,7 @@
     },
     {
       "id": "telos",
-      "revision": "385f791b310479e3ed099acbf764ad8feec2b9d2",
+      "revision": "35fcecbed1104e6baaa4d27dbf605949e4cc4850",
       "role": "bounded Sovereign Standard customer-acquisition operator and system mapper",
       "measurements": [
         {
