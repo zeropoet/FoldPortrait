@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-system-witness/v1",
   "systemID": "sovereign-standard-relational-system",
-  "observedAt": "2026-08-26T16:14:58.000Z",
+  "observedAt": "2026-08-26T16:22:36.000Z",
   "sources": [
     {
       "id": "foldkernel",

@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0038",
+  "description": "FP-REFLECT-0038 enters its opening season through the tidal palette and balances aperture, veil, and braid across 6 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0038.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0038",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 90
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "6f4e68a61050394ecec371aafc9a5eee75c565e8249546ec3fc90cffc892afdd"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "opening"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "tidal"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "e594e8bf8b45e39a8ef1f012b1471605c6a14b52578c90adce835e62e7a53bfa"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0038.png",
+    "file_sha256": "e594e8bf8b45e39a8ef1f012b1471605c6a14b52578c90adce835e62e7a53bfa"
+  },
+  "xrpl": null
+}
