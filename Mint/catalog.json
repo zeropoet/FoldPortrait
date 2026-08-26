@@ -4,7 +4,7 @@
   "issuance_channel": "FoldForge Ledger Witness",
   "signing_boundary": "human steward through Xaman",
   "public_root": "https://zeropoet.github.io/FoldPortrait",
-  "work_count": 82,
+  "work_count": 83,
   "works": [
     {
       "sequence": 1,
@@ -2945,6 +2945,36 @@
             "Memo": {
               "MemoType": "666F6C64706F7274726169743A6C65646765722D7769746E657373",
               "MemoData": "7B2261727469666163745F6964223A22666F6C64706F7274726169742D7265666C656374696F6E2D30303330222C2266696C655F736861323536223A2265653565626330626262633633663462306632393763373531623665666662333665666238663266323565653933616364356235346437356662366235643437227D"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 83,
+      "era": 2,
+      "artifact_id": "foldportrait-reflection-0031",
+      "title": "FoldPortrait FP-REFLECT-0031",
+      "description": "FP-REFLECT-0031 enters its drift season through the mineral palette and gathers strata, aperture, and sediment across 5 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
+      "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0031.png",
+      "source_file": "Output/reflections/png/foldportrait-reflection-0031.png",
+      "sha256": "b672328b7b3ef03b89b18e1f7a0a1efd4deaf773cf32dd72db16068e2d4e7db0",
+      "byte_size": 3376384,
+      "metadata_uri": "https://zeropoet.github.io/FoldPortrait/Mint/metadata/foldportrait-reflection-0031.json",
+      "metadata_file": "Mint/metadata/foldportrait-reflection-0031.json",
+      "mint_status": "prepared",
+      "xrpl": null,
+      "xrpl_transaction": {
+        "TransactionType": "NFTokenMint",
+        "Account": "rfYiNfgLefTAZGfEyun1EjG68mTtC75vDe",
+        "NFTokenTaxon": 0,
+        "Flags": 0,
+        "URI": "68747470733A2F2F7A65726F706F65742E6769746875622E696F2F466F6C64506F7274726169742F4D696E742F6D657461646174612F666F6C64706F7274726169742D7265666C656374696F6E2D303033312E6A736F6E",
+        "Memos": [
+          {
+            "Memo": {
+              "MemoType": "666F6C64706F7274726169743A6C65646765722D7769746E657373",
+              "MemoData": "7B2261727469666163745F6964223A22666F6C64706F7274726169742D7265666C656374696F6E2D30303331222C2266696C655F736861323536223A2262363732333238623762336566303362383962313865316637613061316566643464656166373733636633326464373264623136303638653264346537646230227D"
             }
           }
         ]

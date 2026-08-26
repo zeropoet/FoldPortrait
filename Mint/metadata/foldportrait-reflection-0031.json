@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0031",
+  "description": "FP-REFLECT-0031 enters its drift season through the mineral palette and gathers strata, aperture, and sediment across 5 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0031.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0031",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 83
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "9894da14902dd782a43c5f03a3daebcdacad065e9ccf529a22f3fd92d50cb6a3"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "drift"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "mineral"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "b672328b7b3ef03b89b18e1f7a0a1efd4deaf773cf32dd72db16068e2d4e7db0"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0031.png",
+    "file_sha256": "b672328b7b3ef03b89b18e1f7a0a1efd4deaf773cf32dd72db16068e2d4e7db0"
+  },
+  "xrpl": null
+}
