@@ -1,19 +1,20 @@
 {
   "chosenRules" : [
-    "palimpsest",
-    "sediment",
-    "braid"
+    "counterfield",
+    "veil",
+    "strata",
+    "palimpsest"
   ],
   "convergenceHash" : "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
-  "correlationCount" : 5,
-  "cycleID" : "FP-REFLECT-0034",
-  "iteration" : "reflection-0034",
+  "correlationCount" : 7,
+  "cycleID" : "FP-REFLECT-0035",
+  "iteration" : "reflection-0035",
   "memorySignature" : "010701090e100c020508030a0b0d0f040602150304",
-  "notesPath" : "Output\/reflections\/foldportrait-reflection-0034.notes.md",
-  "observedAt" : "2026-08-26T02:26:15.000Z",
-  "renderHash" : "2cbafd27cad1f2f0207c68c252da84e49238635920e331c21a4a2276cb8f9254",
+  "notesPath" : "Output\/reflections\/foldportrait-reflection-0035.notes.md",
+  "observedAt" : "2026-08-26T02:36:26.000Z",
+  "renderHash" : "24bc7d88ad4da2f072c936707e5d7065056f6e64a03fcd2a733a05a5eabfe147",
   "schema" : "foldportrait-current-reflection\/v1",
-  "sequence" : 34,
-  "svgPath" : "Output\/reflections\/foldportrait-reflection-0034.svg",
-  "witnessDigest" : "09513b9a9dd214f1b44cecb3a0839cb89bd2cf13df924055acb1072db5d88cbc"
+  "sequence" : 35,
+  "svgPath" : "Output\/reflections\/foldportrait-reflection-0035.svg",
+  "witnessDigest" : "5b474bd46ea5a7d2435595a261cb9691421275e6ca5fc4598c7af479e26ffb90"
 }
