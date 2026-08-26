@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-system-witness/v1",
   "systemID": "sovereign-standard-relational-system",
-  "observedAt": "2026-08-26T00:08:17.000Z",
+  "observedAt": "2026-08-26T00:37:56.000Z",
   "sources": [
     {
       "id": "foldkernel",
@@ -55,13 +55,13 @@
           "id": "embodied_portraits",
           "label": "Portraits embodied by Sovereign Standard",
           "unit": "portraits",
-          "value": 14
+          "value": 15
         }
       ]
     },
     {
       "id": "root-logos",
-      "revision": "5bf436aeeac0f8b81ec4ea4240a241f6a23b45c8",
+      "revision": "46376d9e1866a865b68f7637934772c84a9f9784",
       "role": "constitutional orientation, library composition, and cultivation",
       "measurements": [
         {
@@ -141,7 +141,7 @@
     },
     {
       "id": "telos",
-      "revision": "a3ed7e3cf75968f8f3ccfccd6665c1b3a026c21d",
+      "revision": "88a6b4ef1b44950bca7fb6cf9ccfd21d07cd317f",
       "role": "bounded Sovereign Standard customer-acquisition operator and system mapper",
       "measurements": [
         {
@@ -160,7 +160,7 @@
           "id": "prepared_campaigns",
           "label": "Bounded prepared campaigns",
           "unit": "campaigns",
-          "value": 9
+          "value": 12
         },
         {
           "id": "maximum_active_campaigns",
@@ -178,7 +178,7 @@
           "id": "second_subscriber_threshold",
           "label": "Second subscriber threshold",
           "unit": "subscribers",
-          "value": 400
+          "value": 600
         }
       ]
     },
@@ -197,7 +197,7 @@
           "id": "embodied_foldportraits",
           "label": "Embodied FoldPortrait lineages",
           "unit": "portraits",
-          "value": 14
+          "value": 15
         }
       ]
     }
