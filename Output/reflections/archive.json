@@ -1251,10 +1251,54 @@
             "payloadPath": "Output/reflections/mint/foldportrait-reflection-0028.json"
           },
           "boundary": "Prepared for witness only. FoldPortrait cannot sign, submit, transfer, or claim XRPL value."
+        },
+        {
+          "schema": "foldportrait-reflection-archive-entry/v1",
+          "era": 2,
+          "cycleID": "FP-REFLECT-0029",
+          "sequence": 29,
+          "witnessedAt": "2026-08-26T00:08:17.000Z",
+          "previousCycleID": "FP-REFLECT-0028",
+          "witnessDigest": "5873c85d2710721d23179ad21acd36d4eb483080f662c087ee4fa3710c73e97a",
+          "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+          "renderHash": "32b7bd9855ae9c3d6051e77266a804454279bb4d108c750a5a6304d36a375d1c",
+          "chosenRules": [
+            "sediment",
+            "braid",
+            "veil"
+          ],
+          "compositionRegime": "learned-composition-v1",
+          "compositionSeason": "fragmentation",
+          "paletteID": "tidal",
+          "changeMagnitude": 0,
+          "correlationCount": 5,
+          "svg": {
+            "path": "Output/reflections/foldportrait-reflection-0029.svg",
+            "mimeType": "image/svg+xml",
+            "sha256": "e8a9d105d0a23d2fd40b8d1d8680eec1c95f362f766e2eb6d3cca1201a7c0088"
+          },
+          "png": {
+            "path": "Output/reflections/png/foldportrait-reflection-0029.png",
+            "mimeType": "image/png",
+            "sha256": "dc111e6207867fb0a2c3513af99dcdbec42ac6b16043f1ca7734033016034e91",
+            "dimensions": {
+              "width": 2400,
+              "height": 3200
+            }
+          },
+          "notesPath": "Output/reflections/foldportrait-reflection-0029.notes.md",
+          "mint": {
+            "status": "prepared_unsigned",
+            "network": "XRPL mainnet",
+            "transactionType": "NFTokenMint",
+            "signingAuthority": "human steward through Xaman",
+            "payloadPath": "Output/reflections/mint/foldportrait-reflection-0029.json"
+          },
+          "boundary": "Prepared for witness only. FoldPortrait cannot sign, submit, transfer, or claim XRPL value."
         }
       ]
     }
   ],
-  "currentCycleID": "FP-REFLECT-0028",
+  "currentCycleID": "FP-REFLECT-0029",
   "mintingBoundary": "Archive preparation is autonomous; XRPL publication and Xaman signing are human-authorized acts."
 }
