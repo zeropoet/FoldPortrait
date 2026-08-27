@@ -1,0 +1,568 @@
+{
+  "schema": "foldportrait-seal-ledger/v1",
+  "authority": "FoldPortrait Release Authority",
+  "authority_key_sha256": "98ab90b3d0eec1e119bfc5ab49af917f970af625bb077d4f80f86da2ba110736",
+  "append_only": true,
+  "release_count": 93,
+  "chain_tip_sha256": "404c09277814f1707b27675b508a2a79e767d6c0674cac3f1cf8663e69852d8e",
+  "entries": [
+    {
+      "sequence": 1,
+      "artifact_id": "foldportrait-v1-zero-poet-2cfdfa64",
+      "payload_sha256": "cb606217dfda12d49c61bcd15217feab96c6c0a0559c6c0721b2d5d87b9f839e",
+      "seal_sha256": "7ccc3ad64bcaa1fedb6413fbd434b13ecb741f7741f526a3cbf87be3e6a2ee1e"
+    },
+    {
+      "sequence": 2,
+      "artifact_id": "foldportrait-v2-zero-poet-2cfdfa64",
+      "payload_sha256": "18a8cadaef8a663f772d8af39b411cd18bc807cfa64e23c042ffd71e72f860cb",
+      "seal_sha256": "af4bf9edbb6382c97d3cf7e493b2e5127cedbde7491d548a52b858fa41a51aa2"
+    },
+    {
+      "sequence": 3,
+      "artifact_id": "foldportrait-v3-zero-poet-2cfdfa64",
+      "payload_sha256": "b57ad40bf74ea0fad43786521fe10303ac74e5a8eafc9d69e2edcfcd1fcb1b31",
+      "seal_sha256": "0171064dbd9ca9e1da74c7d8ed52a92f517ed830f18aa9c88b89ff3710732a71"
+    },
+    {
+      "sequence": 4,
+      "artifact_id": "foldportrait-v4-zero-poet-2cfdfa64",
+      "payload_sha256": "5d570230bb0a8597d8f29673f1d2068b1e9e3620eb0543890370478634df3ec0",
+      "seal_sha256": "2b3362cb31f5f03c8afe0399f7fc524760446f665168aca567ddc30e52a9a555"
+    },
+    {
+      "sequence": 5,
+      "artifact_id": "foldportrait-v5-zero-poet-2cfdfa64",
+      "payload_sha256": "b90ed27364c193fb808c59e54c867eaceceab17a912c06b0819a9b83f833cd4b",
+      "seal_sha256": "633b7ac8a74e9a893bcf14e761f49706187e9458a367730cf377de0d8e6330c8"
+    },
+    {
+      "sequence": 6,
+      "artifact_id": "foldportrait-v6-zero-poet-2cfdfa64",
+      "payload_sha256": "7c25f06d625474a1602139c3f2c5e7c5f72a8255b7eb043a4afe861f4e96fedd",
+      "seal_sha256": "70480b9c6e39fbdc763dd01fc169ac56c30b6ed20aa7809b556803c922711ada"
+    },
+    {
+      "sequence": 7,
+      "artifact_id": "foldportrait-v7-zero-poet-2cfdfa64",
+      "payload_sha256": "64c0ace420699a70cbc922039d6f97857bc3052e2ec94ca5bfaa06e43ae11917",
+      "seal_sha256": "465698597cb756a86d188a5f95d6da61477b6a5107722ae191efd272118b4858"
+    },
+    {
+      "sequence": 8,
+      "artifact_id": "foldportrait-v8-zero-poet-2cfdfa64",
+      "payload_sha256": "c2c929540b311b5a52f8caa6055b2ab2bf1a9638b68503c14c1a863f65ff98d0",
+      "seal_sha256": "32c250ef9b86ba549ee62108328187c47b7097d642d00dcb1d3d001428a434b3"
+    },
+    {
+      "sequence": 9,
+      "artifact_id": "foldportrait-v9-zero-poet-2cfdfa64",
+      "payload_sha256": "0e9e742a318a6d7554967bc2734f30b7e6fb17cd96cad69def6152c6c075fe95",
+      "seal_sha256": "964d6d096179d39e1d0d6e059c600dbc0c07d4c578c1ffd5de4a88cbf873b97c"
+    },
+    {
+      "sequence": 10,
+      "artifact_id": "foldportrait-v10-zero-poet-2cfdfa64",
+      "payload_sha256": "04423e6a424f05c876cd7165d0748030694bc1122b8cb6dd839f161987a3c74a",
+      "seal_sha256": "24d63a432af8371fdd8b635ebe8ef592d4db3e73f5b0726015eb399b99babde2"
+    },
+    {
+      "sequence": 11,
+      "artifact_id": "foldportrait-v11-zero-poet-2cfdfa64",
+      "payload_sha256": "e217d01a3e6d942c9834ecd24bd6e28d1fa88e7abc1f8da35199183aa20a8dee",
+      "seal_sha256": "4ae7b4caccb2d543feb645a6f76616226c7389efba3770af14507ea4daa96b39"
+    },
+    {
+      "sequence": 12,
+      "artifact_id": "foldportrait-v12-zero-poet-2cfdfa64",
+      "payload_sha256": "7b48fe4af89379c4a23565a4b119b91fd68a00d28ff6e35c0e30e55b43977a48",
+      "seal_sha256": "f1b1376e1660264eedeefcad2009b3ff1ec5f4d72f863c41da23ac56ff1f91f7"
+    },
+    {
+      "sequence": 13,
+      "artifact_id": "foldportrait-v1.2-zero-poet-2cfdfa64",
+      "payload_sha256": "6706eadfc81dc71758b58e058095760a128e9c25d3abb76177f7bd58845bd409",
+      "seal_sha256": "a4ce28178d7e1cdb107445eb7c402b2032d4940f5e5218ae1b95ff6508451021"
+    },
+    {
+      "sequence": 14,
+      "artifact_id": "foldportrait-v2.2-zero-poet-2cfdfa64",
+      "payload_sha256": "88702504700bb1c0b9cebf0c298270e125d00b87fa88235c870a7869a1f725d4",
+      "seal_sha256": "c6fbea3572eb1fde60694c5d1a7a845cbcc1c9e3738c78254f01fc5bc7b0ca2f"
+    },
+    {
+      "sequence": 15,
+      "artifact_id": "foldportrait-v3.2-zero-poet-2cfdfa64",
+      "payload_sha256": "e0d626946f03427e209a43e036b61acd0aa55c542e884789fb03efbef76e66e7",
+      "seal_sha256": "1ba4ab85b4609b887560266e694ca445c7b7b0e7c115ab5561792bc2ea9e94cc"
+    },
+    {
+      "sequence": 16,
+      "artifact_id": "foldportrait-v4.2-zero-poet-2cfdfa64",
+      "payload_sha256": "ac7edde2e6c1c9a610a0a02b41295a1f6589d425e9964a5dee29c07adf6cdb30",
+      "seal_sha256": "d42158d6a1dabcf7061b33adccd2e5c00aee01458ba7e182e7f942024cded09c"
+    },
+    {
+      "sequence": 17,
+      "artifact_id": "foldportrait-v5.2-zero-poet-2cfdfa64",
+      "payload_sha256": "e8cfda4b5ff9bf5076a12c54d3a4debfdefb555b02710e185268e5eb88fe029a",
+      "seal_sha256": "45d2a13e65a09f1bb8544919725ae41a64ce056b0e6fffd346857f00cd18781d"
+    },
+    {
+      "sequence": 18,
+      "artifact_id": "foldportrait-v6.2-zero-poet-2cfdfa64",
+      "payload_sha256": "30f2dbedb29b79e366eb6c4ee9cf9e28bd8892649165585040c1a6c6ac5cea00",
+      "seal_sha256": "82089dc336121bf3f6ffeef2162d4e1de6e206600467db6586e73cae605f1769"
+    },
+    {
+      "sequence": 19,
+      "artifact_id": "foldportrait-v7.2-zero-poet-2cfdfa64",
+      "payload_sha256": "a77002b903d0decb338673954dca486f7c5c448fb1a569fd0857fb79cc022e17",
+      "seal_sha256": "b571d369693108b7d7eaf5481a198fd0d9a2f876879a1023f0c141ec154b324a"
+    },
+    {
+      "sequence": 20,
+      "artifact_id": "foldportrait-v8.2-zero-poet-2cfdfa64",
+      "payload_sha256": "ebca37e10dedd48487e1aa92a8b2611aa042dcdb71f8a378358f0421704f01a9",
+      "seal_sha256": "04286ec0ef4d518bc3421044b9f2624cd71e77fb16cf2c09c2fd7670e76f96d9"
+    },
+    {
+      "sequence": 21,
+      "artifact_id": "foldportrait-v9.2-zero-poet-2cfdfa64",
+      "payload_sha256": "13f55ad8d75e1f7b3a34314fe62131d57841b8e260f63225a265be85f642771e",
+      "seal_sha256": "464a8af5c52537a7ce12eba00cb2c15d075f4297f18f8547992b5845399ed4c6"
+    },
+    {
+      "sequence": 22,
+      "artifact_id": "foldportrait-v10.2-zero-poet-2cfdfa64",
+      "payload_sha256": "ed9a0a0dbf55d3df7c88af4c2da050be52b48e4007e6502c4a747e58057332d1",
+      "seal_sha256": "0f4c3f866357007f886357b95be622cf42d13389619ea6a9755351b3c97e412c"
+    },
+    {
+      "sequence": 23,
+      "artifact_id": "foldportrait-v11.2-zero-poet-2cfdfa64",
+      "payload_sha256": "b2f0fad5b9704570d6796cee9ab660fb9465427e0dd26138ef289ffab3e341c1",
+      "seal_sha256": "ecbffcf817b1e30aa79e532772fb1416915f591b0aaa4bd1e6f492b820881526"
+    },
+    {
+      "sequence": 24,
+      "artifact_id": "foldportrait-v12.2-zero-poet-2cfdfa64",
+      "payload_sha256": "5003f29649ce579d0bf9b6c7d4a8e923889ebd0d17c6331db2d26e4df3ae8e49",
+      "seal_sha256": "12ff602a563218be834172449ed477103492a6f7e830cf63fe01a6cb70a09316"
+    },
+    {
+      "sequence": 25,
+      "artifact_id": "foldportrait-v1.3-zero-poet-2cfdfa64",
+      "payload_sha256": "3bf7c8af7e043a9bd92aca99f5babcab20ebade96958b0575a6a9d93085d7e05",
+      "seal_sha256": "7b5a0dabc9c01a407a1758de398a691aa17edc89930d1b5233e95a8464ccd260"
+    },
+    {
+      "sequence": 26,
+      "artifact_id": "foldportrait-v2.3-zero-poet-2cfdfa64",
+      "payload_sha256": "657cb0bce2534fd7b9cf3d3ba09eec695db3a69d6021cc1e1acd42c625996b25",
+      "seal_sha256": "f6455bbc4d087833baa7d10a8a356273499c8b462e2903ac5e8b57dfd5b88390"
+    },
+    {
+      "sequence": 27,
+      "artifact_id": "foldportrait-v3.3-zero-poet-2cfdfa64",
+      "payload_sha256": "cf0eaa59c67d7321d6eaea587f621cab78df85402c2838331742eb6a4be2f6bb",
+      "seal_sha256": "967b465b5c343e589ad2954f569ddb852e8055e32aeba3268f3d92cd290c98c8"
+    },
+    {
+      "sequence": 28,
+      "artifact_id": "foldportrait-v4.3-zero-poet-2cfdfa64",
+      "payload_sha256": "2d847339f7b8778a85e74f81aaf972b3fe94e34c8063a05e9341f127bacd337a",
+      "seal_sha256": "3009ae9eb83700c098718cf40293021cab7ddfbe122c4653329c70d5f7ef6033"
+    },
+    {
+      "sequence": 29,
+      "artifact_id": "foldportrait-v5.3-zero-poet-2cfdfa64",
+      "payload_sha256": "1e2d2d14853ff8620c5251eca197c3674481ed65ee76047df6b4f73e52aaf0ae",
+      "seal_sha256": "e491684c5d3915ddbe77073dacbd507759a6a373c68d9aea0e9958175ab2c036"
+    },
+    {
+      "sequence": 30,
+      "artifact_id": "foldportrait-v6.3-zero-poet-2cfdfa64",
+      "payload_sha256": "a4aca9dd8d32a3bfac77bf9416ffa942e00d6bf53af6d59f3226896cdd32fb94",
+      "seal_sha256": "d7f05cbd8602939bdd8d7c6028062ded00126571460dc9668e87fe94f167f2c2"
+    },
+    {
+      "sequence": 31,
+      "artifact_id": "foldportrait-v7.3-zero-poet-2cfdfa64",
+      "payload_sha256": "aa7bf7dec3a6bcf54f4c07287a1581a8d0d08f8c9d903b8f2fbd41c9fb65e0e7",
+      "seal_sha256": "154a8d2fb0b40169e10f90ab5795f7c3e3ca53d97f226398a0fcb0647f5ff431"
+    },
+    {
+      "sequence": 32,
+      "artifact_id": "foldportrait-v8.3-zero-poet-2cfdfa64",
+      "payload_sha256": "23540dd86b10637d4b1acd8143644d3c878fde8220dcdf85e5ec97ab039ec559",
+      "seal_sha256": "e7da76da9176a6117151cdd04c65fb01eb92f65cd7ebc623197b8d9ebc0d3f69"
+    },
+    {
+      "sequence": 33,
+      "artifact_id": "foldportrait-v9.3-zero-poet-2cfdfa64",
+      "payload_sha256": "03065bab79fd7fe7d6ba35d76c8bcade2b03931e428540aa078c2b2975481b22",
+      "seal_sha256": "ef5ebf741866718e427edd65ef1f0b8dbff23f02634ef4205c0844677d9027e7"
+    },
+    {
+      "sequence": 34,
+      "artifact_id": "foldportrait-v10.3-zero-poet-2cfdfa64",
+      "payload_sha256": "07fc1b4560892df0e60f19cad50aeca08ed8463fb632d9acef07867816f1e10c",
+      "seal_sha256": "59e705eee3e5e8479252aa2452a9b728d17036c3bb89aacaf55e58a9ff023c11"
+    },
+    {
+      "sequence": 35,
+      "artifact_id": "foldportrait-v11.3-zero-poet-2cfdfa64",
+      "payload_sha256": "e9de2d34258291cf69e453686f21bce38b0307f489323461f079c8d3750227d7",
+      "seal_sha256": "30a979b0955f03051939ce40476e9d8b9e2f121d8f616e98068935417aabd425"
+    },
+    {
+      "sequence": 36,
+      "artifact_id": "foldportrait-v12.3-zero-poet-2cfdfa64",
+      "payload_sha256": "c4010ac04b587f0e8dc6d62951ee27b6ed36ba6ec3bfdc342d8675a95f4fefff",
+      "seal_sha256": "e7708ed1d50f9dfaa46518629bd4b5907ebb7089d6dad86a4d4a691518b5524a"
+    },
+    {
+      "sequence": 37,
+      "artifact_id": "foldportrait-v1.4-zero-poet-2cfdfa64",
+      "payload_sha256": "e81e237b475d57b3f6567f3dec4af5cf5224c4e39c3e6df2bc4e2a0b008c658f",
+      "seal_sha256": "d166ec714467aa8e676fb5cf0c25cdabf2069f60223c5c34e3734cae8c3f2c94"
+    },
+    {
+      "sequence": 38,
+      "artifact_id": "foldportrait-v2.4-zero-poet-2cfdfa64",
+      "payload_sha256": "f86c1d6bbf05e5521bbf09d44a4c66b71fc7ac8bc6b79addf1366c914184409c",
+      "seal_sha256": "d3d1da981165575ada1d6acf22877dffd839d35b526cd8406ebc0caca1086829"
+    },
+    {
+      "sequence": 39,
+      "artifact_id": "foldportrait-v3.4-zero-poet-2cfdfa64",
+      "payload_sha256": "216102dde3b897978a95a4569aba4a2ed01fcf2bab1ca695751efe1f02a664b2",
+      "seal_sha256": "01a01003925e25f669a38972083b83198506afacb76864fb1a4ec390c463cc33"
+    },
+    {
+      "sequence": 40,
+      "artifact_id": "foldportrait-v4.4-zero-poet-2cfdfa64",
+      "payload_sha256": "114794a44829cee0a53d81c4101fc22f18b0790e96e4cd2db31e275ed9fd054f",
+      "seal_sha256": "3363bcdd6dfb0ee43efc8c46c6bf35bce42f2bc83d0384689b1062e7f0656d29"
+    },
+    {
+      "sequence": 41,
+      "artifact_id": "foldportrait-v5.4-zero-poet-2cfdfa64",
+      "payload_sha256": "80bf435176a30fa75b3b0a5fb6f9bea8b378d7355cd3b40b42deb83bf183f75e",
+      "seal_sha256": "678fdf373df6ceca91949fdd28ad832f1047782cf58bbf4086401a7c08e093d9"
+    },
+    {
+      "sequence": 42,
+      "artifact_id": "foldportrait-v6.4-zero-poet-2cfdfa64",
+      "payload_sha256": "f1ee05558a65f2ebff060bde41e76ee10b1ce65400d07ebe02c85f88ab62cf9f",
+      "seal_sha256": "8530df7674f552462602288df6c1a2ed0ffee5915d39c17a9ec52577b79225dc"
+    },
+    {
+      "sequence": 43,
+      "artifact_id": "foldportrait-v7.4-zero-poet-2cfdfa64",
+      "payload_sha256": "6c3ca78f580d2c963a6d349d14b92f7e9e5a11ebc758e383050b912a714cd374",
+      "seal_sha256": "57ae04d2c0c8e4d7a18ee1e94dffe35fe30b34b587c622ca8d9f14ba2d0f702c"
+    },
+    {
+      "sequence": 44,
+      "artifact_id": "foldportrait-v8.4-zero-poet-2cfdfa64",
+      "payload_sha256": "150d8c5aeb22c97bdd1876153299040b993196d224871c797cf2a1ba7dc947da",
+      "seal_sha256": "511c35cd7a006b54c00bf42f17630f40ae3172503245c0e6d85a0b904f28a871"
+    },
+    {
+      "sequence": 45,
+      "artifact_id": "foldportrait-v9.4-zero-poet-2cfdfa64",
+      "payload_sha256": "392f0713f5203fd11d83d7bca6dcb2879b3f83e6850bef212daf792d5669965a",
+      "seal_sha256": "aefbae316e7924ab8d863c79ab51e164f6a65f3d254cfe72851e731ea7204eec"
+    },
+    {
+      "sequence": 46,
+      "artifact_id": "foldportrait-v10.4-zero-poet-2cfdfa64",
+      "payload_sha256": "533c58122a44ffcb5d5890d21d978f363f562d25c804d3aa143f5e61055b23a7",
+      "seal_sha256": "acf08e9113c3ec2d820c2a70f1722c5b9afcb0fb72e3d802579051dc417f3f09"
+    },
+    {
+      "sequence": 47,
+      "artifact_id": "foldportrait-v11.4-zero-poet-2cfdfa64",
+      "payload_sha256": "e981dd09a89aa69cb573dedf73681c7e2381038ce29ba6e673adffeb02c3e1f5",
+      "seal_sha256": "d35ec18b8adf77a49a74e8f11675dbae3b0820069570a1b119f8270b8bce87ac"
+    },
+    {
+      "sequence": 48,
+      "artifact_id": "foldportrait-v12.4-zero-poet-2cfdfa64",
+      "payload_sha256": "a0f4ef009277045c4967c86a6a8dc72a5f1adb8be3029658450e81f4327b3cad",
+      "seal_sha256": "565a7bcc8ba9bda56d8e9a28a3453ee231ee7b4f2aff547cc6c499f3fa9d9909"
+    },
+    {
+      "sequence": 49,
+      "artifact_id": "foldportrait-v1.5-zero-poet-2cfdfa64",
+      "payload_sha256": "b2430702806e49cee16c4472b55ed3ae2afd80152175550fc93c1c10f1686948",
+      "seal_sha256": "c18db107d1dfb4ed6228613a0ddd699d8c5e3780507566e9ed7bffaa629fdd42"
+    },
+    {
+      "sequence": 50,
+      "artifact_id": "foldportrait-v2.5-zero-poet-2cfdfa64",
+      "payload_sha256": "a7240a123bd1c71a389892f6ad8b5d44a67f2a7ceddf5eddeedb93e60bb190b6",
+      "seal_sha256": "df7d87173f91ed920cca025fa8143312c6d04d39400b7c9c2b8489599b72cd3f"
+    },
+    {
+      "sequence": 51,
+      "artifact_id": "foldportrait-v3.5-zero-poet-2cfdfa64",
+      "payload_sha256": "2d24097b680acf37552ae55911a12f8a15da50487eeaca1dd4051bdfbbf69b5c",
+      "seal_sha256": "b8e39b06fbccfb4c1f9c9e03b6ab7f477803cd5a6fe5079810778575fe134c41"
+    },
+    {
+      "sequence": 52,
+      "artifact_id": "foldportrait-v4.5-zero-poet-2cfdfa64",
+      "payload_sha256": "8c9c098a5bab251d0e133f2692e80d5fe982845dc44229fba51127cf23c777ca",
+      "seal_sha256": "a7d03cb3d8c0de1fa54a4acaef1a25d28cb267afd24b575b63ad762975e3eedb"
+    },
+    {
+      "sequence": 53,
+      "artifact_id": "foldportrait-reflection-0001",
+      "payload_sha256": "7ff62f9ec57b82af064ad416d5bae2a03235e6e6f72cacf80bc8ef447f60ce47",
+      "seal_sha256": "ba11bd3c8543b73ec4aeff672fd1ad339e96cef7456973f415d5e3495d01a992"
+    },
+    {
+      "sequence": 54,
+      "artifact_id": "foldportrait-reflection-0002",
+      "payload_sha256": "853b04df892554acb98be2aa0e7437f3831e2d0b97ae76c9711e8ab5ec76331c",
+      "seal_sha256": "877b7f3a73082ae51271e58c462c99099b596e11a66c70e721e6f15b443c8481"
+    },
+    {
+      "sequence": 55,
+      "artifact_id": "foldportrait-reflection-0003",
+      "payload_sha256": "20630426408051f75b1e0cca832d353f39f40d60970a09cf80dd05c02537aff0",
+      "seal_sha256": "fdd9e767f0202015779fe852eb41d4a1fa11a8a2ece5c8cb5500a5d4194d271d"
+    },
+    {
+      "sequence": 56,
+      "artifact_id": "foldportrait-reflection-0004",
+      "payload_sha256": "688c2c414c27aedd68dfa920e5a585253e3bf4379fb5522fc6c85a3ddd723737",
+      "seal_sha256": "6236ab87637329139bf9ec1ade0ca2a7921948c6f194d8e12a580190223d184d"
+    },
+    {
+      "sequence": 57,
+      "artifact_id": "foldportrait-reflection-0005",
+      "payload_sha256": "9dd2ba13eca26977378d17da097a4d5686b6780d18049bb40e3faf833e5d37ab",
+      "seal_sha256": "d8638215e44f777f4da73e836a830554e7a19138d63792542b60c86c74240e9c"
+    },
+    {
+      "sequence": 58,
+      "artifact_id": "foldportrait-reflection-0006",
+      "payload_sha256": "9734eeb11bf71ac8dac95020e122edef1d8d9db34fa35ce3d75536e9b13537b8",
+      "seal_sha256": "9117ad9ef82e82e56e196ffdac30172d269e5a45aeded2b6956ad6be925b1400"
+    },
+    {
+      "sequence": 59,
+      "artifact_id": "foldportrait-reflection-0007",
+      "payload_sha256": "3aa751709ae7205c8e42188aaeb69a48f584d3e6a8d4cae2ffbd2d69eb5dfd39",
+      "seal_sha256": "b7efd90bce23323042f8a9597b5ea12e451516ba9b561a344e3138bc9d6b598d"
+    },
+    {
+      "sequence": 60,
+      "artifact_id": "foldportrait-reflection-0008",
+      "payload_sha256": "97c017d3b727fe23071f3a239544719b38e5e82bf4d6aa287f897623c134e202",
+      "seal_sha256": "23ffd65d0e41cfbf5cd8ef3498298701d8c7cf25564318c0b08d7ee9c7eaa273"
+    },
+    {
+      "sequence": 61,
+      "artifact_id": "foldportrait-reflection-0009",
+      "payload_sha256": "69d270585f56e1dfc34f6b612fa04daa43cf6dcf3db3896a2579d89c93d0cece",
+      "seal_sha256": "c158aedb56f12591f6f11876ccde6c36393ca6532d1f0cc923ff701e4c91e071"
+    },
+    {
+      "sequence": 62,
+      "artifact_id": "foldportrait-reflection-0010",
+      "payload_sha256": "28ffb0fc7920bc4f0eccee49225cdd09c7859e9f7bf977e4d37bcfb24d4159d6",
+      "seal_sha256": "a36b1717f6f419cb978ddb58c0320067544ec1a745314131711ed8130abb6ec4"
+    },
+    {
+      "sequence": 63,
+      "artifact_id": "foldportrait-reflection-0011",
+      "payload_sha256": "20a3a8ffd0eeb0a9b22c57302671281834e93bde2dba01d78272ca2ba34d1d31",
+      "seal_sha256": "eff77b7b513cc176b771205027b80fcc17e7683e7f5bb7001d3369675843f9f9"
+    },
+    {
+      "sequence": 64,
+      "artifact_id": "foldportrait-reflection-0012",
+      "payload_sha256": "b646f10ea00611d26c359d3dcd191cb4cddce54ba0ec320406d0b1519e45c6e2",
+      "seal_sha256": "fef47c96a48b8fbe7ce5affaf9368fcc8901171632cc466a43f0e9e54e72f776"
+    },
+    {
+      "sequence": 65,
+      "artifact_id": "foldportrait-reflection-0013",
+      "payload_sha256": "4d87511a14c4cbd7273ce4298d937626c05ea2c60e56598a3382e8dbc24761ae",
+      "seal_sha256": "f35d209ba09c530aa402bee625bde9d35c23ff5848032378207829f7f58bf13e"
+    },
+    {
+      "sequence": 66,
+      "artifact_id": "foldportrait-reflection-0014",
+      "payload_sha256": "fafb3824814e3e328a2f0c44fe5507b914910b30ee075d6b0d0b6082e07b7670",
+      "seal_sha256": "07b7603c25c453de46a5a4cb48b8c470ed90f5ad380c1801a84ca25295dceea2"
+    },
+    {
+      "sequence": 67,
+      "artifact_id": "foldportrait-reflection-0015",
+      "payload_sha256": "f5e47ca8c0fb701ee7f2ce2a8d393b987849df89ea18fe194946d4d19de06a0e",
+      "seal_sha256": "0f7eeee9b47722080b92672c2de7af0c8896ffd7cb02aa737a2ef7c266248f62"
+    },
+    {
+      "sequence": 68,
+      "artifact_id": "foldportrait-reflection-0016",
+      "payload_sha256": "8904fe25d74e238ed4661874a87ef07e4645f91f76a1c35c11377e8bd1aad0c1",
+      "seal_sha256": "bf8bedb8c1baf90416dca47ed9a824c9abd621b2b7982f3b8ceddc1e98761054"
+    },
+    {
+      "sequence": 69,
+      "artifact_id": "foldportrait-reflection-0017",
+      "payload_sha256": "0797357ccbc15bf361523ff441b2ef9358297fbf1b5ee31b33a07144c8b564e0",
+      "seal_sha256": "9d343ec513d022850f5b04600b07c55a8671f060d5226f87db19b1e8e204b99f"
+    },
+    {
+      "sequence": 70,
+      "artifact_id": "foldportrait-reflection-0018",
+      "payload_sha256": "6a8641e9d58cd7efdaa84ceac72eda10f33e25972d7afc77d326ee6223205f5e",
+      "seal_sha256": "4a8d8f0aae22ed872801e236047236030302cc944b1858ca318003942ddccd9e"
+    },
+    {
+      "sequence": 71,
+      "artifact_id": "foldportrait-reflection-0019",
+      "payload_sha256": "5c17bc8343daf75cf819cdd69dc672b5f75649a00ef23855950f64259d3979ea",
+      "seal_sha256": "f1655286301cfad5f71fbc60bd45c94faa9115ddbf0a7aa4ac7342fd3e116a3d"
+    },
+    {
+      "sequence": 72,
+      "artifact_id": "foldportrait-reflection-0020",
+      "payload_sha256": "b81d51811f7bd5f2d7474a4d3f5e850ced93eb264278d68f5e0f0400dfdfa71b",
+      "seal_sha256": "98ab0898452f34464dc269ed6a91d971ced2b635087a32f07caff73a855f7acd"
+    },
+    {
+      "sequence": 73,
+      "artifact_id": "foldportrait-reflection-0021",
+      "payload_sha256": "002bf3085d80375a92dcb374f1b3c37484af3ee81f0e87e839f3c68ad54a8f4b",
+      "seal_sha256": "6c65b9d416b084ef51ea1f56186d85f849f137c269250384d884318c58738277"
+    },
+    {
+      "sequence": 74,
+      "artifact_id": "foldportrait-reflection-0022",
+      "payload_sha256": "7a86e14139046eecc0d556c548600500e3467fd925a5aa3462d25fb06dce8216",
+      "seal_sha256": "4a94fb7572eac82592ce03f11d9a87354b3b7b8bfdca1cf1aac30fbe22882f28"
+    },
+    {
+      "sequence": 75,
+      "artifact_id": "foldportrait-reflection-0023",
+      "payload_sha256": "e835ba6e34092297726606637bcbbe367f4a0e31db3f03d19858f5ca6a6c00a3",
+      "seal_sha256": "a4364f55150a3e4eaa674223352817bbfa8e06e08207454629a8fcff0f5aa2dd"
+    },
+    {
+      "sequence": 76,
+      "artifact_id": "foldportrait-reflection-0024",
+      "payload_sha256": "0715a691b4ef8b1e7c02e930c3b66a88038db96019bc13da9153e45763873a38",
+      "seal_sha256": "029a6a6b80b82a046e5d947f3be634f1273e9ae93709ad1d622b5a4f5aad7cd7"
+    },
+    {
+      "sequence": 77,
+      "artifact_id": "foldportrait-reflection-0025",
+      "payload_sha256": "be1ea0bd06c9c6677b9b53bf428a58c29df441851e48e076782c61a75283380d",
+      "seal_sha256": "de98ada20b2d87e05a553267d77b771e6cae57d568725f58a28b69e3158e3218"
+    },
+    {
+      "sequence": 78,
+      "artifact_id": "foldportrait-reflection-0026",
+      "payload_sha256": "e63a50a7a25e9e71a8ff327afd6c4cdac848becd8f2e77ed33dbe52551c82484",
+      "seal_sha256": "e4184084ab87041cd394c0cad1a3e97eade544e91b0c73b58b95d912a94a8723"
+    },
+    {
+      "sequence": 79,
+      "artifact_id": "foldportrait-reflection-0027",
+      "payload_sha256": "f38167079c45944e396dc31d8811f2a119280a7375d6962e08f4c700cd56523a",
+      "seal_sha256": "3e6eca418074b79f01d7e67f635b99e445714d3e35c7af16b8fa1ac9db528409"
+    },
+    {
+      "sequence": 80,
+      "artifact_id": "foldportrait-reflection-0028",
+      "payload_sha256": "874699e85425496ae7f4e55186dbc3a43f61f72aa3ef30c335d5df4cbff82f24",
+      "seal_sha256": "44a4849397471c995d7ea8e6e94ffe9ef67282a2e7bca51c1807a6e01e2afb3d"
+    },
+    {
+      "sequence": 81,
+      "artifact_id": "foldportrait-reflection-0029",
+      "payload_sha256": "392a22cc1b9fd0583aca3f80551c98e865d19b8f84e5c585f452a96b24c49754",
+      "seal_sha256": "4ff6617f9fa9e794d31638a8ae9483505233ae0d76022cb356c51fc7acc47087"
+    },
+    {
+      "sequence": 82,
+      "artifact_id": "foldportrait-reflection-0030",
+      "payload_sha256": "79eeea890b3b27433c1ef4b5bed5114221a79fa078ac7cc4b7a81f4a53081f51",
+      "seal_sha256": "8bd24b91befc9515559cf3e13dd57a9229898bdc7617732573722ed9e11912ec"
+    },
+    {
+      "sequence": 83,
+      "artifact_id": "foldportrait-reflection-0031",
+      "payload_sha256": "9aa649157a7d674eef1fb2e7a8820619587681b54705d73e16a4510357945e23",
+      "seal_sha256": "18b834f1903d57a3bc03fe6b6505dfa094600e7fb395cd1beee0b039ed776f82"
+    },
+    {
+      "sequence": 84,
+      "artifact_id": "foldportrait-reflection-0032",
+      "payload_sha256": "11da2ecf451ce5e16d818efaad55665c2b4b5a9ef0187d3112c1693fdc81c87a",
+      "seal_sha256": "a327edb6d1d9cdecb37ddbcee38f8c85b6a3df3660820a05a887c2c078908615"
+    },
+    {
+      "sequence": 85,
+      "artifact_id": "foldportrait-reflection-0033",
+      "payload_sha256": "975b3aba8ce053b74552585d7b72fda5f1b125ecab1b4e6e8bde32095be03631",
+      "seal_sha256": "7760048f3fa8b8f29534cabac16ac46bc5709114cb787c75ebd64078ff5267c2"
+    },
+    {
+      "sequence": 86,
+      "artifact_id": "foldportrait-reflection-0034",
+      "payload_sha256": "88a2b2155470a320e239ad856c3c81bdb561ef01d52fff6c5cde10dd3c2dd730",
+      "seal_sha256": "74fe50bdc4b797f831790d16ad8b823a749e9dc77d71bab1a0fbb877957dd5b2"
+    },
+    {
+      "sequence": 87,
+      "artifact_id": "foldportrait-reflection-0035",
+      "payload_sha256": "d413f7d1b894ce454e8d1f0271ce8d7853a465f258f351c5c86240b0033dfdbe",
+      "seal_sha256": "b5ea26c5b3fa1bca8a44d3d1495dc8d91e11e858e32775389f921662e276d265"
+    },
+    {
+      "sequence": 88,
+      "artifact_id": "foldportrait-reflection-0036",
+      "payload_sha256": "944d36fc7b976ad73cfb3afd95a8b89da33cfc09f4007b584989482fca2cba5b",
+      "seal_sha256": "54ec22cd43bc9ccbd9a6efd2279b3ae20f5390eb89ed2c477fff66dc235be35e"
+    },
+    {
+      "sequence": 89,
+      "artifact_id": "foldportrait-reflection-0037",
+      "payload_sha256": "3795a0494e00cc71f8db8709c4ebcad3c26e1603718c9d956a306c1b4f23ee4f",
+      "seal_sha256": "60368fb4e68e2183057702fdf5a6a41e8ad2e98c807840e1437ef369731564b2"
+    },
+    {
+      "sequence": 90,
+      "artifact_id": "foldportrait-reflection-0038",
+      "payload_sha256": "aa33bbaa569c07ed2a59fc8f83dc51f5a6c61fc0c10256c90ced58e825aeb4c0",
+      "seal_sha256": "312dc76c512aaaada6e42ffe5edbf8ecb2c9da7747658d00a2e45fa240ae2960"
+    },
+    {
+      "sequence": 91,
+      "artifact_id": "foldportrait-reflection-0039",
+      "payload_sha256": "009c9d9746c0e4b9e7cc5266fd2fe43ae238ff7175439e7b189d82e5ed4f2bfa",
+      "seal_sha256": "d5fc4709cb418cc55ef28a2a165c70857388ae6a5c0e44fe1c42d28c04fbb274"
+    },
+    {
+      "sequence": 92,
+      "artifact_id": "foldportrait-reflection-0040",
+      "payload_sha256": "00ef08b43c818ba818bf11fa28e6100ff36250098e582e40dd680f790c6077fd",
+      "seal_sha256": "0662c52720c3829d8445f66e7d714b0256aff7a542ba86979656759b21b8fd70"
+    },
+    {
+      "sequence": 93,
+      "artifact_id": "foldportrait-reflection-0041",
+      "payload_sha256": "3c23c60f61a4b6fd57ba6d40aceae08a4d3bce22e5b3158dc3e0a6a80e44d487",
+      "seal_sha256": "404c09277814f1707b27675b508a2a79e767d6c0674cac3f1cf8663e69852d8e"
+    }
+  ]
+}

@@ -199,6 +199,15 @@ that catalog; Sovereign Standard stores only the resulting vessel relations.
 New autonomous reflections are appended after the sealed first era.
 Ledger Witness has no direct-file admission path: a work must be archived and
 sequenced here before it can enter the signing channel.
+
+Every cataloged work is also committed to the public append-only release ledger
+at `Mint/seal-ledger.json`. Each `Mint/seals/<artifact-id>.json` manifest binds
+the artifact ID, unique 1-of-1 edition, sequence, immutable image bytes,
+metadata core, and reflection lineage (when present) to an Ed25519 signature.
+The public authority file permits independent verification without exposing the
+private signing key or generative inputs. The collection may continue to grow,
+but a sealed identity cannot be replaced, reissued, or moved to another
+sequence position.
 Validated Ledger Witness results are synchronized back from Sovereign
 Standard's public relation registry by manual dispatch and one daily recovery
 check, preserving FoldPortrait as the canonical token-result record without
@@ -212,6 +221,7 @@ authority.
 
 ```sh
 npm run build:mint-catalog
+npm run verify:seals
 ```
 
 The completed archive contains:

@@ -1,0 +1,48 @@
+{
+  "schema": "foldportrait-release-seal/v1",
+  "algorithm": "Ed25519",
+  "payload_sha256": "20630426408051f75b1e0cca832d353f39f40d60970a09cf80dd05c02537aff0",
+  "signature": "DZqnWCJvDUf+gZD6lhfK0Nl2F/0S0kDnHjexMzStHpP1HHsauTblwoL1rO36//im015Vxu41PGaaw7ntkQhoCA==",
+  "payload": {
+    "schema": "foldportrait-sealed-release/v1",
+    "authority": "FoldPortrait Release Authority",
+    "authority_key_sha256": "98ab90b3d0eec1e119bfc5ab49af917f970af625bb077d4f80f86da2ba110736",
+    "collection": "FoldPortrait",
+    "edition": {
+      "designation": "unique",
+      "size": 1,
+      "number": 1
+    },
+    "sequence": 55,
+    "era": 2,
+    "artifact_id": "foldportrait-reflection-0003",
+    "title": "FoldPortrait FP-REFLECT-0003",
+    "description": "FP-REFLECT-0003 threads palimpsest, strata, and braid across 7 witnessed relations, forming a distinct silhouette from the public witness.",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0003.png",
+    "source_sha256": "5b42f6c8ec658c2a845463949d3ebb7ddf4213ad263390d236b68bf4fce3a571",
+    "byte_size": 3031323,
+    "metadata_uri": "https://zeropoet.github.io/FoldPortrait/Mint/metadata/foldportrait-reflection-0003.json",
+    "metadata_core_sha256": "b131279826ad95df1ee28581dce303c6148e41338645575c8a3db3aa883790f2",
+    "lineage": {
+      "cycle_id": "FP-REFLECT-0003",
+      "previous_cycle_id": "FP-REFLECT-0002",
+      "witness_digest": "d1f57cd3b562123326bffe436fe65e50bcb149b3f32b2ebb12cb58e616990a8b",
+      "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+      "render_hash": "d1b9cf17694ba1d2e3d73e5d77c723bcd6d12212eb834dd586640c92017417b7",
+      "source_svg_sha256": "a60ab6a7ac9731772ef49b1326a10df8a5a25d9095b19861cdadc35701f93146",
+      "composition_regime": null,
+      "composition_season": null,
+      "palette_id": null
+    },
+    "previous_seal_sha256": "877b7f3a73082ae51271e58c462c99099b596e11a66c70e721e6f15b443c8481",
+    "scarcity_policy": {
+      "edition_size": 1,
+      "release_model": "open-ended append-only collection",
+      "artifact_identity": "one artifact ID, one immutable byte identity, one sequence position",
+      "replacement": "forbidden",
+      "reissue": "forbidden",
+      "sequence_reuse": "forbidden",
+      "future_releases": "new works may append; prior sealed releases may not change"
+    }
+  }
+}

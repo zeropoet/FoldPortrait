@@ -98,6 +98,10 @@ jobs:
           npm run verify:archive
           npm run build:mint-catalog
           npm run verify:mint-catalog
+          npm run seal:releases
+          npm run verify:seals
+        env:
+          FP_RELEASE_SIGNING_KEY: ${{ secrets.FP_RELEASE_SIGNING_KEY }}
 
       - name: Preserve a changed reflection
         id: reflection
