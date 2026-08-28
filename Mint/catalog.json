@@ -4,7 +4,7 @@
   "issuance_channel": "FoldForge Ledger Witness",
   "signing_boundary": "human steward through Xaman",
   "public_root": "https://zeropoet.github.io/FoldPortrait",
-  "work_count": 98,
+  "work_count": 99,
   "works": [
     {
       "sequence": 1,
@@ -3523,6 +3523,37 @@
             "Memo": {
               "MemoType": "666F6C64706F7274726169743A6C65646765722D7769746E657373",
               "MemoData": "7B2261727469666163745F6964223A22666F6C64706F7274726169742D7265666C656374696F6E2D30303436222C2266696C655F736861323536223A2236346535663630653534613065323730613963393036366436393962343665336564316337373466653933333136343636376432373561333561383537626265227D"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 99,
+      "era": 2,
+      "artifact_id": "foldportrait-reflection-0047",
+      "title": "FoldPortrait FP-REFLECT-0047",
+      "description": "FP-REFLECT-0047 enters its contraction season through the ember palette and folds strata, palimpsest, and sediment across 4 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
+      "public_url": "https://zeropoet.github.io/FoldPortrait/Web/#era-2/foldportrait-reflection-0047",
+      "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0047.png",
+      "source_file": "Output/reflections/png/foldportrait-reflection-0047.png",
+      "sha256": "51cbb6fbfba246780213c145b5510d51978a947ff58a1d8eb9b4ae6e3923c0c5",
+      "byte_size": 3230763,
+      "metadata_uri": "https://zeropoet.github.io/FoldPortrait/Mint/metadata/foldportrait-reflection-0047.json",
+      "metadata_file": "Mint/metadata/foldportrait-reflection-0047.json",
+      "mint_status": "prepared",
+      "xrpl": null,
+      "xrpl_transaction": {
+        "TransactionType": "NFTokenMint",
+        "Account": "rfYiNfgLefTAZGfEyun1EjG68mTtC75vDe",
+        "NFTokenTaxon": 0,
+        "Flags": 0,
+        "URI": "68747470733A2F2F7A65726F706F65742E6769746875622E696F2F466F6C64506F7274726169742F4D696E742F6D657461646174612F666F6C64706F7274726169742D7265666C656374696F6E2D303034372E6A736F6E",
+        "Memos": [
+          {
+            "Memo": {
+              "MemoType": "666F6C64706F7274726169743A6C65646765722D7769746E657373",
+              "MemoData": "7B2261727469666163745F6964223A22666F6C64706F7274726169742D7265666C656374696F6E2D30303437222C2266696C655F736861323536223A2235316362623666626662613234363738303231336331343562353531306435313937386139343766663538613164386562396234616536653339323363306335227D"
             }
           }
         ]

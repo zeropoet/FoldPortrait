@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0047",
+  "description": "FP-REFLECT-0047 enters its contraction season through the ember palette and folds strata, palimpsest, and sediment across 4 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0047.png",
+    "mimeType": "image/png",
+    "sha256": "51cbb6fbfba246780213c145b5510d51978a947ff58a1d8eb9b4ae6e3923c0c5",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0047.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "f594b79fd463d0602cfc824cfc95bcccf25578a0b913237a8b1a92f9cf731973"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0047",
+    "previousCycleID": "FP-REFLECT-0046",
+    "witnessDigest": "4aaddf7f1dbaaec576dabb1bece615178328c7533776d5cd04fd6f58602755c1",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "325be6126178830e0697285f4512c562cc2f2acebd0901f60cd487c5547abee3",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "contraction",
+    "paletteID": "ember",
+    "changeMagnitude": 0.004547
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}
