@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="Brand/foldportrait-mark.svg" alt="FoldPortrait" width="240">
-</p>
-
 # FoldPortrait
 
 FoldPortrait is an evolving visual self-reflection built on top of
