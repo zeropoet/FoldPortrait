@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0045",
+  "description": "FP-REFLECT-0045 enters its recombination season through the tidal palette and presses veil, palimpsest, and strata across 7 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0045.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0045",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 97
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "1d646470dcb898238b6eae993ca6648df122b1c48d2bdf467b6bb011771e5df0"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "recombination"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "tidal"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "b7f8c50969f47bdf9c13cbd9dca6a9225f183555b1ef7162148f7060e01152b8"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0045.png",
+    "file_sha256": "b7f8c50969f47bdf9c13cbd9dca6a9225f183555b1ef7162148f7060e01152b8"
+  },
+  "xrpl": null
+}
