@@ -199,9 +199,13 @@ async function openFromLocation() {
     showGallery({ updateRoute: false });
     return;
   }
-  const entry = [...state.ledger, ...state.reflectionEntries].find((candidate) =>
-    route === `era-1/${candidate.iteration}` || route === `era-2/${candidate.cycleID}`
-  );
+  const entry = [...state.ledger, ...state.reflectionEntries].find((candidate) => {
+    const era = candidate.isReflection ? 2 : 1;
+    const artifactID = artifactIDForEntry(candidate);
+    return route === `era-1/${candidate.iteration}`
+      || route === `era-2/${candidate.cycleID}`
+      || (artifactID && route === `era-${era}/${artifactID}`);
+  });
   if (entry) {
     await openGalleryEntry(entry, { updateRoute: false });
     return;
@@ -258,9 +262,7 @@ async function loadEntry(entry) {
 
 function updateWorkCaption(entry) {
   if (!state.catalog) return;
-  const artifactID = entry.isReflection
-    ? `foldportrait-reflection-${String(entry.sequence).padStart(4, "0")}`
-    : state.catalog.works.find((work) => work.source_file.endsWith(entry.pngPath?.split("/").at(-1) || "__missing__"))?.artifact_id;
+  const artifactID = artifactIDForEntry(entry);
   const work = state.catalog.works.find((candidate) => candidate.artifact_id === artifactID);
   if (!work) return;
   const seal = state.sealLedger?.entries.find((candidate) => candidate.artifact_id === artifactID);
@@ -269,6 +271,20 @@ function updateWorkCaption(entry) {
   workDescription.textContent = work.description;
   workStatus.textContent = seal ? "Signed release" : "Proof pending";
   workVerify.href = seal ? `../Mint/seals/${encodeURIComponent(artifactID)}.json` : "../Mint/seal-ledger.json";
+}
+
+function artifactIDForEntry(entry) {
+  if (!state.catalog || !entry) return null;
+  if (entry.isReflection) {
+    return `foldportrait-reflection-${String(entry.sequence).padStart(4, "0")}`;
+  }
+  const sourceName = entry.pngPath?.split("/").at(-1);
+  return state.catalog.works.find((work) =>
+    work.era === 1 && (
+      (sourceName && work.source_file.endsWith(sourceName))
+      || work.artifact_id.startsWith(`foldportrait-${entry.iteration}-`)
+    )
+  )?.artifact_id || null;
 }
 
 function backgroundFillFrom(svg) {
