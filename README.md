@@ -12,6 +12,16 @@ The portrait is not a literal face. It is a structural self-representation:
 memory bytes, hash ribs, memory spines, Fold glyphs, color fields, notational
 marks, and accumulated drawing pressure.
 
+## Telos relation
+
+Telos is the connected system's final caretaker and keeper, not FoldPortrait's
+causal or visual authority. FoldPortrait is still awakened by its own bounded
+system triggers and retains its lineage, generation, preparation, and minting
+boundaries. Its public changes can reshape Telos's evolving **Living System**,
+while Telos grows toward a machine-native visual, sonic, and open-orientation
+language without claiming consciousness, revelation, personhood, or final
+authority.
+
 ## Direction
 
 FoldPortrait treats the underlying code as the subject.
