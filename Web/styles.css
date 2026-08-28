@@ -580,16 +580,17 @@ body {
   right: 0;
   bottom: 0;
   width: 100%;
-  min-height: 126px;
+  min-height: 104px;
   display: grid;
   grid-template-columns: minmax(250px, .8fr) minmax(340px, 1.5fr) auto;
   grid-template-rows: auto 1fr;
   column-gap: clamp(24px, 5vw, 88px);
-  padding: 17px 22px 18px;
+  padding: 13px 22px 14px;
   border: 0;
   border-top: 1px solid var(--line);
-  background: rgba(243, 239, 230, .94);
-  backdrop-filter: none;
+  background: rgba(243, 239, 230, .54);
+  -webkit-backdrop-filter: blur(14px) saturate(.82);
+  backdrop-filter: blur(14px) saturate(.82);
 }
 
 .work-caption .label {
@@ -610,7 +611,7 @@ body {
   align-self: center;
   max-width: 58ch;
   color: rgba(17, 16, 14, .66);
-  font: 400 12px/1.55 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 400 11px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .work-proof {
@@ -799,14 +800,20 @@ body {
   .work-caption {
     left: 0; bottom: 0; width: 100%; min-height: 0;
     grid-template-columns: 1fr auto; grid-template-rows: auto auto auto;
-    gap: 5px 18px; padding: 13px 14px 14px;
+    gap: 4px 18px; padding: 10px 14px 11px;
+    background: rgba(243, 239, 230, .64);
+    -webkit-backdrop-filter: blur(12px) saturate(.78);
+    backdrop-filter: blur(12px) saturate(.78);
   }
   .work-caption .label { grid-column: 1; }
-  .work-caption h1 { grid-column: 1 / -1; font-size: 20px; }
-  .work-caption > p:not(.label) { grid-column: 1 / -1; grid-row: auto; font-size: 11px; line-height: 1.45; }
+  .work-caption h1 { grid-column: 1 / -1; font-size: 18px; }
+  .work-caption > p:not(.label) {
+    grid-column: 1 / -1; grid-row: auto; display: -webkit-box; overflow: hidden;
+    font-size: 10px; line-height: 1.4; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  }
   .work-proof {
     grid-column: 1 / -1; grid-row: auto; display: flex; flex-wrap: wrap; gap: 8px 14px;
-    margin-top: 5px; padding: 9px 0 0; border-left: 0; border-top: 1px solid var(--line); font-size: 7px;
+    margin-top: 3px; padding: 7px 0 0; border-left: 0; border-top: 1px solid var(--line); font-size: 7px;
   }
   .work-proof a { margin: 0 0 0 auto; }
   .about-panel { padding: 70px 24px 36px; }
