@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0046",
+  "description": "FP-REFLECT-0046 enters its drift season through the ember palette and folds strata, braid, and counterfield across 5 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0046.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0046",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 98
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "128961e2bee84cb4c3365360caf359a24d87bde2992a38c571b81163eab5d10b"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "drift"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "ember"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "64e5f60e54a0e270a9c9066d699b46e3ed1c774fe933164667d275a35a857bbe"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0046.png",
+    "file_sha256": "64e5f60e54a0e270a9c9066d699b46e3ed1c774fe933164667d275a35a857bbe"
+  },
+  "xrpl": null
+}
