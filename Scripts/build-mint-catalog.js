@@ -9,6 +9,7 @@ const verifyOnly = process.argv.includes("--verify");
 const mintRoot = path.join(root, "Mint");
 const metadataRoot = path.join(mintRoot, "metadata");
 const publicRoot = "https://zeropoet.github.io/FoldPortrait";
+const publicSiteRoot = `${publicRoot}/Web`;
 const witnessWallet = "rfYiNfgLefTAZGfEyun1EjG68mTtC75vDe";
 
 const read = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
@@ -43,12 +44,14 @@ const firstEra = batch.works.map((source, offset) => {
   const prior = existingByID.get(artifactID) || priorByID.get(artifactID) || {};
   const imageURL = `${publicRoot}/Output/png/${encodeURIComponent(pngName)}`;
   const metadataURL = `${publicRoot}/Mint/metadata/${encodeURIComponent(artifactID)}.json`;
+  const publicURL = `${publicSiteRoot}/#era-1/${encodeURIComponent(artifactID)}`;
+  const metadataPublicURL = `${publicRoot}/#era-1/${encodeURIComponent(artifactID)}`;
   const metadata = {
     schema: "foldportrait-xrpl-metadata/v1",
     name: source.title,
     description: source.description,
     image: imageURL,
-    external_url: `${publicRoot}/#era-1/${encodeURIComponent(artifactID)}`,
+    external_url: metadataPublicURL,
     attributes: [
       { trait_type: "System", value: "FoldPortrait" },
       { trait_type: "Era", value: "First Era" },
@@ -74,6 +77,7 @@ const firstEra = batch.works.map((source, offset) => {
     artifact_id: artifactID,
     title: source.title,
     description: source.description,
+    public_url: publicURL,
     image: imageURL,
     source_file: `Output/png/${pngName}`,
     sha256: digest,
@@ -98,12 +102,14 @@ const reflections = fs.existsSync(reflectionRoot) ? fs.readdirSync(reflectionRoo
   const sequence = firstEra.length + offset + 1;
   const imageURL = `${publicRoot}/${imagePath.split("/").map(encodeURIComponent).join("/")}`;
   const metadataURL = `${publicRoot}/Mint/metadata/${encodeURIComponent(artifactID)}.json`;
+  const publicURL = `${publicSiteRoot}/#era-2/${encodeURIComponent(artifactID)}`;
+  const metadataPublicURL = `${publicRoot}/#era-2/${encodeURIComponent(artifactID)}`;
   const metadata = {
     schema: "foldportrait-xrpl-metadata/v1",
     name: candidate.title,
     description: candidate.description,
     image: imageURL,
-    external_url: `${publicRoot}/#era-2/${encodeURIComponent(artifactID)}`,
+    external_url: metadataPublicURL,
     attributes: [
       { trait_type: "System", value: "FoldPortrait" },
       { trait_type: "Era", value: "Autonomous System Reflection" },
@@ -124,6 +130,7 @@ const reflections = fs.existsSync(reflectionRoot) ? fs.readdirSync(reflectionRoo
     artifact_id: artifactID,
     title: candidate.title,
     description: candidate.description,
+    public_url: publicURL,
     image: imageURL,
     source_file: imagePath,
     sha256: digest,
