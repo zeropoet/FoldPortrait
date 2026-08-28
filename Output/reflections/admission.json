@@ -1,7 +1,16 @@
 {
   "schema": "foldportrait-admission/v1",
   "admitted": true,
-  "candidate": "FP-REFLECT-0042",
-  "reason": "pre-selective-lineage",
-  "score": 1
+  "candidate": "FP-REFLECT-0043",
+  "score": 0.475,
+  "threshold": 0.44,
+  "evidence": {
+    "change_magnitude": 0,
+    "nearest_rule_distance": 0.25,
+    "palette_novelty": 1,
+    "season_novelty": 1,
+    "pairing_novelty": 1,
+    "relation_count_shift": 1
+  },
+  "reason": "material-compositional-difference"
 }

@@ -4,7 +4,7 @@
   "issuance_channel": "FoldForge Ledger Witness",
   "signing_boundary": "human steward through Xaman",
   "public_root": "https://zeropoet.github.io/FoldPortrait",
-  "work_count": 94,
+  "work_count": 95,
   "works": [
     {
       "sequence": 1,
@@ -3399,6 +3399,37 @@
             "Memo": {
               "MemoType": "666F6C64706F7274726169743A6C65646765722D7769746E657373",
               "MemoData": "7B2261727469666163745F6964223A22666F6C64706F7274726169742D7265666C656374696F6E2D30303432222C2266696C655F736861323536223A2232323136613634356461363637386333373236373562383233376639346236643364376337623233613838356463643231386336376130663539653033623163227D"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 95,
+      "era": 2,
+      "artifact_id": "foldportrait-reflection-0043",
+      "title": "FoldPortrait FP-REFLECT-0043",
+      "description": "FP-REFLECT-0043 enters its opening season through the lichen palette and threads veil, sediment, and aperture across 6 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+      "public_url": "https://zeropoet.github.io/FoldPortrait/Web/#era-2/foldportrait-reflection-0043",
+      "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0043.png",
+      "source_file": "Output/reflections/png/foldportrait-reflection-0043.png",
+      "sha256": "5ce4219282e14ff95b86a93ea8d89a968657b08fddcc50b51e78532b796dcbca",
+      "byte_size": 3807160,
+      "metadata_uri": "https://zeropoet.github.io/FoldPortrait/Mint/metadata/foldportrait-reflection-0043.json",
+      "metadata_file": "Mint/metadata/foldportrait-reflection-0043.json",
+      "mint_status": "prepared",
+      "xrpl": null,
+      "xrpl_transaction": {
+        "TransactionType": "NFTokenMint",
+        "Account": "rfYiNfgLefTAZGfEyun1EjG68mTtC75vDe",
+        "NFTokenTaxon": 0,
+        "Flags": 0,
+        "URI": "68747470733A2F2F7A65726F706F65742E6769746875622E696F2F466F6C64506F7274726169742F4D696E742F6D657461646174612F666F6C64706F7274726169742D7265666C656374696F6E2D303034332E6A736F6E",
+        "Memos": [
+          {
+            "Memo": {
+              "MemoType": "666F6C64706F7274726169743A6C65646765722D7769746E657373",
+              "MemoData": "7B2261727469666163745F6964223A22666F6C64706F7274726169742D7265666C656374696F6E2D30303433222C2266696C655F736861323536223A2235636534323139323832653134666639356238366139336561386438396139363836353762303866646463633530623531653738353332623739366463626361227D"
             }
           }
         ]
