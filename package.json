@@ -11,7 +11,8 @@
     "verify:mint-catalog": "node Scripts/build-mint-catalog.js --verify",
     "seal:releases": "node Scripts/seal-releases.js",
     "verify:seals": "node Scripts/seal-releases.js --verify",
-    "test": "node --check Web/app.js && node --check Scripts/sync-system-witness.js && node --check Scripts/verify-reflection-diversity.js && node --check Scripts/seal-releases.js && npm run verify:archive && npm run verify:mint-catalog && npm run verify:reflection-diversity && npm run verify:seals"
+    "evaluate:admission": "node Scripts/evaluate-reflection-admission.js",
+    "test": "node --check Web/app.js && node --check Scripts/sync-system-witness.js && node --check Scripts/verify-reflection-diversity.js && node --check Scripts/evaluate-reflection-admission.js && node --check Scripts/seal-releases.js && npm run verify:archive && npm run verify:mint-catalog && npm run verify:reflection-diversity && npm run verify:seals"
   },
   "dependencies": {
     "@resvg/resvg-js": "^2.6.2"

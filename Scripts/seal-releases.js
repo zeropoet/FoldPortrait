@@ -9,6 +9,7 @@ const mintRoot = path.join(root, "Mint");
 const sealsRoot = path.join(mintRoot, "seals");
 const authorityPath = path.join(mintRoot, "seal-authority.json");
 const ledgerPath = path.join(mintRoot, "seal-ledger.json");
+const policyPath = path.join(mintRoot, "collection-policy.json");
 
 const read = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
 const canonical = (value) => {
@@ -50,6 +51,20 @@ if (privateKey) {
   const derived = crypto.createPublicKey(privateKey).export({ type: "spki", format: "der" });
   if (!crypto.timingSafeEqual(derived, publicKeyDer)) fail("Signing key does not match the published seal authority");
 }
+
+const policy = read(policyPath);
+const policyDigest = digest(policy.declaration);
+if (policy.declaration_sha256 && policy.declaration_sha256 !== policyDigest) fail("Collection policy declaration changed");
+if (!policy.signature && !verifyOnly) {
+  if (!privateKey) fail("Signing key is required to ratify the collection policy");
+  policy.declaration_sha256 = policyDigest;
+  policy.signature = crypto.sign(null, Buffer.from(canonical(policy.declaration)), privateKey).toString("base64");
+  write(policyPath, policy);
+}
+if (!policy.signature || !crypto.verify(null, Buffer.from(canonical(policy.declaration)), publicKey, Buffer.from(policy.signature, "base64"))) {
+  fail("Collection policy signature is invalid");
+}
+if (catalog.works.length > policy.declaration.canonical_supply_ceiling) fail("Canonical collection exceeds its signed supply ceiling");
 
 let previousSealSha256 = null;
 const entries = catalog.works.map((work, offset) => {
@@ -94,6 +109,7 @@ const entries = catalog.works.map((work, offset) => {
     previous_seal_sha256: previousSealSha256,
     scarcity_policy: authority.scarcity_policy
   };
+  if (sequence >= policy.declaration.effective_at_sequence) payload.collection_policy_sha256 = policyDigest;
   const payloadSha256 = digest(payload);
   const existingEntry = existingEntries[offset];
   const sealPath = path.join(sealsRoot, `${work.artifact_id}.json`);

@@ -86,7 +86,8 @@ jobs:
           --root-logos ../root-logos
           --telos ../Telos
 
-      - name: Reflect and verify lineage
+      - name: Generate private reflection candidate
+        id: candidate
         working-directory: FoldPortrait
         run: |
           npm ci
@@ -94,6 +95,14 @@ jobs:
           swift test
           swift run fold-portrait reflect Reflection/system-witness.json
           swift run fold-portrait verify-reflection
+          npm run evaluate:admission
+          admitted=$(node -e 'process.stdout.write(String(require("./Output/reflections/admission.json").admitted))')
+          echo "admitted=$admitted" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare admitted canonical release
+        if: steps.candidate.outputs.admitted == 'true'
+        working-directory: FoldPortrait
+        run: |
           npm run archive
           npm run verify:archive
           npm run build:mint-catalog
@@ -104,6 +113,7 @@ jobs:
           FP_RELEASE_SIGNING_KEY: ${{ secrets.FP_RELEASE_SIGNING_KEY }}
 
       - name: Preserve a changed reflection
+        if: steps.candidate.outputs.admitted == 'true'
         id: reflection
         working-directory: FoldPortrait
         run: |
@@ -148,7 +158,7 @@ jobs:
           exit 1
 
       - name: Wake Root Logos and propagate the reflection to Telos
-        if: steps.reflection.outputs.changed == 'true'
+        if: steps.candidate.outputs.admitted == 'true' && steps.reflection.outputs.changed == 'true'
         env:
           CONNECTED_SYSTEM_TOKEN: ${{ steps.connected-system-token.outputs.token }}
           SOURCE_SHA: ${{ steps.reflection.outputs.revision }}

@@ -1,0 +1,20 @@
+{
+  "schema": "foldportrait-collection-policy/v1",
+  "algorithm": "Ed25519",
+  "declaration_sha256": "517770bd9973b62ff34cc94c145aab9241278db5432fe031c0a6659fa3794516",
+  "signature": "IS0NEWSRnAJWWboD4ttkm1FlRv9bzJVHgPQIHR82uZuhAnhm1fdyj3ocbS7M5mgAHjC1HlZalz44ddsXgZMsCw==",
+  "declaration": {
+    "authority": "FoldPortrait Release Authority",
+    "title": "The Closing Arc",
+    "status": "irrevocable upon signature",
+    "effective_at_sequence": 95,
+    "canonical_supply_ceiling": 108,
+    "first_era_supply": 52,
+    "reflection_supply_ceiling": 56,
+    "terminal_reflection": "FP-REFLECT-0056",
+    "admission_model": "selective",
+    "candidate_disclosure": "rejected candidates remain private and consume no sequence position",
+    "closure": "after sequence 108 no new canonical FoldPortrait may be issued",
+    "editions": "every canonical work remains a unique 1-of-1"
+  }
+}

@@ -26,6 +26,10 @@ const state = {
   latestIteration: "",
   ledger: [],
   reflectionEntries: [],
+  catalog: null,
+  sealLedger: null,
+  authority: null,
+  policy: null,
   view: "latest",
   backgroundColor: new THREE.Color(0xf3efe6),
   navigationQueue: Promise.resolve(),
@@ -42,6 +46,18 @@ const latestButton = document.querySelector("#latest-button");
 const galleryClose = document.querySelector("#gallery-close");
 const galleryView = document.querySelector("#gallery-view");
 const galleryGrid = document.querySelector("#gallery-grid");
+const aboutButton = document.querySelector("#about-button");
+const aboutPanel = document.querySelector("#about-panel");
+const aboutClose = document.querySelector("#about-close");
+const editionCurrent = document.querySelector("#edition-current");
+const editionCeiling = document.querySelector("#edition-ceiling");
+const editionRemaining = document.querySelector("#edition-remaining");
+const archiveCount = document.querySelector("#archive-count");
+const workEra = document.querySelector("#work-era");
+const workTitle = document.querySelector("#work-title");
+const workDescription = document.querySelector("#work-description");
+const workStatus = document.querySelector("#work-status");
+const workVerify = document.querySelector("#work-verify");
 const readoutIteration = document.querySelector("#readout-iteration");
 const readoutCount = document.querySelector("#readout-count");
 const readoutHash = document.querySelector("#readout-hash");
@@ -93,14 +109,34 @@ async function init() {
   galleryButton.addEventListener("click", showGallery);
   latestButton.addEventListener("click", openLatest);
   galleryClose.addEventListener("click", openLatest);
+  aboutButton.addEventListener("click", () => { aboutPanel.hidden = false; });
+  aboutClose.addEventListener("click", () => { aboutPanel.hidden = true; });
   window.addEventListener("keydown", handleKeyboardNavigation);
-  await Promise.all([loadLedger(), loadReflectionArchive()]);
+  await Promise.all([loadLedger(), loadReflectionArchive(), loadCollectionState()]);
   await openFromLocation();
   resize();
   window.addEventListener("resize", resize);
   window.addEventListener("hashchange", openFromLocation);
   window.setInterval(loadLatest, 5 * 60 * 1000);
   animate();
+}
+
+async function loadCollectionState() {
+  const [catalog, sealLedger, authority, policy] = await Promise.all([
+    fetchJson(versionedUrl("../Mint/catalog.json")),
+    fetchJson(versionedUrl("../Mint/seal-ledger.json")),
+    fetchJson(versionedUrl("../Mint/seal-authority.json")),
+    fetchJson(versionedUrl("../Mint/collection-policy.json")),
+  ]);
+  state.catalog = catalog;
+  state.sealLedger = sealLedger;
+  state.authority = authority;
+  state.policy = policy;
+  const ceiling = policy.declaration.canonical_supply_ceiling;
+  editionCurrent.textContent = String(catalog.work_count).padStart(3, "0");
+  editionCeiling.textContent = String(ceiling);
+  editionRemaining.textContent = `${ceiling - catalog.work_count} possible admissions remain`;
+  archiveCount.textContent = String(catalog.work_count).padStart(3, "0");
 }
 
 async function loadLatest(options = {}) {
@@ -217,6 +253,22 @@ async function loadEntry(entry) {
   readoutReflection.textContent = entry.isReflection
     ? `${entry.correlationCount} relations / ${entry.chosenRules.length} rules`
     : "sealed first era";
+  updateWorkCaption(entry);
+}
+
+function updateWorkCaption(entry) {
+  if (!state.catalog) return;
+  const artifactID = entry.isReflection
+    ? `foldportrait-reflection-${String(entry.sequence).padStart(4, "0")}`
+    : state.catalog.works.find((work) => work.source_file.endsWith(entry.pngPath?.split("/").at(-1) || "__missing__"))?.artifact_id;
+  const work = state.catalog.works.find((candidate) => candidate.artifact_id === artifactID);
+  if (!work) return;
+  const seal = state.sealLedger?.entries.find((candidate) => candidate.artifact_id === artifactID);
+  workEra.textContent = `${work.era === 1 ? "Era I · Sealed lineage" : "Era II · Autonomous reflection"} · Work ${String(work.sequence).padStart(3, "0")}`;
+  workTitle.textContent = work.title;
+  workDescription.textContent = work.description;
+  workStatus.textContent = seal ? "Signed release" : "Proof pending";
+  workVerify.href = seal ? `../Mint/seals/${encodeURIComponent(artifactID)}.json` : "../Mint/seal-ledger.json";
 }
 
 function backgroundFillFrom(svg) {
@@ -347,12 +399,12 @@ function renderGallery() {
     fragment.append(row);
   });
 
-  fragment.append(eraHeader("Era II", "Autonomous System Reflection", `${state.reflectionEntries.length} preserved cycles`));
+  fragment.append(eraHeader("Era II", "Autonomous System Reflection", `${state.reflectionEntries.length} admitted reflections · closes at 56`));
   const reflectionRow = document.createElement("article");
   reflectionRow.className = "lineage-row reflection-lineage";
   const reflectionHeader = document.createElement("header");
   reflectionHeader.className = "lineage-header";
-  reflectionHeader.innerHTML = '<span class="label">Lineage</span><strong>∞</strong><span class="lineage-count">witness change only</span>';
+  reflectionHeader.innerHTML = '<span class="label">Closing arc</span><strong>56</strong><span class="lineage-count">selective admission · finite</span>';
   const reflectionRail = document.createElement("div");
   reflectionRail.className = "lineage-rail";
   state.reflectionEntries.forEach((entry) => reflectionRail.append(reflectionCard(entry)));

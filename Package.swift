@@ -20,6 +20,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../FoldKernel"),
+        .package(url: "https://github.com/swiftlang/swift-testing.git", revision: "swift-6.1.2-RELEASE"),
     ],
     targets: [
         .target(
@@ -34,7 +35,10 @@ let package = Package(
         ),
         .testTarget(
             name: "FoldPortraitTests",
-            dependencies: ["FoldPortraitCore"]
+            dependencies: [
+                "FoldPortraitCore",
+                .product(name: "Testing", package: "swift-testing"),
+            ]
         ),
     ],
     swiftLanguageModes: [.v6]

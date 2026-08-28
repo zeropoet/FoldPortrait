@@ -208,6 +208,21 @@ The public authority file permits independent verification without exposing the
 private signing key or generative inputs. The collection may continue to grow,
 but a sealed identity cannot be replaced, reissued, or moved to another
 sequence position.
+
+## The Closing Arc
+
+FoldPortrait is now a finite collection of no more than 108 canonical works:
+52 works in the completed First Era and no more than 56 autonomous reflections.
+The signed policy at `Mint/collection-policy.json` takes effect with canonical
+sequence 95 and closes issuance permanently after FP-REFLECT-0056.
+
+Beginning with that sequence, a witnessed change creates a private candidate,
+not an automatic release. `Scripts/evaluate-reflection-admission.js` measures
+change magnitude, rule-set distance, palette and season novelty, pairing
+novelty, and relation-count movement. Only a candidate demonstrating material
+compositional difference enters the archive, catalog, signature chain, and
+public exhibition. Rejected candidates disappear with the ephemeral workflow
+runner and consume no canonical number.
 Validated Ledger Witness results are synchronized back from Sovereign
 Standard's public relation registry by manual dispatch and one daily recovery
 check, preserving FoldPortrait as the canonical token-result record without

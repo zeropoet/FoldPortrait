@@ -1,0 +1,7 @@
+{
+  "schema": "foldportrait-admission/v1",
+  "admitted": true,
+  "candidate": "FP-REFLECT-0042",
+  "reason": "pre-selective-lineage",
+  "score": 1
+}

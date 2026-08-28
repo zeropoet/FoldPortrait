@@ -39,11 +39,11 @@ for (let index = 1; index < learned.length; index += 1) {
   }
 }
 
-const checkpointByID = new Map(checkpoint.records.map((record) => [record.cycleID, record]));
-for (const cycle of learned) {
-  const recorded = checkpointByID.get(cycle.cycleID);
-  if (!recorded || recorded.witnessDigest !== cycle.witnessDigest) {
-    fail(`${cycle.cycleID} is not bound to its preserved pre-learning witness`);
+const cyclesByID = new Map(cycles.map((cycle) => [cycle.cycleID, cycle]));
+for (const recorded of checkpoint.records) {
+  const cycle = cyclesByID.get(recorded.cycleID);
+  if (!cycle || recorded.witnessDigest !== cycle.witnessDigest) {
+    fail(`${recorded.cycleID} is not bound to its preserved pre-learning witness`);
   }
 }
 

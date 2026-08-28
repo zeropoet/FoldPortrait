@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FoldPortrait — Autonomous Reflection</title>
+    <title>FoldPortrait — A Finite Living Portrait</title>
+    <meta name="description" content="FoldPortrait is a finite, selectively admitted collection of 108 or fewer unique computational portraits." />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./styles.css" />
     <script type="importmap">
@@ -19,24 +20,60 @@
     <main class="app-shell">
       <section class="stage" aria-label="FoldPortrait Three.js topology" aria-keyshortcuts="ArrowLeft ArrowRight">
         <canvas id="topology-canvas"></canvas>
-        <div class="view-actions" aria-label="View controls">
-          <button id="gallery-button" class="view-button" type="button">Lineage archive</button>
-          <button id="latest-button" class="view-button" type="button">Current reflection</button>
+        <header class="site-header">
+          <a class="identity" href="./" aria-label="FoldPortrait home">
+            <img src="../Brand/foldportrait-mark.svg" alt="" />
+            <span><strong>FoldPortrait</strong><small>A finite living portrait</small></span>
+          </a>
+          <nav class="view-actions" aria-label="Exhibition navigation">
+            <button id="latest-button" class="view-button" type="button">Current work</button>
+            <button id="gallery-button" class="view-button" type="button">Collection</button>
+            <button id="about-button" class="view-button" type="button">The work</button>
+          </nav>
+        </header>
+        <div class="edition-index" aria-label="Collection progress">
+          <span class="label">Canonical edition</span>
+          <strong><span id="edition-current">—</span><span class="edition-divider"> / </span><span id="edition-ceiling">108</span></strong>
+          <span id="edition-remaining">selective closing arc</span>
         </div>
+        <section class="work-caption" aria-live="polite">
+          <p class="label" id="work-era">Current canonical work</p>
+          <h1 id="work-title">FoldPortrait</h1>
+          <p id="work-description">Resolving the current portrait.</p>
+          <div class="work-proof">
+            <span>Unique 1 of 1</span><span id="work-status">Signed release</span>
+            <a id="work-verify" href="../Mint/seal-ledger.json">Verify work</a>
+          </div>
+        </section>
+        <aside id="about-panel" class="about-panel" aria-label="About FoldPortrait" hidden>
+          <button id="about-close" class="panel-close" type="button" aria-label="Close">Close</button>
+          <p class="label">The work</p>
+          <h2>A portrait that decides when it has changed enough to speak.</h2>
+          <p>FoldPortrait is a finite computational artwork. Its first era established a material lineage; its second watches a bounded public system and translates meaningful change into form.</p>
+          <p>From sequence 95 onward, generation is not publication. Candidates must clear a material-difference threshold. Those that do not remain private and consume no edition number.</p>
+          <dl>
+            <div><dt>Supply ceiling</dt><dd>108 canonical works</dd></div>
+            <div><dt>Edition</dt><dd>Every work unique, 1 of 1</dd></div>
+            <div><dt>Closure</dt><dd>FP-REFLECT-0056</dd></div>
+            <div><dt>Authenticity</dt><dd>Ed25519 signed, append-only</dd></div>
+            <div><dt>Availability</dt><dd>Stewarded; not presently offered</dd></div>
+          </dl>
+          <div class="panel-links"><a href="../Mint/collection-policy.json">Read signed policy</a><a href="../Mint/seal-ledger.json">Inspect seal ledger</a></div>
+        </aside>
         <section id="gallery-view" class="gallery-view" aria-label="FoldPortrait render iteration gallery" hidden>
           <header class="gallery-header">
             <div>
               <img class="archive-mark" src="../Brand/foldportrait-mark.svg" alt="" />
               <span>
-                <span class="label">FoldPortrait archive</span>
-                <strong>Era &amp; Lineage Matrix</strong>
+                <span class="label">The canonical collection</span>
+                <strong>Works I–<span id="archive-count">—</span></strong>
               </span>
             </div>
             <button id="gallery-close" class="view-button" type="button">Current reflection</button>
           </header>
           <div id="gallery-grid" class="gallery-grid"></div>
         </section>
-        <div class="readout" aria-live="polite">
+        <div class="readout technical-readout" aria-live="polite">
           <div>
             <span class="label">State</span>
             <strong id="readout-iteration">loading</strong>
