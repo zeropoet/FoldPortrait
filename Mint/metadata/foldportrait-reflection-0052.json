@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0052",
+  "description": "FP-REFLECT-0052 enters its contraction season through the orchid palette and folds veil, aperture, and palimpsest across 4 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0052.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0052",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 104
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "a6e782cd4c43b6421f504c3fd8cc346a0e885c4985293ee9d51895511f450f5a"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "contraction"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "orchid"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "1e63c5ceab4e82cb0e1752d460faf0fbc558b7cfa49c9bbd80f64a6bc6c807fd"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0052.png",
+    "file_sha256": "1e63c5ceab4e82cb0e1752d460faf0fbc558b7cfa49c9bbd80f64a6bc6c807fd"
+  },
+  "xrpl": null
+}
