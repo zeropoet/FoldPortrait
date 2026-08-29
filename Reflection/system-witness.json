@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-system-witness/v1",
   "systemID": "sovereign-standard-relational-system",
-  "observedAt": "2026-08-29T15:56:48.000Z",
+  "observedAt": "2026-08-29T16:44:53.000Z",
   "sources": [
     {
       "id": "foldkernel",
@@ -61,7 +61,7 @@
     },
     {
       "id": "root-logos",
-      "revision": "f9452b3644b70da92502dcc935abb2094a2eebb5",
+      "revision": "76842887f23f10cbe9e7d1141b911869802745de",
       "role": "constitutional orientation, library composition, and cultivation",
       "measurements": [
         {
@@ -80,7 +80,7 @@
           "id": "cultivation_cycles",
           "label": "Completed cultivation cycles",
           "unit": "cycles",
-          "value": 206
+          "value": 208
         },
         {
           "id": "x_witnessed_fragments",
@@ -141,7 +141,7 @@
     },
     {
       "id": "telos",
-      "revision": "f7f97747c1bd8673b062983db5c3e785ea5fa51a",
+      "revision": "beaa11d877e3c79d559c6f732068884ccc52ce03",
       "role": "bounded Sovereign Standard customer-acquisition operator and system mapper",
       "measurements": [
         {
@@ -184,7 +184,7 @@
     },
     {
       "id": "sovereign-standard",
-      "revision": "sha256:fd5f65894e1ccaa00b1fe0de33f4f732fcadb02b4364b9c65b95e6a33534a5ba",
+      "revision": "sha256:f0e37274a2761aa85fe0c3d1b8143d83203d8043d5f8d4251de17ac7aeef1a46",
       "role": "material practice, monthly collection, and embodied continuation",
       "measurements": [
         {
