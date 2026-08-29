@@ -28,7 +28,6 @@ const state = {
   reflectionEntries: [],
   catalog: null,
   sealLedger: null,
-  authority: null,
   policy: null,
   view: "latest",
   backgroundColor: new THREE.Color(0xf3efe6),
@@ -62,6 +61,11 @@ const readoutIteration = document.querySelector("#readout-iteration");
 const readoutCount = document.querySelector("#readout-count");
 const readoutHash = document.querySelector("#readout-hash");
 const readoutReflection = document.querySelector("#readout-reflection");
+const previousWork = document.querySelector("#previous-work");
+const nextWork = document.querySelector("#next-work");
+const mobileMedia = window.matchMedia("(max-width: 720px), (pointer: coarse)");
+const reducedMotionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
+const sessionVersion = String(Date.now());
 
 const scene = new THREE.Scene();
 scene.background = state.backgroundColor.clone();
@@ -72,18 +76,18 @@ camera.position.set(0, -380, 1580);
 
 const renderer = new THREE.WebGLRenderer({
   canvas,
-  antialias: true,
+  antialias: !mobileMedia.matches,
   alpha: false,
-  preserveDrawingBuffer: true,
+  preserveDrawingBuffer: false,
 });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobileMedia.matches ? 1.25 : 2));
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.055;
 controls.enablePan = false;
-controls.autoRotate = true;
+controls.autoRotate = !mobileMedia.matches && !reducedMotionMedia.matches;
 controls.autoRotateSpeed = 0.18;
 controls.minDistance = 620;
 controls.maxDistance = 2600;
@@ -111,6 +115,8 @@ async function init() {
   galleryClose.addEventListener("click", openLatest);
   aboutButton.addEventListener("click", () => { aboutPanel.hidden = false; });
   aboutClose.addEventListener("click", () => { aboutPanel.hidden = true; });
+  previousWork.addEventListener("click", () => queueAdjacentEntry(-1));
+  nextWork.addEventListener("click", () => queueAdjacentEntry(1));
   window.addEventListener("keydown", handleKeyboardNavigation);
   await Promise.all([loadLedger(), loadReflectionArchive(), loadCollectionState()]);
   await openFromLocation();
@@ -122,15 +128,13 @@ async function init() {
 }
 
 async function loadCollectionState() {
-  const [catalog, sealLedger, authority, policy] = await Promise.all([
-    fetchJson(versionedUrl("../Mint/catalog.json")),
-    fetchJson(versionedUrl("../Mint/seal-ledger.json")),
-    fetchJson(versionedUrl("../Mint/seal-authority.json")),
-    fetchJson(versionedUrl("../Mint/collection-policy.json")),
+  const [catalog, sealLedger, policy] = await Promise.all([
+    fetchJson(versionedUrl("../Mint/catalog.json", true)),
+    fetchJson(versionedUrl("../Mint/seal-ledger.json", true)),
+    fetchJson(versionedUrl("../Mint/collection-policy.json", true)),
   ]);
   state.catalog = catalog;
   state.sealLedger = sealLedger;
-  state.authority = authority;
   state.policy = policy;
   const ceiling = policy.declaration.canonical_supply_ceiling;
   editionCurrent.textContent = String(catalog.work_count).padStart(3, "0");
@@ -147,24 +151,24 @@ async function loadLatest(options = {}) {
 
   state.latestIteration = latest.iteration;
   if (state.view !== "latest" && !options.force) {
-    renderGallery();
+    if (!galleryView.hidden) renderGallery();
     return;
   }
 
   if (!options.force && latest.iteration === state.currentIteration) {
-    renderGallery();
+    if (!galleryView.hidden) renderGallery();
     return;
   }
 
   await loadEntry(latest);
   state.view = "latest";
   hideGallery();
-  renderGallery();
+  if (!galleryView.hidden) renderGallery();
 }
 
 async function loadCurrentReflection() {
   try {
-    const current = await fetchJson(versionedUrl("../Output/reflections/current.json"));
+    const current = await fetchJson(versionedUrl("../Output/reflections/current.json", true));
     return {
       ...current,
       iteration: current.cycleID || current.iteration,
@@ -179,7 +183,7 @@ async function loadCurrentReflection() {
 }
 
 async function loadReflectionArchive() {
-  const archive = await fetchJson(versionedUrl("../Output/reflections/archive.json"));
+  const archive = await fetchJson(versionedUrl("../Output/reflections/archive.json", true));
   const era = archive.eras.find(({ id }) => id === "autonomous-system-reflection");
   state.reflectionEntries = (era?.cycles || []).map((entry) => ({
     ...entry,
@@ -222,7 +226,7 @@ async function fetchJson(url) {
 }
 
 async function loadLedger() {
-  const ledger = await fetchJson(versionedUrl("../Output/iterations/evolution.json"));
+  const ledger = await fetchJson(versionedUrl("../Output/iterations/evolution.json", true));
   state.ledger = ledger
     .map((entry) => ({ ...entry, version: versionFromEntry(entry) }))
     .sort(compareEntries);
@@ -258,6 +262,7 @@ async function loadEntry(entry) {
     ? `${entry.correlationCount} relations / ${entry.chosenRules.length} rules`
     : "sealed first era";
   updateWorkCaption(entry);
+  updateWorkNavigation();
 }
 
 function updateWorkCaption(entry) {
@@ -331,7 +336,6 @@ async function openGalleryEntry(entry, options = {}) {
   await loadEntry(entry);
   state.view = entry.iteration === state.latestIteration ? "latest" : "iteration";
   hideGallery();
-  renderGallery();
   if (options.updateRoute !== false) {
     const era = entry.isReflection ? 2 : 1;
     history.replaceState(null, "", `#era-${era}/${encodeURIComponent(entry.iteration)}`);
@@ -360,6 +364,13 @@ function queueAdjacentEntry(step) {
     .then(() => openAdjacentEntry(step));
 }
 
+function updateWorkNavigation() {
+  const entries = [...state.ledger, ...state.reflectionEntries];
+  const index = entries.findIndex((entry) => entry.iteration === state.currentIteration);
+  previousWork.disabled = index <= 0;
+  nextWork.disabled = index < 0 || index >= entries.length - 1;
+}
+
 async function openAdjacentEntry(step) {
   if (state.ledger.length === 0) {
     await loadLedger();
@@ -380,6 +391,7 @@ async function openAdjacentEntry(step) {
 }
 
 function renderGallery() {
+  if (galleryView.hidden) return;
   if (state.ledger.length === 0) {
     galleryGrid.replaceChildren();
     return;
@@ -516,9 +528,9 @@ function compareEntries(first, second) {
   );
 }
 
-function versionedUrl(path) {
+function versionedUrl(path, fresh = false) {
   const url = new URL(path, window.location.href);
-  url.searchParams.set("cache", String(Date.now()));
+  if (fresh) url.searchParams.set("cache", sessionVersion);
   return url;
 }
 
@@ -745,11 +757,12 @@ function arrangeByFoldKernel(entry) {
     object.rotation.y = memoryPull * 0.22 + torsion * 0.14;
   });
 
-  requestAnimationFrame(updatePixelMetrics);
+  if (!mobileMedia.matches) requestAnimationFrame(updatePixelMetrics);
 }
 
 function resize() {
   const { clientWidth, clientHeight } = canvas.parentElement;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobileMedia.matches ? 1.25 : 2));
   renderer.setSize(clientWidth, clientHeight, false);
   camera.aspect = clientWidth / Math.max(1, clientHeight);
   camera.updateProjectionMatrix();
@@ -758,17 +771,20 @@ function resize() {
 function animate(time = 0) {
   requestAnimationFrame(animate);
 
-  topologyRoot.rotation.z = Math.sin(time * 0.00009) * 0.025;
-  topologyRoot.rotation.y = Math.sin(time * 0.00007) * 0.045;
+  if (document.hidden || state.view === "gallery") return;
+
+  const motionScale = reducedMotionMedia.matches ? 0 : mobileMedia.matches ? 0.28 : 1;
+  topologyRoot.rotation.z = Math.sin(time * 0.00009) * 0.025 * motionScale;
+  topologyRoot.rotation.y = Math.sin(time * 0.00007) * 0.045 * motionScale;
 
   state.objects.forEach((object) => {
     const phase = object.userData.phase;
     const target = object.userData.target || object.position;
     const drift = object.userData.drift || new THREE.Vector3();
     object.position.set(
-      target.x + Math.sin(time * 0.00034 + phase) * drift.x,
-      target.y + Math.cos(time * 0.00029 + phase) * drift.y,
-      target.z + Math.sin(time * 0.00052 + phase) * drift.z,
+      target.x + Math.sin(time * 0.00034 + phase) * drift.x * motionScale,
+      target.y + Math.cos(time * 0.00029 + phase) * drift.y * motionScale,
+      target.z + Math.sin(time * 0.00052 + phase) * drift.z * motionScale,
     );
   });
 

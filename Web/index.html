@@ -6,7 +6,7 @@
     <title>FoldPortrait — A Finite Living Portrait</title>
     <meta name="description" content="FoldPortrait is a finite, selectively admitted collection of 108 or fewer unique computational portraits." />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=mobile-20260829-3" />
     <script type="importmap">
       {
         "imports": {
@@ -44,6 +44,10 @@
             <span>Unique 1 of 1</span><span id="work-status">Signed release</span>
             <a id="work-verify" href="../Mint/seal-ledger.json">Verify work</a>
           </div>
+          <nav class="work-navigation" aria-label="Browse canonical works">
+            <button id="previous-work" type="button" aria-label="Previous work">Previous</button>
+            <button id="next-work" type="button" aria-label="Next work">Next</button>
+          </nav>
         </section>
         <aside id="about-panel" class="about-panel" aria-label="About FoldPortrait" hidden>
           <button id="about-close" class="panel-close" type="button" aria-label="Close">Close</button>
@@ -69,7 +73,7 @@
                 <strong>Works I–<span id="archive-count">—</span></strong>
               </span>
             </div>
-            <button id="gallery-close" class="view-button" type="button">Current reflection</button>
+            <button id="gallery-close" class="view-button" type="button">Current</button>
           </header>
           <div id="gallery-grid" class="gallery-grid"></div>
         </section>
@@ -94,6 +98,6 @@
       </section>
     </main>
 
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="./app.js?v=mobile-20260829"></script>
   </body>
 </html>
