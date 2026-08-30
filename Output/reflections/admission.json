@@ -1,12 +1,12 @@
 {
   "schema": "foldportrait-admission/v1",
   "admitted": true,
-  "candidate": "FP-REFLECT-0052",
-  "score": 0.5525,
+  "candidate": "FP-REFLECT-0053",
+  "score": 0.494668,
   "threshold": 0.44,
   "evidence": {
-    "change_magnitude": 0.004375,
-    "nearest_rule_distance": 0.33333333333333337,
+    "change_magnitude": 0.002889,
+    "nearest_rule_distance": 0.19999999999999996,
     "palette_novelty": 1,
     "season_novelty": 1,
     "pairing_novelty": 1,
