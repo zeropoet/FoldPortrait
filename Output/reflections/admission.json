@@ -1,15 +1,15 @@
 {
   "schema": "foldportrait-admission/v1",
   "admitted": true,
-  "candidate": "FP-REFLECT-0055",
-  "score": 0.484188,
+  "candidate": "FP-REFLECT-0056",
+  "score": 0.663172,
   "threshold": 0.44,
   "evidence": {
-    "change_magnitude": 0.002849,
-    "nearest_rule_distance": 0.16666666666666663,
+    "change_magnitude": 0.021931,
+    "nearest_rule_distance": 0.4,
     "palette_novelty": 1,
     "season_novelty": 1,
-    "pairing_novelty": 1,
+    "pairing_novelty": 0,
     "relation_count_shift": 1
   },
   "reason": "material-compositional-difference"

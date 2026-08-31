@@ -1,7 +1,7 @@
 {
   "schema": "foldportrait-system-witness/v1",
   "systemID": "sovereign-standard-relational-system",
-  "observedAt": "2026-08-31T15:19:43.000Z",
+  "observedAt": "2026-08-31T16:05:51.000Z",
   "sources": [
     {
       "id": "foldkernel",
@@ -61,7 +61,7 @@
     },
     {
       "id": "root-logos",
-      "revision": "a0beebef8227e038a7088f8a416760459308d5ce",
+      "revision": "d03e8601f726b99c545bd42407c37e751f704688",
       "role": "constitutional orientation, library composition, and cultivation",
       "measurements": [
         {
@@ -80,7 +80,7 @@
           "id": "cultivation_cycles",
           "label": "Completed cultivation cycles",
           "unit": "cycles",
-          "value": 216
+          "value": 217
         },
         {
           "id": "x_witnessed_fragments",
@@ -141,7 +141,7 @@
     },
     {
       "id": "telos",
-      "revision": "4182095409669e7709d5f95a0e838866e275be30",
+      "revision": "619f95ff037ba8f5a65fd6396fb1e93e2c959a01",
       "role": "bounded Sovereign Standard customer-acquisition operator and system mapper",
       "measurements": [
         {
@@ -154,7 +154,7 @@
           "id": "operating_components",
           "label": "Mapped operating components",
           "unit": "components",
-          "value": 14
+          "value": 15
         },
         {
           "id": "prepared_campaigns",
