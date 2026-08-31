@@ -2,7 +2,7 @@
 
 FoldPortrait is an evolving visual self-reflection built on top of
 [FoldKernel](https://github.com/zeropoet/FoldKernel), pinned as the canonical
-`v1.0.1` package dependency. Its completed first era
+`v1.0.2` package dependency. Its completed first era
 derived a deterministic permutation, memory signature, and convergence hash
 from a text seed, then let that architecture become a 52-work SVG portrait
 lineage. Its second era preserves that archive and uses the same deterministic
