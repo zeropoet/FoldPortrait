@@ -19,7 +19,10 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../FoldKernel"),
+        .package(
+            url: "https://github.com/zeropoet/FoldKernel.git",
+            exact: "1.0.1"
+        ),
         .package(url: "https://github.com/swiftlang/swift-testing.git", revision: "swift-6.1.2-RELEASE"),
     ],
     targets: [

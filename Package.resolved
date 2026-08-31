@@ -1,6 +1,15 @@
 {
-  "originHash" : "ac944b487d441724f888ac3f73b5264985c5721ccf1f6ff0a14c32e9e803916f",
+  "originHash" : "5b0642d39d52c82f9aebb7e68c1609a86c4ca1d149b3ae6c17993359f4a39373",
   "pins" : [
+    {
+      "identity" : "foldkernel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/zeropoet/FoldKernel.git",
+      "state" : {
+        "revision" : "acd5bdba2258797dd0c048fb50481d85ad2274c4",
+        "version" : "1.0.1"
+      }
+    },
     {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
