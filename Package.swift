@@ -21,7 +21,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/zeropoet/FoldKernel.git",
-            exact: "1.0.2"
+            exact: "1.0.4"
         ),
         .package(url: "https://github.com/swiftlang/swift-testing.git", revision: "swift-6.1.2-RELEASE"),
     ],

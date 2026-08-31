@@ -2,7 +2,7 @@
 
 FoldPortrait is an evolving visual self-reflection built on top of
 [FoldKernel](https://github.com/zeropoet/FoldKernel), pinned as the canonical
-`v1.0.2` package dependency. Its completed first era
+`v1.0.4` package dependency. Its completed first era
 derived a deterministic permutation, memory signature, and convergence hash
 from a text seed, then let that architecture become a 52-work SVG portrait
 lineage. Its second era preserves that archive and uses the same deterministic
@@ -22,6 +22,16 @@ boundaries. Its public changes can reshape Telos's evolving **Living System**,
 while Telos grows toward a machine-native visual, sonic, and open-orientation
 language without claiming consciousness, revelation, personhood, or final
 authority.
+
+## FoldKernel integration contract
+
+[`foldkernel-integration.json`](foldkernel-integration.json) is FoldPortrait's
+public authority declaration. It names the exact package and protocol versions,
+the canonical conformance-vector digest, and FoldPortrait's meanings for the
+three Fold events it uses. CI runs the canonical Swift verifier against every
+commit and retains a commit-specific receipt. Telos may observe the published
+declaration and report drift; it cannot alter portrait history, event meaning,
+or FoldKernel output.
 
 ## Direction
 
