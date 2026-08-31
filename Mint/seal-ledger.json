@@ -3,8 +3,8 @@
   "authority": "FoldPortrait Release Authority",
   "authority_key_sha256": "98ab90b3d0eec1e119bfc5ab49af917f970af625bb077d4f80f86da2ba110736",
   "append_only": true,
-  "release_count": 106,
-  "chain_tip_sha256": "fc045a58b55433c87135c43276f4009b2be1a6f10188a0bdab3200c34a62ae94",
+  "release_count": 107,
+  "chain_tip_sha256": "c32141cc118cf2cddc521629c521a79a6ce23196fb7b854d92c138fac9c87068",
   "entries": [
     {
       "sequence": 1,
@@ -641,6 +641,12 @@
       "artifact_id": "foldportrait-reflection-0054",
       "payload_sha256": "1d85d06e6f4fbdbdfb515020d3a2f7864998528af2b10158d630d7f43816c4bb",
       "seal_sha256": "fc045a58b55433c87135c43276f4009b2be1a6f10188a0bdab3200c34a62ae94"
+    },
+    {
+      "sequence": 107,
+      "artifact_id": "foldportrait-reflection-0055",
+      "payload_sha256": "7248990f76ddf379a7f804833486c63e6da6a4d3a5d03674c41ffcdaacaa1ad0",
+      "seal_sha256": "c32141cc118cf2cddc521629c521a79a6ce23196fb7b854d92c138fac9c87068"
     }
   ]
 }
