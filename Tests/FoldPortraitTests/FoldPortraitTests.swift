@@ -1,6 +1,20 @@
 import Testing
 @testable import FoldPortraitCore
 
+@Test func foldPortraitIssuesEvidenceWithoutInventingMoney() throws {
+    let receipt = try FoldPortraitValueReceiptProducer.issue(
+        eventID: "FP-REFLECT-0001",
+        artifactDigest: String(repeating: "a", count: 64),
+        periodStart: "2026-08-31",
+        periodEnd: "2026-08-31"
+    )
+    #expect(receipt.state == .evidenced)
+    #expect(receipt.sourceSystem == "foldportrait")
+    #expect(receipt.outputKind == "portrait_render")
+    #expect(receipt.monetaryCounterpartCents == nil)
+    #expect(receipt.transferable == false)
+}
+
 @Test func renderIsDeterministicForSeed() {
     let renderer = PortraitRenderer()
     let first = renderer.render(seed: "ada")
