@@ -1,5 +1,14 @@
 # FoldPortrait
 
+FoldPortrait is complete. Its canonical collection is sealed at 108 unique
+works and its public archive now lives at
+[foldportrait.zeropoet.xyz](https://foldportrait.zeropoet.xyz/), within the
+Zeropoet artist and developer studio namespace.
+
+The original `zeropoet.github.io/FoldPortrait` paths embedded in signed release
+metadata remain unchanged as immutable historical evidence. They are not the
+current public identity and must not be rewritten in already sealed records.
+
 FoldPortrait is an evolving visual self-reflection built on top of
 [FoldKernel](https://github.com/zeropoet/FoldKernel), pinned as the canonical
 `v1.0.5` package dependency. Its completed first era
@@ -168,7 +177,7 @@ retains the compact crossed-axis form that preceded the full mark.
 ## View
 
 Open the current published topology study:
-[zeropoet.github.io/FoldPortrait](https://zeropoet.github.io/FoldPortrait/)
+[foldportrait.zeropoet.xyz](https://foldportrait.zeropoet.xyz/)
 
 The root page redirects to `Web/`, where the browser reads
 `Output/reflections/current.json` and displays the latest autonomous reflection

@@ -1,12 +1,7 @@
 name: Autonomous Reflection Cycle
 
 on:
-  schedule:
-    - cron: "17 15 * * *"
   workflow_dispatch:
-  repository_dispatch:
-    types:
-      - connected-system-changed
 
 permissions:
   contents: write
@@ -169,7 +164,7 @@ jobs:
             --arg source_sha "$SOURCE_SHA" \
             --arg change_class "relation" \
             --arg summary "FoldPortrait preserved a new system reflection and render-lineage witness." \
-            --arg witness_url "https://zeropoet.github.io/FoldPortrait/" \
+            --arg witness_url "https://foldportrait.zeropoet.xyz/" \
             --arg occurred_at "$occurred_at" \
             '{event_type:"telos-propagation",client_payload:{source_repository:$source_repository,source_sha:$source_sha,change_class:$change_class,summary:$summary,witness_url:$witness_url,occurred_at:$occurred_at}}')
           curl --fail --silent --show-error \

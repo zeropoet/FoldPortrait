@@ -123,7 +123,6 @@ async function init() {
   resize();
   window.addEventListener("resize", resize);
   window.addEventListener("hashchange", openFromLocation);
-  window.setInterval(loadLatest, 5 * 60 * 1000);
   animate();
 }
 
@@ -139,7 +138,10 @@ async function loadCollectionState() {
   const ceiling = policy.declaration.canonical_supply_ceiling;
   editionCurrent.textContent = String(catalog.work_count).padStart(3, "0");
   editionCeiling.textContent = String(ceiling);
-  editionRemaining.textContent = `${ceiling - catalog.work_count} possible admissions remain`;
+  const remaining = ceiling - catalog.work_count;
+  editionRemaining.textContent = remaining === 0
+    ? "complete · sealed"
+    : `${remaining} possible admissions remain`;
   archiveCount.textContent = String(catalog.work_count).padStart(3, "0");
 }
 
