@@ -29,7 +29,6 @@ jobs:
           owner: zeropoet
           repositories: |
             Telos
-            root-logos
           permission-contents: write
 
       - name: Check out FoldPortrait
@@ -157,23 +156,13 @@ jobs:
           echo "Unable to preserve the reflection after four attempts."
           exit 1
 
-      - name: Wake Root Logos and propagate the reflection to Telos
+      - name: Propagate the reflection to Telos
         if: steps.candidate.outputs.admitted == 'true' && steps.reflection.outputs.changed == 'true'
         env:
           CONNECTED_SYSTEM_TOKEN: ${{ steps.connected-system-token.outputs.token }}
           SOURCE_SHA: ${{ steps.reflection.outputs.revision }}
         run: |
           echo "$SOURCE_SHA" | grep -Eq '^[a-f0-9]{40}$'
-          root_payload=$(jq -n --arg revision "$SOURCE_SHA" \
-            '{event_type:"foldportrait-reflected",client_payload:{revision:$revision}}')
-          curl --fail --silent --show-error \
-            --retry 4 --retry-all-errors --retry-delay 3 \
-            -X POST https://api.github.com/repos/zeropoet/root-logos/dispatches \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer $CONNECTED_SYSTEM_TOKEN" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            -H "Content-Type: application/json" \
-            --data "$root_payload"
           occurred_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           telos_payload=$(jq -n \
             --arg source_repository "zeropoet/FoldPortrait" \
