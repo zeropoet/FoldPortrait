@@ -1,5 +1,9 @@
 # FoldPortrait
 
+## Place in the studio architecture
+
+This repository is an independently governed module and project authority. [`zeropoet.xyz`](https://zeropoet.xyz/) is the studio index: it makes this work and its relations legible without absorbing them. [`rootlogos.com`](https://rootlogos.com/) is the public surface of synthesis: it builds from bounded outputs of the studio's repositories without replacing their sources, histories, or laws. This separation fulfills the system's working law—preserve authority at the source, reveal relation at studio scale, and permit synthesis without possession—as Root Logos enters its Weave era.
+
 FoldPortrait is complete. Its canonical collection is sealed at 108 unique
 works and its public archive now lives at
 [foldportrait.zeropoet.xyz](https://foldportrait.zeropoet.xyz/), within the
