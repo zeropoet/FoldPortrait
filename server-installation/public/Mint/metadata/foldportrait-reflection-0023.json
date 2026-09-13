@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0023",
+  "description": "FP-REFLECT-0023 enters its opening season through the nocturne palette and folds veil, aperture, and sediment across 6 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0023.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0023",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 75
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "6c637bf0978511535db0d5355115a5932c5cd242d6e4dc306189747975504b57"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "opening"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "nocturne"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "ac1ec3a31f4d211ebdb0e472b7e94b612119a7006ca35b995d14c746b11912f5"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0023.png",
+    "file_sha256": "ac1ec3a31f4d211ebdb0e472b7e94b612119a7006ca35b995d14c746b11912f5"
+  },
+  "xrpl": null
+}

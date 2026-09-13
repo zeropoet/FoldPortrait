@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0042",
+  "description": "FP-REFLECT-0042 enters its contraction season through the mineral palette and presses palimpsest, strata, and counterfield across 4 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0042.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0042",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 94
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "091ae37fda76264d476371be6dc889d064f9139e947074a8af58218e474415a7"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "contraction"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "mineral"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "2216a645da6678c372675b8237f94b6d3d7c7b23a885dcd218c67a0f59e03b1c"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0042.png",
+    "file_sha256": "2216a645da6678c372675b8237f94b6d3d7c7b23a885dcd218c67a0f59e03b1c"
+  },
+  "xrpl": null
+}

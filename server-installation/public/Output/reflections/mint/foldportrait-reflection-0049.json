@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0049",
+  "description": "FP-REFLECT-0049 enters its fragmentation season through the mineral palette and presses aperture, palimpsest, and braid across 5 witnessed relations, forming a distinct silhouette from the public witness.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0049.png",
+    "mimeType": "image/png",
+    "sha256": "b5a59793d14758846f0c96d9a58502d2d7050da61a960af030de01deab9f2cd8",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0049.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "dc77f37102d6fd1b825824c2b6f50e76fd62f8a0950f5215604b813abfc7cca0"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0049",
+    "previousCycleID": "FP-REFLECT-0048",
+    "witnessDigest": "569595879c90eee93d481b59e36f61a801bc5c12ed31c25aa6d4f7716a3ac261",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "e2ee93408bb6be4f7a5532030bd9aa0601ac6426ef690dec4f65e3e7aced773f",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "fragmentation",
+    "paletteID": "mineral",
+    "changeMagnitude": 0.001501
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}

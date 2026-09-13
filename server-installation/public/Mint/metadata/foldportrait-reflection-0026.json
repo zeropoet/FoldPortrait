@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0026",
+  "description": "FP-REFLECT-0026 enters its drift season through the tidal palette and gathers sediment, strata, and aperture across 5 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0026.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0026",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 78
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "99c1ef84183a35c1b1157cb81995476e1960dea7ca6b179bf9c2390e010f3f1e"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "drift"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "tidal"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "ffb1ce4872e03efa3e34dcc12742aed7b075e4fed33803f450e78590ad87f9cc"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0026.png",
+    "file_sha256": "ffb1ce4872e03efa3e34dcc12742aed7b075e4fed33803f450e78590ad87f9cc"
+  },
+  "xrpl": null
+}
