@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0050",
+  "description": "FP-REFLECT-0050 enters its recombination season through the lichen palette and folds aperture, sediment, and palimpsest across 7 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0050.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0050",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 102
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "6fc3f8a4c1eebf14ecb904ccf80ac6ef9c994d45e8c40dc8be473d5f549a2939"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "recombination"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "lichen"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "e3455c7578b39dae9b69d66315bd635777e596b956b06de81ad323149da3cf20"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0050.png",
+    "file_sha256": "e3455c7578b39dae9b69d66315bd635777e596b956b06de81ad323149da3cf20"
+  },
+  "xrpl": null
+}

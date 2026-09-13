@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0029",
+  "description": "FP-REFLECT-0029 enters its fragmentation season through the tidal palette and folds sediment, braid, and veil across 5 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0029.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0029",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 81
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "5873c85d2710721d23179ad21acd36d4eb483080f662c087ee4fa3710c73e97a"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "fragmentation"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "tidal"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "dc111e6207867fb0a2c3513af99dcdbec42ac6b16043f1ca7734033016034e91"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0029.png",
+    "file_sha256": "dc111e6207867fb0a2c3513af99dcdbec42ac6b16043f1ca7734033016034e91"
+  },
+  "xrpl": null
+}

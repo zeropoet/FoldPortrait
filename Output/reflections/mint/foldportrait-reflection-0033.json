@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0033",
+  "description": "FP-REFLECT-0033 enters its opening season through the ember palette and folds palimpsest, aperture, and braid across 6 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0033.png",
+    "mimeType": "image/png",
+    "sha256": "c607f0219b7b00b67f40bdd96b3d4274f560683109bbd620bff47e791e4a49e0",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0033.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "4541409878b9435320acf7c40ddc6b40d303bc9259c2a065817013a4a4670ed2"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0033",
+    "previousCycleID": "FP-REFLECT-0032",
+    "witnessDigest": "bc511f413a27626f879766435438114c1bc2e1c99ad79939ad664c52fcef86f4",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "f7def588d656eaba77647a331afb3bba514cfdd2e2fa162e696649b1a9cf4949",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "opening",
+    "paletteID": "ember",
+    "changeMagnitude": 0.001578
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}

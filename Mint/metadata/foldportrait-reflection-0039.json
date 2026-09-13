@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0039",
+  "description": "FP-REFLECT-0039 enters its fragmentation season through the tidal palette and opens aperture, braid, and palimpsest across 5 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0039.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0039",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 91
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "d77ce1234fffd654f0fce1c0474401c044fb161a285ce138874c8ebd5a8ac9f0"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "fragmentation"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "tidal"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "4f464abaa57457fc24c9a5969ad65f7d7cc7c65a4532af5e883542040e7c87c4"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0039.png",
+    "file_sha256": "4f464abaa57457fc24c9a5969ad65f7d7cc7c65a4532af5e883542040e7c87c4"
+  },
+  "xrpl": null
+}

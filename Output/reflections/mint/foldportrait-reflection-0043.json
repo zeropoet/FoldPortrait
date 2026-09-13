@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0043",
+  "description": "FP-REFLECT-0043 enters its opening season through the lichen palette and threads veil, sediment, and aperture across 6 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0043.png",
+    "mimeType": "image/png",
+    "sha256": "5ce4219282e14ff95b86a93ea8d89a968657b08fddcc50b51e78532b796dcbca",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0043.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "6cd256bcc31ef21c9e77c817022f8fa18d103eee8582b22abc55ca05f7e2c62b"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0043",
+    "previousCycleID": "FP-REFLECT-0042",
+    "witnessDigest": "240e0212dd52fc451d00713652698dcc31a2e44d043be5de04b8da90e3c14deb",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "b9e867bb9ed1e35aab5982c9726b736bf0aecd6affcb7d84518d1d13d7a3ec27",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "opening",
+    "paletteID": "lichen",
+    "changeMagnitude": 0
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}

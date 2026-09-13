@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0056",
+  "description": "FP-REFLECT-0056 enters its drift season through the nocturne palette and balances palimpsest, veil, and braid across 5 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0056.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0056",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 108
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "d8471ba2b1df9816424a58a9c02f2d20840dbdc434666162900123dc38adeceb"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "drift"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "nocturne"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "8a8aea777210e3e1ee91baa41afff32a3f9d521a44ef659c35a3422a2998dd76"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0056.png",
+    "file_sha256": "8a8aea777210e3e1ee91baa41afff32a3f9d521a44ef659c35a3422a2998dd76"
+  },
+  "xrpl": null
+}

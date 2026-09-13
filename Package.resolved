@@ -1,0 +1,33 @@
+{
+  "originHash" : "7414705f3a40cab08be56419c0491527a9cb1426fbe671e5c05c6382be105a44",
+  "pins" : [
+    {
+      "identity" : "foldkernel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/zeropoet/FoldKernel.git",
+      "state" : {
+        "revision" : "41d5dd38f3e3f0cab629e9763715c145f9602c17",
+        "version" : "1.0.5"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax.git",
+      "state" : {
+        "revision" : "f99ae8aa18f0cf0d53481901f88a0991dc3bd4a2",
+        "version" : "601.0.1"
+      }
+    },
+    {
+      "identity" : "swift-testing",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-testing.git",
+      "state" : {
+        "branch" : "swift-6.1.2-RELEASE",
+        "revision" : "d6b70f9ef9eb207729fb50e0ff32edc6f72ea474"
+      }
+    }
+  ],
+  "version" : 3
+}
