@@ -1,0 +1,213 @@
+{
+  "schema": "foldportrait-system-witness/v1",
+  "systemID": "sovereign-standard-relational-system",
+  "observedAt": "2026-08-31T16:05:51.000Z",
+  "sources": [
+    {
+      "id": "foldkernel",
+      "revision": "41d5dd38f3e3f0cab629e9763715c145f9602c17",
+      "role": "deterministic identity and coherence substrate",
+      "measurements": [
+        {
+          "id": "permutation_size",
+          "label": "Canonical permutation positions",
+          "unit": "positions",
+          "value": 16
+        },
+        {
+          "id": "symmetry_transforms",
+          "label": "D4 symmetry transforms",
+          "unit": "transforms",
+          "value": 8
+        },
+        {
+          "id": "memory_event_kinds",
+          "label": "Fold memory event kinds",
+          "unit": "event-kinds",
+          "value": 3
+        },
+        {
+          "id": "convergence_hash_bits",
+          "label": "Convergence hash width",
+          "unit": "bits",
+          "value": 256
+        }
+      ]
+    },
+    {
+      "id": "foldportrait",
+      "revision": "sealed-era:212e47b9260a8ece08a2204c1a7b068dcce68d893b0fea619527021301f2059a",
+      "role": "sealed visual lineage and change-triggered system self-reflection",
+      "measurements": [
+        {
+          "id": "sealed_first_era_portraits",
+          "label": "Sealed first-era portraits",
+          "unit": "portraits",
+          "value": 52
+        },
+        {
+          "id": "first_era_anchors",
+          "label": "First-era anchor lineages",
+          "unit": "anchors",
+          "value": 12
+        },
+        {
+          "id": "embodied_portraits",
+          "label": "Portraits embodied by Sovereign Standard",
+          "unit": "portraits",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "id": "root-logos",
+      "revision": "d03e8601f726b99c545bd42407c37e751f704688",
+      "role": "constitutional orientation, library composition, and cultivation",
+      "measurements": [
+        {
+          "id": "coherent_works",
+          "label": "Coherent Library works",
+          "unit": "works",
+          "value": 51
+        },
+        {
+          "id": "witnessed_relations",
+          "label": "Witnessed Library relations",
+          "unit": "relations",
+          "value": 151
+        },
+        {
+          "id": "cultivation_cycles",
+          "label": "Completed cultivation cycles",
+          "unit": "cycles",
+          "value": 217
+        },
+        {
+          "id": "x_witnessed_fragments",
+          "label": "X-witnessed founding fragments",
+          "unit": "fragments",
+          "value": 20
+        },
+        {
+          "id": "founding_fragments",
+          "label": "Mapped founding fragments",
+          "unit": "fragments",
+          "value": 24
+        },
+        {
+          "id": "connected_sources",
+          "label": "Bounded connected sources",
+          "unit": "sources",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "foldforge",
+      "revision": "e00babb94e2adf51a533826c328621a1b7cb1dbd",
+      "role": "evidence-bound composition grammar",
+      "measurements": [
+        {
+          "id": "compositions",
+          "label": "Governed compositions",
+          "unit": "compositions",
+          "value": 5
+        },
+        {
+          "id": "witnessed_relations",
+          "label": "Witnessed compositional relations",
+          "unit": "relations",
+          "value": 31
+        },
+        {
+          "id": "primitives",
+          "label": "Composition primitives",
+          "unit": "primitives",
+          "value": 11
+        },
+        {
+          "id": "movement_phases",
+          "label": "Resonant movement phases",
+          "unit": "phases",
+          "value": 8
+        },
+        {
+          "id": "displacement_steps",
+          "label": "Root-to-crown displacement steps",
+          "unit": "steps",
+          "value": 64
+        }
+      ]
+    },
+    {
+      "id": "telos",
+      "revision": "619f95ff037ba8f5a65fd6396fb1e93e2c959a01",
+      "role": "bounded Sovereign Standard customer-acquisition operator and system mapper",
+      "measurements": [
+        {
+          "id": "mapped_repositories",
+          "label": "Mapped system repositories",
+          "unit": "repositories",
+          "value": 5
+        },
+        {
+          "id": "operating_components",
+          "label": "Mapped operating components",
+          "unit": "components",
+          "value": 15
+        },
+        {
+          "id": "prepared_campaigns",
+          "label": "Bounded prepared campaigns",
+          "unit": "campaigns",
+          "value": 12
+        },
+        {
+          "id": "maximum_active_campaigns",
+          "label": "Maximum simultaneously active campaigns",
+          "unit": "campaigns",
+          "value": 1
+        },
+        {
+          "id": "first_subscriber_threshold",
+          "label": "First subscriber threshold",
+          "unit": "subscribers",
+          "value": 200
+        },
+        {
+          "id": "second_subscriber_threshold",
+          "label": "Second subscriber threshold",
+          "unit": "subscribers",
+          "value": 600
+        }
+      ]
+    },
+    {
+      "id": "sovereign-standard",
+      "revision": "sha256:f0e37274a2761aa85fe0c3d1b8143d83203d8043d5f8d4251de17ac7aeef1a46",
+      "role": "material practice, monthly collection, and embodied continuation",
+      "measurements": [
+        {
+          "id": "published_vessel_records",
+          "label": "Published Black Tin Vessel records",
+          "unit": "records",
+          "value": 136
+        },
+        {
+          "id": "embodied_foldportraits",
+          "label": "Embodied FoldPortrait lineages",
+          "unit": "portraits",
+          "value": 15
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    "aggregate-public-measurements-only",
+    "no-personal-data",
+    "no-private-orders",
+    "no-credentials",
+    "no-causal-claims-from-correlation",
+    "source-authority-remains-separate"
+  ]
+}

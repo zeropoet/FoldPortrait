@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0006",
+  "description": "FP-REFLECT-0006 threads veil, braid, and aperture across 7 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0006.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0006",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 58
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "44ae6497e3bb50406da86552c3bbddb2b8f842c0ae2cfbff412f2538fa4a2b8a"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "4f3b105a73a5f4e4cdf7ed75222ab0a760d4809d1bff2e54e9e260efc6575603"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0006.png",
+    "file_sha256": "4f3b105a73a5f4e4cdf7ed75222ab0a760d4809d1bff2e54e9e260efc6575603"
+  },
+  "xrpl": null
+}

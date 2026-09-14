@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0043",
+  "description": "FP-REFLECT-0043 enters its opening season through the lichen palette and threads veil, sediment, and aperture across 6 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0043.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0043",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 95
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "240e0212dd52fc451d00713652698dcc31a2e44d043be5de04b8da90e3c14deb"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "opening"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "lichen"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "5ce4219282e14ff95b86a93ea8d89a968657b08fddcc50b51e78532b796dcbca"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0043.png",
+    "file_sha256": "5ce4219282e14ff95b86a93ea8d89a968657b08fddcc50b51e78532b796dcbca"
+  },
+  "xrpl": null
+}

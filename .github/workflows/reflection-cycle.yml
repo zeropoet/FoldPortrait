@@ -1,0 +1,177 @@
+name: Autonomous Reflection Cycle
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: foldportrait-reflection
+  cancel-in-progress: false
+
+jobs:
+  reflect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Mint a connected-system installation token
+        id: connected-system-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.TELOS_BRIDGE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.TELOS_BRIDGE_APP_PRIVATE_KEY }}
+          owner: zeropoet
+          repositories: |
+            Telos
+          permission-contents: write
+
+      - name: Check out FoldPortrait
+        uses: actions/checkout@v7
+        with:
+          path: FoldPortrait
+          fetch-depth: 0
+
+      - name: Check out FoldKernel
+        uses: actions/checkout@v7
+        with:
+          repository: zeropoet/foldkernel
+          path: FoldKernel
+          fetch-depth: 1
+
+      - name: Check out FoldForge
+        uses: actions/checkout@v7
+        with:
+          repository: zeropoet/FoldForge
+          path: FoldForge
+          fetch-depth: 1
+
+      - name: Check out Root Logos
+        uses: actions/checkout@v7
+        with:
+          repository: zeropoet/root-logos
+          path: root-logos
+          fetch-depth: 1
+
+      - name: Check out Telos
+        uses: actions/checkout@v7
+        with:
+          repository: zeropoet/Telos
+          path: Telos
+          fetch-depth: 1
+          token: ${{ steps.connected-system-token.outputs.token }}
+
+      - name: Set up Swift
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "6.1"
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Synchronize bounded public witness
+        working-directory: FoldPortrait
+        run: >-
+          node Scripts/sync-system-witness.js
+          --foldkernel ../FoldKernel
+          --foldforge ../FoldForge
+          --root-logos ../root-logos
+          --telos ../Telos
+
+      - name: Generate private reflection candidate
+        id: candidate
+        working-directory: FoldPortrait
+        run: |
+          npm ci
+          swift build
+          swift test
+          swift run fold-portrait reflect Reflection/system-witness.json
+          swift run fold-portrait verify-reflection
+          npm run evaluate:admission
+          admitted=$(node -e 'process.stdout.write(String(require("./Output/reflections/admission.json").admitted))')
+          echo "admitted=$admitted" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare admitted canonical release
+        if: steps.candidate.outputs.admitted == 'true'
+        working-directory: FoldPortrait
+        run: |
+          npm run archive
+          npm run verify:archive
+          npm run build:mint-catalog
+          npm run verify:mint-catalog
+          npm run seal:releases
+          npm run verify:seals
+        env:
+          FP_RELEASE_SIGNING_KEY: ${{ secrets.FP_RELEASE_SIGNING_KEY }}
+
+      - name: Preserve a changed reflection
+        if: steps.candidate.outputs.admitted == 'true'
+        id: reflection
+        working-directory: FoldPortrait
+        run: |
+          if git diff --quiet -- Reflection Output/reflections Brand Mint; then
+            echo "The witnessed system is unchanged; no reflection was added."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          local_witness=$(node -e 'process.stdout.write(require("./Output/reflections/current.json").witnessDigest)')
+          git fetch origin main
+          base_revision=$(git rev-parse origin/main)
+          remote_witness=$(git show origin/main:Output/reflections/current.json | node -e 'let value=""; process.stdin.on("data", chunk => value += chunk); process.stdin.on("end", () => process.stdout.write(JSON.parse(value).witnessDigest))')
+          if [ "$local_witness" = "$remote_witness" ]; then
+            echo "Another reflection run already preserved this witnessed system state."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "$(git rev-parse HEAD)" != "$base_revision" ]; then
+            echo "FoldPortrait main advanced to a different witnessed state; the newer run supersedes this draft."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "foldportrait-reflection[bot]"
+          git config user.email "foldportrait-reflection[bot]@users.noreply.github.com"
+          git add Reflection Output/reflections Brand Mint
+          git commit -m "Add autonomous system reflection"
+          for attempt in 1 2 3 4; do
+            if git push origin HEAD:main; then
+              echo "changed=true" >> "$GITHUB_OUTPUT"
+              echo "revision=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            git fetch origin main
+            if [ "$(git rev-parse origin/main)" != "$base_revision" ]; then
+              echo "A newer reflection won the preservation race; this draft is safely superseded."
+              echo "changed=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Reflection push failed without a competing commit; retrying ${attempt}/4."
+          done
+          echo "Unable to preserve the reflection after four attempts."
+          exit 1
+
+      - name: Propagate the reflection to Telos
+        if: steps.candidate.outputs.admitted == 'true' && steps.reflection.outputs.changed == 'true'
+        env:
+          CONNECTED_SYSTEM_TOKEN: ${{ steps.connected-system-token.outputs.token }}
+          SOURCE_SHA: ${{ steps.reflection.outputs.revision }}
+        run: |
+          echo "$SOURCE_SHA" | grep -Eq '^[a-f0-9]{40}$'
+          occurred_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          telos_payload=$(jq -n \
+            --arg source_repository "zeropoet/FoldPortrait" \
+            --arg source_sha "$SOURCE_SHA" \
+            --arg change_class "relation" \
+            --arg summary "FoldPortrait preserved a new system reflection and render-lineage witness." \
+            --arg witness_url "https://foldportrait.zeropoet.xyz/" \
+            --arg occurred_at "$occurred_at" \
+            '{event_type:"telos-propagation",client_payload:{source_repository:$source_repository,source_sha:$source_sha,change_class:$change_class,summary:$summary,witness_url:$witness_url,occurred_at:$occurred_at}}')
+          curl --fail --silent --show-error \
+            --retry 4 --retry-all-errors --retry-delay 3 \
+            -X POST https://api.github.com/repos/zeropoet/Telos/dispatches \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $CONNECTED_SYSTEM_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "Content-Type: application/json" \
+            --data "$telos_payload"
