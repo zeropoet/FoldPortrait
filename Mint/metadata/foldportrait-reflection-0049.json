@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0049",
+  "description": "FP-REFLECT-0049 enters its fragmentation season through the mineral palette and presses aperture, palimpsest, and braid across 5 witnessed relations, forming a distinct silhouette from the public witness.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0049.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0049",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 101
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "569595879c90eee93d481b59e36f61a801bc5c12ed31c25aa6d4f7716a3ac261"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "fragmentation"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "mineral"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "b5a59793d14758846f0c96d9a58502d2d7050da61a960af030de01deab9f2cd8"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0049.png",
+    "file_sha256": "b5a59793d14758846f0c96d9a58502d2d7050da61a960af030de01deab9f2cd8"
+  },
+  "xrpl": null
+}
