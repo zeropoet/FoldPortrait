@@ -1,0 +1,241 @@
+import Testing
+@testable import FoldPortraitCore
+
+@Test func foldPortraitIssuesEvidenceWithoutInventingMoney() throws {
+    let receipt = try FoldPortraitValueReceiptProducer.issue(
+        eventID: "FP-REFLECT-0001",
+        artifactDigest: String(repeating: "a", count: 64),
+        periodStart: "2026-08-31",
+        periodEnd: "2026-08-31"
+    )
+    #expect(receipt.state == .evidenced)
+    #expect(receipt.sourceSystem == "foldportrait")
+    #expect(receipt.outputKind == "portrait_render")
+    #expect(receipt.monetaryCounterpartCents == nil)
+    #expect(receipt.transferable == false)
+}
+
+@Test func renderIsDeterministicForSeed() {
+    let renderer = PortraitRenderer()
+    let first = renderer.render(seed: "ada")
+    let second = renderer.render(seed: "ada")
+
+    #expect(first == second)
+}
+
+@Test func differentSeedsProduceDifferentHashes() {
+    let renderer = PortraitRenderer()
+    let first = renderer.render(seed: "ada")
+    let second = renderer.render(seed: "grace")
+
+    #expect(first.convergenceHashHex != second.convergenceHashHex)
+}
+
+@Test func iterationChangesSketchButPreservesIdentityHash() {
+    let renderer = PortraitRenderer()
+    let first = renderer.render(seed: "ada", iteration: 1)
+    let second = renderer.render(seed: "ada", iteration: 2)
+
+    #expect(first.convergenceHashHex == second.convergenceHashHex)
+    #expect(first.renderHashHex != second.renderHashHex)
+    #expect(first.parameters == second.parameters)
+    #expect(first.svg != second.svg)
+    #expect(first.svg.contains("abstract study v1"))
+    #expect(second.svg.contains("abstract study v2"))
+    #expect(second.artworkNotes.contains("Sketch iteration: v2"))
+    #expect(second.artworkNotes.contains("Render hash: \(second.renderHashHex)"))
+}
+
+@Test func revisionChangesSketchWithinSameAnchor() {
+    let renderer = PortraitRenderer()
+    let anchor = renderer.render(seed: "ada", iteration: 1, refinementDepth: 7)
+    let revision = renderer.render(seed: "ada", iteration: 1, revision: 2, refinementDepth: 7)
+
+    #expect(anchor.convergenceHashHex == revision.convergenceHashHex)
+    #expect(anchor.renderHashHex != revision.renderHashHex)
+    #expect(anchor.parameters == revision.parameters)
+    #expect(anchor.refinementDepth == revision.refinementDepth)
+    #expect(!anchor.svg.contains("data-layer=\"lineage-leap\""))
+    #expect(count("data-layer=\"lineage-leap\"", in: revision.svg) >= 18)
+    #expect(revision.svg.contains("data-portrait-version=\"v1.2\""))
+    #expect(revision.svg.contains("data-revision=\"2\""))
+    #expect(revision.svg.contains("abstract study v1.2"))
+    #expect(revision.artworkNotes.contains("Sketch iteration: v1.2"))
+}
+
+@Test func laterIterationsIncreaseVisualRefinement() {
+    let renderer = PortraitRenderer()
+    let early = renderer.render(seed: "ada", iteration: 1)
+    let later = renderer.render(seed: "ada", iteration: 6)
+
+    #expect(early.svg.contains("data-refinement-depth=\"1\""))
+    #expect(later.svg.contains("data-refinement-depth=\"6\""))
+    #expect(count("data-layer=\"fine-drawing\"", in: later.svg) > count("data-layer=\"fine-drawing\"", in: early.svg))
+    #expect(count("data-layer=\"gesture\"", in: later.svg) > count("data-layer=\"gesture\"", in: early.svg))
+    #expect(count("data-layer=\"color-field\"", in: later.svg) > count("data-layer=\"color-field\"", in: early.svg))
+    #expect(later.growth.age > early.growth.age)
+    #expect(count("data-layer=\"material-weathering\"", in: later.svg) > count("data-layer=\"material-weathering\"", in: early.svg))
+}
+
+@Test func renderProducesSvgPortrait() {
+    let result = PortraitRenderer().render(seed: "zero poet")
+
+    #expect(result.svg.contains("<svg"))
+    #expect(result.svg.contains("data-art-mode=\"structural-abstract\""))
+    #expect(result.svg.contains("data-convergence-hash=\"\(result.convergenceHashHex)\""))
+    #expect(result.svg.contains("data-render-hash=\"\(result.renderHashHex)\""))
+    #expect(result.svg.contains("data-memory-signature="))
+    #expect(result.svg.contains("data-permutation="))
+    #expect(result.svg.contains("data-active-force="))
+    #expect(result.svg.contains("memory-byte"))
+    #expect(result.svg.contains("fold-glyph"))
+    #expect(result.svg.contains("growth-ring"))
+    #expect(result.svg.contains("material-weathering"))
+    #expect(result.artworkNotes.contains("abstract constitutional identity"))
+    #expect(result.artworkNotes.contains("painting or drawing"))
+    #expect(result.artworkNotes.contains("Growth Climate"))
+    #expect(result.convergenceHashHex.count == 64)
+    #expect(result.renderHashHex.count == 64)
+}
+
+@Test func growthClimateChangesWithIteration() {
+    let renderer = PortraitRenderer()
+    let early = renderer.render(seed: "ada", iteration: 1)
+    let later = renderer.render(seed: "ada", iteration: 20)
+
+    #expect(early.convergenceHashHex == later.convergenceHashHex)
+    #expect(early.growth != later.growth)
+    #expect((0...1).contains(later.growth.compression))
+    #expect((0...1).contains(later.growth.torsion))
+    #expect((0...1).contains(later.growth.erosion))
+    #expect(later.svg.contains("data-growth-age=\"18\""))
+}
+
+@Test func renderExposesBoundedPortraitParameters() {
+    let parameters = PortraitRenderer().render(seed: "zero poet").parameters
+
+    #expect((0.84...1.16).contains(parameters.faceWidth))
+    #expect((-7...7).contains(parameters.headTilt))
+    #expect((0.05...0.45).contains(parameters.skinTexture))
+    #expect((0.20...0.56).contains(parameters.keyLightStrength))
+    #expect(parameters.reportLines.count == 6)
+    #expect(parameters.reportLines[0].contains("field width"))
+    #expect(parameters.reportLines[1].contains("paired interval"))
+}
+
+@Test func doctrinePreservesUserDirection() {
+    let doctrine = PortraitDoctrine.constitutionalRitual
+
+    #expect(doctrine.identityTone.contains("abstract portrait"))
+    #expect(doctrine.identityTone.contains("painterly"))
+    #expect(doctrine.identityTone.contains("gestural"))
+    #expect(doctrine.identityTone.contains("ritual"))
+    #expect(doctrine.subjectAnchor.contains("abstract constitutional identity"))
+    #expect(doctrine.aestheticConstraints.contains("no literal realism requirement"))
+    #expect(doctrine.aestheticConstraints.contains("no generic avatar beauty"))
+}
+
+@Test func systemReflectionChoosesBoundedCrossSourceVisualRelations() throws {
+    let witness = PortraitSystemWitness(
+        systemID: "test-system",
+        observedAt: "2026-08-09T00:00:00Z",
+        sources: [
+            PortraitWitnessSource(id: "foldkernel", revision: "a", role: "identity", measurements: [
+                PortraitWitnessMeasurement(id: "positions", label: "Positions", unit: "positions", value: 16),
+                PortraitWitnessMeasurement(id: "symmetries", label: "Symmetries", unit: "transforms", value: 8),
+            ]),
+            PortraitWitnessSource(id: "root-logos", revision: "b", role: "cultivation", measurements: [
+                PortraitWitnessMeasurement(id: "works", label: "Works", unit: "works", value: 54),
+                PortraitWitnessMeasurement(id: "cycles", label: "Cycles", unit: "cycles", value: 131),
+            ]),
+            PortraitWitnessSource(id: "telos", revision: "c", role: "operation", measurements: [
+                PortraitWitnessMeasurement(id: "campaigns", label: "Campaigns", unit: "campaigns", value: 9),
+                PortraitWitnessMeasurement(id: "threshold", label: "Threshold", unit: "subscribers", value: 200),
+            ]),
+        ],
+        boundaries: ["aggregate-public-measurements-only", "no-personal-data"]
+    )
+
+    let first = try SystemReflectionEngine().reflect(witness: witness)
+    let second = try SystemReflectionEngine().reflect(witness: witness)
+    #expect(first == second)
+    #expect(first.cycle.correlations.count >= 4)
+    #expect(first.cycle.correlations.allSatisfy { correlation in
+        let leftSource = correlation.left.split(separator: ".").first
+        let rightSource = correlation.right.split(separator: ".").first
+        return leftSource != rightSource && correlation.method == "structural-resonance"
+    })
+    #expect(first.svg.contains("data-art-mode=\"autonomous-system-self-portrait\""))
+    #expect(first.svg.contains("data-layer=\"system-reflection\""))
+    #expect(first.notes.contains("not statistical correlation"))
+}
+
+@Test func systemReflectionRejectsPrivateOrUnboundedWitnesses() {
+    let witness = PortraitSystemWitness(
+        systemID: "unsafe",
+        observedAt: "2026-08-09T00:00:00Z",
+        sources: [
+            PortraitWitnessSource(id: "orders", revision: "private", role: "private orders", measurements: [
+                PortraitWitnessMeasurement(id: "customer", label: "Customer", unit: "people", value: 1),
+            ]),
+        ],
+        boundaries: ["no-credentials"]
+    )
+
+    #expect(throws: SystemReflectionError.self) {
+        try SystemReflectionEngine().reflect(witness: witness)
+    }
+}
+
+@Test func postCalibrationReflectionsEnterDeterministicDiverseSeasons() throws {
+    func witness(_ sequence: Int) -> PortraitSystemWitness {
+        PortraitSystemWitness(
+            systemID: "learning-test",
+            observedAt: String(format: "2026-08-%02dT00:00:00Z", sequence),
+            sources: [
+                PortraitWitnessSource(id: "foldkernel", revision: "stable", role: "identity", measurements: [
+                    PortraitWitnessMeasurement(id: "positions", label: "Positions", unit: "positions", value: 16),
+                    PortraitWitnessMeasurement(id: "symmetries", label: "Symmetries", unit: "transforms", value: 8),
+                ]),
+                PortraitWitnessSource(id: "root-logos", revision: "r\(sequence)", role: "cultivation", measurements: [
+                    PortraitWitnessMeasurement(id: "works", label: "Works", unit: "works", value: Double(50 + sequence)),
+                    PortraitWitnessMeasurement(id: "cycles", label: "Cycles", unit: "cycles", value: Double(120 + sequence * 2)),
+                ]),
+                PortraitWitnessSource(id: "telos", revision: "t\(sequence)", role: "operation", measurements: [
+                    PortraitWitnessMeasurement(id: "campaigns", label: "Campaigns", unit: "campaigns", value: Double(5 + sequence % 4)),
+                    PortraitWitnessMeasurement(id: "threshold", label: "Threshold", unit: "subscribers", value: 200),
+                ]),
+            ],
+            boundaries: ["aggregate-public-measurements-only", "no-personal-data"]
+        )
+    }
+
+    let engine = SystemReflectionEngine()
+    var firstPass: [ReflectionCycle] = []
+    for sequence in 1...12 {
+        firstPass.append(try engine.reflect(witness: witness(sequence), priorCycles: firstPass).cycle)
+    }
+    var secondPass: [ReflectionCycle] = []
+    for sequence in 1...12 {
+        secondPass.append(try engine.reflect(witness: witness(sequence), priorCycles: secondPass).cycle)
+    }
+
+    #expect(firstPass == secondPass)
+    #expect(firstPass[5].compositionRegime == "calibration")
+    #expect(firstPass[6].compositionRegime == "learned-composition-v1")
+    #expect(firstPass[6].compositionSeason == "contraction")
+    #expect(firstPass[7].compositionSeason == "opening")
+    #expect(Set(firstPass.dropFirst(6).compactMap(\.paletteID)).count >= 3)
+    #expect(Set(firstPass.dropFirst(6).map { $0.correlations.count }).count >= 2)
+
+    let postCalibrationRelations = firstPass.dropFirst(6).map { cycle in
+        Set(cycle.correlations.map { [$0.left, $0.right].sorted().joined(separator: "|") })
+    }
+    #expect(zip(postCalibrationRelations, postCalibrationRelations.dropFirst()).allSatisfy { pair in
+        pair.0 != pair.1
+    })
+}
+
+private func count(_ needle: String, in haystack: String) -> Int {
+    haystack.components(separatedBy: needle).count - 1
+}
