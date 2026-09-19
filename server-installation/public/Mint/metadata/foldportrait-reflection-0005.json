@@ -1,0 +1,35 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0005",
+  "description": "FP-REFLECT-0005 opens veil, strata, and palimpsest across 7 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0005.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0005",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 57
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "7a28411a40e1e5c9537e72ef067959c6a04c4ef734a882d9e4772531c3155eb2"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "a7b6fa3853fac1ee59f1f3479c6d6288726bee0a3b5d529314ff4a13da7b0fdd"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0005.png",
+    "file_sha256": "a7b6fa3853fac1ee59f1f3479c6d6288726bee0a3b5d529314ff4a13da7b0fdd"
+  },
+  "xrpl": null
+}
