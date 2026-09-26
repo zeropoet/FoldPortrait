@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0042",
+  "description": "FP-REFLECT-0042 enters its contraction season through the mineral palette and presses palimpsest, strata, and counterfield across 4 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0042.png",
+    "mimeType": "image/png",
+    "sha256": "2216a645da6678c372675b8237f94b6d3d7c7b23a885dcd218c67a0f59e03b1c",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0042.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "48a1a9cdccc1cdfde199464ae2869c804b2f53726c6e404ffed5f7b7ce13f135"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0042",
+    "previousCycleID": "FP-REFLECT-0041",
+    "witnessDigest": "091ae37fda76264d476371be6dc889d064f9139e947074a8af58218e474415a7",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "81163a6dc000f712efd1d0e812214903088a61d9903a6b808d14f4e536fb13d0",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "contraction",
+    "paletteID": "mineral",
+    "changeMagnitude": 0
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}

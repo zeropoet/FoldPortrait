@@ -1,0 +1,927 @@
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+const LAYER_ORDER = [
+  "hash-rib",
+  "memory-spine",
+  "memory-byte",
+  "color-field",
+  "growth-ring",
+  "gesture",
+  "fold-aura",
+  "fold-glyph",
+  "fine-drawing",
+  "fold-notation",
+  "field-dust",
+  "material-weathering",
+  "lineage-leap",
+  "reflection-palimpsest",
+  "system-reflection",
+];
+
+const ANCHOR_COUNT = 12;
+
+const state = {
+  currentIteration: "",
+  latestIteration: "",
+  ledger: [],
+  reflectionEntries: [],
+  catalog: null,
+  sealLedger: null,
+  policy: null,
+  view: "latest",
+  backgroundColor: new THREE.Color(0xf3efe6),
+  navigationQueue: Promise.resolve(),
+  objects: [],
+  memoryBytes: [],
+  hashBytes: [],
+  permutation: [],
+};
+
+const canvas = document.querySelector("#topology-canvas");
+const stage = document.querySelector(".stage");
+const galleryButton = document.querySelector("#gallery-button");
+const latestButton = document.querySelector("#latest-button");
+const galleryClose = document.querySelector("#gallery-close");
+const galleryView = document.querySelector("#gallery-view");
+const galleryGrid = document.querySelector("#gallery-grid");
+const aboutButton = document.querySelector("#about-button");
+const aboutPanel = document.querySelector("#about-panel");
+const aboutClose = document.querySelector("#about-close");
+const editionCurrent = document.querySelector("#edition-current");
+const editionCeiling = document.querySelector("#edition-ceiling");
+const editionRemaining = document.querySelector("#edition-remaining");
+const archiveCount = document.querySelector("#archive-count");
+const workEra = document.querySelector("#work-era");
+const workTitle = document.querySelector("#work-title");
+const workDescription = document.querySelector("#work-description");
+const workStatus = document.querySelector("#work-status");
+const workVerify = document.querySelector("#work-verify");
+const readoutIteration = document.querySelector("#readout-iteration");
+const readoutCount = document.querySelector("#readout-count");
+const readoutHash = document.querySelector("#readout-hash");
+const readoutReflection = document.querySelector("#readout-reflection");
+const previousWork = document.querySelector("#previous-work");
+const nextWork = document.querySelector("#next-work");
+const mobileMedia = window.matchMedia("(max-width: 720px), (pointer: coarse)");
+const reducedMotionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
+const sessionVersion = String(Date.now());
+
+const scene = new THREE.Scene();
+scene.background = state.backgroundColor.clone();
+scene.fog = new THREE.Fog(state.backgroundColor, 1180, 3100);
+
+const camera = new THREE.PerspectiveCamera(42, 1, 1, 5200);
+camera.position.set(0, -380, 1580);
+
+const renderer = new THREE.WebGLRenderer({
+  canvas,
+  antialias: !mobileMedia.matches,
+  alpha: false,
+  preserveDrawingBuffer: false,
+});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobileMedia.matches ? 1.25 : 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.055;
+controls.enablePan = false;
+controls.autoRotate = !mobileMedia.matches && !reducedMotionMedia.matches;
+controls.autoRotateSpeed = 0.18;
+controls.minDistance = 620;
+controls.maxDistance = 2600;
+
+const topologyRoot = new THREE.Group();
+topologyRoot.rotation.x = -0.22;
+scene.add(topologyRoot);
+
+const keyLight = new THREE.DirectionalLight(0xfffbef, 2.1);
+keyLight.position.set(-430, -760, 920);
+scene.add(keyLight);
+scene.add(new THREE.AmbientLight(0xf2ecdf, 1.85));
+
+window.FoldPortraitTopology = { samplePixels };
+
+init().catch((error) => {
+  console.error(error);
+  readoutIteration.textContent = "load failed";
+  readoutCount.textContent = error.message;
+});
+
+async function init() {
+  galleryButton.addEventListener("click", showGallery);
+  latestButton.addEventListener("click", openLatest);
+  galleryClose.addEventListener("click", openLatest);
+  aboutButton.addEventListener("click", () => { aboutPanel.hidden = false; });
+  aboutClose.addEventListener("click", () => { aboutPanel.hidden = true; });
+  previousWork.addEventListener("click", () => queueAdjacentEntry(-1));
+  nextWork.addEventListener("click", () => queueAdjacentEntry(1));
+  window.addEventListener("keydown", handleKeyboardNavigation);
+  await Promise.all([loadLedger(), loadReflectionArchive(), loadCollectionState()]);
+  await openFromLocation();
+  resize();
+  window.addEventListener("resize", resize);
+  window.addEventListener("hashchange", openFromLocation);
+  animate();
+}
+
+async function loadCollectionState() {
+  const [catalog, sealLedger, policy] = await Promise.all([
+    fetchJson(versionedUrl("../Mint/catalog.json", true)),
+    fetchJson(versionedUrl("../Mint/seal-ledger.json", true)),
+    fetchJson(versionedUrl("../Mint/collection-policy.json", true)),
+  ]);
+  state.catalog = catalog;
+  state.sealLedger = sealLedger;
+  state.policy = policy;
+  const ceiling = policy.declaration.canonical_supply_ceiling;
+  editionCurrent.textContent = String(catalog.work_count).padStart(3, "0");
+  editionCeiling.textContent = String(ceiling);
+  const remaining = ceiling - catalog.work_count;
+  editionRemaining.textContent = remaining === 0
+    ? "complete · sealed"
+    : `${remaining} possible admissions remain`;
+  archiveCount.textContent = String(catalog.work_count).padStart(3, "0");
+}
+
+async function loadLatest(options = {}) {
+  const latest = await loadCurrentReflection() || (await loadLedger()).at(-1);
+  if (!latest) {
+    return;
+  }
+
+  state.latestIteration = latest.iteration;
+  if (state.view !== "latest" && !options.force) {
+    if (!galleryView.hidden) renderGallery();
+    return;
+  }
+
+  if (!options.force && latest.iteration === state.currentIteration) {
+    if (!galleryView.hidden) renderGallery();
+    return;
+  }
+
+  await loadEntry(latest);
+  state.view = "latest";
+  hideGallery();
+  if (!galleryView.hidden) renderGallery();
+}
+
+async function loadCurrentReflection() {
+  try {
+    const current = await fetchJson(versionedUrl("../Output/reflections/current.json", true));
+    return {
+      ...current,
+      iteration: current.cycleID || current.iteration,
+      refinementDepth: Math.min(18, 12 + Number(current.sequence || 1)),
+      structuralIdentity: {},
+      growthClimate: {},
+      isReflection: true,
+    };
+  } catch {
+    return null;
+  }
+}
+
+async function loadReflectionArchive() {
+  const archive = await fetchJson(versionedUrl("../Output/reflections/archive.json", true));
+  const era = archive.eras.find(({ id }) => id === "autonomous-system-reflection");
+  state.reflectionEntries = (era?.cycles || []).map((entry) => ({
+    ...entry,
+    iteration: entry.cycleID,
+    svgPath: entry.svg.path,
+    pngPath: entry.png.path,
+    convergenceHash: entry.foldKernelIdentity,
+    isReflection: true,
+  }));
+  return state.reflectionEntries;
+}
+
+async function openFromLocation() {
+  const route = decodeURIComponent(window.location.hash.slice(1));
+  if (route === "archive") {
+    await loadLatest({ force: true });
+    showGallery({ updateRoute: false });
+    return;
+  }
+  const entry = [...state.ledger, ...state.reflectionEntries].find((candidate) => {
+    const era = candidate.isReflection ? 2 : 1;
+    const artifactID = artifactIDForEntry(candidate);
+    return route === `era-1/${candidate.iteration}`
+      || route === `era-2/${candidate.cycleID}`
+      || (artifactID && route === `era-${era}/${artifactID}`);
+  });
+  if (entry) {
+    await openGalleryEntry(entry, { updateRoute: false });
+    return;
+  }
+  await loadLatest({ force: true });
+}
+
+async function fetchJson(url) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Unable to load ${url}`);
+  }
+  return response.json();
+}
+
+async function loadLedger() {
+  const ledger = await fetchJson(versionedUrl("../Output/iterations/evolution.json", true));
+  state.ledger = ledger
+    .map((entry) => ({ ...entry, version: versionFromEntry(entry) }))
+    .sort(compareEntries);
+  return state.ledger;
+}
+
+async function loadEntry(entry) {
+  const svgPath = outputPath(entry.svgPath);
+  const response = await fetch(versionedUrl(svgPath));
+  if (!response.ok) {
+    throw new Error(`Unable to load ${svgPath}`);
+  }
+
+  const svgText = await response.text();
+  const svg = new DOMParser().parseFromString(svgText, "image/svg+xml").documentElement;
+  applyBackgroundColor(backgroundFillFrom(svg));
+  state.memoryBytes = hexBytes(entry.memorySignature);
+  state.hashBytes = hexBytes(entry.convergenceHash);
+  state.permutation = (svg.getAttribute("data-permutation") || "")
+    .split("-")
+    .map((value) => Number(value))
+    .filter(Number.isFinite);
+
+  const shapes = extractShapes(svg);
+  buildTopology(shapes, entry);
+  arrangeByFoldKernel(entry);
+  state.currentIteration = entry.iteration;
+
+  readoutIteration.textContent = entry.cycleID || entry.iteration;
+  readoutCount.textContent = `${shapes.length} forms`;
+  readoutHash.textContent = (entry.renderHash || entry.convergenceHash).slice(0, 16);
+  readoutReflection.textContent = entry.isReflection
+    ? `${entry.correlationCount} relations / ${entry.chosenRules.length} rules`
+    : "sealed first era";
+  updateWorkCaption(entry);
+  updateWorkNavigation();
+}
+
+function updateWorkCaption(entry) {
+  if (!state.catalog) return;
+  const artifactID = artifactIDForEntry(entry);
+  const work = state.catalog.works.find((candidate) => candidate.artifact_id === artifactID);
+  if (!work) return;
+  const seal = state.sealLedger?.entries.find((candidate) => candidate.artifact_id === artifactID);
+  workEra.textContent = `${work.era === 1 ? "Era I · Sealed lineage" : "Era II · Autonomous reflection"} · Work ${String(work.sequence).padStart(3, "0")}`;
+  workTitle.textContent = work.title;
+  workDescription.textContent = work.description;
+  workStatus.textContent = seal ? "Signed release" : "Proof pending";
+  workVerify.href = seal ? `../Mint/seals/${encodeURIComponent(artifactID)}.json` : "../Mint/seal-ledger.json";
+}
+
+function artifactIDForEntry(entry) {
+  if (!state.catalog || !entry) return null;
+  if (entry.isReflection) {
+    return `foldportrait-reflection-${String(entry.sequence).padStart(4, "0")}`;
+  }
+  const sourceName = entry.pngPath?.split("/").at(-1);
+  return state.catalog.works.find((work) =>
+    work.era === 1 && (
+      (sourceName && work.source_file.endsWith(sourceName))
+      || work.artifact_id.startsWith(`foldportrait-${entry.iteration}-`)
+    )
+  )?.artifact_id || null;
+}
+
+function backgroundFillFrom(svg) {
+  const background = [...svg.children].find((node) => {
+    const tag = node.tagName.toLowerCase();
+    const fill = node.getAttribute("fill");
+    return tag === "rect" && fill && fill !== "none" && !node.hasAttribute("data-layer");
+  });
+  return background?.getAttribute("fill") || "#f3efe6";
+}
+
+function applyBackgroundColor(fill) {
+  const color = new THREE.Color(fill);
+  state.backgroundColor = color;
+  scene.background = color.clone();
+  scene.fog.color.copy(color);
+  document.documentElement.style.setProperty("--paper", fill);
+  document.body.dataset.paperColor = fill;
+}
+
+function showGallery(options = {}) {
+  state.view = "gallery";
+  stage.classList.add("gallery-open");
+  galleryView.hidden = false;
+  galleryButton.setAttribute("aria-pressed", "true");
+  latestButton.setAttribute("aria-pressed", "false");
+  renderGallery();
+  if (options.updateRoute !== false) history.replaceState(null, "", "#archive");
+}
+
+function hideGallery() {
+  stage.classList.remove("gallery-open");
+  galleryView.hidden = true;
+  galleryButton.setAttribute("aria-pressed", "false");
+  latestButton.setAttribute("aria-pressed", state.view === "latest" ? "true" : "false");
+}
+
+async function openLatest() {
+  history.replaceState(null, "", window.location.pathname + window.location.search);
+  await loadLatest({ force: true });
+}
+
+async function openGalleryEntry(entry, options = {}) {
+  await loadEntry(entry);
+  state.view = entry.iteration === state.latestIteration ? "latest" : "iteration";
+  hideGallery();
+  if (options.updateRoute !== false) {
+    const era = entry.isReflection ? 2 : 1;
+    history.replaceState(null, "", `#era-${era}/${encodeURIComponent(entry.iteration)}`);
+  }
+}
+
+function handleKeyboardNavigation(event) {
+  if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
+    return;
+  }
+
+  if (event.key === "ArrowLeft") {
+    event.preventDefault();
+    queueAdjacentEntry(-1);
+  }
+
+  if (event.key === "ArrowRight") {
+    event.preventDefault();
+    queueAdjacentEntry(1);
+  }
+}
+
+function queueAdjacentEntry(step) {
+  state.navigationQueue = state.navigationQueue
+    .catch(() => {})
+    .then(() => openAdjacentEntry(step));
+}
+
+function updateWorkNavigation() {
+  const entries = [...state.ledger, ...state.reflectionEntries];
+  const index = entries.findIndex((entry) => entry.iteration === state.currentIteration);
+  previousWork.disabled = index <= 0;
+  nextWork.disabled = index < 0 || index >= entries.length - 1;
+}
+
+async function openAdjacentEntry(step) {
+  if (state.ledger.length === 0) {
+    await loadLedger();
+  }
+
+  const navigationEntries = [...state.ledger, ...state.reflectionEntries];
+  const currentIndex = Math.max(
+    0,
+    navigationEntries.findIndex((entry) => entry.iteration === state.currentIteration),
+  );
+  const nextIndex = THREE.MathUtils.clamp(currentIndex + step, 0, navigationEntries.length - 1);
+  const entry = navigationEntries[nextIndex];
+  if (!entry || entry.iteration === state.currentIteration) {
+    return;
+  }
+
+  await openGalleryEntry(entry);
+}
+
+function renderGallery() {
+  if (galleryView.hidden) return;
+  if (state.ledger.length === 0) {
+    galleryGrid.replaceChildren();
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+  fragment.append(eraHeader("Era I", "Sealed Portrait Lineage", `${state.ledger.length} portraits / 12 anchors`));
+  const groups = lineageGroups();
+
+  groups.forEach((group) => {
+    const row = document.createElement("article");
+    row.className = "lineage-row";
+
+    const header = document.createElement("header");
+    header.className = "lineage-header";
+    const eyebrow = document.createElement("span");
+    eyebrow.className = "label";
+    eyebrow.textContent = "Anchor";
+    const title = document.createElement("strong");
+    title.textContent = String(group.anchor).padStart(2, "0");
+    const count = document.createElement("span");
+    count.className = "lineage-count";
+    count.textContent = `${group.entries.length} ${group.entries.length === 1 ? "state" : "states"}`;
+    header.append(eyebrow, title, count);
+
+    const rail = document.createElement("div");
+    rail.className = "lineage-rail";
+    group.entries.forEach((entry) => {
+      rail.append(galleryCard(entry));
+    });
+
+    row.append(header, rail);
+    fragment.append(row);
+  });
+
+  fragment.append(eraHeader("Era II", "Autonomous System Reflection", `${state.reflectionEntries.length} admitted reflections · closes at 56`));
+  const reflectionRow = document.createElement("article");
+  reflectionRow.className = "lineage-row reflection-lineage";
+  const reflectionHeader = document.createElement("header");
+  reflectionHeader.className = "lineage-header";
+  reflectionHeader.innerHTML = '<span class="label">Closing arc</span><strong>56</strong><span class="lineage-count">selective admission · finite</span>';
+  const reflectionRail = document.createElement("div");
+  reflectionRail.className = "lineage-rail";
+  state.reflectionEntries.forEach((entry) => reflectionRail.append(reflectionCard(entry)));
+  reflectionRow.append(reflectionHeader, reflectionRail);
+  fragment.append(reflectionRow);
+
+  galleryGrid.replaceChildren(fragment);
+}
+
+function eraHeader(label, title, detail) {
+  const header = document.createElement("header");
+  header.className = "era-header";
+  header.innerHTML = `<span class="label">${label}</span><strong>${title}</strong><span>${detail}</span>`;
+  return header;
+}
+
+function reflectionCard(entry) {
+  const card = galleryCard({ ...entry, version: { anchor: 0, revision: Math.max(2, entry.sequence) } });
+  card.classList.add("reflection-card");
+  const detail = card.querySelector(".gallery-meta span");
+  detail.textContent = `${entry.previousCycleID || "origin"} → ${entry.cycleID} · PNG ready`;
+  return card;
+}
+
+function lineageGroups() {
+  const groups = new Map();
+  for (let anchor = 1; anchor <= ANCHOR_COUNT; anchor += 1) {
+    groups.set(anchor, []);
+  }
+
+  state.ledger.forEach((entry) => {
+    const anchor = entry.version.anchor;
+    if (!groups.has(anchor)) {
+      groups.set(anchor, []);
+    }
+    groups.get(anchor).push(entry);
+  });
+
+  return [...groups.entries()]
+    .filter(([, entries]) => entries.length > 0)
+    .map(([anchor, entries]) => ({
+      anchor,
+      entries: entries.slice().sort((a, b) => a.version.revision - b.version.revision),
+    }))
+    .sort((a, b) => a.anchor - b.anchor);
+}
+
+function galleryCard(entry) {
+  const card = document.createElement("button");
+  const hash = (entry.renderHash || entry.convergenceHash || "").slice(0, 16);
+  const isCurrent = entry.iteration === state.currentIteration;
+  card.className = entry.version.revision === 1 ? "gallery-card anchor-card" : "gallery-card revision-card";
+  card.type = "button";
+  card.setAttribute("aria-current", String(isCurrent));
+  card.setAttribute("aria-label", `Open ${entry.iteration}`);
+  card.addEventListener("click", () => openGalleryEntry(entry));
+
+  const figure = document.createElement("figure");
+  const image = document.createElement("img");
+  image.src = versionedUrl(outputPath(entry.pngPath || entry.svgPath));
+  image.alt = `${entry.iteration} render`;
+  image.loading = "lazy";
+  figure.append(image);
+
+  const meta = document.createElement("div");
+  meta.className = "gallery-meta";
+  const title = document.createElement("strong");
+  title.textContent = entry.iteration === state.latestIteration ? `${entry.iteration} current` : entry.iteration;
+  const detail = document.createElement("span");
+  detail.textContent =
+    entry.version.revision === 1 ? `${hash} anchor` : `${hash} pass ${entry.version.revision}`;
+  meta.append(title, detail);
+
+  card.append(figure, meta);
+  return card;
+}
+
+function versionFromEntry(entry) {
+  const match = /^v(\d+)(?:\.(\d+))?$/.exec(String(entry.iteration || ""));
+  const anchor = Number(entry.sourceIteration || match?.[1] || 0);
+  const revision = Number(entry.revision || match?.[2] || 1);
+  return {
+    anchor: Number.isFinite(anchor) && anchor > 0 ? anchor : 1,
+    revision: Number.isFinite(revision) && revision > 0 ? revision : 1,
+  };
+}
+
+function compareEntries(first, second) {
+  return (
+    first.version.revision - second.version.revision ||
+    first.version.anchor - second.version.anchor ||
+    first.iteration.localeCompare(second.iteration)
+  );
+}
+
+function versionedUrl(path, fresh = false) {
+  const url = new URL(path, window.location.href);
+  if (fresh) url.searchParams.set("cache", sessionVersion);
+  return url;
+}
+
+function outputPath(path) {
+  const marker = path.indexOf("Output/");
+  return marker >= 0 ? `../${path.slice(marker)}` : path;
+}
+
+function extractShapes(svg) {
+  const nodes = [...svg.querySelectorAll("[data-layer]")];
+  const probe = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  probe.setAttribute("width", "1200");
+  probe.setAttribute("height", "1600");
+  probe.style.cssText = "position:absolute;left:-9999px;top:-9999px;width:1200px;height:1600px;";
+  document.body.appendChild(probe);
+
+  const shapes = nodes
+    .map((node, index) => shapeFromNode(node, index, probe))
+    .filter(Boolean);
+
+  probe.remove();
+  return shapes;
+}
+
+function shapeFromNode(node, index, probe) {
+  const layer = node.getAttribute("data-layer") || "unlayered";
+  const tag = node.tagName.toLowerCase();
+  const fill = node.getAttribute("fill");
+  const stroke = node.getAttribute("stroke");
+  const opacity = Number(node.getAttribute("opacity") || 1);
+  const color = colorFrom(fill && fill !== "none" ? fill : stroke, layer);
+  const rotation = rotationFromTransform(node.getAttribute("transform"));
+  const layerIndex = Math.max(0, LAYER_ORDER.indexOf(layer));
+
+  if (tag === "rect") {
+    const x = numberAttr(node, "x");
+    const y = numberAttr(node, "y");
+    const width = Math.max(1, numberAttr(node, "width"));
+    const height = Math.max(1, numberAttr(node, "height"));
+    return {
+      index,
+      layer,
+      layerIndex,
+      kind: "rect",
+      color,
+      opacity,
+      rotation,
+      x: x + width / 2,
+      y: y + height / 2,
+      width,
+      height,
+    };
+  }
+
+  if (tag === "ellipse" || tag === "circle") {
+    const radius = tag === "circle" ? numberAttr(node, "r") : 1;
+    return {
+      index,
+      layer,
+      layerIndex,
+      kind: "ellipse",
+      color,
+      opacity,
+      rotation,
+      x: numberAttr(node, "cx"),
+      y: numberAttr(node, "cy"),
+      width: tag === "circle" ? radius * 2 : numberAttr(node, "rx") * 2,
+      height: tag === "circle" ? radius * 2 : numberAttr(node, "ry") * 2,
+    };
+  }
+
+  if (tag === "path") {
+    const clone = node.cloneNode(true);
+    probe.appendChild(clone);
+    const points = samplePath(clone);
+    clone.remove();
+    if (points.length < 2) {
+      return null;
+    }
+
+    const bounds = boundsFor(points);
+    return {
+      index,
+      layer,
+      layerIndex,
+      kind: "path",
+      color,
+      opacity,
+      rotation,
+      x: bounds.x + bounds.width / 2,
+      y: bounds.y + bounds.height / 2,
+      width: bounds.width,
+      height: bounds.height,
+      points,
+      strokeWidth: Number(node.getAttribute("stroke-width") || 2),
+    };
+  }
+
+  return null;
+}
+
+function buildTopology(shapes, entry) {
+  disposeTopology();
+  state.objects = shapes.map((shape) => {
+    const object = createObject(shape);
+    object.userData.shape = shape;
+    object.userData.entry = entry;
+    object.userData.phase = hashPhase(entry.convergenceHash, shape.index);
+    topologyRoot.add(object);
+    return object;
+  });
+}
+
+function disposeTopology() {
+  topologyRoot.children.forEach((object) => {
+    object.geometry?.dispose?.();
+    object.material?.dispose?.();
+  });
+  topologyRoot.clear();
+}
+
+function createObject(shape) {
+  const opacity = Math.min(0.9, Math.max(0.11, shape.opacity));
+  const materialOptions = {
+    color: shape.color,
+    transparent: true,
+    opacity,
+    depthWrite: false,
+    side: THREE.DoubleSide,
+  };
+
+  if (shape.kind === "rect") {
+    const depth = 4 + structuralByte(shape.index, 3) % 22;
+    const geometry = new THREE.BoxGeometry(shape.width, shape.height, depth);
+    const mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial(materialOptions));
+    mesh.rotation.z = shape.rotation;
+    return mesh;
+  }
+
+  if (shape.kind === "ellipse") {
+    const geometry = new THREE.CircleGeometry(0.5, 56);
+    const mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial(materialOptions));
+    mesh.scale.set(shape.width, shape.height, 1);
+    mesh.rotation.z = shape.rotation;
+    return mesh;
+  }
+
+  const points = shape.points.map(
+    (point) => new THREE.Vector3(point.x - shape.x, shape.y - point.y, 0),
+  );
+  const radius = Math.max(0.9, Math.min(22, shape.strokeWidth * 0.55));
+  const tubularSegments = Math.max(8, Math.min(96, points.length * 2));
+  const radialSegments = shape.strokeWidth >= 8 ? 8 : 5;
+  const curve = new THREE.CatmullRomCurve3(points, false, "centripetal", 0.45);
+  const geometry = new THREE.TubeGeometry(curve, tubularSegments, radius, radialSegments, false);
+  const mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial(materialOptions));
+  mesh.userData.strokeRadius = radius;
+  return mesh;
+}
+
+function arrangeByFoldKernel(entry) {
+  const refinement = Number(entry.refinementDepth || 1);
+  const identity = entry.structuralIdentity || {};
+  const growth = entry.growthClimate || {};
+  const compression = Number(growth.compression || 0);
+  const torsion = Number(growth.torsion || 0);
+  const shear = Number(growth.shear || 0);
+  const bloom = Number(growth.bloom || 0);
+  const erosion = Number(growth.erosion || 0);
+  const sediment = Number(growth.sediment || 0);
+  const fiberMemory = Number(growth.fiberMemory || 0);
+
+  state.objects.forEach((object) => {
+    const shape = object.userData.shape;
+    const center = centered(shape.x, shape.y);
+    const base = svgPointToVector(shape.x, shape.y, 0);
+    const memory = structuralByte(shape.index, shape.layerIndex);
+    const hash = hashByte(shape.index, shape.layerIndex * 5);
+    const nextHash = hashByte(shape.index, shape.layerIndex * 11 + 7);
+    const permutation = permutationValue(shape.index);
+    const topologyPull = (permutation - 8.5) / 8.5;
+    const memoryPull = (memory - 8) / 8;
+    const hashPull = (hash - 127.5) / 127.5;
+    const fieldPressure = Number(identity.fieldWidthPressure || 1);
+    const verticalPressure = Number(identity.verticalFieldPressure || 1);
+    const axisTilt = THREE.MathUtils.degToRad(Number(identity.axisTilt || 0));
+    const layerPhase = (shape.layerIndex + 1) / LAYER_ORDER.length;
+    const orbit = (shape.index / Math.max(1, state.objects.length)) * Math.PI * 2 + topologyPull;
+    const layerSpiral = Math.sin(orbit * permutation * 0.125);
+    const forceSpiral = Math.sin(orbit + torsion * Math.PI * 2) * (90 * torsion);
+    const weatherLift = (shape.layer === "material-weathering" ? 1 : 0) * (80 + erosion * 220);
+    const growthLift = (shape.layer === "growth-ring" ? 1 : 0) * (120 + bloom * 240);
+    const reflectionLift = (shape.layer === "system-reflection" ? 1 : 0) * (180 + layerPhase * 220);
+
+    const x =
+      base.x * fieldPressure +
+      Math.cos(orbit) * (38 + refinement * 4) * topologyPull +
+      center.y * 34 * memoryPull +
+      forceSpiral * shear * 0.45;
+    const y =
+      base.y * verticalPressure +
+      Math.sin(orbit * 1.7) * (46 + refinement * 3) * hashPull -
+      center.x * 26 * topologyPull -
+      compression * center.y * 85;
+    const z =
+      hashPull * 360 +
+      memoryPull * 190 +
+      topologyPull * 260 +
+      layerSpiral * 120 +
+      (nextHash / 255 - 0.5) * refinement * 18 +
+      weatherLift +
+      growthLift +
+      reflectionLift +
+      sediment * layerPhase * 180;
+
+    object.userData.target = new THREE.Vector3(x, y, z);
+    object.userData.drift = new THREE.Vector3(
+      Math.sin(orbit) * (1 + layerPhase * 8 + shear * 8),
+      Math.cos(orbit * 1.3) * (1 + layerPhase * 6 + bloom * 7),
+      5 + refinement * 0.8 + Math.abs(memoryPull) * 16 + fiberMemory * 12,
+    );
+    object.position.copy(object.userData.target);
+    object.rotation.x = topologyPull * 0.18 + axisTilt * 0.2 + compression * 0.08;
+    object.rotation.y = memoryPull * 0.22 + torsion * 0.14;
+  });
+
+  if (!mobileMedia.matches) requestAnimationFrame(updatePixelMetrics);
+}
+
+function resize() {
+  const { clientWidth, clientHeight } = canvas.parentElement;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobileMedia.matches ? 1.25 : 2));
+  renderer.setSize(clientWidth, clientHeight, false);
+  camera.aspect = clientWidth / Math.max(1, clientHeight);
+  camera.updateProjectionMatrix();
+}
+
+function animate(time = 0) {
+  requestAnimationFrame(animate);
+
+  if (document.hidden || state.view === "gallery") return;
+
+  const motionScale = reducedMotionMedia.matches ? 0 : mobileMedia.matches ? 0.28 : 1;
+  topologyRoot.rotation.z = Math.sin(time * 0.00009) * 0.025 * motionScale;
+  topologyRoot.rotation.y = Math.sin(time * 0.00007) * 0.045 * motionScale;
+
+  state.objects.forEach((object) => {
+    const phase = object.userData.phase;
+    const target = object.userData.target || object.position;
+    const drift = object.userData.drift || new THREE.Vector3();
+    object.position.set(
+      target.x + Math.sin(time * 0.00034 + phase) * drift.x * motionScale,
+      target.y + Math.cos(time * 0.00029 + phase) * drift.y * motionScale,
+      target.z + Math.sin(time * 0.00052 + phase) * drift.z * motionScale,
+    );
+  });
+
+  controls.update();
+  renderer.render(scene, camera);
+}
+
+function updatePixelMetrics() {
+  const sample = samplePixels();
+  document.body.dataset.pixelWidth = String(sample.width);
+  document.body.dataset.pixelHeight = String(sample.height);
+  document.body.dataset.pixelUnique = String(sample.unique);
+  document.body.dataset.pixelNonPaper = String(sample.nonPaper);
+}
+
+function samplePixels() {
+  renderer.render(scene, camera);
+  const gl = renderer.getContext();
+  const width = gl.drawingBufferWidth;
+  const height = gl.drawingBufferHeight;
+  const pixels = new Uint8Array(width * height * 4);
+  gl.readPixels(0, 0, width, height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+  let nonPaper = 0;
+  const unique = new Set();
+  const paper = state.backgroundColor;
+  const paperRed = Math.round(paper.r * 255);
+  const paperGreen = Math.round(paper.g * 255);
+  const paperBlue = Math.round(paper.b * 255);
+  for (let index = 0; index < pixels.length; index += 16) {
+    const red = pixels[index];
+    const green = pixels[index + 1];
+    const blue = pixels[index + 2];
+    unique.add(`${red},${green},${blue}`);
+    if (Math.abs(red - paperRed) + Math.abs(green - paperGreen) + Math.abs(blue - paperBlue) > 24) {
+      nonPaper += 1;
+    }
+  }
+  return { width, height, sampled: pixels.length / 16, nonPaper, unique: unique.size };
+}
+
+function samplePath(path) {
+  const length = path.getTotalLength();
+  const steps = Math.min(180, Math.max(8, Math.ceil(length / 18)));
+  return Array.from({ length: steps + 1 }, (_, step) => {
+    const point = path.getPointAtLength((length * step) / steps);
+    return { x: point.x, y: point.y };
+  });
+}
+
+function boundsFor(points) {
+  const xs = points.map((point) => point.x);
+  const ys = points.map((point) => point.y);
+  const minX = Math.min(...xs);
+  const minY = Math.min(...ys);
+  const maxX = Math.max(...xs);
+  const maxY = Math.max(...ys);
+  return {
+    x: minX,
+    y: minY,
+    width: maxX - minX,
+    height: maxY - minY,
+  };
+}
+
+function svgPointToVector(x, y, z) {
+  return new THREE.Vector3(x - 600, 800 - y, z);
+}
+
+function centered(x, y) {
+  return {
+    x: (x - 600) / 600,
+    y: (800 - y) / 800,
+  };
+}
+
+function numberAttr(node, name) {
+  return Number(node.getAttribute(name) || 0);
+}
+
+function rotationFromTransform(value) {
+  const match = /rotate\(([-\d.]+)/.exec(value || "");
+  return match ? THREE.MathUtils.degToRad(Number(match[1])) : 0;
+}
+
+function colorFrom(value, layer) {
+  if (value && /^#[\da-f]{3,6}$/i.test(value)) {
+    return new THREE.Color(value);
+  }
+
+  const palette = {
+    "hash-rib": 0x17202a,
+    "memory-spine": 0x356d85,
+    "memory-byte": 0x6a93da,
+    "color-field": 0x8d3f4f,
+    gesture: 0x17202a,
+    "fold-aura": 0x6b5b95,
+    "fold-glyph": 0x6730be,
+    "fine-drawing": 0x17202a,
+    "fold-notation": 0x293241,
+    "field-dust": 0x17202a,
+    "lineage-leap": 0x8d3f4f,
+  };
+  return new THREE.Color(palette[layer] || 0x17202a);
+}
+
+function hexBytes(hex) {
+  return String(hex || "")
+    .match(/.{1,2}/g)
+    ?.map((pair) => Number.parseInt(pair, 16))
+    .filter(Number.isFinite) || [];
+}
+
+function structuralByte(index, salt = 0) {
+  if (state.memoryBytes.length === 0) {
+    return 0;
+  }
+  return state.memoryBytes[(index + salt) % state.memoryBytes.length];
+}
+
+function hashByte(index, salt = 0) {
+  if (state.hashBytes.length === 0) {
+    return 0;
+  }
+  return state.hashBytes[(index * 3 + salt) % state.hashBytes.length];
+}
+
+function permutationValue(index) {
+  if (state.permutation.length === 0) {
+    return 1;
+  }
+  return state.permutation[index % state.permutation.length];
+}
+
+function hashPhase(hash, index) {
+  const offset = (index * 2) % Math.max(2, hash.length - 2);
+  const pair = hash.slice(offset, offset + 2);
+  return (Number.parseInt(pair || "0", 16) / 255) * Math.PI * 2;
+}
