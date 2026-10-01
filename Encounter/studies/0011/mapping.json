@@ -1,0 +1,29 @@
+{
+  "schema": "foldportrait-vessel-instrument-mapping/v1",
+  "study": "FP-ENCOUNTER-STUDY-0011",
+  "primary_source_study": "FP-ENCOUNTER-STUDY-0010",
+  "source_range": "The current contiguous Sovereign Standard vessel range, beginning with unit 0",
+  "states_per_vessel": 64,
+  "construction": "Study 0010 remains intact. Study 0011 removes the six camera presets and locks its room rules as a reusable instrument. Selecting a vessel replaces only the canonical 64-state path; the same depth, entered-room, open-edge, glass-frontier, scaffold, point, light, and orbit rules are recomputed without per-vessel tuning.",
+  "invariants": [
+    "every vessel contributes exactly its canonical 64 ordered sigil positions",
+    "depth remains the mean row of the incoming canonical swap",
+    "the Study 0010 room, edge, face, scaffold, point, material, and light rules",
+    "one rigid upward presentation rotation per selected path",
+    "manual orbit and automatic rotation change only the camera",
+    "saved sigils are private Studio records and do not issue, mint, or alter a vessel"
+  ],
+  "controls": {
+    "vessel": "load any sigil in the current snapshotted vessel range",
+    "saved": "load a sigil previously saved by the Studio steward",
+    "save": "persist the selected vessel and its visibility switches as a private Studio working record",
+    "lines": "show or hide frontier-safe entered-room edges",
+    "sides": "show or hide transparent frontier faces",
+    "red_line": "show or hide the selected canonical path",
+    "red_dot": "show or hide its final point",
+    "scaffold": "show or hide all 300 edges of the 4 by 4 by 4 room field",
+    "unconnected_points": "show or hide lattice points touching no entered room",
+    "rotate": "turn automatic camera rotation on or off",
+    "orbit": "drag freely through a full 360-degree inspection"
+  }
+}
