@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0031",
+  "description": "FP-REFLECT-0031 enters its drift season through the mineral palette and gathers strata, aperture, and sediment across 5 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0031.png",
+    "mimeType": "image/png",
+    "sha256": "b672328b7b3ef03b89b18e1f7a0a1efd4deaf773cf32dd72db16068e2d4e7db0",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0031.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "87315782f2e6ae31a058534718784bdb164b680c55848039b108647bcb8b30b5"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0031",
+    "previousCycleID": "FP-REFLECT-0030",
+    "witnessDigest": "9894da14902dd782a43c5f03a3daebcdacad065e9ccf529a22f3fd92d50cb6a3",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "9c099d650509f9950fb3861319e489de95b6bc26b139b9f251e2119d01761103",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "drift",
+    "paletteID": "mineral",
+    "changeMagnitude": 0
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}
