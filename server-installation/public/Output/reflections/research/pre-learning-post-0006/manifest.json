@@ -1,0 +1,150 @@
+{
+  "canonicalThrough" : "FP-REFLECT-0006",
+  "purpose" : "Preserves the displaced deterministic surfaces used to diagnose compositional saturation before learned-composition-v1.",
+  "records" : [
+    {
+      "cycleID" : "FP-REFLECT-0007",
+      "files" : [
+        "cycles\/FP-REFLECT-0007.json",
+        "foldportrait-reflection-0007.svg",
+        "foldportrait-reflection-0007.notes.md"
+      ],
+      "renderHash" : "f314ca4a2a7253e16609b2f9b6554dc549e9f9b4cefa9bf0a16658db174c495d",
+      "witnessDigest" : "c4370a6bd6c854514604e36b170d5838d0748e3e9089628169790faace900bfb"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0008",
+      "files" : [
+        "cycles\/FP-REFLECT-0008.json",
+        "foldportrait-reflection-0008.svg",
+        "foldportrait-reflection-0008.notes.md"
+      ],
+      "renderHash" : "01e0edd3a92d81dcbfcac5f65ab6998136fe8c69d98b06c9e180703afa069d6f",
+      "witnessDigest" : "650e9a7bc01f87ed022fe3cd888534d87e6eab2b6d0fb3895f877e38e6afbfbd"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0009",
+      "files" : [
+        "cycles\/FP-REFLECT-0009.json",
+        "foldportrait-reflection-0009.svg",
+        "foldportrait-reflection-0009.notes.md"
+      ],
+      "renderHash" : "3851918ae68a983560ee287f61528b9b2365c339eba41e48111af87f4d544d73",
+      "witnessDigest" : "f21ec363ad816e3a42c1380cdba61bc31720298d7ca8ce3c54ff8f5bb9718e08"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0010",
+      "files" : [
+        "cycles\/FP-REFLECT-0010.json",
+        "foldportrait-reflection-0010.svg",
+        "foldportrait-reflection-0010.notes.md"
+      ],
+      "renderHash" : "f8d214ae816ea6e5ab0fd1b68b26f2279760ede5c023ec2ff00ae50bf0de57e3",
+      "witnessDigest" : "f5c5758a55550406ae0b726cc3d121ab78510c01b85c3959c2a1418e26fa9b22"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0011",
+      "files" : [
+        "cycles\/FP-REFLECT-0011.json",
+        "foldportrait-reflection-0011.svg",
+        "foldportrait-reflection-0011.notes.md"
+      ],
+      "renderHash" : "bb69706acbdf1268227d15f6844f5559f63fc44fadbc9beb47076b5d562dc548",
+      "witnessDigest" : "2fdabd7fa7993c77a8e42a7d819f56580390011f08591cfc9074f9329e3714e6"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0012",
+      "files" : [
+        "cycles\/FP-REFLECT-0012.json",
+        "foldportrait-reflection-0012.svg",
+        "foldportrait-reflection-0012.notes.md"
+      ],
+      "renderHash" : "f03d43f0521d9b039199d395fa9c3aa5c9220dc1a468dd86178f85d83cedcda3",
+      "witnessDigest" : "4d2ccd6e9076f57e299dc60cdb2b1930aba4953f4379d081c9fd58267c8bfdc7"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0013",
+      "files" : [
+        "cycles\/FP-REFLECT-0013.json",
+        "foldportrait-reflection-0013.svg",
+        "foldportrait-reflection-0013.notes.md"
+      ],
+      "renderHash" : "fbd1612228b86bba10f796ca77d8edd7b85e6823c232027ce069f179a29db131",
+      "witnessDigest" : "3531e2858691c4b846f4a63c72e1e4d7c4b33215af274d444febca16780cc660"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0014",
+      "files" : [
+        "cycles\/FP-REFLECT-0014.json",
+        "foldportrait-reflection-0014.svg",
+        "foldportrait-reflection-0014.notes.md"
+      ],
+      "renderHash" : "b97df353ece794d627b10aef912dd4477e61f2db67984e930140ef77fc09ee31",
+      "witnessDigest" : "6abf6e6db09ffb104c6736622d6dff7ac8ec8064e9b0d7c4e768342b2529ed1a"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0015",
+      "files" : [
+        "cycles\/FP-REFLECT-0015.json",
+        "foldportrait-reflection-0015.svg",
+        "foldportrait-reflection-0015.notes.md"
+      ],
+      "renderHash" : "0d793735620b5a19fd3bffe6dc0dd4a3fcc8d70fe4567c9a90d11a656922d665",
+      "witnessDigest" : "e7b6d6ea4dcb9326a447253fa873010efb116a1e2e76b3ccc6ee0f8c5f3ae5d8"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0016",
+      "files" : [
+        "cycles\/FP-REFLECT-0016.json",
+        "foldportrait-reflection-0016.svg",
+        "foldportrait-reflection-0016.notes.md"
+      ],
+      "renderHash" : "50ff129167ee064abf18be8e1df96df7e22be8397f4b6524972891839e7997d2",
+      "witnessDigest" : "8d5adf7bf9ced44eb3b6363b940f905b6ebef8bd56292a494d902762a6f30df2"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0017",
+      "files" : [
+        "cycles\/FP-REFLECT-0017.json",
+        "foldportrait-reflection-0017.svg",
+        "foldportrait-reflection-0017.notes.md"
+      ],
+      "renderHash" : "2bb18f8de2bfd227702c43b9be58b7eb88cf2d47680eaeb3f138dcbc45f5c41f",
+      "witnessDigest" : "245445a968c9ad78c334b55bf264ecd366511b786dce64c9b30926d236443d5b"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0018",
+      "files" : [
+        "cycles\/FP-REFLECT-0018.json",
+        "foldportrait-reflection-0018.svg",
+        "foldportrait-reflection-0018.notes.md"
+      ],
+      "renderHash" : "c909352cbdff207216708e7277b1d6d4301a1d97eba81c4b70d6083798598ee2",
+      "witnessDigest" : "d436fd675b3f1395b8bf38bbbf609618a0034cbcf1ff0bd2a51bb6b072f7680a"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0019",
+      "files" : [
+        "cycles\/FP-REFLECT-0019.json",
+        "foldportrait-reflection-0019.svg",
+        "foldportrait-reflection-0019.notes.md"
+      ],
+      "renderHash" : "b9e8c3165e590d4ac2557ec3b56d0391aaa32b22b752c411918ae108772c1cc9",
+      "witnessDigest" : "45c97c126f8829c7c21c2cc86399a0f98e652a268678235593d6a311e5a70203"
+    },
+    {
+      "cycleID" : "FP-REFLECT-0020",
+      "files" : [
+        "cycles\/FP-REFLECT-0020.json",
+        "foldportrait-reflection-0020.svg",
+        "foldportrait-reflection-0020.notes.md"
+      ],
+      "renderHash" : "301e3ef8ffb0e01981171454c08defd55ab8f23d8804bc1b88d39f0d42d31a3d",
+      "witnessDigest" : "eded277bcdeb9737f3c8e12bd63372032026dcba11f4bbc4fb6b660f826c67b7"
+    }
+  ],
+  "recovery" : "The SVG, notes, and cycle records are sufficient to reproduce flattened PNG and unsigned mint candidates.",
+  "replayBoundary" : 6,
+  "schema" : "foldportrait-composition-research-checkpoint\/v1",
+  "title" : "Pre-learning post-0006 reflections"
+}
