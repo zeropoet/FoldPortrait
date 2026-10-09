@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FoldPortrait — A line of coherence</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"../../../Web/vendor/three/three.module.js","three/addons/":"../../../Web/vendor/three/addons/"}}</script>
+</head>
+<body>
+  <header><a href="../0001/study.png">FP / CONDITIONS OF ENCOUNTER</a><span>STUDY 0002 · UNISSUED</span></header>
+  <main>
+    <div class="intro"><p class="eyebrow">ONE BODY, DIFFERENT RELATIONS</p><h1>A line of coherence</h1><p>The view folds and unfolds.<br>The body holds its form.</p></div>
+    <div id="stage"><canvas aria-label="Rotatable spatial study of 32 dark ribs and a red memory path" tabindex="0"></canvas></div>
+    <aside><span class="eyebrow" id="view-name">VOICE</span><p id="view-note" aria-live="polite">The red continuity gathers the ribs into an upright phrase.</p></aside>
+    <div class="controls" aria-label="View controls">
+      <button data-view="voice" aria-pressed="true">01 / Voice</button>
+      <button data-view="interval" aria-pressed="false">02 / Interval</button>
+      <button data-view="end" aria-pressed="false">03 / End-on</button>
+      <button id="turn" aria-pressed="false">Slow turn</button>
+    </div>
+  </main>
+  <footer><span>Drag to turn · Scroll or pinch to approach · Arrow keys to rotate</span><span>32 ribs / one memory path / fixed geometry</span></footer>
+  <p id="error" role="alert" hidden></p>
+  <script type="module" src="./study.js"></script>
+</body>
+</html>
