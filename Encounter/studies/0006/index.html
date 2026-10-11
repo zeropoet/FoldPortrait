@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoldPortrait — The hard path, given wings</title>
+<link rel="stylesheet" href="../0002/style.css">
+<style>
+  .controls{flex-wrap:wrap;justify-content:center;max-width:95%;width:760px}.transport{position:absolute;left:36px;bottom:98px;z-index:1;width:270px;font:11px monospace}input{width:100%;accent-color:#a05237;margin-top:14px}aside{bottom:108px;max-width:280px}.intro{max-width:370px}.motion-key{display:block;margin-top:8px;color:#a05237}@media(max-width:700px){.transport{left:18px;bottom:118px;width:190px}aside{display:none}.controls{bottom:15px}}
+</style>
+<script type="importmap">{"imports":{"three":"../../../Web/vendor/three/three.module.js","three/addons/":"../../../Web/vendor/three/addons/"}}</script></head>
+<body><header><a href="../0005/">FP / CONDITIONS OF ENCOUNTER</a><span>STUDY 0006 · UNISSUED</span></header>
+<main><div class="intro"><p class="eyebrow">FIXED FLIGHT</p><h1>The hard path, given wings</h1><p>Sixty-four positions remain exact.<br>Only the passage between them eases.</p></div>
+<div id="stage"><canvas tabindex="0" aria-label="A butterfly moving upward along the exact inherited 64-state path"></canvas></div>
+<aside><span class="eyebrow">ONE STEP / ONE EASE</span><p id="motion">State 1. The butterfly is fixed to the inherited path.</p><span class="motion-key" id="motion-key">wing pose 1 / no inserted states</span></aside>
+<div class="transport"><label for="step">State <output id="count">1 / 64</output></label><input id="step" type="range" min="1" max="64" value="1"><button id="play" aria-pressed="false">Fly sequence</button></div>
+<div class="controls"><button data-view="rise" aria-pressed="true">Upward path</button><button data-view="side" aria-pressed="false">Side relation</button><button id="trace" aria-pressed="true">Full path</button><button id="cube" aria-pressed="true">Cube</button><button id="turn" aria-pressed="false">Rotate cube</button></div></main>
+<footer><span>Drag to orbit · The cube may turn; the path does not change</span><span>SS unit 0 / 64 states / 63 eased transitions</span></footer><p id="error" role="alert" hidden></p>
+<script type="module" src="./study.js?v=0006.1"></script></body></html>
