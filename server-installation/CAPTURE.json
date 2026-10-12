@@ -1,0 +1,17 @@
+{
+  "authority": "Installed server source/public releases; repository root retains the source baseline. Private runtime data is excluded.",
+  "captures": [
+    {
+      "source": "/opt/telos-studio/releases/22202180ed966b03b8aaae07d93044e73ae34aa8/foldportrait",
+      "destination": "jobs",
+      "files": 4,
+      "sha256": "d8ca1dad55d396c0c4c259a1684e245c8382791e0282c6951b27447d19ea0cf8"
+    },
+    {
+      "source": "/var/lib/telos-studio/foldportrait/release-reqsvd2v/public",
+      "destination": "public",
+      "files": 719,
+      "sha256": "5f894ff5e95d8ef24559694635a25efe56205582df11b10ea7da3d78605d4d9b"
+    }
+  ]
+}
