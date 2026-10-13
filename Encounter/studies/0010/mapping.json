@@ -1,0 +1,26 @@
+{
+  "schema": "foldportrait-room-instrument-mapping/v1",
+  "study": "FP-ENCOUNTER-STUDY-0010",
+  "primary_source_study": "FP-ENCOUNTER-STUDY-0009",
+  "source_vessel": "SS unit 0",
+  "states": 64,
+  "construction": "Study 0009 remains intact. Study 0010 holds its final state as an inspectable room instrument: entered-room lines, frontier sides, the inherited red path, the complete 64-room scaffold, six fixed views, automatic rotation, and unrestricted manual orbit can each be inspected without changing the geometry.",
+  "invariants": [
+    "the inherited 64-state path and final entered-room set",
+    "the Study 0009 open-edge and frontier-face rules",
+    "one rigid upward presentation rotation",
+    "all toggles change visibility or shader contribution only",
+    "all six quick views and manual orbit change only the camera"
+  ],
+  "controls": {
+    "lines": "show or hide the final frontier-safe entered-room edges",
+    "sides": "show or hide the final transparent frontier faces",
+    "red_line": "show or hide the complete inherited 64-state path",
+    "red_dot": "show or hide the smaller Study 0009 point at the final inherited path position",
+    "views": "front, back, left, right, top, and bottom",
+    "rotate": "turn automatic camera rotation on or off",
+    "scaffold": "show or hide all 300 unit edges belonging to the complete 4 by 4 by 4 room field; the ghost line remains visibly subordinate but present",
+    "unconnected_points": "show or hide lattice points whose neighboring rooms are all unselected, so none of those points touches an entered room",
+    "orbit": "drag freely through a full 360-degree inspection"
+  }
+}
