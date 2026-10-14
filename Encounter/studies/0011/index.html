@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoldPortrait — The vessel range instrument</title>
+<link rel="stylesheet" href="../0002/style.css">
+<style>
+  .intro{max-width:450px}.controls{flex-wrap:wrap;justify-content:center;max-width:96%;width:1320px;gap:6px}.controls .group{display:flex;align-items:center;gap:6px;padding-right:8px;border-right:1px solid #bbb8af}.controls .group:last-child{border-right:0;padding-right:0}.picker{display:flex;align-items:center;gap:5px;font:11px/1.2 monospace;text-transform:uppercase;letter-spacing:.05em}.picker select{max-width:160px;border:1px solid #aaa69d;background:#f7f5ef;color:#171a19;padding:6px}.save-status{min-width:84px;font:10px/1.2 monospace;color:#616762}aside{bottom:104px;max-width:370px}.structure-key{display:block;margin-top:8px;color:#171a19}@media(max-width:1100px){.controls{width:96%;bottom:14px}.controls .group{border-right:0;padding-right:0}aside{display:none}.save-status{display:none}}
+</style>
+<script type="importmap">{"imports":{"three":"../../../Web/vendor/three/three.module.js","three/addons/":"../../../Web/vendor/three/addons/"}}</script></head>
+<body><header><a href="../0010/">FP / CONDITIONS OF ENCOUNTER</a><span>STUDY 0011 · UNISSUED</span></header>
+<main><div class="intro"><p class="eyebrow">VESSEL RANGE INSTRUMENT</p><h1>Any sigil, one grammar</h1><p>The instrument is fixed.<br>The selected vessel supplies the path.</p></div>
+<div id="stage"><canvas tabindex="0" aria-label="A selectable Sovereign Standard sigil resolved through the locked FoldPortrait room instrument"></canvas></div>
+<aside><span class="eyebrow" id="vessel-label">SS VESSEL 0</span><p>One canonical 64-state sigil resolves through the same room grammar.</p><span class="structure-key" id="structure-key"></span></aside>
+<div class="controls"><span class="group" aria-label="Vessel selection"><label class="picker" for="vessel">Vessel <select id="vessel"></select></label><label class="picker" for="saved">Saved <select id="saved"><option value="">Choose saved</option></select></label><button id="save">Save sigil</button><span class="save-status" id="save-status" role="status"></span></span><span class="group" aria-label="Visible elements"><button id="lines" aria-pressed="true">Lines: on</button><button id="sides" aria-pressed="true">Sides: on</button><button id="red-line" aria-pressed="true">Red line: on</button><button id="red-dot" aria-pressed="true">Red dot: on</button><button id="scaffold" aria-pressed="false">64-room scaffold: off</button><button id="unconnected" aria-pressed="false">Unconnected points: off</button></span><span class="group"><button id="rotate" aria-pressed="false">Rotate: off</button></span></div></main>
+<footer><span>Drag freely to orbit · rotate on/off</span><span id="source-key">SS vessel 0 / 64 states / locked room grammar</span></footer><p id="error" role="alert" hidden></p>
+<script type="module" src="./study.js?v=0011"></script></body></html>
