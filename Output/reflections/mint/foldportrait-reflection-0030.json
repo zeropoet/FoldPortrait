@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0030",
+  "description": "FP-REFLECT-0030 enters its recombination season through the ember palette and presses strata, counterfield, and palimpsest across 7 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0030.png",
+    "mimeType": "image/png",
+    "sha256": "ee5ebc0bbbc63f4b0f297c751b6effb36efb8f2f25ee93acd5b54d75fb6b5d47",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0030.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "546407b6fd7dd4a131ca16554c5acfc7b3f77b6d04c633f02d1ff0fe237e7ef9"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0030",
+    "previousCycleID": "FP-REFLECT-0029",
+    "witnessDigest": "33cff68d4c2fd600f0babfb0547030cc0b5cf8fb0c41b0e30bf0a11942e057a9",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "464c32a2d7b95efed99f9a22012ce590491156bb4eee8c168050266fff417568",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "recombination",
+    "paletteID": "ember",
+    "changeMagnitude": 0.220513
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}
