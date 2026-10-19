@@ -1,0 +1,45 @@
+{
+  "schema": "foldportrait-encounter-study/v1",
+  "id": "FP-ENCOUNTER-STUDY-0001",
+  "status": "research-unissued",
+  "title": "Conditions of Encounter",
+  "selection": "authored-comparison; no autonomous selection",
+  "inheritedIdentity": {
+    "sourcePath": "Output/reflections/current.json",
+    "sourceSHA256": "9b8c8cd5a74477eed234e2b031a51aa2e55a678f1bbd22a245fec0bd41ffb7f1",
+    "cycleID": "FP-REFLECT-0056",
+    "convergenceHash": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "memorySignature": "010701090e100c020508030a0b0d0f040602150304"
+  },
+  "renderer": {
+    "path": "Scripts/study-encounter.js",
+    "sha256": "bf357add8016b8951026838e3842e6ee8963c3b98c431980c53868a7db91c4f3"
+  },
+  "positions": [
+    {
+      "name": "Invitation",
+      "scale": 0.72,
+      "aperture": 440,
+      "pressure": 1.5,
+      "reason": "Leave room for approach; expose the full body."
+    },
+    {
+      "name": "Reserve",
+      "scale": 0.9,
+      "aperture": 126,
+      "pressure": 1.5,
+      "reason": "Retain the body while limiting how much can be seen at once."
+    },
+    {
+      "name": "Insistence",
+      "scale": 1.64,
+      "aperture": 440,
+      "pressure": 3.2,
+      "reason": "Bring the body close enough to exceed the field."
+    }
+  ],
+  "artifacts": {
+    "study.svg": "29138e1a705c7dfbf63cb7a255362b0c2ee651f084dc15f4cbeea5bfc4f7c79f",
+    "study.png": "bdff3e76b46bdcf5b4de7011b6c4e3c97d5eea902bf03a02b0cd77b1cae51d41"
+  }
+}
