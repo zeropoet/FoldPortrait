@@ -1,0 +1,12 @@
+{
+  "schema": "foldportrait-spatial-mapping/v1",
+  "status": "restored-first-cube-mapping",
+  "source": "SS vessel 0; trace.json",
+  "principle": "Preserve the SS 2D path through 3D space. Extend in depth without replacing its silhouette.",
+  "x": "(SS sigil x - 0.5) * 6",
+  "y": "(0.5 - SS sigil y) * 6",
+  "z": "(mean incoming swapped row - 1.5) * 2; initial state depth 0",
+  "sequence": "64 states connected by 63 transitions",
+  "displayBalance": "None. Original scale and placement restored.",
+  "supersedes": "Swap-position X/Y, canonical-distance depth, and equal-weight centroid compression."
+}

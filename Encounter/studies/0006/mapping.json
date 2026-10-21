@@ -1,0 +1,30 @@
+{
+  "schema": "foldportrait-fixed-flight-mapping/v1",
+  "study": "FP-ENCOUNTER-STUDY-0006",
+  "source_study": "FP-ENCOUNTER-STUDY-0003",
+  "direction_source": "Studio direction on study 0005, refined in Codex",
+  "source_vessel": "SS unit 0",
+  "states": 64,
+  "transitions": 63,
+  "construction": "The inherited path is rotated as one rigid presentation so its endpoint direction reads upward. A butterfly is fixed to the path, its body aligned to each transition and its wings lateral to that body. Each original state carries exactly one alternating wing pose. Position and wing angle use the same ease-in/ease-out interpolation between adjacent states.",
+  "invariants": [
+    "the 64 source coordinates and their order",
+    "the 63 straight path segments",
+    "one wing pose per original state",
+    "no drift and no inserted path or wing states",
+    "rigid cube and path distances under presentation rotation"
+  ],
+  "changes": [
+    "continuous progress within the selected original transition",
+    "ease-in/ease-out position along that straight segment",
+    "ease-in/ease-out wing angle between its two endpoint poses",
+    "camera orbit and optional cube rotation"
+  ],
+  "motion_contract": {
+    "position": "smoothstep(t) on the current inherited straight segment",
+    "wings": "smoothstep(t) between the two wing poses attached to the segment's source states",
+    "added_states": 0,
+    "drift": 0
+  },
+  "limits": "This is a kinematic reading of the deterministic path, not a biological flight simulation."
+}
