@@ -1,0 +1,37 @@
+{
+  "name": "foldportrait-archive",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "study:encounter": "node Scripts/study-encounter.js",
+    "verify:encounter": "node Scripts/study-encounter.js --verify",
+    "verify:encounter-space": "node Scripts/verify-encounter-space.js",
+    "verify:encounter-cube": "node Scripts/verify-encounter-cube.js",
+    "verify:encounter-fold": "node Scripts/verify-encounter-fold.js",
+    "verify:encounter-threshold": "node Scripts/verify-encounter-threshold.js",
+    "verify:encounter-flight": "node Scripts/verify-encounter-flight.js",
+    "verify:encounter-spine": "node Scripts/verify-encounter-spine.js",
+    "verify:encounter-open-rooms": "node Scripts/verify-encounter-open-rooms.js",
+    "verify:encounter-frontier-glass": "node Scripts/verify-encounter-frontier-glass.js",
+    "verify:encounter-room-instrument": "node Scripts/verify-encounter-room-instrument.js",
+    "build:encounter-vessel-range": "node Scripts/build-encounter-vessel-range.js",
+    "verify:encounter-vessel-range": "node Scripts/build-encounter-vessel-range.js --verify && node Scripts/verify-encounter-vessel-instrument.js",
+    "verify:encounter-final-mark": "node Scripts/build-encounter-vessel-range.js --verify && node Scripts/verify-encounter-final-mark.js",
+    "verify:encounter-inevitable-step": "node Scripts/build-encounter-vessel-range.js --verify && node Scripts/verify-encounter-inevitable-step.js",
+    "build:encounter-piece": "node Scripts/build-encounter-piece.js",
+    "verify:encounter-piece": "node Scripts/build-encounter-piece.js --verify && node Scripts/verify-encounter-piece.js",
+    "archive": "node Scripts/archive-reflections.js",
+    "verify:archive": "node Scripts/archive-reflections.js --verify",
+    "verify:reflection-diversity": "node Scripts/verify-reflection-diversity.js",
+    "build:mint-catalog": "node Scripts/build-mint-catalog.js",
+    "sync:mint-results": "node Scripts/sync-mint-results.js",
+    "verify:mint-catalog": "node Scripts/build-mint-catalog.js --verify",
+    "seal:releases": "node Scripts/seal-releases.js",
+    "verify:seals": "node Scripts/seal-releases.js --verify",
+    "evaluate:admission": "node Scripts/evaluate-reflection-admission.js",
+    "test": "node --check Web/app.js && node --check Scripts/sync-system-witness.js && node --check Scripts/verify-reflection-diversity.js && node --check Scripts/evaluate-reflection-admission.js && node --check Scripts/seal-releases.js && npm run verify:archive && npm run verify:mint-catalog && npm run verify:reflection-diversity && npm run verify:seals"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2"
+  }
+}
