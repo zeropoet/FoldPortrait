@@ -1,0 +1,48 @@
+{
+  "schema": "foldportrait-release-seal/v1",
+  "algorithm": "Ed25519",
+  "payload_sha256": "28ffb0fc7920bc4f0eccee49225cdd09c7859e9f7bf977e4d37bcfb24d4159d6",
+  "signature": "ckaK0LqAMdvp0BCDnpmDlWu/1RVIaK1kwcMnlBARLjeB9z8HQ+ZLd1UXzDGLXbpcVDzFfYpx1oQH0U7fgdknDA==",
+  "payload": {
+    "schema": "foldportrait-sealed-release/v1",
+    "authority": "FoldPortrait Release Authority",
+    "authority_key_sha256": "98ab90b3d0eec1e119bfc5ab49af917f970af625bb077d4f80f86da2ba110736",
+    "collection": "FoldPortrait",
+    "edition": {
+      "designation": "unique",
+      "size": 1,
+      "number": 1
+    },
+    "sequence": 62,
+    "era": 2,
+    "artifact_id": "foldportrait-reflection-0010",
+    "title": "FoldPortrait FP-REFLECT-0010",
+    "description": "FP-REFLECT-0010 enters its recombination season through the orchid palette and balances counterfield, strata, and veil across 7 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0010.png",
+    "source_sha256": "3312f69f74dabcf7dee07eb8c782bdda1a15ff26a32f6cb8e9801fff5f05a383",
+    "byte_size": 3422030,
+    "metadata_uri": "https://zeropoet.github.io/FoldPortrait/Mint/metadata/foldportrait-reflection-0010.json",
+    "metadata_core_sha256": "4df24a99716b2f4b8a4fbac509492f03468419182dae0dcc0adfd1c5212a9615",
+    "lineage": {
+      "cycle_id": "FP-REFLECT-0010",
+      "previous_cycle_id": "FP-REFLECT-0009",
+      "witness_digest": "f5c5758a55550406ae0b726cc3d121ab78510c01b85c3959c2a1418e26fa9b22",
+      "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+      "render_hash": "86db34e81d717bc18b76dc24716756628ca87bd202cd4c28d6a7f766a523e42f",
+      "source_svg_sha256": "fc40c29e74b279878d86f951eda6c45e97da73894faef92067a0f5c4a8b1bae5",
+      "composition_regime": "learned-composition-v1",
+      "composition_season": "recombination",
+      "palette_id": "orchid"
+    },
+    "previous_seal_sha256": "c158aedb56f12591f6f11876ccde6c36393ca6532d1f0cc923ff701e4c91e071",
+    "scarcity_policy": {
+      "edition_size": 1,
+      "release_model": "open-ended append-only collection",
+      "artifact_identity": "one artifact ID, one immutable byte identity, one sequence position",
+      "replacement": "forbidden",
+      "reissue": "forbidden",
+      "sequence_reuse": "forbidden",
+      "future_releases": "new works may append; prior sealed releases may not change"
+    }
+  }
+}
