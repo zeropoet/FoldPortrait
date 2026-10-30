@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0033",
+  "description": "FP-REFLECT-0033 enters its opening season through the ember palette and folds palimpsest, aperture, and braid across 6 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0033.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0033",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 85
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "bc511f413a27626f879766435438114c1bc2e1c99ad79939ad664c52fcef86f4"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "opening"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "ember"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "c607f0219b7b00b67f40bdd96b3d4274f560683109bbd620bff47e791e4a49e0"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0033.png",
+    "file_sha256": "c607f0219b7b00b67f40bdd96b3d4274f560683109bbd620bff47e791e4a49e0"
+  },
+  "xrpl": null
+}
