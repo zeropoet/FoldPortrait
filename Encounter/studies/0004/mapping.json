@@ -1,0 +1,21 @@
+{
+  "schema": "foldportrait-axial-fold-mapping/v1",
+  "study": "FP-ENCOUNTER-STUDY-0004",
+  "source_study": "FP-ENCOUNTER-STUDY-0003",
+  "source_vessel": "SS unit 0",
+  "states": 64,
+  "transitions": 63,
+  "construction": "The inherited X/Y sigil projection is divided by one selected FP axis. Each half-plane rotates rigidly from 0 to 90 degrees toward positive Z.",
+  "invariants": [
+    "state order",
+    "transition count",
+    "coordinates along the selected hinge",
+    "distance between points that occupy the same half-plane"
+  ],
+  "changes": [
+    "distance between points on opposite sides of the hinge",
+    "projected extent perpendicular to the hinge",
+    "depth away from the hinge"
+  ],
+  "limits": "This is a reversible geometric study, not a material simulation. It folds one axis at a time and does not claim that the SS protocol itself folds."
+}
