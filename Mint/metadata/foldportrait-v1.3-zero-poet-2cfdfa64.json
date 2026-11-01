@@ -1,0 +1,40 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait v1.3",
+  "description": "FoldPortrait v1.3, from the completed zero poet archive. This XRPL Witness draft preserves the PNG render, convergence hash 2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c, and render hash 4f308913c2dd11ad348aaae4843dfed000365f98be552c6bbdb72c2a729b7d33.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/png/foldportrait-v1.3-zero-poet-2cfdfa64.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-1/foldportrait-v1.3-zero-poet-2cfdfa64",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "First Era"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 25
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "687b497225a738caffd58b556aa2d962f33e3746f0bf8f27f6c4ae8980c86899"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/png/foldportrait-v1.3-zero-poet-2cfdfa64.png",
+    "file_sha256": "687b497225a738caffd58b556aa2d962f33e3746f0bf8f27f6c4ae8980c86899"
+  },
+  "xrpl": {
+    "network": "MAINNET",
+    "witness_wallet": "rfYiNfgLefTAZGfEyun1EjG68mTtC75vDe",
+    "transaction_type": "NFTokenMint",
+    "transaction_hash": null,
+    "nftoken_id": null,
+    "payload_uuid": null,
+    "transaction_result": null,
+    "validated": false
+  }
+}
