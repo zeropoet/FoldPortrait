@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoldPortrait — The path computes the room</title>
+<link rel="stylesheet" href="../0002/style.css">
+<style>
+  .controls{flex-wrap:wrap;justify-content:center;max-width:95%;width:880px}.transport{position:absolute;left:36px;bottom:98px;z-index:1;width:255px;font:11px monospace}.fold-control{margin-top:20px}input{width:100%;accent-color:#a05237;margin-top:14px}aside{bottom:108px;max-width:285px}.intro{max-width:360px}#event{min-height:4.2em;color:#68706a}.event-key{display:block;margin-top:8px;color:#a05237}@media(max-width:700px){.transport{left:18px;bottom:160px;width:180px}aside{display:none}.controls{bottom:15px}}
+</style>
+<script type="importmap">{"imports":{"three":"../../../Web/vendor/three/three.module.js","three/addons/":"../../../Web/vendor/three/addons/"}}</script></head>
+<body><header><a href="../0004/">FP / CONDITIONS OF ENCOUNTER</a><span>STUDY 0005 · UNISSUED</span></header>
+<main><div class="intro"><p class="eyebrow">LOCAL THRESHOLDS</p><h1>The path computes the room</h1><p>One invariant journey.<br>Every crossing makes a hinge.</p></div>
+<div id="stage"><canvas tabindex="0" aria-label="A red path activating local room thresholds through 64 inherited states"></canvas></div>
+<aside><span class="eyebrow">INSPECTABLE EVENT</span><p id="event">State 64 completes the inherited path.</p><span class="event-key" id="event-key">Awaiting a local threshold</span></aside>
+<div class="transport"><label for="step">State <output id="count">64 / 64</output></label><input id="step" type="range" min="1" max="64" value="64"><button id="play" aria-pressed="false">Pulse sequence</button><div class="fold-control"><label for="fold">Local fold <output id="fold-value">62%</output></label><input id="fold" type="range" min="0" max="100" value="62"><span>Open threshold ↔ Folded relation</span></div></div>
+<div class="controls"><button data-view="field" aria-pressed="true">Topology</button><button data-view="path" aria-pressed="false">Path</button><button data-view="local" aria-pressed="false">Local frame</button><button id="history" aria-pressed="true">Threshold history</button><button id="rooms" aria-pressed="true">Visited rooms</button><button id="turn" aria-pressed="false">Slow turn</button></div></main>
+<footer><span>Drag to orbit · Every fold belongs to a crossed room boundary</span><span>SS unit 0 / 64 states / deterministic event stream</span></footer><p id="error" role="alert" hidden></p>
+<script type="module" src="./study.js?v=0005.1"></script></body></html>

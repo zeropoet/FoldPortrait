@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0038",
+  "description": "FP-REFLECT-0038 enters its opening season through the tidal palette and balances aperture, veil, and braid across 6 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0038.png",
+    "mimeType": "image/png",
+    "sha256": "e594e8bf8b45e39a8ef1f012b1471605c6a14b52578c90adce835e62e7a53bfa",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0038.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "a597d3de585011b8cf92e14c1ce1a08038eb8c6358ab7e9c6b5c339e71e5c655"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0038",
+    "previousCycleID": "FP-REFLECT-0037",
+    "witnessDigest": "6f4e68a61050394ecec371aafc9a5eee75c565e8249546ec3fc90cffc892afdd",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "021ddac7b93ba0c0a22425885d2717fd8671ed671a74b98b3809e9907621f9a3",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "opening",
+    "paletteID": "tidal",
+    "changeMagnitude": 0
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}
