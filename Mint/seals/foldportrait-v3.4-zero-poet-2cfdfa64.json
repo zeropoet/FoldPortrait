@@ -1,0 +1,38 @@
+{
+  "schema": "foldportrait-release-seal/v1",
+  "algorithm": "Ed25519",
+  "payload_sha256": "216102dde3b897978a95a4569aba4a2ed01fcf2bab1ca695751efe1f02a664b2",
+  "signature": "lIW+PWDw85L2G1OMCLf1lnuOvFh/yUtPT5AV92K5Ow0MipVvU2n0MbCFnjjkDel+jRuZp3WZoW+YFiq4g8vhDQ==",
+  "payload": {
+    "schema": "foldportrait-sealed-release/v1",
+    "authority": "FoldPortrait Release Authority",
+    "authority_key_sha256": "98ab90b3d0eec1e119bfc5ab49af917f970af625bb077d4f80f86da2ba110736",
+    "collection": "FoldPortrait",
+    "edition": {
+      "designation": "unique",
+      "size": 1,
+      "number": 1
+    },
+    "sequence": 39,
+    "era": 1,
+    "artifact_id": "foldportrait-v3.4-zero-poet-2cfdfa64",
+    "title": "FoldPortrait v3.4",
+    "description": "FoldPortrait v3.4, from the completed zero poet archive. This XRPL Witness draft preserves the PNG render, convergence hash 2cfdfa6456d25c85296f9de096b186740898601190536d14ea4283c7bbc85f3c, and render hash 1c53f71464589568da8d5900bebd320ea9d925b4c3df63e6e714d434a543d905.",
+    "source_file": "Output/png/foldportrait-v3.4-zero-poet-2cfdfa64.png",
+    "source_sha256": "4cee7159e56d0d03a77675a3c30cb6f6afddbc0b06f0e4314323d8127e4a1776",
+    "byte_size": 1405099,
+    "metadata_uri": "https://zeropoet.github.io/FoldPortrait/Mint/metadata/foldportrait-v3.4-zero-poet-2cfdfa64.json",
+    "metadata_core_sha256": "1fc230bfbffb79fa7c1053e5f931b9780f2ad8737b747b22075f65d4da5e82f7",
+    "lineage": null,
+    "previous_seal_sha256": "d3d1da981165575ada1d6acf22877dffd839d35b526cd8406ebc0caca1086829",
+    "scarcity_policy": {
+      "edition_size": 1,
+      "release_model": "open-ended append-only collection",
+      "artifact_identity": "one artifact ID, one immutable byte identity, one sequence position",
+      "replacement": "forbidden",
+      "reissue": "forbidden",
+      "sequence_reuse": "forbidden",
+      "future_releases": "new works may append; prior sealed releases may not change"
+    }
+  }
+}

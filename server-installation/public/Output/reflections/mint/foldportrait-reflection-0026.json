@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0026",
+  "description": "FP-REFLECT-0026 enters its drift season through the tidal palette and gathers sediment, strata, and aperture across 5 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0026.png",
+    "mimeType": "image/png",
+    "sha256": "ffb1ce4872e03efa3e34dcc12742aed7b075e4fed33803f450e78590ad87f9cc",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0026.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "7be7868a1f493012052de2257264a7a46e3280a4617bf9b7620d058fc7731a17"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0026",
+    "previousCycleID": "FP-REFLECT-0025",
+    "witnessDigest": "99c1ef84183a35c1b1157cb81995476e1960dea7ca6b179bf9c2390e010f3f1e",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "cd47952c8acea9a44058ea72d5c9f1023dbd153e5cd4b5b385035221e64452d5",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "drift",
+    "paletteID": "tidal",
+    "changeMagnitude": 0.003239
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}
