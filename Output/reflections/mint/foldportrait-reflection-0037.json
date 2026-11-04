@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0037",
+  "description": "FP-REFLECT-0037 enters its contraction season through the tidal palette and gathers sediment, palimpsest, and counterfield across 4 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0037.png",
+    "mimeType": "image/png",
+    "sha256": "55eacbd41a4a1788df61f339ba1bbd9b9fe956147fde524ce08bac918a77c933",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0037.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "10449015289eaa4e933b70a7b181fb04131dc8027d094ae13a7aff9d382a48f1"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0037",
+    "previousCycleID": "FP-REFLECT-0036",
+    "witnessDigest": "4947865a296af41192da472573658c4779ba183dcad32b692e9ce4ae2f898389",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "77dbb3efc5de7eed06e560e4a7dbe51809cd3cc31381159659a8485db6f6bf66",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "contraction",
+    "paletteID": "tidal",
+    "changeMagnitude": 0.017764
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoldPortrait — The room branches from the path</title>
+<link rel="stylesheet" href="../0002/style.css">
+<style>
+  .controls{flex-wrap:wrap;justify-content:center;max-width:95%;width:810px}.transport{position:absolute;left:36px;bottom:98px;z-index:1;width:270px;font:11px monospace}input{width:100%;accent-color:#a05237;margin-top:14px}aside{bottom:108px;max-width:290px}.intro{max-width:390px}.axis-key{display:block;margin-top:8px;color:#a05237}@media(max-width:700px){.transport{left:18px;bottom:118px;width:190px}aside{display:none}.controls{bottom:15px}}
+</style>
+<script type="importmap">{"imports":{"three":"../../../Web/vendor/three/three.module.js","three/addons/":"../../../Web/vendor/three/addons/"}}</script></head>
+<body><header><a href="../0005/">FP / CONDITIONS OF ENCOUNTER</a><span>STUDY 0007 · UNISSUED</span></header>
+<main><div class="intro"><p class="eyebrow">THRESHOLD SPINE</p><h1>The room branches from the path</h1><p>One hard spine.<br>Each crossed room answers at ninety degrees.</p></div>
+<div id="stage"><canvas tabindex="0" aria-label="An inherited red path activating rooms and perpendicular twig-like axis fragments"></canvas></div>
+<aside><span class="eyebrow">ACTIVE ROOM</span><p id="room-state">State 1 begins in the first room.</p><span class="axis-key" id="axis-key">0 threshold axes / fixed at 90°</span></aside>
+<div class="transport"><label for="step">State <output id="count">1 / 64</output></label><input id="step" type="range" min="1" max="64" value="1"><button id="play" aria-pressed="false">Climb spine</button></div>
+<div class="controls"><button data-view="rise" aria-pressed="true">Up the spine</button><button data-view="side" aria-pressed="false">Across the rooms</button><button id="path" aria-pressed="true">Spine</button><button id="rooms" aria-pressed="true">Rooms</button><button id="axes" aria-pressed="true">Threshold axes</button><button id="turn" aria-pressed="false">Rotate cube</button></div></main>
+<footer><span>Drag to orbit · Rooms awaken at their exact threshold crossings</span><span>SS unit 0 / 64 states / 83 fixed right-angle fragments</span></footer><p id="error" role="alert" hidden></p>
+<script type="module" src="./study.js?v=0007.1"></script></body></html>
