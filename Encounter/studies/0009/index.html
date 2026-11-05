@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoldPortrait — The room catches the path's light</title>
+<link rel="stylesheet" href="../0002/style.css">
+<style>
+  .controls{flex-wrap:wrap;justify-content:center;max-width:95%;width:650px}.transport{position:absolute;left:36px;bottom:98px;z-index:1;width:270px;font:11px monospace}input{width:100%;accent-color:#ad2e24;margin-top:14px}aside{bottom:108px;max-width:330px}.intro{max-width:430px}.structure-key{display:block;margin-top:8px;color:#171a19}@media(max-width:700px){.transport{left:18px;bottom:118px;width:190px}aside{display:none}.controls{bottom:15px}}
+</style>
+<script type="importmap">{"imports":{"three":"../../../Web/vendor/three/three.module.js","three/addons/":"../../../Web/vendor/three/addons/"}}</script></head>
+<body><header><a href="../0008/">FP / CONDITIONS OF ENCOUNTER</a><span>STUDY 0009 · UNISSUED</span></header>
+<main><div class="intro"><p class="eyebrow">LIT FRONTIER</p><h1>The room catches the path's light</h1><p>An entered room meets the unknown in glass.<br>The point and line are its only light.</p></div>
+<div id="stage"><canvas tabindex="0" aria-label="A small red point moving through black room edges and transparent glass frontier faces"></canvas></div>
+<aside><span class="eyebrow">VISIBLE NOW</span><p id="room-state">The point begins in the first room.</p><span class="structure-key" id="structure-key">1 entered room / 0 open edges / 0 glass faces</span></aside>
+<div class="transport"><label for="step">State <output id="count">1 / 64</output></label><input id="step" type="range" min="1" max="64" value="1"><button id="play" aria-pressed="false">Move point</button></div>
+<div class="controls"><button data-view="rise" aria-pressed="true">Up through space</button><button data-view="side" aria-pressed="false">Across the rooms</button><button id="line" aria-pressed="true">Line: on</button><button id="turn" aria-pressed="false">Turn view</button></div></main>
+<footer><span>Drag to orbit · Glass marks the entered frontier</span><span>SS unit 0 / 64 states / line + point illumination</span></footer><p id="error" role="alert" hidden></p>
+<script type="module" src="./study.js?v=0009.1"></script></body></html>

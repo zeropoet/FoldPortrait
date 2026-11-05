@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FoldPortrait — The Complete Archive</title>
+    <meta name="description" content="The complete, sealed archive of 108 canonical FoldPortrait works." />
+    <link rel="canonical" href="https://foldportrait.zeropoet.xyz/" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css?v=native-collection-1" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/three.module.js",
+          "three/addons/": "./vendor/three/addons/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="stage" aria-label="FoldPortrait Three.js topology" aria-keyshortcuts="ArrowLeft ArrowRight">
+        <canvas id="topology-canvas"></canvas>
+        <header class="site-header">
+          <a class="identity" href="https://zeropoet.xyz/" aria-label="Return to Zeropoet Studio">
+            <img src="../Brand/foldportrait-mark.svg" alt="" />
+          </a>
+          <nav class="view-actions" aria-label="Collection navigation">
+            <button id="gallery-button" class="view-button" type="button">Collection</button>
+            <button id="about-button" class="view-button" type="button">About</button>
+          </nav>
+        </header>
+        <nav class="work-navigation" aria-label="Browse canonical works">
+          <button id="previous-work" type="button" aria-label="Previous work">←</button>
+          <button id="work-position" type="button" aria-label="Open collection">— / 108</button>
+          <button id="next-work" type="button" aria-label="Next work">→</button>
+        </nav>
+        <aside id="about-panel" class="about-panel" aria-label="About FoldPortrait" hidden>
+          <button id="about-close" class="panel-close" type="button" aria-label="Close">Close</button>
+          <p class="label">FoldPortrait</p>
+          <h1>108 computational portraits.</h1>
+          <p>A sealed collection in two eras: a material lineage, followed by reflections of bounded change across the connected system.</p>
+          <dl>
+            <div><dt>Works</dt><dd>108</dd></div>
+            <div><dt>Edition</dt><dd>Unique, 1 of 1</dd></div>
+            <div><dt>State</dt><dd>Complete · sealed</dd></div>
+          </dl>
+          <div class="panel-links"><a href="../Mint/seal-ledger.json">Verify collection</a></div>
+        </aside>
+        <section id="gallery-view" class="gallery-view" aria-label="FoldPortrait render iteration gallery" hidden>
+          <header class="gallery-header">
+            <div>
+              <img class="archive-mark" src="../Brand/foldportrait-mark.svg" alt="" />
+              <strong>FoldPortrait · <span id="archive-count">108</span> works</strong>
+            </div>
+            <button id="gallery-close" class="view-button" type="button">Work</button>
+          </header>
+          <div id="gallery-grid" class="gallery-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js?v=native-collection-1"></script>
+  </body>
+</html>
