@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">FoldPortrait mark</title>
+  <desc id="desc">An open architectural frame crossed by the cardinal and diagonal axes of a portrait continually folded through relation.</desc>
+  <metadata>Canonical transparent vector. The open frame is an archive; the eight rays are the reflected field; the central square is the FoldKernel held without enclosure.</metadata>
+  <g fill="none" stroke="#111111" stroke-width="28" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M176 416V176H416 M608 176H848V416 M848 608V848H608 M416 848H176V608"/>
+    <path d="M512 112V912 M112 512H912 M229 229L795 795 M795 229L229 795"/>
+    <rect x="416" y="416" width="192" height="192"/>
+  </g>
+</svg>
