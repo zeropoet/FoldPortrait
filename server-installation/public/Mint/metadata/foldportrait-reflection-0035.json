@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0035",
+  "description": "FP-REFLECT-0035 enters its recombination season through the orchid palette and opens counterfield, veil, and strata across 7 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0035.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0035",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 87
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "5b474bd46ea5a7d2435595a261cb9691421275e6ca5fc4598c7af479e26ffb90"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "recombination"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "orchid"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "f0f3ba20104139dab1060fef001d1c0ce34eea0453b327058b85e7188a9bf0f4"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0035.png",
+    "file_sha256": "f0f3ba20104139dab1060fef001d1c0ce34eea0453b327058b85e7188a9bf0f4"
+  },
+  "xrpl": null
+}
