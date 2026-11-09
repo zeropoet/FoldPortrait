@@ -1,0 +1,33 @@
+{
+  "schema": "foldportrait-inevitable-step-mapping/v1",
+  "study": "FP-ENCOUNTER-STUDY-0013",
+  "primary_source_study": "FP-ENCOUNTER-STUDY-0012",
+  "source_range": "The current contiguous Sovereign Standard vessel range, beginning with unit 0",
+  "states_per_vessel": 64,
+  "construction": "Study 0012 remains intact. Study 0013 removes the glass planes and every simulated shadow, leaving black room lines and tightly separated red, green, and blue cube layers. Red remains dominant: its persistent frame is full strength and carries sixty percent of the shared ten-percent facet opacity, while green and blue remain quieter fringes. The chromatic separation is resolved in drawing-buffer pixels and never exceeds one rendered pixel at any view or device scale. Facets fade to zero over the common 4.05-second return interval, then refill. The cube loops forward through states 0–63 at six times the earlier pace while automatic rotation remains at half speed.",
+  "invariants": [
+    "every vessel contributes exactly its canonical 64 ordered sigil positions",
+    "depth remains the mean row of the incoming canonical swap",
+    "the Study 0011 vessel selector and private Studio save loop",
+    "the Study 0010 entered-room and open-edge rules",
+    "room lines remain visible while glass faces, shader illumination, and shadow-like planes do not render",
+    "the red canonical path, red dot, full scaffold, and unconnected points do not render",
+    "one cube traversal follows the hidden path and leaves slightly separated red, green, and blue wireframes at every visited state",
+    "box motion loops forward through all 64 states and returns directly from state 63 to state 0",
+    "each state's RGB facets share a maximum combined ten percent opacity and fade to zero over the 64-step interval until that state is revisited",
+    "the RGB wireframes at every visited state remain at constant opacity with no fade",
+    "the chromatic offset is red-dominant, camera-aware, and contained within one rendered pixel",
+    "new states arrive every 0.0633 seconds, six times the earlier cube pace, without waiting for earlier fades",
+    "the box never occupies an interpolated position between canonical states",
+    "every automatic camera-time coefficient is exactly half the Study 0012 speed",
+    "manual orbit and automatic rotation change only the camera"
+  ],
+  "controls": {
+    "vessel": "load any sigil in the current snapshotted vessel range",
+    "saved": "load a sigil previously saved by the Studio steward",
+    "save": "persist the selected vessel, box-loop state, and rotation state as a private Studio working record",
+    "box_loop": "turn the six-times-speed red-box traversal and its revisit-timed fades on or off",
+    "rotate": "turn automatic camera rotation on or off",
+    "orbit": "drag freely through a full 360-degree inspection"
+  }
+}

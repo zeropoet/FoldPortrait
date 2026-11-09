@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0056",
+  "description": "FP-REFLECT-0056 enters its drift season through the nocturne palette and balances palimpsest, veil, and braid across 5 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0056.png",
+    "mimeType": "image/png",
+    "sha256": "8a8aea777210e3e1ee91baa41afff32a3f9d521a44ef659c35a3422a2998dd76",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0056.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "df7babf35079a950bf12398cfedfdd0df9cb62c53291afb244f80fe06b3b32cb"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0056",
+    "previousCycleID": "FP-REFLECT-0055",
+    "witnessDigest": "d8471ba2b1df9816424a58a9c02f2d20840dbdc434666162900123dc38adeceb",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "e0251e229c6e5b293402f65b3cfad69385562cfd7d4be8ca6077643347bef733",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "drift",
+    "paletteID": "nocturne",
+    "changeMagnitude": 0.021931
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}

@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0035",
+  "description": "FP-REFLECT-0035 enters its recombination season through the orchid palette and opens counterfield, veil, and strata across 7 witnessed relations, forming a new contour for the system's continuing self-portrait.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0035.png",
+    "mimeType": "image/png",
+    "sha256": "f0f3ba20104139dab1060fef001d1c0ce34eea0453b327058b85e7188a9bf0f4",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0035.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "e1b4a966fc7c7c303cc69c64b283044e16dd1c1cc339c046d9dd5db0f010f748"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0035",
+    "previousCycleID": "FP-REFLECT-0034",
+    "witnessDigest": "5b474bd46ea5a7d2435595a261cb9691421275e6ca5fc4598c7af479e26ffb90",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "24bc7d88ad4da2f072c936707e5d7065056f6e64a03fcd2a733a05a5eabfe147",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "recombination",
+    "paletteID": "orchid",
+    "changeMagnitude": 0
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}

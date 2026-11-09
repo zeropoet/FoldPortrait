@@ -1,0 +1,16 @@
+{
+  "schema": "foldportrait-seal-authority/v1",
+  "authority": "FoldPortrait Release Authority",
+  "algorithm": "Ed25519",
+  "public_key_sha256": "98ab90b3d0eec1e119bfc5ab49af917f970af625bb077d4f80f86da2ba110736",
+  "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAqx3UGtmKFLYmyfuXciIB5ZIHGap7qx9FAEORbX59H/c=\n-----END PUBLIC KEY-----\n",
+  "scarcity_policy": {
+    "edition_size": 1,
+    "release_model": "open-ended append-only collection",
+    "artifact_identity": "one artifact ID, one immutable byte identity, one sequence position",
+    "replacement": "forbidden",
+    "reissue": "forbidden",
+    "sequence_reuse": "forbidden",
+    "future_releases": "new works may append; prior sealed releases may not change"
+  }
+}
