@@ -1,0 +1,27 @@
+{
+  "schema": "foldportrait-open-rooms-mapping/v1",
+  "study": "FP-ENCOUNTER-STUDY-0008",
+  "primary_source_study": "FP-ENCOUNTER-STUDY-0007",
+  "source_vessel": "SS unit 0",
+  "states": 64,
+  "construction": "The inherited journey remains the exact motion track but is not drawn. A single red point moves along it. Rooms accumulate only after the point enters them. The visible black structure contains a lattice edge only when every in-bounds room touching that edge has already been entered, so a visible room never closes itself against a neighboring room that is still invisible.",
+  "invariants": [
+    "the inherited 64-state path as invisible computation",
+    "one red point at the exact eased path position",
+    "entered rooms accumulate and never disappear",
+    "every visible edge is bordered only by entered rooms",
+    "no visible spine, threshold fragment, room fill, surface, or butterfly form"
+  ],
+  "changes": [
+    "the red point position",
+    "the set of entered rooms",
+    "the open black edge structure derived from that set",
+    "camera orbit and rigid upward presentation"
+  ],
+  "surface_contract": {
+    "current": "clear rooms and black lines only",
+    "frontier": "an edge touching any unentered in-bounds room remains hidden",
+    "shader_ready": true,
+    "shader_applied": false
+  }
+}
