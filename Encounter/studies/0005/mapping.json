@@ -1,0 +1,27 @@
+{
+  "schema": "foldportrait-local-threshold-mapping/v1",
+  "study": "FP-ENCOUNTER-STUDY-0005",
+  "source_study": "FP-ENCOUNTER-STUDY-0003",
+  "direction_source": "Studio comments on studies 0001 through 0004",
+  "source_vessel": "SS unit 0",
+  "states": 64,
+  "construction": "The inherited journey remains fixed. Every crossing of a 1.5-unit room boundary creates a local threshold event. Its boundary normal and the path's travel direction determine a local hinge; the threshold panel folds symmetrically around that hinge.",
+  "invariants": [
+    "the 64-state order and 63 transitions",
+    "the inherited red path coordinates",
+    "room boundaries and threshold intersection points",
+    "event order and local hinge derivation"
+  ],
+  "changes": [
+    "which room is active",
+    "which local threshold panels are revealed",
+    "the fold amount applied to revealed panels",
+    "the selected temporal state"
+  ],
+  "event_contract": {
+    "kind": "room-threshold",
+    "fields": ["event id", "state", "room", "boundary axis", "boundary plane", "local hinge"],
+    "execution": "Events are inspectable research records only. This study does not execute uploaded or arbitrary code."
+  },
+  "limits": "The panels describe a deterministic local folding grammar, not physical material behavior. Executable-room utility remains a later design question."
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "foldportrait-final-mark-mapping/v1",
+  "study": "FP-ENCOUNTER-STUDY-0012",
+  "primary_source_study": "FP-ENCOUNTER-STUDY-0011",
+  "source_range": "The current contiguous Sovereign Standard vessel range, beginning with unit 0",
+  "states_per_vessel": 64,
+  "construction": "Study 0011 remains intact. Study 0012 narrows the locked vessel instrument to its final visual rules: frontier-safe room lines and glass sides remain on, the path and red dot are absent, and a tight red wireframe box steps along the hidden canonical path with short eased attacks and longer holds.",
+  "invariants": [
+    "every vessel contributes exactly its canonical 64 ordered sigil positions",
+    "depth remains the mean row of the incoming canonical swap",
+    "the Study 0011 vessel selector and private Studio save loop",
+    "the Study 0010 entered-room, open-edge, glass-frontier, material, and light rules",
+    "room lines and glass sides remain visible without switches",
+    "the red canonical path, red dot, full scaffold, and unconnected points do not render",
+    "one red wireframe box is slightly larger than the former red dot and follows the hidden path",
+    "box motion alternates forward and backward through all 64 states",
+    "manual orbit and automatic rotation change only the camera"
+  ],
+  "controls": {
+    "vessel": "load any sigil in the current snapshotted vessel range",
+    "saved": "load a sigil previously saved by the Studio steward",
+    "save": "persist the selected vessel, box-loop state, and rotation state as a private Studio working record",
+    "box_loop": "turn the staccato red-box traversal on or off",
+    "rotate": "turn automatic camera rotation on or off",
+    "orbit": "drag freely through a full 360-degree inspection"
+  }
+}

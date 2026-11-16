@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoldPortrait — What survives the fold</title>
+<link rel="stylesheet" href="../0002/style.css">
+<style>
+  .controls { flex-wrap:wrap; justify-content:center; max-width:95%; width:820px; }
+  .transport { position:absolute; left:36px; bottom:100px; z-index:1; width:240px; font:11px monospace; }
+  .fold-control { margin-top:22px; }
+  input { width:100%; accent-color:#a05237; margin-top:14px; }
+  aside { bottom:112px; } .intro { max-width:330px; }
+  #relation { min-height:2.8em; color:#68706a; }
+  @media(max-width:700px) { .transport{left:18px;bottom:160px;width:175px} aside{display:none} .controls{bottom:15px} }
+</style>
+<script type="importmap">{"imports":{"three":"../../../Web/vendor/three/three.module.js","three/addons/":"../../../Web/vendor/three/addons/"}}</script></head>
+<body><header><a href="../0003/">FP / CONDITIONS OF ENCOUNTER</a><span>STUDY 0004 · UNISSUED</span></header>
+<main><div class="intro"><p class="eyebrow">FOLDING AND UNFOLDING</p><h1>What survives the fold</h1><p>One inherited journey.<br>One hinge at a time.</p></div>
+<div id="stage"><canvas tabindex="0" aria-label="The inherited red SS journey folding around an FP axis"></canvas></div>
+<aside><span class="eyebrow">AXIAL FOLD</span><p id="relation">Within each half, distances hold. Across the hinge, relationships contract and may meet.</p></aside>
+<div class="transport"><label for="step">State <output id="count">64 / 64</output></label><input id="step" type="range" min="1" max="64" value="64"><button id="play" aria-pressed="false">Trace journey</button><div class="fold-control"><label for="fold">Fold <output id="fold-value">58%</output></label><input id="fold" type="range" min="0" max="100" value="58"><span>Flat field ↔ Closed relation</span></div></div>
+<div class="controls"><button data-axis="x" aria-pressed="true">Horizontal axis</button><button data-axis="y" aria-pressed="false">Vertical axis</button><button data-view="relation" aria-pressed="true">Relation</button><button data-view="projection" aria-pressed="false">Projection</button><button data-view="hinge" aria-pressed="false">Along hinge</button><button id="reference" aria-pressed="true">Flat reference</button><button id="turn" aria-pressed="false">Slow turn</button></div></main>
+<footer><span>Drag to orbit · Fold changes geometry; orbit changes only the view</span><span>SS unit 0 / 64 states / 63 transitions</span></footer><p id="error" role="alert" hidden></p>
+<script type="module" src="./study.js"></script></body></html>
