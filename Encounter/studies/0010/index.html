@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoldPortrait — The room as an instrument</title>
+<link rel="stylesheet" href="../0002/style.css">
+<style>
+  .intro{max-width:430px}.controls{flex-wrap:wrap;justify-content:center;max-width:96%;width:1210px;gap:6px}.controls .group{display:flex;gap:6px;padding-right:8px;border-right:1px solid #bbb8af}.controls .group:last-child{border-right:0;padding-right:0}aside{bottom:104px;max-width:350px}.structure-key{display:block;margin-top:8px;color:#171a19}@media(max-width:1100px){.controls{width:96%;bottom:14px}.controls .group{border-right:0;padding-right:0}aside{display:none}}
+</style>
+<script type="importmap">{"imports":{"three":"../../../Web/vendor/three/three.module.js","three/addons/":"../../../Web/vendor/three/addons/"}}</script></head>
+<body><header><a href="../0009/">FP / CONDITIONS OF ENCOUNTER</a><span>STUDY 0010 · UNISSUED</span></header>
+<main><div class="intro"><p class="eyebrow">ROOM INSTRUMENT</p><h1>The whole form, available</h1><p>Nothing advances.<br>Every part can be held, removed, or turned.</p></div>
+<div id="stage"><canvas tabindex="0" aria-label="The final entered-room structure, its glass sides, red path, and ghost scaffold with full orbit controls"></canvas></div>
+<aside><span class="eyebrow">FINAL STATE</span><p>64 inherited positions resolve into one inspectable object.</p><span class="structure-key" id="structure-key">26 entered rooms / 64 open edges / 42 glass sides / 300 scaffold edges / 48 unconnected points</span></aside>
+<div class="controls"><span class="group" aria-label="Visible elements"><button id="lines" aria-pressed="true">Lines: on</button><button id="sides" aria-pressed="true">Sides: on</button><button id="red-line" aria-pressed="true">Red line: on</button><button id="red-dot" aria-pressed="true">Red dot: on</button><button id="scaffold" aria-pressed="false">64-room scaffold: off</button><button id="unconnected" aria-pressed="false">Unconnected points: off</button></span><span class="group" aria-label="Quick views"><button data-view="front" aria-pressed="true">Front</button><button data-view="back" aria-pressed="false">Back</button><button data-view="left" aria-pressed="false">Left</button><button data-view="right" aria-pressed="false">Right</button><button data-view="top" aria-pressed="false">Top</button><button data-view="bottom" aria-pressed="false">Bottom</button></span><span class="group"><button id="rotate" aria-pressed="false">Rotate: off</button></span></div></main>
+<footer><span>Drag freely to orbit · six fixed views</span><span>SS unit 0 / final state / 64-room ghost field</span></footer><p id="error" role="alert" hidden></p>
+<script type="module" src="./study.js?v=0010"></script></body></html>

@@ -1,0 +1,44 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0050",
+  "description": "FP-REFLECT-0050 enters its recombination season through the lichen palette and folds aperture, sediment, and palimpsest across 7 witnessed relations, forming a fresh boundary between memory and emergence.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0050.png",
+    "mimeType": "image/png",
+    "sha256": "e3455c7578b39dae9b69d66315bd635777e596b956b06de81ad323149da3cf20",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0050.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "2078e69e31563a8d24230ac38efcd504d046dd7864b4b347ab39a35e1a3b73f4"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0050",
+    "previousCycleID": "FP-REFLECT-0049",
+    "witnessDigest": "6fc3f8a4c1eebf14ecb904ccf80ac6ef9c994d45e8c40dc8be473d5f549a2939",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "2084ff94c045667b797debe5dd312dd29d072e224a02991266e9233361bdd6ce",
+    "compositionRegime": "learned-composition-v1",
+    "compositionSeason": "recombination",
+    "paletteID": "lichen",
+    "changeMagnitude": 0.067428
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}
