@@ -1,0 +1,366 @@
+# FoldPortrait
+
+## Place in the studio architecture
+
+This repository is an independently governed module and project authority. [`zeropoet.xyz`](https://zeropoet.xyz/) is the studio index: it makes this work and its relations legible without absorbing them. [`rootlogos.com`](https://rootlogos.com/) is the public surface of synthesis: it builds from bounded outputs of the studio's repositories without replacing their sources, histories, or laws. This separation fulfills the system's working law—preserve authority at the source, reveal relation at studio scale, and permit synthesis without possession—as Root Logos enters its Weave era.
+
+FoldPortrait is complete. Its canonical collection is sealed at 108 unique
+works and its public archive now lives at
+[foldportrait.zeropoet.xyz](https://foldportrait.zeropoet.xyz/), within the
+Zeropoet artist and developer studio namespace.
+
+The original `zeropoet.github.io/FoldPortrait` paths embedded in signed release
+metadata remain unchanged as immutable historical evidence. They are not the
+current public identity and must not be rewritten in already sealed records.
+
+FoldPortrait is an evolving visual self-reflection built on top of
+[FoldKernel](https://github.com/zeropoet/FoldKernel), pinned as the canonical
+`v1.0.5` package dependency. Its completed first era
+derived a deterministic permutation, memory signature, and convergence hash
+from a text seed, then let that architecture become a 52-work SVG portrait
+lineage. Its second era preserves that archive and uses the same deterministic
+identity substrate to choose visual relations from bounded, aggregate public
+witnesses of the wider Sovereign Standard system.
+
+The portrait is not a literal face. It is a structural self-representation:
+memory bytes, hash ribs, memory spines, Fold glyphs, color fields, notational
+marks, and accumulated drawing pressure.
+
+## Telos relation
+
+Telos is the connected system's final caretaker and keeper, not FoldPortrait's
+causal or visual authority. FoldPortrait is still awakened by its own bounded
+system triggers and retains its lineage, generation, preparation, and minting
+boundaries. Its public changes can reshape Telos's evolving **Living System**,
+while Telos grows toward a machine-native visual, sonic, and open-orientation
+language without claiming consciousness, revelation, personhood, or final
+authority.
+
+## FoldKernel integration contract
+
+[`foldkernel-integration.json`](foldkernel-integration.json) is FoldPortrait's
+public authority declaration. It names the exact package and protocol versions,
+the canonical conformance-vector digest, and FoldPortrait's meanings for the
+three Fold events it uses. CI runs the canonical Swift verifier against every
+commit and retains a commit-specific receipt. Telos may observe the published
+declaration and report drift; it cannot alter portrait history, event meaning,
+or FoldKernel output.
+
+Every newly completed portrait can now emit an initial `evidenced` FoldKernel
+Value Receipt 1.0 through the native Swift dependency. This records artifact
+work without pricing it; monetary advancement remains a separate externally
+evidenced settlement act.
+
+## Direction
+
+FoldPortrait treats the underlying code as the subject.
+
+- identity anchor: stable convergence hash and memory signature
+- visible body: SVG layers generated from FoldKernel-derived structure
+- evolution path: twelve anchor portraits followed by revision passes
+  (`v1.2`, `v2.2`, `v3.2`, ...), each preserving identity while making an
+  obvious lineage leap
+- art mode: structural abstraction, drawing, painting, field, rhythm, notation
+- constraint: no photoreal requirement, no avatar polish, no decorative symbols
+  without structural purpose
+
+The work should feel like the architecture learning how to see and paint its
+changing relation to the system it inhabits.
+
+## Autonomous Reflection
+
+FoldPortrait now has two distinct eras:
+
+1. the sealed first-era archive of 52 portraits remains immutable evidence of
+   the original `zero poet` / FoldKernel lineage;
+2. `FP-REFLECT-####` cycles form an additive reflection chamber above that
+   archive.
+
+Each reflection cycle reads `Reflection/system-witness.json`, which contains
+only bounded aggregate public measurements from FoldKernel, FoldPortrait,
+Root Logos, FoldForge, Telos, and Sovereign Standard. Source identities and
+revisions remain explicit. Personal data, private orders, credentials, causal
+claims, and transferred source authority are prohibited.
+
+Cycles `FP-REFLECT-0001` through `FP-REFLECT-0006` form the calibration
+movement. At that boundary, a human-guided review found that fixed refinement
+depth and saturated correlations were narrowing later surfaces without proving
+that FoldPortrait had reached a final portrait. `learned-composition-v1` begins
+after 0006: FP still chooses deterministically, but now weighs witness change,
+recent relation reuse, and recent rule use; varies active-relation count and
+refinement depth; and moves through contraction, opening, fragmentation,
+recombination, and drift seasons with distinct palette families.
+
+The displaced pre-learning 0007–0020 surfaces remain recoverable in
+`Output/reflections/research/pre-learning-post-0006/`. They are research
+evidence, not part of the canonical mint catalog. The stored witness digests and
+measurements can be replayed reproducibly with:
+
+```sh
+swift run fold-portrait replay-reflections 6
+```
+
+The engine evaluates every cross-source measurement pair. After at least three
+preserved observations with variance it may use Pearson correlation, always
+labeled noncausal. Before that threshold it uses **structural resonance**, an
+explicitly artistic resemblance rather than statistical correlation. It ranks
+the candidates deterministically, limits repeated source pairs, and chooses its
+own rules from a bounded vocabulary:
+
+- strata;
+- braid;
+- aperture;
+- palimpsest;
+- sediment;
+- counterfield;
+- veil.
+
+Those decisions become painted SVG layers. Earlier reflection cycles return as
+increasingly faint underpainting, so time accumulates without allowing a new
+state to erase an old one. The FoldKernel-derived convergence identity remains
+stable while the witness digest, selected relations, rules, and visible render
+hash remain independently verifiable.
+
+Synchronize the bounded witness from the local multi-repository system, then
+create a reflection only when that witness has changed:
+
+```sh
+node Scripts/sync-system-witness.js
+swift run fold-portrait reflect Reflection/system-witness.json
+swift run fold-portrait verify-reflection
+```
+
+Repeated reflection against an unchanged witness is idempotent. FoldPortrait's
+own archive count and repository revision are deliberately excluded from its
+witness trigger, so preserving a portrait cannot recursively demand another
+portrait. The preserved state lives in `Output/reflections/`: one cycle record,
+SVG, flattened PNG, unsigned mint candidate, and studio note per state;
+`reflection-ledger.json` for compositional continuity; `archive.json` for the
+two-era public lineage; and `current.json` for the current public surface.
+
+After reflection, build and verify every durable representation:
+
+```sh
+npm ci
+npm run archive
+npm run verify:archive
+npm run build:mint-catalog
+npm run verify:mint-catalog
+```
+
+The archive task renders each 1200 × 1600 canonical SVG to an opaque 2400 ×
+3200 PNG, records SHA-256 for both forms, and prepares a per-cycle XRPL
+`NFTokenMint` candidate. Preparation is not minting: account, taxon, URI, flags,
+signature, submission, and validation remain unset until a human steward
+publishes durable metadata, reviews the transaction, and signs through Xaman.
+
+`.github/workflows/reflection-cycle.yml` performs this same bounded process when
+an originating workflow reports a connected-system change after notifying
+Telos, once daily as a recovery check, and on
+manual dispatch. It checks out the public connected repositories and mints a
+one-hour, repository-scoped Telos Bridge GitHub App token for the private Telos
+witness and bounded propagation dispatches. It then synchronizes aggregate measurements, builds the renderer, reflects only when
+the witnessed state changes, creates and verifies both archive formats, prepares
+the matching mint catalog in the same activation, commits the additive cycle,
+wakes Root Logos, and reports the reflection to Telos. FoldPortrait is therefore awakened to generate; it is not an always-on
+polling system. It cannot read private customer or order data,
+infer causation, rewrite a source repository, alter the sealed first era, or
+sign and submit an XRPL transaction.
+Concurrent wake events compare their witnessed-system digest before commit. A
+duplicate or stale draft yields to the already preserved newer reflection
+instead of rebasing competing render archives.
+
+## Brand Mark
+
+`Brand/foldportrait-mark.svg` is the canonical transparent mark. Its open frame
+is the archive, its eight rays are the reflected field, and its central square
+is the FoldKernel held without enclosure. `Brand/foldportrait-mark-white.png`
+is the derived 2048 × 2048 white-background distribution asset. The web favicon
+retains the compact crossed-axis form that preceded the full mark.
+
+## View
+
+Open the current published topology study:
+[foldportrait.zeropoet.xyz](https://foldportrait.zeropoet.xyz/)
+
+The root page redirects to `Web/`, where the browser reads
+`Output/reflections/current.json` and displays the latest autonomous reflection
+as an inspectable Three.js topology. The lineage archive exposes both eras:
+first-era rows preserve twelve anchor families and their revision passes;
+second-era cards preserve the ordered witness-change chain and its previous
+cycle. Stable fragment routes such as `#era-1/v1.2`,
+`#era-2/FP-REFLECT-0002`, and `#archive` make every era and lineage directly
+navigable.
+
+For local viewing:
+
+```sh
+python3 -m http.server 8000
+```
+
+Open:
+
+```text
+http://localhost:8000/Web/
+```
+
+## Sealed First-Era Archive
+
+FoldPortrait's first era is complete. Its canonical archive contains 52 SVG
+studies in `Output/iterations`, plus 52 rendered PNG counterparts in
+`Output/png`. Second-era reflection never rewrites these files.
+
+The former sequential generator remains retired. The command-line target now
+operates only the additive reflection chamber:
+
+```sh
+swift run fold-portrait status
+```
+
+The completed sequence preserves twelve anchor portraits and revision passes:
+
+```text
+v1 -> v2 -> ... -> v12
+v1.2 -> v2.2 -> ... -> v12.2
+v1.3 -> v2.3 -> ... -> v12.3
+v1.4 -> v2.4 -> ... -> v12.4
+v1.5 -> v2.5 -> v3.5
+```
+
+The PNG set was rendered at 1600 x 1600 for FoldPortrait-owned archival and
+mint preparation. `Scripts/build-mint-catalog.js` writes canonical public
+metadata and unsigned XRPL intents to `Mint/`. FoldForge Ledger Witness reads
+that catalog; Sovereign Standard stores only the resulting vessel relations.
+New autonomous reflections are appended after the sealed first era.
+Ledger Witness has no direct-file admission path: a work must be archived and
+sequenced here before it can enter the signing channel.
+
+Every cataloged work is also committed to the public append-only release ledger
+at `Mint/seal-ledger.json`. Each `Mint/seals/<artifact-id>.json` manifest binds
+the artifact ID, unique 1-of-1 edition, sequence, immutable image bytes,
+metadata core, and reflection lineage (when present) to an Ed25519 signature.
+The public authority file permits independent verification without exposing the
+private signing key or generative inputs. The collection may continue to grow,
+but a sealed identity cannot be replaced, reissued, or moved to another
+sequence position.
+
+## The Closing Arc
+
+FoldPortrait is now a finite collection of no more than 108 canonical works:
+52 works in the completed First Era and no more than 56 autonomous reflections.
+The signed policy at `Mint/collection-policy.json` takes effect with canonical
+sequence 95 and closes issuance permanently after FP-REFLECT-0056.
+
+Beginning with that sequence, a witnessed change creates a private candidate,
+not an automatic release. `Scripts/evaluate-reflection-admission.js` measures
+change magnitude, rule-set distance, palette and season novelty, pairing
+novelty, and relation-count movement. Only a candidate demonstrating material
+compositional difference enters the archive, catalog, signature chain, and
+public exhibition. Rejected candidates disappear with the ephemeral workflow
+runner and consume no canonical number.
+Validated Ledger Witness results are synchronized back from Sovereign
+Standard's public relation registry by manual dispatch and one daily recovery
+check, preserving FoldPortrait as the canonical token-result record without
+keeping the reflection instrument always awake. Reflection generation itself
+prepares its catalog immediately. The recovery synchronization validates and
+commits resulting ledger evidence with repository-scoped authority, publishes
+it through GitHub Pages, and opens a deduplicated issue if propagation fails. FoldForge
+reads only this published canonical catalog; it never promotes Sovereign
+Standard's relation registry or a local operator draft into FoldPortrait
+authority.
+
+```sh
+npm run build:mint-catalog
+npm run verify:seals
+```
+
+The completed archive contains:
+
+```text
+Output/iterations/*.svg
+Output/iterations/*.notes.md
+Output/iterations/evolution.json
+Output/png/*.png
+```
+
+Each archived portrait keeps the same convergence hash for the same seed as an
+identity anchor, but receives a distinct render hash for the visible study. The
+render also receives a growth climate: compression, torsion, shear, bloom,
+erosion, sediment, fiber memory, an active force, and a material state. These
+forces gave the completed lineage a reason to change beyond simply accumulating
+more marks.
+Refinement depth belongs to the source anchor. Revision passes keep that anchor
+depth, then add a revision-only `lineage-leap` layer so each `.2`, `.3`, and
+later pass is visibly distinct from its source.
+
+## Evolution Ledger
+
+[Output/iterations/evolution.json](Output/iterations/evolution.json) records
+the generated history:
+
+- iteration
+- source iteration
+- revision
+- seed
+- convergence hash
+- render hash
+- memory signature
+- refinement depth
+- growth climate
+- SVG and notes paths
+- mutation rule
+- structural identity pressures
+
+The web layer retains this ledger for the sealed first-era gallery. It uses the
+source iteration and revision fields to group those portraits into the lineage
+matrix. `Output/reflections/archive.json` supplies the second-era chain and
+dual-format provenance, while `Output/reflections/current.json` supplies the
+default view.
+
+## Studio Notes
+
+Each `.notes.md` file is an abstract studio note, not a photoreal prompt. It
+names the compositional genome, mark system, surface behavior, Fold signature,
+and continuity rule for that iteration.
+
+## Topology Study
+
+The [Web/](Web/) layer is an inspect-only Three.js topology study. It loads the
+current autonomous reflection by default, fetches its SVG, extracts
+`data-layer` shapes, and arranges them in 3D. The inspected view keeps each
+portrait's SVG paper color as the scene background, so moving through the
+first-era archive preserves every work's visible ground.
+
+The layout is derived from:
+
+- memory signature bytes
+- convergence hash bytes
+- permutation values
+- refinement depth
+- growth climate forces
+- structural identity pressures
+- SVG stroke width
+
+Objects are not fixed to simple layer planes. Their position, depth, weathering,
+and drift emerge from the FoldKernel-derived structure and from the current
+growth climate. SVG paths are rendered as tube geometry, so wide strokes in the
+source portrait remain physically wider in the 3D topology.
+
+The visible readout is intentionally minimal:
+
+- version
+- topology form count
+- render hash prefix
+- selected relation and rule counts for the current reflection
+
+The lineage archive button opens both eras as one minimal matrix. Selecting a
+card drills into that portrait's topology, left and right arrows traverse the
+combined chronology, and `Current reflection` returns to the active second-era
+state.
+
+## Test
+
+```sh
+swift test
+npm run verify:archive
+```
