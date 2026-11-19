@@ -1,0 +1,28 @@
+{
+  "schema": "foldportrait-threshold-spine-mapping/v1",
+  "study": "FP-ENCOUNTER-STUDY-0007",
+  "primary_source_study": "FP-ENCOUNTER-STUDY-0005",
+  "source_vessel": "SS unit 0",
+  "states": 64,
+  "threshold_events": 83,
+  "construction": "The inherited journey is the spine. Each room-boundary event from study 0005 places one short line fragment at its exact crossing point. That fragment follows the event's local hinge axis, perpendicular to the path's travel direction, and remains fixed at ninety degrees. Crossed rooms activate in sequence and revealed fragments remain along the spine like twigs on a branch.",
+  "invariants": [
+    "the inherited 64-state path and 83 threshold events",
+    "the exact threshold crossing points and event order",
+    "one abstract line fragment per event",
+    "every fragment perpendicular to its local travel direction",
+    "no butterfly body, paired wings, flap, or angle interpolation"
+  ],
+  "changes": [
+    "the active and previously visited rooms",
+    "the number of revealed threshold fragments",
+    "eased position along each unchanged path segment",
+    "camera orbit and rigid upward presentation"
+  ],
+  "motion_contract": {
+    "spine": "smoothstep position along each inherited segment",
+    "fragments": "appear whole at the exact threshold crossing and never rotate",
+    "fragment_angle_degrees": 90,
+    "flutter": false
+  }
+}
