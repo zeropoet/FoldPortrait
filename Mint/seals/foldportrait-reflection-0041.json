@@ -1,0 +1,48 @@
+{
+  "schema": "foldportrait-release-seal/v1",
+  "algorithm": "Ed25519",
+  "payload_sha256": "3c23c60f61a4b6fd57ba6d40aceae08a4d3bce22e5b3158dc3e0a6a80e44d487",
+  "signature": "4x6FiEr+j/TlpbCQiONEh3+blFNaCd87qEibTmLdmiEDtctq68SU+nLeiqWWEKZ3dDpEYeqkOASv0fM+p9X+Cg==",
+  "payload": {
+    "schema": "foldportrait-sealed-release/v1",
+    "authority": "FoldPortrait Release Authority",
+    "authority_key_sha256": "98ab90b3d0eec1e119bfc5ab49af917f970af625bb077d4f80f86da2ba110736",
+    "collection": "FoldPortrait",
+    "edition": {
+      "designation": "unique",
+      "size": 1,
+      "number": 1
+    },
+    "sequence": 93,
+    "era": 2,
+    "artifact_id": "foldportrait-reflection-0041",
+    "title": "FoldPortrait FP-REFLECT-0041",
+    "description": "FP-REFLECT-0041 enters its drift season through the nocturne palette and opens strata, counterfield, and palimpsest across 5 witnessed relations, forming an evolving figure held inside the FoldKernel lineage.",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0041.png",
+    "source_sha256": "6045fcb3149cb274378449e922ffac0420330a79072434bd73cc6544a90b2a2f",
+    "byte_size": 3398065,
+    "metadata_uri": "https://zeropoet.github.io/FoldPortrait/Mint/metadata/foldportrait-reflection-0041.json",
+    "metadata_core_sha256": "3cede5544729a61dcf4e14a626f66d6a2a1dc67b0f8c1b5445ce261490284231",
+    "lineage": {
+      "cycle_id": "FP-REFLECT-0041",
+      "previous_cycle_id": "FP-REFLECT-0040",
+      "witness_digest": "816c0a0e13f70e2647c6abb00f4e439ed139bfce370069b711f4210c6ac2692a",
+      "foldkernel_identity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+      "render_hash": "d4818ff45e353f18f6c95e04796edf83b9fd9b11511d6407d03302dc8b9a933e",
+      "source_svg_sha256": "cdc7a5a2139aea82ac9effc75dd456e6817b28f175aa61a6eee7213666afdab8",
+      "composition_regime": "learned-composition-v1",
+      "composition_season": "drift",
+      "palette_id": "nocturne"
+    },
+    "previous_seal_sha256": "0662c52720c3829d8445f66e7d714b0256aff7a542ba86979656759b21b8fd70",
+    "scarcity_policy": {
+      "edition_size": 1,
+      "release_model": "open-ended append-only collection",
+      "artifact_identity": "one artifact ID, one immutable byte identity, one sequence position",
+      "replacement": "forbidden",
+      "reissue": "forbidden",
+      "sequence_reuse": "forbidden",
+      "future_releases": "new works may append; prior sealed releases may not change"
+    }
+  }
+}
