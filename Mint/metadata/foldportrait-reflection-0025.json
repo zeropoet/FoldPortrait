@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0025",
+  "description": "FP-REFLECT-0025 enters its recombination season through the ember palette and gathers braid, strata, and sediment across 7 witnessed relations, forming a distinct silhouette from the public witness.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0025.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0025",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 77
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "2e6188ee879653dd50c7f2b22db758a4856df28835f827befbba74ad7fde41c2"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "recombination"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "ember"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "a059ad2fb470e422685e328b4277d9b38f10cc816382b1051f067920ee017f63"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0025.png",
+    "file_sha256": "a059ad2fb470e422685e328b4277d9b38f10cc816382b1051f067920ee017f63"
+  },
+  "xrpl": null
+}

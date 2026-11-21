@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoldPortrait — The field and the journey</title>
+<link rel="stylesheet" href="../0002/style.css">
+<style>
+  .controls { flex-wrap:wrap; justify-content:center; max-width:95%; width:780px; }
+  .transport { position:absolute; left:36px; bottom:100px; z-index:1; width:230px; font:11px monospace; }
+  .depth-control { margin-top:22px; }
+  input { width:100%; accent-color:#a05237; margin-top:14px; }
+  aside { bottom:120px; } .intro { max-width:300px; }
+  @media(max-width:700px) { .transport{left:18px;bottom:160px;width:170px} aside{display:none} .controls{bottom:15px} }
+</style>
+<script type="importmap">{"imports":{"three":"../../../Web/vendor/three/three.module.js","three/addons/":"../../../Web/vendor/three/addons/"}}</script></head>
+<body><header><a href="../0002/">FP / CONDITIONS OF ENCOUNTER</a><span>STUDY 0003 · UNISSUED</span></header>
+<main><div class="intro"><p class="eyebrow">THE CUBE AS FIELD</p><h1>The field and the journey</h1><p>A red continuity through sixty-four states.<br>Planes reveal its passage.</p></div>
+<div id="stage"><canvas tabindex="0" aria-label="A red SS journey through a transparent cube grid"></canvas></div>
+<aside><span class="eyebrow">FIRST SPATIAL MAPPING</span><p>A room brightens as the line enters. Departed rooms hold a faint memory. Depth moves the path; time reveals its rooms.</p></aside>
+<div class="transport"><label for="step">State <output id="count">64 / 64</output></label><input id="step" type="range" min="1" max="64" value="64"><button id="play" aria-pressed="false">Trace journey</button><div class="depth-control"><label for="openness">Depth <output id="depth-value">100%</output></label><input id="openness" type="range" min="0" max="100" value="100"><span>Flat sigil ↔ Full space</span><p id="room-count"></p></div></div>
+<div class="controls"><button data-view="field" aria-pressed="true">Field</button><button data-view="sigil" aria-pressed="false">Sigil projection</button><button data-view="depth" aria-pressed="false">Across planes</button><button id="surface">Surface: glass</button><button id="rooms" aria-pressed="true">Rooms</button><button id="turn" aria-pressed="false">Slow turn</button></div></main>
+<footer><span>Drag to orbit · Scroll to approach · Arrow keys to rotate</span><span>SS unit 0 / 64 states / 63 transitions</span></footer><p id="error" role="alert" hidden></p>
+<script type="module" src="./study.js"></script></body></html>

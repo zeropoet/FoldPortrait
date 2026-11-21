@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { journey } from '../Encounter/studies/0003/geometry.js';
+import { passage } from '../Encounter/studies/0003/rooms.js';
+import { enteredRooms, frontierGlassFaces, fullCubeEdges, openRoomEdges, unconnectedRoomPoints } from '../Encounter/studies/0010/geometry.js';
+
+const record = JSON.parse(readFileSync(new URL('../Encounter/studies/0003/trace.json', import.meta.url)));
+const source = readFileSync(new URL('../Encounter/studies/0010/study.js', import.meta.url), 'utf8');
+const mapping = JSON.parse(readFileSync(new URL('../Encounter/studies/0010/mapping.json', import.meta.url)));
+const points = journey(record).map(state => state.point);
+const active = enteredRooms(passage(points, 63).visits);
+const edges = openRoomEdges(active);
+const faces = frontierGlassFaces(active);
+const scaffold = fullCubeEdges();
+const unconnected = unconnectedRoomPoints(active);
+
+assert.equal(points.length, 64);
+assert.equal(active.size, 26);
+assert.equal(edges.length, 64);
+assert.equal(faces.length, 42);
+assert.equal(scaffold.length, 300);
+assert.equal(new Set(scaffold.map(edge => `${edge.start.join(',')}:${edge.end.join(',')}`)).size, 300);
+assert(unconnected.length > 0);
+assert.equal(new Set(unconnected.map(point => point.join(','))).size, unconnected.length);
+assert.equal(mapping.primary_source_study, 'FP-ENCOUNTER-STUDY-0009');
+for (const key of ['front','back','left','right','top','bottom']) assert.match(source, new RegExp(`${key}:\\{position`));
+for (const id of ['#lines','#sides','#red-line','#red-dot','#scaffold','#unconnected','#rotate']) assert(source.includes(id));
+assert.match(source, /SphereGeometry\(\.052, 16, 10\)/);
+assert.match(source, /controls\.minPolarAngle = 0/);
+assert.match(source, /controls\.maxPolarAngle = Math\.PI/);
+assert.match(source, /rotationTheta \+= delta \* \.22/);
+assert.match(source, /Math\.sin\(rotationElapsed \* \.43\) \* \.34/);
+assert(!source.includes('controls.autoRotate ='));
+console.log(`Verified the final room instrument: 64 path states, 26 entered rooms, 64 open edges, 42 glass sides, 300 ghost-scaffold edges, ${unconnected.length} unconnected points, and 6 fixed views.`);
