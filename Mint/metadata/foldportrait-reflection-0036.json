@@ -1,0 +1,47 @@
+{
+  "schema": "foldportrait-xrpl-metadata/v1",
+  "name": "FoldPortrait FP-REFLECT-0036",
+  "description": "FP-REFLECT-0036 enters its drift season through the orchid palette and gathers strata, sediment, and braid across 5 witnessed relations, forming a distinct silhouette from the public witness.",
+  "image": "https://zeropoet.github.io/FoldPortrait/Output/reflections/png/foldportrait-reflection-0036.png",
+  "external_url": "https://zeropoet.github.io/FoldPortrait/#era-2/foldportrait-reflection-0036",
+  "attributes": [
+    {
+      "trait_type": "System",
+      "value": "FoldPortrait"
+    },
+    {
+      "trait_type": "Era",
+      "value": "Autonomous System Reflection"
+    },
+    {
+      "trait_type": "Sequence",
+      "value": 88
+    },
+    {
+      "trait_type": "Witness Digest",
+      "value": "df5f13a630d49e478662b83cb9a877b2f95462eb90aaec2d05652340b3ac027e"
+    },
+    {
+      "trait_type": "Composition Regime",
+      "value": "learned-composition-v1"
+    },
+    {
+      "trait_type": "Composition Season",
+      "value": "drift"
+    },
+    {
+      "trait_type": "Palette",
+      "value": "orchid"
+    },
+    {
+      "trait_type": "File SHA-256",
+      "value": "b414b78e6c09276a7519c140f24580acfac8aa4ec8e1934c8a8d0419eee312d5"
+    }
+  ],
+  "provenance": {
+    "repository": "https://github.com/zeropoet/FoldPortrait",
+    "source_file": "Output/reflections/png/foldportrait-reflection-0036.png",
+    "file_sha256": "b414b78e6c09276a7519c140f24580acfac8aa4ec8e1934c8a8d0419eee312d5"
+  },
+  "xrpl": null
+}
