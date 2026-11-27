@@ -1,0 +1,44 @@
+name: Synchronize Mint Results
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "41 9 * * *"
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: foldportrait-mint-results
+  cancel-in-progress: false
+
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: npm run build:mint-catalog
+      - run: node Scripts/sync-mint-results.js
+      - run: npm run verify:mint-catalog
+      - run: npm run verify:seals
+      - name: Commit canonical mint results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Mint
+          git commit -m "Synchronize FoldPortrait mint results" || exit 0
+          git push
+      - name: Report synchronization failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Mint propagation failure / FoldPortrait"
+          existing=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number // empty')
+          if [ -z "$existing" ]; then
+            gh issue create --title "$title" --body "The canonical mint-result synchronization failed. Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          fi

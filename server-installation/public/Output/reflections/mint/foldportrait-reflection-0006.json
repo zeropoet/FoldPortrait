@@ -1,0 +1,40 @@
+{
+  "schema": "foldportrait-xrpl-mint-candidate/v1",
+  "status": "prepared_unsigned",
+  "title": "FoldPortrait FP-REFLECT-0006",
+  "description": "FP-REFLECT-0006 threads veil, braid, and aperture across 7 witnessed relations, forming the latest shape of FoldPortrait's reflective lineage.",
+  "image": {
+    "path": "Output/reflections/png/foldportrait-reflection-0006.png",
+    "mimeType": "image/png",
+    "sha256": "4f3b105a73a5f4e4cdf7ed75222ab0a760d4809d1bff2e54e9e260efc6575603",
+    "dimensions": {
+      "width": 2400,
+      "height": 3200
+    }
+  },
+  "source": {
+    "path": "Output/reflections/foldportrait-reflection-0006.svg",
+    "mimeType": "image/svg+xml",
+    "sha256": "6eb78d767e0b8abbdbac33777522a2009562110ce26d389793964ae26f0506e3"
+  },
+  "lineage": {
+    "era": 2,
+    "cycleID": "FP-REFLECT-0006",
+    "previousCycleID": "FP-REFLECT-0005",
+    "witnessDigest": "44ae6497e3bb50406da86552c3bbddb2b8f842c0ae2cfbff412f2538fa4a2b8a",
+    "foldKernelIdentity": "5677f7c6a26779008105328b2c83ba77ae10d4716dd100138de18bcb99ec3ea6",
+    "renderHash": "57315bd1559c2e2b0bf890aea3a9d4de2b1fe3926b185424c079bb48fc1300db"
+  },
+  "xrpl": {
+    "network": "mainnet",
+    "transactionType": "NFTokenMint",
+    "account": null,
+    "nftokenTaxon": null,
+    "uri": null,
+    "flags": null,
+    "signed": false,
+    "submitted": false,
+    "validated": false
+  },
+  "handoff": "A human steward must publish durable metadata, review the transaction fields, and sign with Xaman."
+}
