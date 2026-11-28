@@ -1,0 +1,30 @@
+{
+  "schema": "foldportrait-frontier-glass-mapping/v1",
+  "study": "FP-ENCOUNTER-STUDY-0009",
+  "primary_source_study": "FP-ENCOUNTER-STUDY-0008",
+  "source_vessel": "SS unit 0",
+  "states": 64,
+  "construction": "Study 0008 remains intact. An entered room receives a transparent glass face only where it touches an in-bounds neighboring room that has not yet been entered. The face disappears when the neighboring room becomes entered. Exterior boundaries remain open. The smaller red point and the switchable black line are the only light fields in the glass shader.",
+  "invariants": [
+    "the inherited 64-state path as invisible computation",
+    "one smaller red point at the exact eased path position",
+    "entered rooms accumulate and never disappear",
+    "every visible edge is bordered only by entered rooms",
+    "glass appears only between an entered room and an unentered in-bounds neighbor",
+    "no glass closes the exterior boundary"
+  ],
+  "changes": [
+    "the red point position",
+    "the set of entered rooms",
+    "the open black edge structure derived from that set",
+    "the transparent glass frontier derived from entered-to-unentered adjacency",
+    "the line visibility and corresponding line-light contribution",
+    "camera orbit and rigid upward presentation"
+  ],
+  "surface_contract": {
+    "glass_lineage": "Study 0003 transparent spatial sheets, narrowed to frontier faces and given a light-responsive shader",
+    "frontier": "an entered-to-unentered interior adjacency is glass; entered-to-entered and exterior boundaries are clear",
+    "lights": "the red point and currently visible black line geometry only",
+    "line_toggle": "turning the line off also turns off its glass illumination; point illumination remains"
+  }
+}
